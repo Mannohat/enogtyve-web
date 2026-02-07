@@ -1,0 +1,60 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  lang?: 'da' | 'en';
+}
+
+const { title, description, lang = 'da' } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} lang={lang}>
+  <div class="resource-page">
+    <div class="resource-container">
+      <header class="page-header">
+        <h1>{title}</h1>
+        {description && <p class="lead">{description}</p>}
+      </header>
+      
+      <div class="resource-content">
+        <slot />
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .resource-page {
+    min-height: 60vh;
+  }
+
+  .resource-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+
+  .page-header {
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-md);
+    border-bottom: 2px solid var(--border);
+  }
+
+  .page-header h1 {
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  .resource-content {
+    color: var(--text);
+  }
+</style>

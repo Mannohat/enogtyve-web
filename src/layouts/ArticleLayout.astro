@@ -1,0 +1,207 @@
+---
+import ContentPageLayout from './ContentPageLayout.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  author?: string;
+  pubDate?: Date;
+  tags?: string[];
+  lang?: 'da' | 'en';
+  backLink?: string;
+  backLinkText?: string;
+}
+
+const { 
+  title, 
+  description, 
+  author, 
+  pubDate,
+  tags = [],
+  lang = 'da',
+  backLink,
+  backLinkText = 'Tilbage'
+} = Astro.props;
+---
+
+<ContentPageLayout title={title} description={description} lang={lang}>
+  <article class="article">
+    <header class="article-header">
+      <h1>{title}</h1>
+      {description && <p class="lead">{description}</p>}
+      
+      <div class="article-meta">
+        {author && <span class="author">{author}</span>}
+        {pubDate && <span class="date">{pubDate.toLocaleDateString(lang === 'da' ? 'da-DK' : 'en-US')}</span>}
+      </div>
+
+      {tags.length > 0 && (
+        <div class="tags">
+          {tags.map(tag => (
+            <span class="tag">{tag}</span>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <div class="article-content">
+      <slot />
+    </div>
+
+    {backLink && (
+      <footer class="article-footer">
+        <a href={backLink} class="back-link">← {backLinkText}</a>
+      </footer>
+    )}
+  </article>
+</ContentPageLayout>
+
+<style>
+  .article-header {
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-md);
+    border-bottom: 2px solid var(--border);
+  }
+
+  .article-header h1 {
+    color: var(--primary);
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: var(--space-sm);
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+  }
+
+  .article-meta {
+    display: flex;
+    gap: var(--space-md);
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .author {
+    font-weight: bold;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .tag {
+    background: var(--background-card);
+    color: var(--text-light);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    border: 1px solid var(--border);
+  }
+
+  /* Article content styling */
+  .article-content {
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 1.1rem;
+  }
+
+  .article-content :global(h2) {
+    color: var(--text);
+    font-size: 1.8rem;
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-md);
+  }
+
+  .article-content :global(h3) {
+    color: var(--text);
+    font-size: 1.4rem;
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-sm);
+  }
+
+  .article-content :global(p) {
+    margin-bottom: var(--space-md);
+  }
+
+  .article-content :global(ul),
+  .article-content :global(ol) {
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-lg);
+  }
+
+  .article-content :global(li) {
+    margin-bottom: var(--space-xs);
+  }
+
+  .article-content :global(a) {
+    color: var(--primary);
+    text-decoration: underline;
+  }
+
+  .article-content :global(a:hover) {
+    color: var(--primary-dark);
+  }
+
+  .article-content :global(strong) {
+    color: var(--text);
+    font-weight: bold;
+  }
+
+  .article-content :global(blockquote) {
+    border-left: 4px solid var(--primary);
+    padding-left: var(--space-md);
+    margin: var(--space-md) 0;
+    font-style: italic;
+    color: var(--text-light);
+  }
+
+  .article-content :global(code) {
+    background: var(--background-card);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+
+  .article-content :global(pre) {
+    background: var(--background-card);
+    padding: var(--space-md);
+    border-radius: 4px;
+    overflow-x: auto;
+    margin-bottom: var(--space-md);
+  }
+
+  .article-content :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: var(--space-md) 0;
+  }
+
+  .article-content :global(hr) {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: var(--space-lg) 0;
+  }
+
+  .article-footer {
+    margin-top: var(--space-lg);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--border);
+  }
+
+  .back-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .back-link:hover {
+    color: var(--primary-dark);
+  }
+</style>

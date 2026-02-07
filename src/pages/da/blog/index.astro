@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const blogPosts = await getCollection('blog', ({ id }) => id.startsWith('da/'));
+const sortedPosts = blogPosts.sort((a, b) => 
+  new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+---
+
+<BaseLayout title="Blog" lang="da">
+  <div class="container">
+    <h1>Blog</h1>
+    <p class="subtitle">Artikler og guides om Bitcoin</p>
+
+    <div class="posts-grid">
+      {sortedPosts.map(post => (
+        <article class="post-card">
+          <a href={`/da/blog/${post.slug.replace('da/', '')}`}>
+            <h2>{post.data.title}</h2>
+            <p class="description">{post.data.description}</p>
+            <div class="meta">
+              <span class="author">{post.data.author}</span>
+              <span class="date">{new Date(post.data.pubDate).toLocaleDateString('da-DK')}</span>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .subtitle {
+    color: var(--text-light);
+    font-size: 1.25rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .posts-grid {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .post-card {
+    background: var(--background-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: var(--space-md);
+    transition: all 0.3s ease;
+  }
+
+  .post-card:hover {
+    border-color: var(--primary);
+    transform: translateX(4px);
+  }
+
+  .post-card a {
+    text-decoration: none;
+  }
+
+  .post-card h2 {
+    color: var(--text);
+    font-size: 1.5rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .description {
+    color: var(--text-light);
+    margin-bottom: var(--space-sm);
+    line-height: 1.6;
+  }
+
+  .meta {
+    display: flex;
+    gap: var(--space-sm);
+    font-size: 0.9rem;
+    color: var(--text-light);
+  }
+
+  .author {
+    font-weight: bold;
+  }
+</style>

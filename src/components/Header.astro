@@ -1,0 +1,292 @@
+---
+interface Props {
+    lang?: "da" | "en";
+}
+
+const { lang = "da" } = Astro.props;
+
+const menuItems = [
+    {
+        label: "Velkommen",
+        href: `/${lang}/velkommen`,
+        submenu: [
+            { label: "Lidt om penge", href: `/${lang}/velkommen/lidt-om-penge` },
+            { label: "Lidt om Bitcoin", href: `/${lang}/velkommen/lidt-om-bitcoin` },
+            { label: "White Paper", href: `/${lang}/velkommen/white-paper` },
+            { label: "Cypherpunk's Manifesto", href: `/${lang}/velkommen/cypherpunks-manifesto` },
+            { label: "FUD / Fakta", href: `/${lang}/velkommen/fud-fakta` },
+        ],
+    },
+    {
+        label: "Kom igang",
+        href: `/${lang}/kom-igang`,
+        submenu: [
+            { label: "Anskaffelse af bitcoin", href: `/${lang}/kom-igang/anskaffelse` },
+            { label: "Optjen bitcoin", href: `/${lang}/kom-igang/optjen` },
+            { label: "Opbevaring af bitcoin", href: `/${lang}/kom-igang/opbevaring` },
+            { label: "Hardware Wallets", href: `/${lang}/kom-igang/hardware-wallets` },
+            { label: "Gendannelsesord / Seed Phrase", href: `/${lang}/kom-igang/seed-phrase` },
+            { label: "Bitcoin Software", href: `/${lang}/kom-igang/software` },
+            { label: "Privatliv og best Practice", href: `/${lang}/kom-igang/privatliv` },
+        ],
+    },
+    {
+        label: "Lær mere",
+        href: `/${lang}/laer-mere`,
+        submenu: [
+            { label: "Bitcoin Blokkæden", href: `/${lang}/laer-mere/blokkaeden` },
+            { label: "Bitcoin Lightning", href: `/${lang}/laer-mere/lightning` },
+            { label: "Liquid", href: `/${lang}/laer-mere/liquid` },
+            { label: "eCash", href: `/${lang}/laer-mere/ecash` },
+            { label: "Begreber og Ord", href: `/${lang}/laer-mere/begreber` },
+            { label: "Bitcoin Bøger på Dansk", href: `/${lang}/laer-mere/boger` },
+            { label: "Quotes oversat til Dansk", href: `/${lang}/laer-mere/quotes` },
+            { label: "Bitcoin ressourcer på engelsk", href: `/${lang}/laer-mere/ressourcer-engelsk` },
+            { label: "Værktøjer", href: `/${lang}/laer-mere/vaerktojer` },
+        ],
+    },
+    {
+        label: "Mining",
+        href: `/${lang}/mining`,
+        submenu: [
+            { label: "Solo Mining", href: `/${lang}/mining/solo` },
+            { label: "Mining for opvarmning", href: `/${lang}/mining/opvarmning` },
+        ],
+    },
+    {
+        label: "Byg & Anvend",
+        href: `/${lang}/byg-anvend`,
+        submenu: [
+            { label: "Bitcoin og din forretning", href: `/${lang}/byg-anvend/forretning` },
+            { label: "Lightning Produkter og Services", href: `/${lang}/byg-anvend/lightning-produkter` },
+            { label: "Bitcoin Services og Produkter", href: `/${lang}/byg-anvend/services` },
+            { label: "Value 4 Value", href: `/${lang}/byg-anvend/value4value` },
+        ],
+    },
+    {
+        label: "Fællesskab",
+        href: `/${lang}/faellesskab`,
+        submenu: [
+            { label: "Bitcoin Initiativer i Danmark", href: `/${lang}/faellesskab/initiativer-danmark` },
+            { label: "Mød ligesindede når du rejser", href: `/${lang}/faellesskab/rejser` },
+            { label: "Bitcoin Fællesskaber og Meetup rundt omkring i verden", href: `/${lang}/faellesskab/meetups` },
+            { label: "Bitcoin Cirkulære Økonomier", href: `/${lang}/faellesskab/cirkulaere-oekonomier` },
+            { label: "Frie Byer og Samfund", href: `/${lang}/faellesskab/frie-byer` },
+            { label: "Bitcoin Konferencer", href: `/${lang}/faellesskab/konferencer` },
+        ],
+    },
+    {
+        label: "Indhold",
+        href: `/${lang}/indhold`,
+        submenu: [
+            { label: "Blogs", href: `/${lang}/blog` },
+            { label: "Podcasts", href: `/${lang}/podcasts` },
+            { label: "Nyheder", href: `/${lang}/indhold/nyheder` },
+            { label: "Spotify Playliste", href: `/${lang}/indhold/spotify` },
+        ],
+    },
+    {
+        label: "Bidrag",
+        href: `/${lang}/bidrag`,
+        submenu: [
+            { label: "Support", href: `/${lang}/support` },
+            { label: "Twentyone.world", href: `/${lang}/bidrag/twentyone` },
+            { label: "Medie Kit", href: `/${lang}/bidrag/medie-kit` },
+            { label: "Merchandise", href: `/${lang}/bidrag/merchandise` },
+            { label: "Rabatter", href: `/${lang}/rabat` },
+        ],
+    },
+];
+
+const exclusiveMenuItem = {
+    label: "Advisory & Services",
+    href: `/${lang}/advisory-services`,
+    submenu: [
+        { label: "Private", href: `/${lang}/advisory-services/private` },
+        { label: "Business", href: `/${lang}/advisory-services/business` },
+    ],
+};
+---
+
+<header>
+    <div class="header-top">
+        <div class="container">
+            <a href={`/${lang}`} class="logo">
+                <img src="/images/logos/enogtyve_logo.png" alt="Enogtyve" />
+            </a>
+
+            <div class="language-switcher">
+                <a href="/da" class={lang === "da" ? "active" : ""}>DA</a>
+                <a href="/en" class={lang === "en" ? "active" : ""}>EN</a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <ul class="nav-links">
+                {
+                    menuItems.map((item) => (
+                        <li class={item.submenu.length > 0 ? "has-submenu" : ""}>
+                            <a href={item.href}>{item.label}</a>
+                            {item.submenu.length > 0 && (
+                                <ul class="submenu">
+                                    {item.submenu.map((subItem) => (
+                                        <li>
+                                            <a href={subItem.href}>
+                                                {subItem.label}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </li>
+                    ))
+                }
+            </ul>
+
+            <ul class="nav-links exclusive-nav">
+                <li class="exclusive has-submenu">
+                    <a href={exclusiveMenuItem.href}>{exclusiveMenuItem.label}</a>
+                    <ul class="submenu">
+                        {exclusiveMenuItem.submenu.map((subItem) => (
+                            <li>
+                                <a href={subItem.href}>
+                                    {subItem.label}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<style>
+    header {
+        background: var(--background-alt);
+        border-bottom: 2px solid var(--primary);
+    }
+
+    .header-top {
+        padding: 2rem 2rem 1.5rem 2rem;
+    }
+
+    .header-top .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .logo img {
+        height: auto;
+        width: auto;
+        max-height: 60px;
+    }
+
+    .nav-bar {
+        background: #1a1a1a;
+        width: 100%;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links > li {
+        position: relative;
+    }
+
+    .nav-links > li > a {
+        color: #fff;
+        font-size: 1rem;
+        padding: 0.5rem 0;
+        display: block;
+    }
+
+    .nav-links > li > a:hover,
+    .nav-links > li:hover > a {
+        color: var(--primary);
+    }
+
+    /* Exclusive menu item - simple button background */
+    .nav-links.exclusive-nav {
+        gap: 0;
+    }
+
+    .nav-links > li.exclusive > a {
+        background: #3a3a3a;
+        border-radius: 6px;
+        padding: 0.6rem 1.2rem;
+    }
+
+    .nav-links > li.exclusive:hover > a {
+        background: #4a4a4a;
+    }
+
+    /* Clean submenu - no box, no border */
+    .submenu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        list-style: none;
+        padding: 0.75rem 0;
+        margin-top: 0.5rem;
+        min-width: 200px;
+        z-index: 1000;
+        background: #1a1a1a;
+    }
+
+    .has-submenu:hover .submenu {
+        display: block;
+    }
+
+    .submenu li a {
+        display: block;
+        padding: 0.5rem 1rem;
+        color: #999;
+        font-size: 0.9rem;
+        transition: color 0.2s ease;
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    .submenu li a:hover {
+        color: #fff;
+    }
+
+    .language-switcher {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .language-switcher a {
+        font-weight: bold;
+        font-size: 0.9rem;
+        color: #fff;
+    }
+
+    .language-switcher span {
+        color: #666;
+    }
+
+    .language-switcher a.active {
+        color: var(--primary);
+    }
+</style>

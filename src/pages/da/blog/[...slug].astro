@@ -1,0 +1,29 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const blogPosts = await getCollection('blog', ({ id }) => id.startsWith('da/'));
+  
+  return blogPosts.map(post => ({
+    params: { slug: post.slug.replace('da/', '') },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<ArticleLayout 
+  title={post.data.title}
+  description={post.data.description}
+  author={post.data.author}
+  pubDate={post.data.pubDate}
+  tags={post.data.tags}
+  lang="da"
+  backLink="/da/blog"
+  backLinkText="Tilbage til blog"
+>
+  <Content />
+</ArticleLayout>
