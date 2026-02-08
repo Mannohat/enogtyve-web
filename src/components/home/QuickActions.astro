@@ -1,0 +1,144 @@
+---
+const { lang } = Astro.props;
+
+const actions = [
+	{ icon: '📖', label: 'Bogmærker', href: `/${lang}/bookmarks` },
+	{ icon: '💰', label: 'Podcasts', href: `/${lang}/podcasts` },
+	{ icon: '🔐', label: 'Rabat', href: `/${lang}/rabat` },
+	{ icon: '🎓', label: 'Blokkæden', href: `/${lang}/blockchain` },
+];
+---
+
+<section class="quick-actions">
+	<div class="container">
+		<div class="action-cards">
+			{actions.map(action => (
+				<a href={action.href} class="action-card">
+					<span class="card-icon">{action.icon}</span>
+					<span class="card-label">{action.label}</span>
+				</a>
+			))}
+		</div>
+		
+		<div class="news-ticker">
+			<span class="ticker-icon">📰</span>
+			<span class="ticker-label">Seneste:</span>
+			<div class="ticker-content">
+				<span class="ticker-item">Ny guide om cold storage</span>
+				<span class="ticker-separator">•</span>
+				<span class="ticker-item">Video tutorial om Lightning</span>
+				<span class="ticker-separator">•</span>
+				<span class="ticker-item">Opdateret ressource-liste</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.quick-actions {
+		padding: 1.5rem 0 1rem;
+		border-bottom: 1px solid rgba(247, 147, 26, 0.1);
+	}
+
+
+	.action-cards {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.action-card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 1rem 0.75rem;
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid rgba(247, 147, 26, 0.15);
+		border-radius: 8px;
+		text-decoration: none;
+		transition: all 0.3s ease;
+	}
+
+	.action-card:hover {
+		background: rgba(247, 147, 26, 0.08);
+		border-color: var(--primary);
+		transform: translateY(-3px);
+	}
+
+	.card-icon {
+		font-size: 1.75rem;
+		line-height: 1;
+	}
+
+	.card-label {
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: var(--text);
+	}
+
+	.news-ticker {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 0.75rem 1rem;
+		background: rgba(247, 147, 26, 0.05);
+		border-radius: 8px;
+		border: 1px solid rgba(247, 147, 26, 0.1);
+		overflow: hidden;
+	}
+
+	.ticker-icon {
+		font-size: 1.1rem;
+		flex-shrink: 0;
+	}
+
+	.ticker-label {
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: var(--primary);
+		flex-shrink: 0;
+	}
+
+	.ticker-content {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+
+	.ticker-item {
+		font-size: 0.85rem;
+		color: var(--text-light);
+		flex-shrink: 0;
+	}
+
+	.ticker-separator {
+		color: var(--primary);
+		flex-shrink: 0;
+	}
+
+	@media (max-width: 768px) {
+		.action-cards {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.news-ticker {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.5rem;
+		}
+
+		.ticker-content {
+			flex-direction: column;
+			align-items: flex-start;
+			white-space: normal;
+		}
+
+		.ticker-separator {
+			display: none;
+		}
+	}
+</style>

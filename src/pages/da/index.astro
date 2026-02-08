@@ -1,3 +1,145 @@
 ---
-return Astro.redirect('/');
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import IntroAccordion from "../../components/home/IntroAccordion.astro";
+import StatsSection from "../../components/home/StatsSection.astro";
+import ShowcaseGrid from "../../components/home/ShowcaseGrid.astro";
+import FeatureGrid from "../../components/home/FeatureGrid.astro";
+import CTASection from "../../components/home/CTASection.astro";
+import StatsBar from "../../components/home/StatsBar.astro";
+import QuickActions from "../../components/home/QuickActions.astro";
+import IntroBanner from "../../components/home/IntroBanner.astro";
+
+const lang = "da";
 ---
+
+<BaseLayout title="Hjem" lang={lang}>
+	<StatsBar />
+	<IntroBanner lang={lang} />
+	<QuickActions lang={lang} />
+	<IntroAccordion />
+	<div class="page-content">
+		<CTASection lang={lang} />
+		<StatsSection />
+		<ShowcaseGrid />
+		<FeatureGrid lang={lang} />
+	</div>
+	<div class="scroll-hint" aria-hidden="true"></div>
+</BaseLayout>
+
+<style>
+	.scroll-hint {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 80px;
+		background: linear-gradient(
+			to top,
+			var(--background) 0%,
+			transparent 100%
+		);
+		pointer-events: none;
+		z-index: 90;
+		opacity: 1;
+		transition: opacity 0.4s ease;
+	}
+
+	.scroll-hint.hidden {
+		opacity: 0;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		@media (min-width: 768px) {
+			.page-content {
+				scroll-snap-type: y proximity;
+			}
+			:global(section) {
+				scroll-snap-align: start;
+			}
+		}
+	}
+
+	:global(.search-results-dropdown) {
+		position: absolute;
+		top: calc(100% + 0.5rem);
+		left: 0;
+		width: 100%;
+		background: #1a1a1a;
+		border-radius: 8px;
+		max-height: 400px;
+		overflow-y: auto;
+		z-index: 9999;
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+		border: 1px solid rgba(247, 147, 26, 0.2);
+	}
+
+	:global(.search-result-item) {
+		display: flex;
+		gap: 1rem;
+		padding: 1rem;
+		border-bottom: 1px solid rgba(247, 147, 26, 0.1);
+		transition: background 0.2s ease;
+		color: var(--text);
+		align-items: flex-start;
+		text-decoration: none;
+	}
+
+	:global(.search-result-item:last-child) {
+		border-bottom: none;
+	}
+
+	:global(.search-result-item:hover) {
+		background: rgba(247, 147, 26, 0.1);
+	}
+
+	:global(.result-tag) {
+		font-size: 0.7rem;
+		padding: 0.25rem 0.5rem;
+		background: var(--primary);
+		color: #000;
+		border-radius: 4px;
+		font-weight: 700;
+		text-transform: uppercase;
+		flex-shrink: 0;
+		letter-spacing: 0.03em;
+	}
+
+	:global(.result-content) {
+		flex: 1;
+	}
+
+	:global(.result-title) {
+		font-weight: 600;
+		margin-bottom: 0.25rem;
+		color: var(--text);
+	}
+
+	:global(.result-description) {
+		font-size: 0.9rem;
+		color: var(--text-light);
+		line-height: 1.4;
+	}
+
+	:global(.search-no-results) {
+		padding: 1.5rem;
+		text-align: center;
+		color: var(--text-light);
+	}
+</style>
+
+<script>
+	import { initializeSearch } from "../../scripts/searchHandler";
+	initializeSearch();
+
+	// Fade out scroll hint after user scrolls
+	const scrollHint = document.querySelector(".scroll-hint");
+	if (scrollHint) {
+		window.addEventListener("scroll", () => {
+			if (window.scrollY > 100) {
+				scrollHint.classList.add("hidden");
+			} else {
+				scrollHint.classList.remove("hidden");
+			}
+		}, { passive: true });
+	}
+</script>

@@ -89,7 +89,7 @@ pre code {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--space-md);
+  padding: 0 1rem;
 }
 
 /* Card styles for deals, resources, etc */

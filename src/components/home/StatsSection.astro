@@ -1,0 +1,84 @@
+<section class="stats-section">
+	<div class="container">
+		<div class="stats-grid">
+			<div class="stat-tile">
+				<div class="stat-value">—</div>
+				<div class="stat-label">Medlemmer</div>
+			</div>
+			<div class="stat-tile">
+				<div class="stat-value">—</div>
+				<div class="stat-label">Artikler</div>
+			</div>
+			<div class="stat-tile">
+				<div class="stat-value">—</div>
+				<div class="stat-label">Videoer</div>
+			</div>
+			<div class="stat-tile">
+				<div class="stat-value">—</div>
+				<div class="stat-label">Events</div>
+			</div>
+			<div class="stat-tile">
+				<div class="stat-value">—</div>
+				<div class="stat-label">Meetups</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.stats-section {
+    padding: clamp(1.5rem, 3vh, 2.5rem) 0;
+		background: linear-gradient(180deg, transparent 0%, rgba(247, 147, 26, 0.03) 50%, transparent 100%);
+		border-top: 1px solid rgba(247, 147, 26, 0.1);
+		border-bottom: 1px solid rgba(247, 147, 26, 0.1);
+	}
+
+	.stats-grid {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: clamp(1.25rem, 3vw, 2rem);
+	}
+
+	.stat-tile {
+		text-align: center;
+		padding: 1.5rem 1rem;
+		border-radius: 12px;
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid rgba(247, 147, 26, 0.15);
+		transition: all 0.3s ease;
+	}
+
+	.stat-tile:hover {
+		background: rgba(247, 147, 26, 0.05);
+		border-color: rgba(247, 147, 26, 0.3);
+		transform: translateY(-2px);
+	}
+
+	.stat-value {
+		font-size: clamp(1.75rem, 4vw, 2.5rem);
+		font-weight: 700;
+		color: var(--primary);
+		margin-bottom: 0.5rem;
+		line-height: 1;
+	}
+
+	.stat-label {
+		font-size: 0.85rem;
+		color: var(--text-light);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-weight: 500;
+	}
+
+	@media (max-width: 967px) {
+		.stats-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	@media (max-width: 567px) {
+		.stats-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+</style>

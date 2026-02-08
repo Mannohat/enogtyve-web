@@ -4,16 +4,28 @@ interface Props {
 }
 
 const { lang = "da" } = Astro.props;
+const currentPath = Astro.url.pathname;
 
 const menuItems = [
     {
         label: "Velkommen",
         href: `/${lang}/velkommen`,
         submenu: [
-            { label: "Lidt om penge", href: `/${lang}/velkommen/lidt-om-penge` },
-            { label: "Lidt om Bitcoin", href: `/${lang}/velkommen/lidt-om-bitcoin` },
-            { label: "White Paper", href: `/${lang}/velkommen/white-paper` },
-            { label: "Cypherpunk's Manifesto", href: `/${lang}/velkommen/cypherpunks-manifesto` },
+            { label: "Lidt om penge", href: `/${lang}/blog/penges-historie` },
+            {
+                label: "Lidt om Bitcoin",
+                href: `/${lang}/blog/hvad-er-bitcoin`,
+            },
+            {
+                label: "White Paper",
+                href: `/pdf/bitcoin.pdf`,
+                target: "_blank",
+            },
+            {
+                label: "Cypherpunk's Manifesto",
+                href: `/pdf/cypherpunks-manifesto.pdf`,
+                target: "_blank",
+            },
             { label: "FUD / Fakta", href: `/${lang}/velkommen/fud-fakta` },
         ],
     },
@@ -21,27 +33,54 @@ const menuItems = [
         label: "Kom igang",
         href: `/${lang}/kom-igang`,
         submenu: [
-            { label: "Anskaffelse af bitcoin", href: `/${lang}/kom-igang/anskaffelse` },
+            { label: "Anskaffelse af bitcoin", href: `/${lang}/kob-bitcoin` },
             { label: "Optjen bitcoin", href: `/${lang}/kom-igang/optjen` },
-            { label: "Opbevaring af bitcoin", href: `/${lang}/kom-igang/opbevaring` },
-            { label: "Hardware Wallets", href: `/${lang}/kom-igang/hardware-wallets` },
-            { label: "Gendannelsesord / Seed Phrase", href: `/${lang}/kom-igang/seed-phrase` },
+            {
+                label: "Opbevaring af bitcoin",
+                href: `/${lang}/kom-igang/opbevaring`,
+            },
+            {
+                label: "Hardware Wallets",
+                href: `/${lang}/kom-igang/hardware-wallets`,
+            },
+            {
+                label: "Gendannelsesord / Seed Phrase",
+                href: `/${lang}/kom-igang/seed-phrase`,
+            },
             { label: "Bitcoin Software", href: `/${lang}/kom-igang/software` },
-            { label: "Privatliv og best Practice", href: `/${lang}/kom-igang/privatliv` },
+            {
+                label: "Privatliv og best Practice",
+                href: `/${lang}/kom-igang/privatliv`,
+            },
         ],
     },
     {
         label: "Lær mere",
         href: `/${lang}/laer-mere`,
         submenu: [
-            { label: "Bitcoin Blokkæden", href: `/${lang}/laer-mere/blokkaeden` },
-            { label: "Bitcoin Lightning", href: `/${lang}/laer-mere/lightning` },
+            {
+                label: "Bitcoin Blokkæden",
+                href: `/${lang}/laer-mere/blokkaeden`,
+            },
+            {
+                label: "Bitcoin Lightning",
+                href: `/${lang}/laer-mere/lightning`,
+            },
             { label: "Liquid", href: `/${lang}/laer-mere/liquid` },
             { label: "eCash", href: `/${lang}/laer-mere/ecash` },
             { label: "Begreber og Ord", href: `/${lang}/laer-mere/begreber` },
-            { label: "Bitcoin Bøger på Dansk", href: `/${lang}/laer-mere/boger` },
-            { label: "Quotes oversat til Dansk", href: `/${lang}/laer-mere/quotes` },
-            { label: "Bitcoin ressourcer på engelsk", href: `/${lang}/laer-mere/ressourcer-engelsk` },
+            {
+                label: "Bitcoin Bøger på Dansk",
+                href: `/${lang}/laer-mere/boger`,
+            },
+            {
+                label: "Quotes oversat til Dansk",
+                href: `/${lang}/laer-mere/quotes`,
+            },
+            {
+                label: "Bitcoin ressourcer på engelsk",
+                href: `/${lang}/laer-mere/ressourcer-engelsk`,
+            },
             { label: "Værktøjer", href: `/${lang}/laer-mere/vaerktojer` },
         ],
     },
@@ -50,16 +89,28 @@ const menuItems = [
         href: `/${lang}/mining`,
         submenu: [
             { label: "Solo Mining", href: `/${lang}/mining/solo` },
-            { label: "Mining for opvarmning", href: `/${lang}/mining/opvarmning` },
+            {
+                label: "Mining for opvarmning",
+                href: `/${lang}/mining/opvarmning`,
+            },
         ],
     },
     {
         label: "Byg & Anvend",
         href: `/${lang}/byg-anvend`,
         submenu: [
-            { label: "Bitcoin og din forretning", href: `/${lang}/byg-anvend/forretning` },
-            { label: "Lightning Produkter og Services", href: `/${lang}/byg-anvend/lightning-produkter` },
-            { label: "Bitcoin Services og Produkter", href: `/${lang}/byg-anvend/services` },
+            {
+                label: "Bitcoin og din forretning",
+                href: `/${lang}/byg-anvend/forretning`,
+            },
+            {
+                label: "Lightning Produkter og Services",
+                href: `/${lang}/byg-anvend/lightning-produkter`,
+            },
+            {
+                label: "Bitcoin Services og Produkter",
+                href: `/${lang}/byg-anvend/services`,
+            },
             { label: "Value 4 Value", href: `/${lang}/byg-anvend/value4value` },
         ],
     },
@@ -67,12 +118,30 @@ const menuItems = [
         label: "Fællesskab",
         href: `/${lang}/faellesskab`,
         submenu: [
-            { label: "Bitcoin Initiativer i Danmark", href: `/${lang}/faellesskab/initiativer-danmark` },
-            { label: "Mød ligesindede når du rejser", href: `/${lang}/faellesskab/rejser` },
-            { label: "Bitcoin Fællesskaber og Meetup rundt omkring i verden", href: `/${lang}/faellesskab/meetups` },
-            { label: "Bitcoin Cirkulære Økonomier", href: `/${lang}/faellesskab/cirkulaere-oekonomier` },
-            { label: "Frie Byer og Samfund", href: `/${lang}/faellesskab/frie-byer` },
-            { label: "Bitcoin Konferencer", href: `/${lang}/faellesskab/konferencer` },
+            {
+                label: "Bitcoin Initiativer i Danmark",
+                href: `/${lang}/faellesskab/initiativer-danmark`,
+            },
+            {
+                label: "Mød ligesindede når du rejser",
+                href: `/${lang}/faellesskab/rejser`,
+            },
+            {
+                label: "Bitcoin Fællesskaber og Meetup rundt omkring i verden",
+                href: `/${lang}/faellesskab/meetups`,
+            },
+            {
+                label: "Bitcoin Cirkulære Økonomier",
+                href: `/${lang}/faellesskab/cirkulaere-oekonomier`,
+            },
+            {
+                label: "Frie Byer og Samfund",
+                href: `/${lang}/faellesskab/frie-byer`,
+            },
+            {
+                label: "Bitcoin Konferencer",
+                href: `/${lang}/faellesskab/konferencer`,
+            },
         ],
     },
     {
@@ -99,41 +168,127 @@ const menuItems = [
 ];
 
 const exclusiveMenuItem = {
-    label: "Advisory & Services",
+    label: "Rådgivning og hjælp",
     href: `/${lang}/advisory-services`,
     submenu: [
-        { label: "Private", href: `/${lang}/advisory-services/private` },
-        { label: "Business", href: `/${lang}/advisory-services/business` },
+        { label: "Privat", href: `/${lang}/advisory-services/private` },
+        { label: "Virksomhed", href: `/${lang}/advisory-services/business` },
     ],
 };
+
+// Helper function to check if a path is active
+function isActive(href: string, currentPath: string): boolean {
+    if (href === `/${lang}` || href === `/${lang}/`) {
+        return currentPath === `/${lang}` || currentPath === `/${lang}/`;
+    }
+    return currentPath.startsWith(href);
+}
+
+// Helper function to get language-switched path
+function getSwitchedPath(targetLang: string): string {
+    const pathWithoutLang = currentPath.replace(/^\/(da|en)/, "");
+    return `/${targetLang}${pathWithoutLang || ""}`;
+}
 ---
 
 <header>
     <div class="header-top">
         <div class="container">
-            <a href={`/${lang}`} class="logo">
+            <a href={`/${lang}`} class="logo" aria-label="Home">
                 <img src="/images/logos/enogtyve_logo.png" alt="Enogtyve" />
             </a>
 
-            <div class="language-switcher">
-                <a href="/da" class={lang === "da" ? "active" : ""}>DA</a>
-                <a href="/en" class={lang === "en" ? "active" : ""}>EN</a>
+            <div class="header-right">
+                <div class="language-switcher">
+                    <a
+                        href={getSwitchedPath("da")}
+                        class={lang === "da" ? "active" : ""}
+                        aria-label="Switch to Danish"
+                        aria-current={lang === "da" ? "true" : undefined}
+                    >
+                        DA
+                    </a>
+                    <span>/</span>
+                    <a
+                        href={getSwitchedPath("en")}
+                        class={lang === "en" ? "active" : ""}
+                        aria-label="Switch to English"
+                        aria-current={lang === "en" ? "true" : undefined}
+                    >
+                        EN
+                    </a>
+                </div>
+
+                <button
+                    class="mobile-menu-toggle"
+                    aria-label="Toggle mobile menu"
+                    aria-expanded="false"
+                    aria-controls="main-navigation"
+                >
+                    <span class="hamburger"></span>
+                </button>
             </div>
         </div>
     </div>
 
-    <nav class="nav-bar">
-        <div class="nav-container">
-            <ul class="nav-links">
+    <nav class="nav-bar" id="main-navigation" aria-label="Main navigation">
+        <div class="container nav-container">
+            <ul class="nav-links" role="menubar">
                 {
-                    menuItems.map((item) => (
-                        <li class={item.submenu.length > 0 ? "has-submenu" : ""}>
-                            <a href={item.href}>{item.label}</a>
+                    menuItems.map((item, index) => (
+                        <li
+                            class={item.submenu.length > 0 ? "has-submenu" : ""}
+                            role="none"
+                        >
+                            {item.submenu.length > 0 ? (
+                                <button
+                                    class={`nav-button ${isActive(item.href, currentPath) ? "active" : ""}`}
+                                    role="menuitem"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                    aria-label={`${item.label} category`}
+                                >
+                                    {item.label}
+                                </button>
+                            ) : (
+                                <a
+                                    href={item.href}
+                                    class={
+                                        isActive(item.href, currentPath)
+                                            ? "active"
+                                            : ""
+                                    }
+                                    role="menuitem"
+                                >
+                                    {item.label}
+                                </a>
+                            )}
                             {item.submenu.length > 0 && (
-                                <ul class="submenu">
+                                <ul
+                                    class="submenu"
+                                    role="menu"
+                                    aria-label={`${item.label} submenu`}
+                                >
                                     {item.submenu.map((subItem) => (
-                                        <li>
-                                            <a href={subItem.href}>
+                                        <li role="none">
+                                            <a
+                                                href={subItem.href}
+                                                class={
+                                                    isActive(
+                                                        subItem.href,
+                                                        currentPath,
+                                                    )
+                                                        ? "active"
+                                                        : ""
+                                                }
+                                                target={subItem.target}
+                                                rel={
+                                                    subItem.target === "_blank"
+                                                        ? "noopener noreferrer"
+                                                        : undefined
+                                                }
+                                                role="menuitem"
+                                            >
                                                 {subItem.label}
                                             </a>
                                         </li>
@@ -145,17 +300,45 @@ const exclusiveMenuItem = {
                 }
             </ul>
 
-            <ul class="nav-links exclusive-nav">
-                <li class="exclusive has-submenu">
-                    <a href={exclusiveMenuItem.href}>{exclusiveMenuItem.label}</a>
-                    <ul class="submenu">
-                        {exclusiveMenuItem.submenu.map((subItem) => (
-                            <li>
-                                <a href={subItem.href}>
-                                    {subItem.label}
-                                </a>
-                            </li>
-                        ))}
+            <ul class="nav-links exclusive-nav" role="menubar">
+                <li class="exclusive has-submenu" role="none">
+                    <button
+                        class={`nav-button ${isActive(exclusiveMenuItem.href, currentPath) ? "active" : ""}`}
+                        role="menuitem"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        aria-label={`${exclusiveMenuItem.label} category`}
+                    >
+                        {exclusiveMenuItem.label}
+                    </button>
+                    <ul
+                        class="submenu"
+                        role="menu"
+                        aria-label={`${exclusiveMenuItem.label} submenu`}
+                    >
+                        {
+                            exclusiveMenuItem.submenu.map((subItem) => (
+                                <li role="none">
+                                    <a
+                                        href={subItem.href}
+                                        class={
+                                            isActive(subItem.href, currentPath)
+                                                ? "active"
+                                                : ""
+                                        }
+                                        target={subItem.target}
+                                        rel={
+                                            subItem.target === "_blank"
+                                                ? "noopener noreferrer"
+                                                : undefined
+                                        }
+                                        role="menuitem"
+                                    >
+                                        {subItem.label}
+                                    </a>
+                                </li>
+                            ))
+                        }
                     </ul>
                 </li>
             </ul>
@@ -167,24 +350,81 @@ const exclusiveMenuItem = {
     header {
         background: var(--background-alt);
         border-bottom: 2px solid var(--primary);
+        position: relative;
     }
 
     .header-top {
-        padding: 2rem 2rem 1.5rem 2rem;
+        padding: 2rem 0 1.5rem;
     }
 
     .header-top .container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: 100%;
-        padding: 0;
+    }
+
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
     }
 
     .logo img {
         height: auto;
         width: auto;
         max-height: 60px;
+    }
+
+    /* Mobile menu toggle */
+    .mobile-menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        z-index: 1001;
+    }
+
+    .hamburger {
+        display: block;
+        width: 28px;
+        height: 2px;
+        background: #fff;
+        position: relative;
+        transition: background 0.3s ease;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+        content: "";
+        display: block;
+        width: 28px;
+        height: 2px;
+        background: #fff;
+        position: absolute;
+        transition: transform 0.3s ease;
+    }
+
+    .hamburger::before {
+        top: -8px;
+    }
+
+    .hamburger::after {
+        bottom: -8px;
+    }
+
+    .mobile-menu-toggle[aria-expanded="true"] .hamburger {
+        background: transparent;
+    }
+
+    .mobile-menu-toggle[aria-expanded="true"] .hamburger::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .mobile-menu-toggle[aria-expanded="true"] .hamburger::after {
+        transform: rotate(-45deg);
+        bottom: 0;
     }
 
     .nav-bar {
@@ -196,7 +436,8 @@ const exclusiveMenuItem = {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
     }
 
     .nav-links {
@@ -211,49 +452,116 @@ const exclusiveMenuItem = {
         position: relative;
     }
 
-    .nav-links > li > a {
+    /* Shared styles for both links and buttons */
+    .nav-links > li > a,
+    .nav-links > li > .nav-button {
         color: #fff;
         font-size: 1rem;
-        padding: 0.5rem 0;
+        padding: 0.5rem 0 0.75rem 0;
         display: block;
+        transition: color 0.2s ease;
+        text-decoration: none;
+
+        /* Reset button styles */
+        background: none;
+        border: none;
+        font-family: inherit;
+        cursor: pointer;
     }
 
     .nav-links > li > a:hover,
-    .nav-links > li:hover > a {
+    .nav-links > li > a:focus,
+    .nav-links > li > .nav-button:hover,
+    .nav-links > li > .nav-button:focus,
+    .nav-links > li:hover > a,
+    .nav-links > li:hover > .nav-button,
+    .nav-links > li > a.active,
+    .nav-links > li > .nav-button.active {
         color: var(--primary);
+        outline: none;
     }
 
-    /* Exclusive menu item - simple button background */
+    /* Focus visible styles for keyboard navigation */
+    .nav-links > li > a:focus-visible,
+    .nav-links > li > .nav-button:focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: 4px;
+        border-radius: 2px;
+    }
+
+    .submenu a:focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: -2px;
+    }
+
+    /* Exclusive menu item */
     .nav-links.exclusive-nav {
         gap: 0;
     }
 
-    .nav-links > li.exclusive > a {
+    .nav-links > li.exclusive > a,
+    .nav-links > li.exclusive > .nav-button {
         background: #3a3a3a;
         border-radius: 6px;
         padding: 0.6rem 1.2rem;
+        transition: background 0.2s ease;
     }
 
-    .nav-links > li.exclusive:hover > a {
+    .nav-links > li.exclusive:hover > a,
+    .nav-links > li.exclusive > a:focus,
+    .nav-links > li.exclusive:hover > .nav-button,
+    .nav-links > li.exclusive > .nav-button:focus {
         background: #4a4a4a;
     }
 
-    /* Clean submenu - no box, no border */
+    /* Submenu styles */
     .submenu {
         display: none;
         position: absolute;
         top: 100%;
         left: 0;
         list-style: none;
-        padding: 0.75rem 0;
-        margin-top: 0.5rem;
+        padding: 0.5rem 0 0.75rem 0;
+        margin-top: 0;
         min-width: 200px;
         z-index: 1000;
         background: #1a1a1a;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition:
+            opacity 0.2s ease,
+            transform 0.2s ease;
     }
 
-    .has-submenu:hover .submenu {
+    /* Add a pseudo-element to create a seamless hover bridge */
+    .has-submenu::before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: 0.5rem;
+        background: transparent;
+        display: none;
+    }
+
+    .has-submenu:hover::before {
         display: block;
+    }
+
+    .has-submenu:hover .submenu,
+    .has-submenu:focus-within .submenu,
+    .has-submenu > .nav-button[aria-expanded="true"] + .submenu {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Position last few menu items' submenus to the right */
+    .nav-links > li:nth-last-child(-n + 2) .submenu,
+    .exclusive-nav .submenu {
+        left: auto;
+        right: 0;
     }
 
     .submenu li a {
@@ -261,13 +569,18 @@ const exclusiveMenuItem = {
         padding: 0.5rem 1rem;
         color: #999;
         font-size: 0.9rem;
-        transition: color 0.2s ease;
+        transition:
+            color 0.2s ease,
+            background 0.2s ease;
         text-align: left;
         white-space: nowrap;
     }
 
-    .submenu li a:hover {
+    .submenu li a:hover,
+    .submenu li a:focus,
+    .submenu li a.active {
         color: #fff;
+        background: rgba(255, 255, 255, 0.05);
     }
 
     .language-switcher {
@@ -280,6 +593,13 @@ const exclusiveMenuItem = {
         font-weight: bold;
         font-size: 0.9rem;
         color: #fff;
+        transition: color 0.2s ease;
+        padding: 0.25rem;
+    }
+
+    .language-switcher a:hover,
+    .language-switcher a:focus {
+        color: var(--primary);
     }
 
     .language-switcher span {
@@ -289,4 +609,262 @@ const exclusiveMenuItem = {
     .language-switcher a.active {
         color: var(--primary);
     }
+
+    /* Mobile styles */
+    @media (max-width: 1024px) {
+        .mobile-menu-toggle {
+            display: block;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #1a1a1a;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 999;
+            overflow-y: auto;
+        }
+
+        .nav-bar.is-open {
+            transform: translateX(0);
+        }
+
+        .nav-container {
+            flex-direction: column;
+            align-items: stretch;
+            padding: 6rem 2rem 2rem;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .nav-links > li {
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .nav-links > li > a,
+        .nav-links > li > .nav-button {
+            width: 100%;
+            padding: 1rem 0;
+        }
+
+        .submenu {
+            position: static;
+            display: none;
+            opacity: 1;
+            transform: none;
+            margin-top: 0;
+            padding: 0 0 0.5rem 1rem;
+            background: transparent;
+        }
+
+        .has-submenu > .nav-button[aria-expanded="true"] + .submenu {
+            display: block;
+        }
+
+        .submenu li {
+            border: none;
+        }
+
+        .submenu li a {
+            padding: 0.75rem 0;
+        }
+
+        .nav-links.exclusive-nav {
+            border-top: 2px solid var(--primary);
+            padding-top: 1rem;
+        }
+
+        .nav-links > li.exclusive > a,
+        .nav-links > li.exclusive > .nav-button {
+            background: transparent;
+            border: 2px solid #3a3a3a;
+        }
+
+        .nav-links > li:nth-last-child(-n + 2) .submenu,
+        .exclusive-nav .submenu {
+            left: 0;
+            right: auto;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .header-top {
+            padding: 1.5rem 0 1rem;
+        }
+
+        .logo img {
+            max-height: 50px;
+        }
+
+        .language-switcher {
+            gap: 0.3rem;
+        }
+
+        .language-switcher a {
+            font-size: 0.8rem;
+        }
+    }
 </style>
+
+<script>
+    // Mobile menu toggle
+    const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+    const navBar = document.querySelector(".nav-bar");
+    const body = document.body;
+
+    if (mobileMenuToggle && navBar) {
+        mobileMenuToggle.addEventListener("click", () => {
+            const isOpen =
+                mobileMenuToggle.getAttribute("aria-expanded") === "true";
+            mobileMenuToggle.setAttribute(
+                "aria-expanded",
+                (!isOpen).toString(),
+            );
+            navBar.classList.toggle("is-open");
+            body.style.overflow = !isOpen ? "hidden" : "";
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", (e) => {
+            const target = e.target as HTMLElement;
+            if (
+                navBar.classList.contains("is-open") &&
+                !navBar.contains(target) &&
+                !mobileMenuToggle.contains(target)
+            ) {
+                mobileMenuToggle.setAttribute("aria-expanded", "false");
+                navBar.classList.remove("is-open");
+                body.style.overflow = "";
+            }
+        });
+
+        // Close menu on escape key
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && navBar.classList.contains("is-open")) {
+                mobileMenuToggle.setAttribute("aria-expanded", "false");
+                navBar.classList.remove("is-open");
+                body.style.overflow = "";
+                mobileMenuToggle.focus();
+            }
+        });
+    }
+
+    // Handle menu buttons (non-navigational categories)
+    const menuButtons = document.querySelectorAll(
+        '.nav-button[aria-haspopup="true"]',
+    );
+
+    menuButtons.forEach((button) => {
+        // Toggle submenu on click
+        button.addEventListener("click", (e) => {
+            const isExpanded = button.getAttribute("aria-expanded") === "true";
+
+            // Close all other submenus
+            menuButtons.forEach((btn) => {
+                if (btn !== button) {
+                    btn.setAttribute("aria-expanded", "false");
+                }
+            });
+
+            // Toggle current submenu
+            button.setAttribute("aria-expanded", (!isExpanded).toString());
+        });
+
+        // Enhanced keyboard navigation
+        button.addEventListener("keydown", (e) => {
+            const submenu = button.nextElementSibling;
+            const firstLink = submenu?.querySelector("a");
+
+            switch (e.key) {
+                case "ArrowDown":
+                    e.preventDefault();
+                    button.setAttribute("aria-expanded", "true");
+                    firstLink?.focus();
+                    break;
+
+                case "Escape":
+                    button.setAttribute("aria-expanded", "false");
+                    button.focus();
+                    break;
+            }
+        });
+
+        // Arrow key navigation within submenu
+        const submenu = button.nextElementSibling;
+        if (submenu) {
+            const submenuLinks = submenu.querySelectorAll("a");
+            submenuLinks.forEach((link, index) => {
+                link.addEventListener("keydown", (e) => {
+                    switch (e.key) {
+                        case "ArrowDown":
+                            e.preventDefault();
+                            const nextLink =
+                                submenuLinks[index + 1] || submenuLinks[0];
+                            nextLink.focus();
+                            break;
+
+                        case "ArrowUp":
+                            e.preventDefault();
+                            if (index === 0) {
+                                button.focus();
+                                button.setAttribute("aria-expanded", "false");
+                            } else {
+                                submenuLinks[index - 1].focus();
+                            }
+                            break;
+
+                        case "Escape":
+                            e.preventDefault();
+                            button.setAttribute("aria-expanded", "false");
+                            button.focus();
+                            break;
+                    }
+                });
+            });
+        }
+    });
+
+    // Close submenus when clicking outside
+    document.addEventListener("click", (e) => {
+        const target = e.target as HTMLElement;
+        if (!target.closest(".has-submenu")) {
+            menuButtons.forEach((button) => {
+                button.setAttribute("aria-expanded", "false");
+            });
+        }
+    });
+
+    // Allow closing submenu when tabbing away
+    const allMenuLinks = document.querySelectorAll(".nav-links a");
+    allMenuLinks.forEach((link) => {
+        link.addEventListener("blur", () => {
+            setTimeout(() => {
+                const parentItem = (link as HTMLElement).closest(
+                    ".has-submenu",
+                );
+                const submenu = parentItem?.querySelector(".submenu");
+
+                if (
+                    submenu &&
+                    !submenu.contains(document.activeElement) &&
+                    !parentItem?.contains(document.activeElement)
+                ) {
+                    const parentButton = parentItem?.querySelector(
+                        ".nav-button[aria-haspopup]",
+                    );
+                    if (parentButton) {
+                        parentButton.setAttribute("aria-expanded", "false");
+                    }
+                }
+            }, 100);
+        });
+    });
+</script>

@@ -1,0 +1,124 @@
+---
+const { lang } = Astro.props;
+---
+
+<section class="featured">
+	<h2>Udforsk</h2>
+	<div class="feature-grid">
+		<a href={`/${lang}/blog`} class="feature-card">
+			<h3>📝 Blog</h3>
+			<p>Læs artikler og bidrag fra fællesskabet</p>
+		</a>
+
+		<a href={`/${lang}/videos`} class="feature-card">
+			<h3>🎥 Videoer</h3>
+			<p>Lær gennem uddannelsesvideoer</p>
+		</a>
+
+		<a href={`/${lang}/podcasts`} class="feature-card">
+			<h3>🎙️ Podcasts</h3>
+			<p>Lyt til dybdegående samtaler</p>
+		</a>
+
+		<a href={`/${lang}/resources`} class="feature-card">
+			<h3>📚 Ressourcer</h3>
+			<p>Find værktøjer og guides</p>
+		</a>
+
+		<a href={`/${lang}/rabat`} class="feature-card">
+			<h3>💰 Rabat med enogtyve</h3>
+			<p>Spar penge med vores partnere</p>
+		</a>
+
+		<a href={`/${lang}/support`} class="feature-card">
+			<h3>❤️ Støt os</h3>
+			<p>Hjælp fællesskabet med at vokse</p>
+		</a>
+	</div>
+</section>
+
+<style>
+	.featured {
+		padding: clamp(2.5rem, 6vh, 4rem) 0;
+	}
+
+	.featured h2 {
+		text-align: center;
+		font-size: clamp(1.75rem, 4vw, 2.25rem);
+		margin-bottom: clamp(1.75rem, 5vh, 3rem);
+		font-weight: 600;
+		color: var(--text);
+	}
+
+	.feature-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+		gap: clamp(1.25rem, 3vw, 1.75rem);
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 1rem;
+	}
+
+	.feature-card {
+		padding: clamp(1.5rem, 4vw, 2rem);
+		border: 1px solid rgba(247, 147, 26, 0.2);
+		border-radius: 12px;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		text-align: center;
+		background: rgba(255, 255, 255, 0.01);
+		position: relative;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-height: 140px;
+		text-decoration: none;
+	}
+
+	.feature-card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: radial-gradient(circle at center, rgba(247, 147, 26, 0.05), transparent);
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	.feature-card:hover::before,
+	.feature-card:focus::before {
+		opacity: 1;
+	}
+
+	.feature-card:hover,
+	.feature-card:focus {
+		border-color: var(--primary);
+		transform: translateY(-6px);
+		box-shadow: 0 12px 24px rgba(247, 147, 26, 0.15);
+		background: rgba(247, 147, 26, 0.03);
+	}
+
+	.feature-card h3 {
+		color: var(--text);
+		margin-bottom: 0.65rem;
+		font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+		font-weight: 600;
+		position: relative;
+	}
+
+	.feature-card p {
+		color: var(--text-light);
+		margin: 0;
+		font-size: clamp(0.88rem, 2vw, 0.95rem);
+		line-height: 1.5;
+		position: relative;
+	}
+
+	@media (max-width: 767px) {
+		.feature-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

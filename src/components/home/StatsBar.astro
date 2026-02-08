@@ -1,0 +1,221 @@
+<section class="stats-bar">
+	<div class="container">
+		<div class="stats-items">
+			<div class="stat-item">
+				<span class="stat-label">Blokhøjde:</span>
+				<span class="stat-value" id="block-height">—</span>
+			</div>
+			<div class="stat-item">
+				<span class="stat-label">Epoke:</span>
+				<span class="stat-value" id="epoch">—</span>
+			</div>
+			<div class="stat-item">
+				<span class="stat-label">Blokke til næste epoke:</span>
+				<span class="stat-value" id="blocks-remaining">—</span>
+			</div>
+			<div class="stat-item">
+				<span class="stat-label">Blokbelønning:</span>
+				<span class="stat-value" id="block-reward">—</span>
+			</div>
+			<div class="stat-item">
+				<span class="stat-label">sat/vB:</span>
+				<span class="stat-value fee-values">
+					<span class="fee-item">
+						<span class="fee-label">L:</span>
+						<span id="fee-low">—</span>
+					</span>
+					<span class="fee-divider">|</span>
+					<span class="fee-item">
+						<span class="fee-label">M:</span>
+						<span id="fee-medium">—</span>
+					</span>
+					<span class="fee-divider">|</span>
+					<span class="fee-item">
+						<span class="fee-label">H:</span>
+						<span id="fee-high">—</span>
+					</span>
+				</span>
+			</div>
+			<div class="stat-item">
+				<span class="stat-label">Sats pr. DKK:</span>
+				<span class="stat-value" id="sats-per-dkk">—</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.stats-bar {
+		background: transparent;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+		padding: 0.30rem 0;
+		margin-top: -1rem;
+		margin-bottom: 1rem;
+		line-height: 1;
+		overflow: hidden;
+	}
+
+	.stats-bar .container {
+		overflow: hidden;
+	}
+
+	.stats-items {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+		flex-wrap: nowrap;
+		overflow: hidden;
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	.stats-items::-webkit-scrollbar {
+		display: none;
+	}
+
+	.stat-item {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+		font-size: 0.8rem;
+		white-space: nowrap;
+		flex-shrink: 1;
+		line-height: 1;
+	}
+
+	.stat-label {
+		color: rgba(255, 255, 255, 0.3);
+		font-weight: 500;
+		flex-shrink: 0;
+	}
+
+	.stat-value {
+		color: rgba(255, 255, 255, 0.4);
+		font-weight: 700;
+		font-variant-numeric: tabular-nums;
+		transition: color 0.3s ease;
+	}
+
+	.stat-value.new-block {
+		color: #f7931a !important;
+	}
+
+	.fee-values {
+		display: flex;
+		gap: 0.4rem;
+		align-items: center;
+	}
+
+	.fee-item {
+		display: flex;
+		gap: 0.2rem;
+	}
+
+	.fee-label {
+		font-weight: 500;
+		font-size: 0.9em;
+	}
+
+	.fee-divider {
+		opacity: 0.3;
+		padding: 0 0.2rem;
+	}
+
+	@media (max-width: 1200px) {
+		.stat-item {
+			font-size: 0.75rem;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.stats-items {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 0.75rem;
+			overflow: visible;
+		}
+
+		.stat-item {
+			font-size: 0.75rem;
+		}
+
+		.fee-values {
+			flex-direction: column;
+			gap: 0.15rem;
+			align-items: flex-start;
+		}
+
+		.fee-divider {
+			display: none;
+		}
+	}
+</style>
+
+<script>
+	let previousBlockHeight: number | null = null;
+
+	function getBlockReward(blockHeight: number): string {
+		const halvings = Math.floor(blockHeight / 210000);
+		const reward = 50 / Math.pow(2, halvings);
+		return reward.toFixed(reward % 1 === 0 ? 0 : 3) + ' BTC';
+	}
+
+	async function fetchStats() {
+		try {
+			const blockResponse = await fetch('https://mempool.space/api/blocks/tip/height');
+			const blockHeight = await blockResponse.json();
+			
+			const epoch = Math.floor(blockHeight / 210000) + 1;
+			const blocksRemaining = 210000 - (blockHeight % 210000);
+			
+			const feesResponse = await fetch('https://mempool.space/api/v1/fees/recommended');
+			const feesData = await feesResponse.json();
+			
+			const priceResponse = await fetch('https://api.coinbase.com/v2/prices/BTC-DKK/spot');
+			const priceData = await priceResponse.json();
+			const btcPriceDKK = parseFloat(priceData.data.amount);
+			const satsPerDKK = Math.floor(100000000 / btcPriceDKK);
+			
+			const blockHeightElement = document.getElementById('block-height')!;
+			if (previousBlockHeight !== null && blockHeight > previousBlockHeight) {
+				blockHeightElement.classList.add('new-block');
+				setTimeout(() => {
+					blockHeightElement.classList.remove('new-block');
+				}, 3000);
+			}
+			previousBlockHeight = blockHeight;
+			
+			const formattedBlockHeight = blockHeight.toLocaleString('da-DK');
+			blockHeightElement.textContent = formattedBlockHeight;
+
+			const footerBlock = document.getElementById('footer-block-height');
+			if (footerBlock) footerBlock.textContent = formattedBlockHeight;
+
+			document.getElementById('epoch')!.textContent = epoch.toString();
+			document.getElementById('blocks-remaining')!.textContent = blocksRemaining.toLocaleString('da-DK');
+			document.getElementById('block-reward')!.textContent = getBlockReward(blockHeight);
+			document.getElementById('fee-low')!.textContent = feesData.hourFee.toString();
+			document.getElementById('fee-medium')!.textContent = feesData.halfHourFee.toString();
+			document.getElementById('fee-high')!.textContent = feesData.fastestFee.toString();
+			document.getElementById('sats-per-dkk')!.textContent = satsPerDKK.toLocaleString('da-DK');
+			
+		} catch (error) {
+			console.error('Stats fetch error:', error);
+			['block-height', 'epoch', 'blocks-remaining', 'block-reward', 'fee-low', 'fee-medium', 'fee-high', 'sats-per-dkk'].forEach(id => {
+				const element = document.getElementById(id);
+				if (element) element.textContent = 'N/A';
+			});
+			const footerBlock = document.getElementById('footer-block-height');
+			if (footerBlock) footerBlock.textContent = 'N/A';
+		}
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', fetchStats);
+	} else {
+		fetchStats();
+	}
+
+	setInterval(fetchStats, 120000);
+</script>
