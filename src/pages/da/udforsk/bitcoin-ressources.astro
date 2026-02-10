@@ -1,0 +1,272 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+
+const categories = [
+  {
+    title: "Essentielt",
+    icon: "⭐",
+    items: [
+      { name: "The Bitcoin Whitepaper", url: "https://bitcoin.org/bitcoin.pdf", desc: "Det originale dokument af Satoshi Nakamoto" },
+      { name: "The Stories We Tell About Money", url: "https://www.youtube.com/watch?v=ONvg9SbauMg", desc: "Andreas Antonopoulos" },
+      { name: "Speech about Money from Atlas Shrugged", url: "https://www.youtube.com/watch?v=Z9HbQsTgrtk", desc: "" },
+    ]
+  },
+  {
+    title: "Podcasts",
+    icon: "🎙️",
+    items: [
+      { name: "Hidden Secrets of Money", url: "https://www.youtube.com/playlist?list=PLE88E9ICdiphYjJkeeLL2O09eJoC8r7Dc", desc: "Mike Maloney" },
+      { name: "The What is Money Show – The Saylor Series", url: "https://youtube.com/playlist?list=PL2jAZ0x9H0bQFY6wIbQfnrnIlqMcSHd6X", desc: "Michael Saylor" },
+      { name: "What Bitcoin Did – Beginners Guide", url: "https://youtube.com/playlist?list=PLutwRFLXGQz0CxnvWaT0yVKxVvpleRk_p", desc: "Peter McCormack" },
+      { name: "Bitcoinpodcasts.com", url: "https://bitcoinpodcasts.com/", desc: "Samlet oversigt over Bitcoin-podcasts" },
+    ]
+  },
+  {
+    title: "Bøger",
+    icon: "📖",
+    items: [
+      { name: "Bitcoinerbooks.com", url: "https://www.bitcoinerbooks.com/", desc: "Samling af engelsksprogede Bitcoin-bøger" },
+    ]
+  },
+  {
+    title: "Lær om Bitcoin",
+    icon: "📚",
+    items: [
+      { name: "Bitcoin.org", url: "https://bitcoin.org/en/", desc: "Officiel Bitcoin-hjemmeside" },
+      { name: "Nakamoto Institute", url: "https://nakamotoinstitute.org/", desc: "Samling af vigtige tekster og forskning" },
+      { name: "Hope.com", url: "https://www.hope.com", desc: "Bitcoin som håb for fremtiden" },
+      { name: "Bitcoin.rocks", url: "https://bitcoin.rocks/", desc: "Bitcoin-ressourcer og -information" },
+      { name: "Learnmeabitcoin.com", url: "https://learnmeabitcoin.com/", desc: "Teknisk introduktion til Bitcoin" },
+    ]
+  },
+  {
+    title: "Data & dashboards",
+    icon: "📊",
+    items: [
+      { name: "Mempool.space", url: "https://mempool.space/", desc: "Blokkædeudforsker og mempool-visualisering" },
+      { name: "Lookintobitcoin.com", url: "https://www.lookintobitcoin.com/", desc: "On-chain-data og analyseværktøjer" },
+      { name: "Pricedinbitcoin21.com", url: "https://www.pricedinbitcoin21.com/landing", desc: "Se prisen på alt målt i bitcoin" },
+      { name: "Timechaincalendar.com", url: "https://timechaincalendar.com/en", desc: "Bitcoins tidslinjekalender" },
+      { name: "Timechainstats.com", url: "https://timechainstats.com/", desc: "Statistik over Bitcoin-netværket" },
+      { name: "Bitbo.io", url: "https://www.bitbo.io", desc: "Bitcoin-dashboard med nøgletal" },
+      { name: "Bitcointicker.co", url: "https://bitcointicker.co", desc: "Pristicker og markedsdata" },
+      { name: "Clark Moody Dashboard", url: "https://bitcoin.clarkmoody.com/dashboard/", desc: "Omfattende Bitcoin-dashboard" },
+      { name: "Miningpool.observer", url: "https://miningpool.observer/", desc: "Overblik over minedriftspuljer" },
+      { name: "UTXO.live", url: "https://www.utxo.live", desc: "Visualisering af UTXO-sættet" },
+      { name: "Iancoleman.io", url: "https://iancoleman.io/", desc: "BIP39 og nøgleafledningsværktøj" },
+    ]
+  },
+  {
+    title: "Tutorials & guides",
+    icon: "🎓",
+    items: [
+      { name: "BTC Sessions", url: "https://www.youtube.com/@BTCSessions", desc: "YouTube-kanal med trin-for-trin-guides" },
+      { name: "Jameson Lopp", url: "https://www.lopp.net", desc: "Omfattende Bitcoin-ressourcesamling" },
+      { name: "Bitcoiner.guide", url: "https://bitcoiner.guide/", desc: "Guides til tegnebøger, noder og mere" },
+    ]
+  },
+  {
+    title: "Værktøjer",
+    icon: "🔧",
+    items: [
+      { name: "Satpile", url: "https://satpile.com/", desc: "Hold styr på dine sats" },
+      { name: "Borderwallets.com", url: "https://www.borderwallets.com/", desc: "Kreativ opbevaring af gendannelsesord" },
+      { name: "Opentip.io", url: "https://opentip.io/", desc: "Lightning-drikkepengeværktøj" },
+    ]
+  },
+  {
+    title: "Nyheder & analyse",
+    icon: "📰",
+    items: [
+      { name: "No Bullshit Bitcoin", url: "https://www.nobsbitcoin.com/", desc: "Nyheder uden støj" },
+      { name: "kyc3.life", url: "https://kyc3.life/", desc: "Privatliv og KYC-information" },
+      { name: "Bitcoinops.org", url: "https://bitcoinops.org/", desc: "Teknisk nyhedsbrev og dokumentation" },
+    ]
+  },
+  {
+    title: "Film & dokumentarer",
+    icon: "🎬",
+    items: [
+      { name: "The Great Reset and the Rise of Bitcoin", url: "https://youtu.be/jzwVNHJxgHE?feature=shared", desc: "" },
+      { name: "Hard Money Film", url: "https://www.hardmoneyfilm.com/", desc: "" },
+      { name: "Petrodollars Film", url: "https://www.petrodollarsfilm.com/", desc: "" },
+      { name: "Anatomy of the State Film", url: "https://www.anatomystatefilm.com/", desc: "" },
+      { name: "The Great Reset Film", url: "https://www.thegreatresetfilm.com/", desc: "" },
+    ]
+  },
+  {
+    title: "Andre ressourcer",
+    icon: "🌍",
+    items: [
+      { name: "WTF Happened in 1971", url: "https://wtfhappenedin1971.com/", desc: "Visualisering af, hvad der skete, da guldstandarden blev forladt" },
+      { name: "End the FUD", url: "https://endthefud.org/", desc: "Svar på den mest almindelige Bitcoin-kritik" },
+      { name: "Mises.org", url: "https://mises.org/", desc: "Ludwig von Mises Institute – østrigsk økonomi" },
+      { name: "Bitcoindeaths.com", url: "https://bitcoindeaths.com/", desc: "Alle de gange Bitcoin er blevet erklæret død" },
+    ]
+  },
+  {
+    title: "Kunst & kultur",
+    icon: "🎨",
+    items: [
+      { name: "21ism.com", url: "https://21ism.com/", desc: "Bitcoin-kunst og -kultur" },
+      { name: "Thepriceinsats.com", url: "https://thepriceinsats.com/", desc: "Se verden prisat i sats" },
+      { name: "Yzer", url: "https://yzer.io/", desc: "Bitcoin-memes og kreativt indhold" },
+    ]
+  },
+  {
+    title: "Merch & shops",
+    icon: "🛒",
+    items: [
+      { name: "Store of Value", url: "https://www.storeofvalue.eu/discount/enogtyve", desc: "Bitcoin-merchandise" },
+      { name: "Copiaro.de", url: "https://copiaro.de/en/", desc: "Bitcoin-seedplader og tilbehør" },
+      { name: "Satoshistore.io", url: "https://www.satoshistore.io", desc: "Bitcoin-merchandise" },
+    ]
+  },
+];
+---
+
+<ResourcePageLayout
+  title="Bitcoin-ressourcer"
+  description="Samling af engelsksprogede Bitcoin-ressourcer – podcasts, bøger, data, værktøjer og meget mere"
+  lang="da"
+>
+  <section class="content-section">
+    <p>En kurateret samling af Bitcoin-only-ressourcer. Her finder du alt fra det originale whitepaper og podcasts til data-dashboards, værktøjer og film.</p>
+    <p>Se også: <a href="https://bitcoin-resources.com/" target="_blank" rel="noopener noreferrer"><strong>Bitcoin-resources.com</strong></a></p>
+  </section>
+
+  {categories.map((cat) => (
+    <section class="category-section">
+      <h3 class="category-heading"><span class="category-icon">{cat.icon}</span> {cat.title}</h3>
+      <div class="links-grid">
+        {cat.items.map((item) => (
+          <a href={item.url} target="_blank" rel="noopener noreferrer" class="link-card">
+            <span class="link-name">{item.name}</span>
+            {item.desc && <span class="link-desc">{item.desc}</span>}
+            <span class="link-arrow">→</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  ))}
+
+  <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
+</ResourcePageLayout>
+
+<style>
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section p {
+    margin-bottom: 0.75rem;
+  }
+
+  .content-section a {
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .content-section a:hover {
+    color: #f7931a;
+  }
+
+  /* Category sections */
+  .category-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .category-heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #f7931a;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(247, 147, 26, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .category-icon {
+    font-size: 1.1rem;
+  }
+
+  /* Link cards */
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .link-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    text-decoration: none;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+    position: relative;
+  }
+
+  .link-card:hover {
+    border-color: rgba(247, 147, 26, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .link-name {
+    font-weight: 600;
+    font-size: 0.93rem;
+    color: var(--text-light, #ccc);
+    padding-right: 1.5rem;
+  }
+
+  .link-desc {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: rgba(204, 204, 204, 0.6);
+    padding-right: 1.5rem;
+  }
+
+  .link-arrow {
+    position: absolute;
+    top: 0.9rem;
+    right: 1rem;
+    color: #f7931a;
+    font-size: 0.95rem;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+  }
+
+  .link-card:hover .link-arrow {
+    opacity: 1;
+  }
+
+  /* Back to top */
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 567px) {
+    .links-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,341 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+---
+
+<ResourcePageLayout
+  title="Solo Mining"
+  description="Solo mine bitcoin med Enogtyves mining pool i samarbejde med Noderunners"
+  lang="da"
+>
+  <section class="content-section">
+    <p>
+      Med hjælp fra vores
+      <a href="https://www.noderunners.network" target="_blank" rel="noopener noreferrer">
+        Noderunners</a>-venner i Holland kan vi solo mine med deres solo mining pool,
+      hvor der betales 0 i gebyrer. Så er du virkelig heldig at finde en blok, ja
+      så får du hele blokbelønningen samt transaktionsgebyrer sendt til den
+      Bitcoin-adresse, du har valgt.
+    </p>
+    <p>
+      Herunder er, hvad du skal bruge for at komme i gang. Har du spørgsmål eller
+      udfordringer, så stil dem endelig i Enogtyve Telegram-gruppen, hvor vi
+      selvfølgelig også snakker om mining. Åbn gruppen her:
+      <strong>
+        <a href="https://t.me/enogtyvedk/6489" target="_blank" rel="noopener noreferrer">
+          Enogtyve Telegram og Mining
+        </a>
+      </strong>
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Hvad er solo mining?</h2>
+    <p>
+      <strong>Solo mining</strong> betyder, at en enkelt miner forsøger at finde
+      en blok uden at dele blokbelønningen og transaktionsgebyrer med andre, som
+      man ellers ville gøre i en almindelig mining pool. Man kan selvfølgelig
+      solo mine med flere mining-enheder for at øge sandsynligheden for at finde
+      en blok.
+    </p>
+    <p>
+      Uden brug af en mining pool kræver det, at mineren selv driver en fuld
+      node, hvilket indebærer at opretholde en synkroniseret blokkæde, håndtere
+      netværksforbindelser, sikre tilstrækkelig båndbredde og minimere latenstid
+      for at sende nyfundne blokke hurtigt.
+    </p>
+    <p>
+      Mange vælger en solo mining pool for at undgå denne tekniske udfordring.
+      Poolen stiller en node, servere og optimeret infrastruktur til rådighed,
+      hvilket reducerer latenstid og sikrer hurtigere blokudsendelse. Samtidig
+      bevarer mineren sin individuelle konkurrence om at finde blokke og modtage
+      hele blokbelønningen.
+    </p>
+    <p>
+      Solo mining kan sammenlignes med et lotteri, hvor hver hash, en miner
+      genererer, fungerer som en lodseddel i lodtrækningen. Jo flere
+      "lodsedler" en miner har (højere hashkraft), jo større er chancen for at
+      vinde – men det er stadig et spørgsmål om held. En solo mining pool gør
+      det lettere at deltage i dette "lotteri" ved at håndtere den tekniske
+      infrastruktur uden at ændre på selve sandsynligheden for at finde en blok.
+    </p>
+    <p>
+      Forskellige minere har også varierende effektivitet, målt i joule per
+      terahash (J/Th). En mere energieffektiv miner bruger færre watt per
+      terahash, hvilket reducerer driftsomkostningerne (elforbrug). Mere
+      effektive minere, altså lavere J/Th, betyder typisk også en højere
+      anskaffelsespris.
+    </p>
+    <p>
+      For hobby-minere er små enheder som f.eks. BitAxe blevet meget populære.
+      De kan købes for 1.500–2.000 kr., og selvom disse små minere har en meget
+      lav hashkraft, er det en god mulighed for at lære om mining. De har et
+      lavt strømforbrug, bidrager til at sikre Bitcoin-netværket, og selvom
+      sandsynligheden er minimal, giver de stadig en lille chance for at vinde
+      lotteriet.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Opsætning</h2>
+    <div class="info-table">
+      <div class="info-row">
+        <span class="info-label">Pool:</span>
+        <code class="info-value">stratum+tcp://pool.enogtyve.org:1337</code>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Brugernavn (user id):</span>
+        <span class="info-value">Din Bitcoin-adresse</span>
+      </div>
+    </div>
+    <p class="note">
+      *Har du flere minere og ønsker at navngive disse, kan du tilføje "." efter
+      din Bitcoin-adresse og derefter det navn, du vil give den.
+      <em>F.eks. bc1qtyuca2x6twkgcg66tqhmem24386fm6078c9pqv.bitaxe1</em>
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Statistik</h2>
+    <div class="info-table">
+      <div class="info-row">
+        <span class="info-label">Noderunners poolstatistik:</span>
+        <span class="info-value">
+          <a href="https://noderunners.network/en/pool" target="_blank" rel="noopener noreferrer">
+            noderunners.network/en/pool
+          </a>
+          <span class="info-note">(Du kan bruge denne side, da det er samme pool)</span>
+        </span>
+      </div>
+    </div>
+    <p>Alternativt kan du bruge disse:</p>
+    <div class="info-table">
+      <div class="info-row">
+        <span class="info-label">Din statistik:</span>
+        <span class="info-value">
+          <a href="https://pool.enogtyve.org/api/v1/users/bitcoinaddresse" target="_blank" rel="noopener noreferrer">
+            pool.enogtyve.org/api/v1/users/<em>bitcoinadresse</em>
+          </a>
+        </span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Poolstatistik:</span>
+        <span class="info-value">
+          <a href="https://pool.enogtyve.org/api/v1/pool" target="_blank" rel="noopener noreferrer">
+            pool.enogtyve.org/api/v1/pool
+          </a>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Anskaf en miner</h2>
+    <p>
+      Husk, at du ofte kan opnå en rabat, hvis du indtaster
+      <strong>rabatkoden "enogtyve"</strong>, når du går til kassen.
+    </p>
+    <div class="info-table">
+      <div class="info-row">
+        <span class="info-label">Den populære BitAxe m.fl.</span>
+        <span class="info-value">
+          <a href="https://bitronics.store/?ref=1089" target="_blank" rel="noopener noreferrer">
+            <strong>Bitronics</strong>
+          </a>
+        </span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Varm op med Bitcoin Mining (Heatbit)</span>
+        <span class="info-value">
+          <a href="https://heatbit.com/?ref=ENOGTYVE" target="_blank" rel="noopener noreferrer">
+            <strong>Heatbit</strong>
+          </a>
+        </span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Varm op med Bitcoin Mining (21Energy)</span>
+        <span class="info-value">
+          <a href="https://21energy.com/enogtyve" target="_blank" rel="noopener noreferrer">
+            <strong>21Energy</strong>
+          </a>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Andre værktøjer</h2>
+    <p>
+      Services og værktøjer, som kan være nyttige i sammenhæng med Bitcoin
+      mining.
+    </p>
+    <div class="info-table">
+      <div class="info-row">
+        <span class="info-label">Bitcoin solo mining-beregner</span>
+        <span class="info-value">
+          <a href="https://www.sololuck.com/?ref=enogtyve.org" target="_blank" rel="noopener noreferrer">
+            <strong>Sololuck</strong>
+          </a>
+        </span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Bitcoin blockchain explorer</span>
+        <span class="info-value">
+          <a href="https://www.mempool.space/?ref=enogtyve.org" target="_blank" rel="noopener noreferrer">
+            <strong>Mempool.space</strong>
+          </a>
+        </span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Open source-værktøj, der overvåger Bitcoin mining pools</span>
+        <span class="info-value">
+          <a href="https://miningpool.observer/?ref=enogtyve.org" target="_blank" rel="noopener noreferrer">
+            <strong>Miningpool.observer</strong>
+          </a>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section cta-section">
+    <p>
+      <strong>
+        Læs mere om Bitcoin Mining som opvarmning her:
+        <a href="/mining/">/mining/</a>
+      </strong>
+    </p>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
+</ResourcePageLayout>
+
+<style>
+  /* Content sections */
+  .content-section {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section h2 {
+    color: var(--primary, #f7931a);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-md, 1rem);
+    padding-bottom: var(--space-sm, 0.5rem);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .content-section p {
+    margin-bottom: 1rem;
+  }
+
+  .content-section a {
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .content-section a:hover {
+    color: #f7931a;
+  }
+
+  /* Info tables */
+  .info-table {
+    margin: 1rem 0 1.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(247, 147, 26, 0.15);
+  }
+
+  .info-row {
+    display: flex;
+    gap: 1rem;
+    padding: 0.9rem 1.25rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.08);
+  }
+
+  .info-row:last-child {
+    border-bottom: none;
+  }
+
+  .info-row:hover {
+    background: rgba(247, 147, 26, 0.06);
+  }
+
+  .info-label {
+    flex: 0 0 40%;
+    font-weight: 500;
+    color: var(--text-light, #ccc);
+  }
+
+  .info-value {
+    flex: 1;
+    word-break: break-all;
+  }
+
+  .info-value code {
+    background: rgba(247, 147, 26, 0.1);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #f7931a;
+  }
+
+  .info-note {
+    display: block;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: 0.25rem;
+  }
+
+  /* Note */
+  .note {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+  }
+
+  .note em {
+    word-break: break-all;
+  }
+
+  /* CTA section */
+  .cta-section {
+    margin-top: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .cta-section a {
+    font-size: 1.05rem;
+  }
+
+  /* Back to top */
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 567px) {
+    .info-row {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .info-label {
+      flex: none;
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
+  }
+</style>

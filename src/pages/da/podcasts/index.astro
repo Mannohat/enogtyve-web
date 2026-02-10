@@ -1,0 +1,307 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+
+const podcasts = [
+    {
+        name: "Den Orange Tråd",
+        image: "/images/content/denorangetraad.jpg",
+        description:
+            "Målet med podcasten Den Orange Tråd er at skabe fokus på forskellige emner, hvor fiatpengesystemet skaber perverse incitamenter, der som en virus infiltrerer alt for mange aspekter af vores liv – og derfra skabe fokus på, hvordan Bitcoin er løsningen på det.",
+        links: [
+            {
+                label: "YouTube",
+                url: "https://youtube.com/playlist?list=PLQ2XoOhzIdN03OmpJSG0wGkkUOZ0n_kTV&si=9WxSyLS6Yp4C2I7v",
+            },
+        ],
+    },
+    {
+        name: "SHOP21.dk – Bitcoin, samfund & frihed",
+        image: "/images/content/shop21_1.png",
+        description:
+            "En podcast om Bitcoin, samfund og frihed. Vi dykker ned i, hvordan Bitcoin kan være med til at forme et friere og rigere samfund til gavn for alle.",
+        links: [
+            {
+                label: "Fountain",
+                url: "https://fountain.fm/episode/I3O7CPokuNJGdRGVo417",
+            },
+            {
+                label: "Spotify",
+                url: "https://open.spotify.com/show/271Jadnu7wxjOP31GHhgJM?si=70c02c245c364383",
+            },
+            {
+                label: "YouTube",
+                url: "https://www.youtube.com/watch?v=cn9_AHb7vmw",
+            },
+        ],
+    },
+    {
+        name: "Lad os snakke om Bitcoin",
+        image: "/images/content/losob.png",
+        description:
+            "Denne serie af Enogtyve-podcast er tænkt som en uformel platform for hyggesnak om Bitcoin og alt muligt andet i periferien heraf. Du har her mulighed for at være fluen på væggen, når forskellige Bitcoin-entusiaster udveksler deres tanker, historier, ideer mm.",
+        links: [
+            {
+                label: "Fountain",
+                url: "https://fountain.fm/show/wQjidAJSuF52TCAcpBY2",
+            },
+            {
+                label: "Spotify",
+                url: "https://open.spotify.com/show/06DHUs9YX0QRNgKXMaWvtx?si=2dc81d75b1724ec7",
+            },
+            {
+                label: "YouTube",
+                url: "https://youtube.com/playlist?list=PLqGASsLR82YNBBXeTqM3I9Zt44lYc-yT8&si=IMQYTlJMH1zdi9EO",
+            },
+        ],
+    },
+];
+---
+
+<ResourcePageLayout
+    title="Podcasts"
+    description="Danske Bitcoin-podcasts – Lad os snakke om Bitcoin, Den Orange Tråd og mere"
+    lang="da"
+>
+    <section class="nav-buttons">
+        <a href="/da/blog/penges-historie" class="nav-btn">Lidt om penge</a
+        >
+        <a href="/da/blog/hvad-er-bitcoin" class="nav-btn"
+            >Lidt om Bitcoin</a
+        >
+        <a href="/da/blog/" class="nav-btn">Enogtyve blog</a>
+    </section>
+
+    <section class="content-section">
+        <p>
+            Velkommen til Enogtyve Podcasts! Herunder er der samlet en liste med
+            gode podcasts på dansk, som omhandler Bitcoin, Nostr mv.
+        </p>
+        <p>
+            Kender du til en god Bitcoin-podcast på dansk, som du vil anbefale,
+            så lad os høre om den, og vi kan liste den her på siden.
+        </p>
+        <p>
+            Hvis du kunne tænke dig at tage del i en episode, så bring det op i <a
+                href="http://telegram.enogtyve.org"
+                target="_blank"
+                rel="noopener noreferrer"><strong>Telegram-gruppen</strong></a
+            >.
+        </p>
+    </section>
+
+    <h2 class="section-title">Danske Bitcoin-podcasts</h2>
+
+    <section class="podcasts-list">
+        {
+            podcasts.map((pod) => (
+                <div class="podcast-card">
+                    <div class="podcast-image">
+                        <img src={pod.image} alt={pod.name} />
+                    </div>
+                    <div class="podcast-content">
+                        <h3 class="podcast-name">{pod.name}</h3>
+                        <p class="podcast-desc">{pod.description}</p>
+                        <div class="podcast-links">
+                            {pod.links.map((link) => (
+                                <a
+                                    href={link.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="podcast-link"
+                                >
+                                    {link.label} →
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            ))
+        }
+    </section>
+
+    <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
+</ResourcePageLayout>
+
+<style>
+    .nav-buttons {
+        display: flex;
+        gap: var(--space-md, 1rem);
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .nav-btn {
+        flex: 1;
+        min-width: 150px;
+        text-align: center;
+        padding: 0.75rem 1.5rem;
+        background-color: #f7931a;
+        color: #000;
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-decoration: none;
+        border-radius: 6px;
+        border: 1px solid #f7931a;
+        transition: all 0.3s ease;
+    }
+
+    .nav-btn:hover {
+        background-color: transparent;
+        color: #f7931a;
+    }
+
+    .content-section {
+        margin-bottom: 2rem;
+        line-height: 1.8;
+        color: var(--text-light, #ccc);
+    }
+
+    .content-section p {
+        margin-bottom: 0.75rem;
+    }
+
+    .content-section a {
+        color: rgba(247, 147, 26, 0.9);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+    }
+
+    .content-section a:hover {
+        color: #f7931a;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: #f7931a;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(247, 147, 26, 0.25);
+    }
+
+    /* Podcast list */
+    .podcasts-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .podcast-card {
+        display: flex;
+        gap: 1.5rem;
+        border: 1px solid rgba(247, 147, 26, 0.12);
+        border-radius: 12px;
+        padding: 1.25rem;
+        background: rgba(255, 255, 255, 0.03);
+        transition: border-color 0.3s ease;
+    }
+
+    .podcast-card:hover {
+        border-color: rgba(247, 147, 26, 0.4);
+    }
+
+    .podcast-image {
+        flex-shrink: 0;
+        width: 140px;
+        height: 140px;
+        border-radius: 10px;
+        overflow: hidden;
+        background: rgba(247, 147, 26, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .podcast-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .podcast-card:last-child .podcast-image img {
+        object-fit: contain;
+        padding: 0.5rem;
+    }
+    .podcast-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        flex: 1;
+    }
+
+    .podcast-name {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-light, #ccc);
+        margin: 0;
+    }
+
+    .podcast-desc {
+        font-size: 0.88rem;
+        line-height: 1.65;
+        color: rgba(204, 204, 204, 0.7);
+        margin: 0;
+        font-style: italic;
+        flex-grow: 1;
+    }
+
+    .podcast-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.25rem;
+    }
+
+    .podcast-link {
+        display: inline-block;
+        padding: 0.35rem 0.85rem;
+        background: rgba(247, 147, 26, 0.1);
+        color: #f7931a;
+        font-size: 0.82rem;
+        font-weight: 600;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: background 0.2s ease;
+    }
+
+    .podcast-link:hover {
+        background: rgba(247, 147, 26, 0.2);
+    }
+
+    /* Back to top */
+    .back-to-top {
+        display: block;
+        width: fit-content;
+        margin: 3rem auto 0 auto;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: rgba(247, 147, 26, 0.9);
+        text-decoration: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .back-to-top:hover {
+        opacity: 0.7;
+    }
+
+    @media (max-width: 567px) {
+        .nav-buttons {
+            flex-direction: column;
+        }
+
+        .podcast-card {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .podcast-image {
+            width: 180px;
+            height: 180px;
+        }
+
+        .podcast-links {
+            justify-content: center;
+        }
+    }
+</style>

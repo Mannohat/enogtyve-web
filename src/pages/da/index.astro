@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import IntroAccordion from "../../components/home/IntroAccordion.astro";
-import StatsSection from "../../components/home/StatsSection.astro";
+import PromoSection from "../../components/home/PromoSection.astro";
 import ShowcaseGrid from "../../components/home/ShowcaseGrid.astro";
 import FeatureGrid from "../../components/home/FeatureGrid.astro";
 import CTASection from "../../components/home/CTASection.astro";
@@ -18,8 +18,8 @@ const lang = "da";
 	<QuickActions lang={lang} />
 	<IntroAccordion />
 	<div class="page-content">
+		<PromoSection />
 		<CTASection lang={lang} />
-		<StatsSection />
 		<ShowcaseGrid />
 		<FeatureGrid lang={lang} />
 	</div>

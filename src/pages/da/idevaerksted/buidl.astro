@@ -1,0 +1,547 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+
+const tools = [
+  {
+    name: "LNBits.com",
+    url: "https://lnbits.com/",
+    desc: 'LNBits er et fantastisk værktøj og kan måske siges at være en slags "WordPress" for Lightning.',
+  },
+  {
+    name: "Lightning Piggy",
+    url: "https://www.lightningpiggy.com",
+    desc: "Et projekt, hvor man kan bygge en Lightning-sparegris. Måske skal lommepenge skiftes ud med lommesats?",
+  },
+  {
+    name: "Getumbrel.com",
+    url: "https://www.getumbrel.com",
+    desc: "Umbrel er en nem, hvis ikke den nemmeste, måde at komme i gang med din egen Bitcoin-node.",
+  },
+  {
+    name: "Cryptocloaks.com",
+    url: "https://www.cryptocloaks.com",
+    desc: "De 3D-printer en masse Bitcoin-sager. Overvej om du måske skulle bygge en el-varmer, som samtidig miner satoshis.",
+    extra: [
+      { label: "21energy.io", url: "https://21energy.com/enogtyve" },
+      { label: "Miningwholesale.eu", url: "https://miningwholesale.eu/" },
+    ],
+  },
+  {
+    name: "Nerdminer",
+    url: "https://github.com/BitMaker-hub/NerdMiner_v2",
+    desc: "Byg din egen lille miner, som f.eks. kan stå på dit skrivebord. En perfekt samtalestarter – og hvem ved ;)",
+  },
+];
+
+const projects = [
+  {
+    image: "/images/buidl/lnbits-pos-workshop.jpeg",
+    caption: "LNBits POS workshop",
+    url: "https://lnpos.lnbits.com/",
+  },
+  {
+    image: "/images/buidl/lnbits-pos.jpeg",
+    caption: "LNBits POS",
+    url: "https://lnpos.lnbits.com/",
+  },
+  {
+    image: "/images/buidl/diy-hardware-wallet.jpeg",
+    caption: "DIY Hardware Wallet",
+    url: "https://lnbits.github.io/hardware-wallet/installer/",
+  },
+  {
+    image: "/images/buidl/zaplamp.png",
+    caption: "Nostr ZAP Lamp",
+    url: "https://nostr-zap-lamp.lnbits.com/",
+  },
+  {
+    image: "/images/buidl/lightning-switch-mm.jpeg",
+    caption: "LNBits Lightning switch m&m's",
+    url: "https://lnbits.github.io/bitcoinswitch",
+  },
+  {
+    image: "/images/buidl/lightning-switch-saebebubler.jpeg",
+    caption: "LNBits Lightning switch sæbeboblemaskine",
+    url: "https://lnbits.github.io/bitcoinswitch",
+  },
+  {
+    image: "/images/buidl/lightning-piggy.jpeg",
+    caption: "Lightning Piggy",
+    url: "https://www.lightningpiggy.com/",
+  },
+  {
+    image: "/images/buidl/lnbits-pos-2.jpeg",
+    caption: "LNBits POS",
+    url: "https://lnpos.lnbits.com/",
+  },
+  {
+    image: "/images/buidl/s9-spaceheater-adapter.jpeg",
+    caption: "S9 spaceheater fan adapter print",
+    url: "/da/mining/mining-for-opvarmning",
+  },
+  {
+    image: "/images/buidl/s9-spaceheater.jpeg",
+    caption: "Bitmain S9 Spaceheater",
+    url: "/da/mining/mining-for-opvarmning",
+  },
+  {
+    image: "/images/buidl/s9-spaceheater-brrr.jpeg",
+    caption: "Bitmain S9 Spaceheater BRRR",
+    url: "/da/mining/mining-for-opvarmning",
+  },
+  {
+    image: "/images/buidl/s9-nye-fans.jpeg",
+    caption: "Nye kølefans for S9 spaceheater for mindre støj",
+    url: "/da/mining/mining-for-opvarmning",
+  },
+  {
+    image: "/images/buidl/bitcoin-node.jpeg",
+    caption: "Bitcoin Node",
+    url: "https://www.getumbrel.com",
+  },
+  {
+    image: "/images/buidl/lnbits-workshop.jpeg",
+    caption: "LNBits workshop",
+    url: "https://www.lightningpiggy.com",
+  },
+  {
+    image: "/images/buidl/esp32-dot-display.jpeg",
+    caption: "ESP32 BTC/USD dot display",
+    url: "https://github.com/arcbtc/Hal-Finney-Price-Checker",
+  },
+];
+---
+
+<ResourcePageLayout
+  title="BUIDL"
+  description="Bitcoin gør-det-selv-projekter – byg, lær og eksperimenter"
+  lang="da"
+>
+  <section class="nav-buttons">
+    <a href="/da/laer-mere/lightning" class="nav-btn"
+      >Lightning-netværket</a
+    >
+    <a href="/da/laer-mere/bitcoin-og-din-forretning" class="nav-btn"
+      >Bitcoin og din forretning</a
+    >
+    <a href="/da/mining/mining-for-opvarmning" class="nav-btn">Mining for opvarmning</a>
+  </section>
+
+  <section class="content-section">
+    <p>
+      Når du har lært mere om Bitcoin og måske er nået til et punkt, hvor du
+      kunne tænke dig at eksperimentere lidt mere, så er der mange muligheder
+      for at lege og lære. Bitcoin er sjov – du kan lave alverdens ting! Måske
+      har du selv en idé til et projekt?
+    </p>
+    <p>
+      Der kommer hele tiden flere værktøjer, som gør det lettere at komme i
+      gang. Så længe man selv gør en indsats for at lære og prøver sig frem, er
+      der mange, der er villige til at hjælpe dig.
+    </p>
+  </section>
+
+  <section class="category-section">
+    <h3 class="category-heading">
+      <span class="category-icon">🔧</span> Værktøjer & ressourcer
+    </h3>
+    <div class="tools-grid">
+      {
+        tools.map((tool) => (
+          <div class="tool-card">
+            <a
+              href={tool.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="tool-name"
+            >
+              {tool.name}
+            </a>
+            <p class="tool-desc">{tool.desc}</p>
+            {tool.extra && (
+              <div class="tool-extra">
+                {tool.extra.map((link) => (
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="tool-extra-link"
+                  >
+                    {link.label} →
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="category-section">
+    <h3 class="category-heading">
+      <span class="category-icon">📸</span> Billeder af Bitcoin gør-det-selv-projekter
+    </h3>
+    <p class="gallery-note">
+      Klik på billedet for at åbne et link, hvor du kan se, hvordan du kommer i
+      gang med projektet.
+    </p>
+    <div class="gallery-grid">
+      {
+        projects.map((proj) => (
+          <a
+            href={proj.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="gallery-item"
+          >
+            <div class="gallery-image">
+              <img src={proj.image} alt={proj.caption} loading="lazy" />
+            </div>
+            <span class="gallery-caption">{proj.caption}</span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="category-section">
+    <h3 class="category-heading">
+      <span class="category-icon">🎥</span> Video
+    </h3>
+    <div class="video-container">
+      <video controls preload="metadata">
+        <source
+          src="/images/buidl/lightning-switch-saebebubler.mov"
+          type="video/mp4"
+        />
+      </video>
+      <p class="video-caption">
+        <a
+          href="https://bitcoinswitch.lnbits.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Lightning switch sæbeboblemaskine →
+        </a>
+      </p>
+    </div>
+  </section>
+  <section class="quote-section">
+    <div class="manifesto">
+      <p class="manifesto-title">FUN is mandatory…</p>
+      <p>We are all driven to be free.<br />
+      To live life on our own terms.<br />
+      But… we get trapped doing things we don't enjoy.<br />
+      Working on things we don't believe in.<br />
+      As the years go on, we just accept it.</p>
+      <p>Creativity is hard to lock away.<br />
+      It eats us away. We need to let it out.<br />
+      Otherwise, it breaks us down.</p>
+      <p>The journey is long and often lonely.<br />
+      Excuses are easy.<br />
+      We'll never know obstacles that will come.<br />
+      We'll never know how to get it done.<br />
+      We'll never know when's the right time.</p>
+      <p>But <strong>MAKING</strong> something from passion, is <strong>FUN</strong>.<br />
+      Make something together.<br />
+      Have <strong>FUN</strong> pursuing the freedom.</p>
+      <p class="manifesto-author">— Johns Beharry</p>
+    </div>
+  </section>
+  <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
+</ResourcePageLayout>
+
+<style>
+  .nav-buttons {
+    display: flex;
+    gap: var(--space-md, 1rem);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-btn {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    background-color: #f7931a;
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 1px solid #f7931a;
+    transition: all 0.3s ease;
+  }
+
+  .nav-btn:hover {
+    background-color: transparent;
+    color: #f7931a;
+  }
+
+  .content-section {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section p {
+    margin-bottom: 0.75rem;
+  }
+
+  /* Category sections */
+  .category-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .category-heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #f7931a;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(247, 147, 26, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .category-icon {
+    font-size: 1.1rem;
+  }
+
+  /* Tool cards */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.85rem;
+  }
+
+  .tool-card {
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 10px;
+    padding: 1.1rem 1.2rem;
+    background: rgba(255, 255, 255, 0.03);
+    transition:
+      border-color 0.3s ease,
+      transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .tool-card:hover {
+    border-color: rgba(247, 147, 26, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .tool-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-light, #ccc);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .tool-name:hover {
+    color: #f7931a;
+  }
+
+  .tool-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(204, 204, 204, 0.7);
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .tool-extra {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.35rem;
+    padding-top: 0.4rem;
+    border-top: 1px solid rgba(247, 147, 26, 0.08);
+  }
+
+  .tool-extra-link {
+    display: inline-block;
+    padding: 0.25rem 0.7rem;
+    background: rgba(247, 147, 26, 0.1);
+    color: #f7931a;
+    font-size: 0.78rem;
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .tool-extra-link:hover {
+    background: rgba(247, 147, 26, 0.2);
+  }
+
+  /* Gallery */
+  .gallery-note {
+    font-size: 0.9rem;
+    color: rgba(204, 204, 204, 0.6);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.85rem;
+  }
+
+  .gallery-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(247, 147, 26, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+    text-decoration: none;
+    transition:
+      border-color 0.3s ease,
+      transform 0.2s ease;
+  }
+
+  .gallery-item:hover {
+    border-color: rgba(247, 147, 26, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .gallery-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .gallery-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-item:hover .gallery-image img {
+    transform: scale(1.05);
+  }
+
+  .gallery-caption {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(204, 204, 204, 0.8);
+    line-height: 1.4;
+  }
+
+  /* Video */
+  .video-container {
+    max-width: 500px;
+  }
+
+  .video-container video {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+  }
+
+  .video-caption {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .video-caption a {
+    color: #f7931a;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .video-caption a:hover {
+    opacity: 0.8;
+  }
+  /* Manifesto quote */
+  .quote-section {
+    margin-bottom: 2rem;
+  }
+
+  .manifesto {
+    margin: 0;
+    padding: 2.5rem 3rem;
+    border-radius: 12px;
+    background: rgba(247, 147, 26, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.15);
+    border-top: 3px solid #f7931a;
+    text-align: center;
+  }
+
+  .manifesto-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #f7931a;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .manifesto p {
+    font-size: 0.92rem;
+    line-height: 2;
+    color: rgba(204, 204, 204, 0.8);
+    margin-bottom: 1.25rem;
+    font-style: italic;
+  }
+
+  .manifesto strong {
+    color: #f7931a;
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  .manifesto-author {
+    font-size: 0.9rem;
+    color: #f7931a;
+    font-weight: 600;
+    font-style: normal !important;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 567px) {
+    .manifesto {
+      padding: 1.5rem 1.25rem;
+    }
+  }
+  /* Back to top */
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 567px) {
+    .nav-buttons {
+      flex-direction: column;
+    }
+
+    .tools-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  }
+</style>

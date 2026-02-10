@@ -1,0 +1,260 @@
+---
+import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
+---
+
+<ResourcePageLayout 
+  title="Gendannelsesord / Seed Phrase" 
+  description="Forstå og sikre dine gendannelsesord til bitcoin"
+  lang="da"
+>
+  <section class="intro">
+    <p><strong>Gendannelsesord eller "Seed Phrase"</strong> er en række ord, der genererer en privat nøgle og bruges typisk som en backup. <a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki" target="_blank" rel="noopener noreferrer">BIP39</a> er en standard for generering af disse gendannelsesord og bruges til at generere og sikkerhedskopiere kryptografiske nøgler. Standarden definerer en metode til at konvertere en tilfældig sekvens af bytes til en liste med let huskbare ord, også kaldet mnemonic seed phrase. En typisk BIP39 mnemonic sætning består af 12, 15, 18, 21 eller 24 ord.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Sådan fungerer det</h2>
+    <ol class="process-list">
+      <li><strong>Tilfældig sekvens:</strong> En tilfældig sekvens af bytes (entropi) genereres først.</li>
+      <li><strong>Checksum:</strong> En kontrolsum beregnes ved hjælp af en hashfunktion (SHA-256) og tilføjes til entropien.</li>
+      <li><strong>Opdeling:</strong> Den kombinerede bitstreng opdeles i grupper af 11 bits, som hver repræsenterer et tal.</li>
+      <li><strong>Ordliste:</strong> Disse tal bruges som indekser til at slå op i en foruddefineret <a href="https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt" target="_blank" rel="noopener noreferrer">ordliste på 2048 ord</a>.</li>
+      <li><strong>Mnemonic sætning:</strong> De tilsvarende ord danner mnemonic sætningen.</li>
+    </ol>
+
+    <p>Mnemonic sætningen kan derefter bruges til at generere en <a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki" target="_blank" rel="noopener noreferrer">BIP32</a> master-nøgle og tilhørende nøgler og adresser. Denne standard giver en sikker og mere brugervenlig måde at sikkerhedskopiere og gendanne en bitcoin-tegnebog, da det er væsentligt nemmere at håndtere f.eks. 12 ord i en korrekt rækkefølge end det er at håndtere en BIP32 master-nøgle.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Eksempler</h2>
+    
+    <div class="example-box">
+      <p><strong>BIP32 master nøgle eksempel:</strong></p>
+      <code class="code-block">xprv9s21ZrQH143K2eyxu8x6wruSnz58hnRo2or4zZhVmAAHqMr6DqcJaAkeN91t2tWWaRX7YXoaxfSQD7arvnj3dhR3v45KM78mveNY3w8C3Q6</code>
+    </div>
+
+    <div class="example-box">
+      <p><strong>BIP39 mnemonic seed eksempel:</strong></p>
+      <code class="code-block">aacff76633d33040b70eff19108925364cd39dffd98ea510402d50ba28e28cff2bcf6c0a39505b8d11a71da707d27273320af600802526830f626e6e9480a5cf</code>
+    </div>
+
+    <div class="example-box">
+      <p><strong>BIP39 mnemonic ord eksempel:</strong></p>
+      <code class="code-block">bonus, oxygen, borrow, private, sight, income, panic, ethics, play, piano, wedding, edit</code>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Kort opsummering</h2>
+    <div class="summary-box">
+      <p><strong>Mnemonic:</strong> En brugervenlig rækkefølge af ord, der repræsenterer en privat nøgle på en let forståelig måde.</p>
+      <p><strong>Seed:</strong> En binær streng, der afledes fra mnemonic frasen og bruges til at generere hierarkiske deterministiske nøgler.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Generering af gendannelsesord</h2>
+    <p>Alle disse informationer som fremgår i eksemplerne er kritiske for sikkerheden af dine bitcoin, og det er meget vigtigt at andre ikke får kendskab til nogle af de informationer. Det anbefales derfor også at disse informationer aldrig er i berøring med enheder der har adgang til internettet. Ved at generere dine gendannelsesord med en <a href="/da/hardware-wallets">bitcoin tegnebog / hardware wallet</a> som udelukkende er konstrueret til det formål, opnår du god sikkerhed.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Opbevaring af gendannelsesord</h2>
+    <p>Som før nævnt er det meget vigtigt at disse informationer opbevares sikkert, hvilket også betyder at man ikke skal skrive dem ned på sin telefon eller computer osv. Dine gendannelsesord kan skrives ned på et — eller flere — stykker papir som evt. opbevares i en "manipulationssikret pose" på et sikkert sted. Papir er dog ikke den foretrukne løsning, da det nemt kan blive ødelagt ved oversvømmelse eller brand mv., så det anbefales at sikre denne information på jern eller titanium.</p>
+
+    <div class="recommendation-box">
+      <h3>Tinyseed</h3>
+      <p>En super god løsning er <a href="https://tinyseed.io/enogtyve" target="_blank" rel="noopener noreferrer">Tinyseed</a> som er en lille titaniumsplade der kan modstå de fleste tænkelige scenarier for ødelæggelse. Du kan læse en test af Tinyseed her: <a href="https://jlopp.github.io/metal-bitcoin-storage-reviews/reviews/tinyseed/" target="_blank" rel="noopener noreferrer">Tinyseed review af Jameson Lopp</a></p>
+      
+      <div class="promo-code">
+        <span class="promo-label">Rabatkode:</span>
+        <code>enogtyve</code>
+        <span class="promo-benefit">5% rabat hos Tinyseed.io</span>
+      </div>
+
+      <a href="https://tinyseed.io/enogtyve" class="cta-link" target="_blank" rel="noopener noreferrer">
+        Bestil Tinyseed her →
+      </a>
+    </div>
+  </section>
+
+  <a href="#" class="back-to-top">
+    ↑ Tilbage til toppen
+  </a>
+</ResourcePageLayout>
+
+<style>
+  .intro {
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .intro p {
+    color: var(--text-light);
+  }
+
+  .intro a {
+    color: var(--primary);
+  }
+
+  .content-section {
+    margin-bottom: 3rem;
+    line-height: 1.7;
+  }
+
+  .content-section h2 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .content-section p {
+    color: var(--text-light);
+    margin-bottom: var(--space-md);
+  }
+
+  .content-section a {
+    color: var(--primary);
+  }
+
+  .process-list {
+    color: var(--text-light);
+    padding-left: 1.5rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .process-list li {
+    margin-bottom: var(--space-sm);
+    line-height: 1.7;
+  }
+
+  .process-list a {
+    color: var(--primary);
+  }
+
+  .example-box {
+    background: var(--background-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+
+  .example-box p {
+    margin-bottom: var(--space-xs);
+  }
+
+  .code-block {
+    display: block;
+    background: rgba(0, 0, 0, 0.3);
+    padding: var(--space-sm);
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    color: var(--primary);
+    word-break: break-all;
+    line-height: 1.5;
+  }
+
+  .summary-box {
+    background: var(--background-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: var(--space-md);
+  }
+
+  .summary-box p {
+    margin-bottom: var(--space-sm);
+  }
+
+  .summary-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .recommendation-box {
+    background: var(--background-card);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: var(--space-lg);
+    margin-top: var(--space-lg);
+    transition: all 0.3s ease;
+  }
+
+  .recommendation-box:hover {
+    border-color: var(--primary);
+  }
+
+  .recommendation-box h3 {
+    color: var(--primary);
+    font-size: 1.3rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .recommendation-box p {
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  .recommendation-box a {
+    color: var(--primary);
+  }
+
+  .promo-code {
+    background: var(--background);
+    border: 1px solid var(--primary);
+    padding: var(--space-sm);
+    border-radius: 4px;
+    margin: var(--space-md) 0;
+  }
+
+  .promo-label {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-right: var(--space-xs);
+  }
+
+  .promo-code code {
+    background: var(--primary);
+    color: #000;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0 var(--space-xs);
+  }
+
+  .promo-benefit {
+    display: block;
+    color: var(--primary);
+    font-size: 0.85rem;
+    margin-top: var(--space-xs);
+  }
+
+  .cta-link {
+    display: inline-block;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: var(--space-sm);
+    transition: opacity 0.2s ease;
+  }
+
+  .cta-link:hover {
+    opacity: 0.7;
+  }
+
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+</style>

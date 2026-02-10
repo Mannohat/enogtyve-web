@@ -1,0 +1,296 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+
+const economies = [
+  { name: "Bitcoin Beach", location: "El Salvador", url: "https://www.bitcoinbeach.com/" },
+  { name: "Plan B Lugano", location: "Schweiz", url: "https://planb.lugano.ch/" },
+  { name: "Bitcoin Ekasi", location: "Sydafrika", url: "https://bitcoinekasi.com/" },
+  { name: "Bitcoin Witsand", location: "Sydafrika", url: "https://x.com/BitcoinWitsand" },
+  { name: "Bitcoin Jungle", location: "Costa Rica", url: "https://www.bitcoinjungle.app/" },
+  { name: "Bitcoin Lake", location: "Guatemala", url: "https://twitter.com/LakeBitcoin" },
+  { name: "Praia Bitcoin", location: "Brasilien", url: "https://praiabitcoin.org/?lang=en" },
+  { name: "Montanha Bitcoin", location: "Brasilien", url: "https://twitter.com/montanhabitcoin" },
+  { name: "Harlem Bitcoin", location: "New York, USA", url: "https://harlembitcoin.com/" },
+];
+
+const elSalvador = [
+  { name: "El Salvador BTC-porteføljetracker", url: "https://nayibtracker.com/" },
+  { name: "El Salvador, proof of reserves", url: "https://bitcoin.gob.sv/" },
+];
+---
+
+<ResourcePageLayout
+  title="Bitcoin cirkulære økonomier"
+  description="Steder i verden, hvor Bitcoin bruges som betalingsmiddel i hverdagen"
+  lang="da"
+>
+  <section class="content-section">
+    <p>Siden <a href="https://www.coindesk.com/markets/2020/05/22/10-years-after-laszlo-hanyecz-bought-pizza-with-10k-bitcoin-he-has-no-regrets/" target="_blank" rel="noopener noreferrer">Laszlo Hanyecz</a> købte 2 pizzaer for 10.000 bitcoin hos Papa John's den 22. maj 2010 – og altså foretog det første rigtige kendte køb, hvor betaling skete med Bitcoin – er Bitcoin i stigende grad blevet benyttet som betalingsmiddel.</p>
+
+    <p>I Berlin var der en bar, der hed <a href="https://room77.berlin/history/" target="_blank" rel="noopener noreferrer">Room 77</a>, som blev kendt for at være den første fysiske forretning, der modtog Bitcoin som betaling, tilbage i 2011. En af stamgæsterne udviklede dengang den første Bitcoin-wallet for Android, ligesom de besøgende Bitcoin-entusiaster forsøgte at få de omkringliggende butikker til at acceptere Bitcoin som betaling.</p>
+
+    <p>I dag er der større cirkulære økonomier, som f.eks. <a href="https://www.arnhembitcoinstad.nl/" target="_blank" rel="noopener noreferrer">Arnhem</a> – også kendt som "Bitcoin City" – i Holland, hvor du kan betale med Bitcoin hos mange af de lokale forretninger. I Italien er der en by ved navn Rovereto, som er blevet kendt som <a href="https://www.bitcoinvalley.eu/" target="_blank" rel="noopener noreferrer">Bitcoin Valley</a>. Her er en stor del af de forretningsdrivende villige til at acceptere Bitcoin, ligesom man angiveligt i en periode havde mulighed for at betale sin skat med Bitcoin.</p>
+
+    <p>Du kan også se et kort med alle de forretninger, hvor du kan betale med Bitcoin, på <a href="https://www.btcmap.org" target="_blank" rel="noopener noreferrer"><strong>BTCMap.org</strong></a>.</p>
+  </section>
+
+  <section class="category-section">
+    <h3 class="category-heading"><span class="category-icon">🌍</span> Cirkulære økonomier</h3>
+    <div class="economies-grid">
+      {economies.map((eco) => (
+        <a href={eco.url} target="_blank" rel="noopener noreferrer" class="economy-card">
+          <div class="economy-content">
+            <span class="economy-name">{eco.name}</span>
+            <span class="economy-location">{eco.location}</span>
+          </div>
+          <span class="economy-arrow">→</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="category-section">
+    <h3 class="category-heading"><span class="category-icon">🇸🇻</span> El Salvador & Bitcoin</h3>
+    <div class="economies-grid">
+      {elSalvador.map((link) => (
+        <a href={link.url} target="_blank" rel="noopener noreferrer" class="economy-card">
+          <div class="economy-content">
+            <span class="economy-name">{link.name}</span>
+          </div>
+          <span class="economy-arrow">→</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="category-section">
+    <h3 class="category-heading"><span class="category-icon">🎬</span> Film</h3>
+    <div class="film-card">
+      <img src="/images/content/dtd.jpeg" alt="Dare to Dream" class="film-image" />
+      <div class="film-content">
+        <h4 class="film-title">Dare to Dream</h4>
+        <p class="film-desc">En film om Bitcoin, El Salvador og Bitcoin Beach, El Zonte. Filmen fortæller historien om, hvordan et lokalsamfund blev forandret af Bitcoin.</p>
+        <div class="film-links">
+          <a href="https://daretodream-film.com/" target="_blank" rel="noopener noreferrer" class="film-cta">Dare to Dream →</a>
+          <a href="https://twitter.com/bitcoinbeachdoc" target="_blank" rel="noopener noreferrer" class="film-extra">Følg projektet på X →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
+</ResourcePageLayout>
+
+<style>
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section p {
+    margin-bottom: 0.75rem;
+  }
+
+  .content-section a {
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .content-section a:hover {
+    color: #f7931a;
+  }
+
+  /* Category sections */
+  .category-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .category-heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #f7931a;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(247, 147, 26, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .category-icon {
+    font-size: 1.1rem;
+  }
+
+  /* Economies grid */
+  .economies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .economy-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.15rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    text-decoration: none;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .economy-card:hover {
+    border-color: rgba(247, 147, 26, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .economy-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    flex: 1;
+  }
+
+  .economy-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-light, #ccc);
+  }
+
+  .economy-location {
+    font-size: 0.8rem;
+    color: rgba(204, 204, 204, 0.5);
+  }
+
+  .economy-arrow {
+    color: #f7931a;
+    font-size: 0.95rem;
+    opacity: 0.4;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .economy-card:hover .economy-arrow {
+    opacity: 1;
+  }
+
+  /* Film card */
+  .film-card {
+    display: flex;
+    gap: 1.5rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 12px;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .film-image {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .film-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .film-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-light, #ccc);
+    margin: 0;
+  }
+
+  .film-desc {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: rgba(204, 204, 204, 0.7);
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .film-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .film-cta {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(247, 147, 26, 0.12);
+    color: #f7931a;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .film-cta:hover {
+    background: rgba(247, 147, 26, 0.22);
+  }
+
+  .film-extra {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(204, 204, 204, 0.8);
+    font-size: 0.82rem;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid rgba(247, 147, 26, 0.1);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .film-extra:hover {
+    border-color: rgba(247, 147, 26, 0.3);
+    color: #f7931a;
+  }
+
+  /* Back to top */
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 567px) {
+    .economies-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .film-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .film-image {
+      width: 100%;
+      max-width: 250px;
+    }
+
+    .film-links {
+      justify-content: center;
+    }
+  }
+</style>

@@ -1,0 +1,240 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+
+const ways = [
+  {
+    number: "1",
+    title: "Bidrag med oversættelser",
+    desc: "Oversæt relevant Bitcoin-relateret materiale til dansk.",
+    icon: "🌐",
+  },
+  {
+    number: "2",
+    title: "Afhold en Bitcoin-meetup",
+    desc: "Tag initiativ til at afholde en Bitcoin-meetup i dit lokalområde.",
+    icon: "🤝",
+  },
+  {
+    number: "3",
+    title: "Deltag i debatten",
+    desc: "Tag del i debatten i de forskellige grupper samt podcasts mv.",
+    link: { label: "Se podcasts", url: "/da/podcasts" },
+    icon: "💬",
+  },
+  {
+    number: "4",
+    title: "Fortæl andre om ENOGTYVE",
+    desc: "Fortæl dine venner, familie og kollegaer om ENOGTYVE og hjælp dem med at blive klogere på Bitcoin.",
+    icon: "📣",
+  },
+  {
+    number: "5",
+    title: "Brug rabatkoder",
+    desc: 'Benyt referral links eller rabatkoden "ENOGTYVE", som nogle steder også vil give dig rabat.',
+    link: { label: "Se rabatter", url: "/da/rabat/" },
+    icon: "🎟️",
+  },
+  {
+    number: "6",
+    title: "Betal med Bitcoin",
+    desc: "Spørg om du kan betale med Bitcoin hos frisøren, kaffebaren eller på restauranten – og brug BTCMap.org til at finde og tilføje steder.",
+    link: {
+      label: "BTCMap.org",
+      url: "https://www.btcmap.org",
+      external: true,
+    },
+    icon: "💳",
+  },
+  {
+    number: "7",
+    title: "Bliv noderunner",
+    desc: "Noderunners kan slutte sig til Enogtyve-fællesskabet på Amboss.space.",
+    link: {
+      label: "Amboss.space",
+      url: "http://amboss.enogtyve.org",
+      external: true,
+    },
+    icon: "⚡",
+  },
+  {
+    number: "8",
+    title: "Tip nogle sats",
+    desc: "Send sats via Lightning eller on-chain.",
+    icon: "🧡",
+  },
+  {
+    number: "9",
+    title: "Udforsk danske initiativer",
+    desc: "Se en liste med danske Bitcoin-initiativer.",
+    link: {
+      label: "Bitcoin-initiativer i Danmark",
+      url: "/da/faellesskab/initiativer-danmark",
+    },
+    icon: "🇩🇰",
+  },
+  {
+    number: "10",
+    title: "Har du andre ideer?",
+    desc: "Send en e-mail til kontakt@enogtyve.org.",
+    link: {
+      label: "kontakt@enogtyve.org",
+      url: "mailto:kontakt@enogtyve.org",
+      external: true,
+    },
+    icon: "✉️",
+  },
+];
+---
+
+<ResourcePageLayout
+  title="Støt op om ENOGTYVE"
+  description="Hjælp andre med at lære om Bitcoin – her er 10 måder du kan støtte op"
+  lang="da"
+>
+  <section class="content-section">
+    <p>
+      Hvis du ønsker at støtte op om ENOGTYVE samt hjælpe andre med at lære om
+      Bitcoin, så finder du herunder ideer til forskellige måder, hvorpå du kan
+      gøre dette.
+    </p>
+  </section>
+
+  <section class="ways-grid">
+    {
+      ways.map((way) => (
+        <div class="way-card">
+          <div class="way-header">
+            <span class="way-icon">{way.icon}</span>
+            <span class="way-number">{way.number}</span>
+          </div>
+          <h3 class="way-title">{way.title}</h3>
+          <p class="way-desc">{way.desc}</p>
+          {way.link && (
+            <a
+              href={way.link.url}
+              target={way.link.external ? "_blank" : undefined}
+              rel={way.link.external ? "noopener noreferrer" : undefined}
+              class="way-link"
+            >
+              {way.link.label} →
+            </a>
+          )}
+        </div>
+      ))
+    }
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
+</ResourcePageLayout>
+
+<style>
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section p {
+    margin-bottom: 0.75rem;
+  }
+
+  /* Ways grid */
+  .ways-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.85rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .way-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.15rem 1.25rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    transition:
+      border-color 0.3s ease,
+      transform 0.2s ease;
+  }
+
+  .way-card:hover {
+    border-color: rgba(247, 147, 26, 0.35);
+    transform: translateY(-2px);
+  }
+
+  .way-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .way-icon {
+    font-size: 1.3rem;
+  }
+
+  .way-number {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #f7931a;
+    background: rgba(247, 147, 26, 0.1);
+    width: 1.6rem;
+    height: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .way-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-light, #ccc);
+    margin: 0.15rem 0 0 0;
+  }
+
+  .way-desc {
+    font-size: 0.83rem;
+    line-height: 1.6;
+    color: rgba(204, 204, 204, 0.6);
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .way-link {
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #f7931a;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .way-link:hover {
+    opacity: 0.75;
+  }
+
+  /* Back to top */
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 567px) {
+    .ways-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

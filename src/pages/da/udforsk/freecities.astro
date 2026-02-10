@@ -1,0 +1,353 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+
+const established = [
+  {
+    name: "Ciudad Morazán",
+    type: "Special Administrative Region",
+    location: "Honduras",
+    desc: "En zone for økonomisk udvikling og beskæftigelse med fokus på sikkerhed, stabilitet og livskvalitet for honduranere og udlændinge.",
+    url: "https://free-communities.org/project/ciudad-morazan/",
+  },
+  {
+    name: "Próspera",
+    type: "Special Administrative Region",
+    location: "Honduras",
+    desc: "En honduransk zone for økonomisk udvikling, designet som en \"platform for velstand\" med innovativ governance og regulering.",
+    url: "https://free-communities.org/project/prospera/",
+  },
+  {
+    name: "Free State Project",
+    type: "Intentional Community",
+    location: "New Hampshire, USA",
+    desc: "En bevægelse der opfordrer frihedsorienterede amerikanere til at flytte til New Hampshire for at skabe en friere jurisdiktion.",
+    url: "https://free-communities.org/project/free-state-project/",
+  },
+  {
+    name: "Liberstad",
+    type: "Intentional Community",
+    location: "Norge",
+    desc: "Et fjerntliggende settlement i Norge, der udvikler innovativ infrastruktur for sin egen interne økonomi – med mål om at blive en privat by.",
+    url: "https://free-communities.org/project/liberstad/",
+  },
+  {
+    name: "Montelibero",
+    type: "Intentional Community",
+    location: "Montenegro",
+    desc: "Startet af et fællesskab af libertarianske expats, med mål om at være et forbillede for frihed i praksis.",
+    url: "https://free-communities.org/project/montelibero/",
+  },
+  {
+    name: "Free Commune of Penadexo",
+    type: "Intentional Community",
+    location: "Spanien",
+    desc: "Et græsrodsprojekt, der bygger et frihedsorienteret fællesskab ved at renovere en af Spaniens forladte historiske landsbyer.",
+    url: "https://free-communities.org/project/penadexo/",
+  },
+  {
+    name: "Sark",
+    type: "Self-Governing Territory",
+    location: "Kanaløerne, UK",
+    desc: "En selvstyrende ø – et autonomt levn fra en svunden tid med unik governance-struktur.",
+    url: "https://free-communities.org/project/sark/",
+  },
+  {
+    name: "Small Farm Cities",
+    type: "Intentional Community",
+    location: "Flere lande",
+    desc: "Et bottom-up-initiativ, der hjælper lokalbefolkninger med at opnå social mobilitet i nogle af verdens fattigste regioner.",
+    url: "https://free-communities.org/project/small-farm-cities/",
+  },
+];
+
+const preparation = [
+  {
+    name: "Liberland",
+    location: "Mellem Kroatien og Serbien",
+    desc: "Grundlagt på et uopdyrket stykke land i hjertet af Europa med ambitioner om at blive verdens nyeste mikrostat.",
+    url: "https://free-communities.org/project/liberland/",
+  },
+  {
+    name: "Atlas Island",
+    location: "Seastead",
+    desc: "Et projekt, der håber på at vokse fra et online-fællesskab til en autonom seastead.",
+    url: "https://free-communities.org/project/atlas-island/",
+  },
+  {
+    name: "CryptoCity",
+    location: "Global",
+    desc: "Et projekt rettet mod iværksættere og erhvervsfolk med det formål at skabe det perfekte globale netværksfællesskab.",
+    url: "https://free-communities.org/project/cryptocity/",
+  },
+  {
+    name: "Freeth'm",
+    location: "Global",
+    desc: "Et projekt, der sigter mod at bygge et verdensomspændende netværk af små, selvforsynende byer for frihedssøgende.",
+    url: "https://free-communities.org/project/freethm/",
+  },
+  {
+    name: "Los Propietarios",
+    location: "Argentina",
+    desc: "Et fællesskab, der sigter mod at bygge en by med 10.000 libertarianske anarkister i Argentina.",
+    url: "https://free-communities.org/project/los-propietarios/",
+  },
+  {
+    name: "Veritas Villages",
+    location: "Costa Rica & Panama",
+    desc: "Et netværk af off-grid fællesskaber med fokus på bæredygtig livsstil i smuk og harmonisk natur.",
+    url: "https://free-communities.org/project/coronado/",
+  },
+];
+
+const resources = [
+  { name: "Free Cities Foundation", url: "https://free-cities.org", desc: "Organisationen bag Free Communities Directory" },
+  { name: "Free Communities Directory", url: "https://free-communities.org/", desc: "Kort og oversigt over alle projekter" },
+  { name: "Free Communities – Kort", url: "https://free-communities.org/#exploremap", desc: "Interaktivt kort over frie fællesskaber" },
+];
+---
+
+<ResourcePageLayout
+  title="Free Cities"
+  description="Frie byer og fællesskaber rundt omkring i verden – alternative governance-modeller og frihedsorienterede projekter"
+  lang="da"
+>
+  <section class="content-section">
+    <p>Rundt omkring i verden findes der et stigende antal projekter, der stræber efter at give deres beboere større individuel frihed – ofte ved at anvende innovative og alternative governance-modeller. Disse projekter bidrager til diversificeringen af det, man kan kalde "markedet for at leve sammen" – det største og vigtigste marked i verden.</p>
+    <p>Oplysningerne herunder er samlet fra <a href="https://free-communities.org/" target="_blank" rel="noopener noreferrer"><strong>Free Communities Directory</strong></a>, som vedligeholdes af <a href="https://free-cities.org" target="_blank" rel="noopener noreferrer">Free Cities Foundation</a>.</p>
+  </section>
+
+  <section class="category-section">
+    <h3 class="category-heading"><span class="category-icon">🏛️</span> Etablerede projekter</h3>
+    <div class="projects-grid">
+      {established.map((proj) => (
+        <a href={proj.url} target="_blank" rel="noopener noreferrer" class="project-card">
+          <div class="project-header">
+            <span class="project-name">{proj.name}</span>
+            <span class="project-type">{proj.type}</span>
+          </div>
+          <p class="project-desc">{proj.desc}</p>
+          <span class="project-location">📍 {proj.location}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="category-section">
+    <h3 class="category-heading"><span class="category-icon">🚧</span> Projekter under forberedelse</h3>
+    <div class="projects-grid">
+      {preparation.map((proj) => (
+        <a href={proj.url} target="_blank" rel="noopener noreferrer" class="project-card preparation">
+          <div class="project-header">
+            <span class="project-name">{proj.name}</span>
+          </div>
+          <p class="project-desc">{proj.desc}</p>
+          <span class="project-location">📍 {proj.location}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="category-section">
+    <h3 class="category-heading"><span class="category-icon">🔗</span> Ressourcer</h3>
+    <div class="links-grid">
+      {resources.map((link) => (
+        <a href={link.url} target="_blank" rel="noopener noreferrer" class="link-card">
+          <div class="link-content">
+            <span class="link-name">{link.name}</span>
+            <span class="link-desc">{link.desc}</span>
+          </div>
+          <span class="link-arrow">→</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
+</ResourcePageLayout>
+
+<style>
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section p {
+    margin-bottom: 0.75rem;
+  }
+
+  .content-section a {
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .content-section a:hover {
+    color: #f7931a;
+  }
+
+  /* Category sections */
+  .category-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .category-heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #f7931a;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(247, 147, 26, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .category-icon {
+    font-size: 1.1rem;
+  }
+
+  /* Project cards grid */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.85rem;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.15rem 1.25rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    text-decoration: none;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .project-card:hover {
+    border-color: rgba(247, 147, 26, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .project-card.preparation {
+    border-style: dashed;
+  }
+
+  .project-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .project-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-light, #ccc);
+  }
+
+  .project-type {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #f7931a;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .project-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(204, 204, 204, 0.6);
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .project-location {
+    font-size: 0.78rem;
+    color: rgba(204, 204, 204, 0.45);
+    font-weight: 600;
+    margin-top: 0.25rem;
+  }
+
+  /* Links grid */
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .link-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.15rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    text-decoration: none;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .link-card:hover {
+    border-color: rgba(247, 147, 26, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .link-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    flex: 1;
+  }
+
+  .link-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-light, #ccc);
+  }
+
+  .link-desc {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: rgba(204, 204, 204, 0.5);
+  }
+
+  .link-arrow {
+    color: #f7931a;
+    font-size: 0.95rem;
+    opacity: 0.4;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .link-card:hover .link-arrow {
+    opacity: 1;
+  }
+
+  /* Back to top */
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 567px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .links-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

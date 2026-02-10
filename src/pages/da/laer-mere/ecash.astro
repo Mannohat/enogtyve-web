@@ -1,0 +1,189 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+---
+
+<ResourcePageLayout
+  title="eCash"
+  description="Oversigt over eCash-ressourcer, wallets, værktøjer og mints"
+  lang="da"
+>
+  <section class="content-section">
+    <p>
+      <strong>Siden er under opbygning</strong> – herunder en liste med links til
+      relevante eCash-ressourcer, der løbende opdateres.
+    </p>
+    <p>
+      Lær mere om eCash her:
+      <a href="https://cashu.space/" target="_blank" rel="noopener noreferrer">
+        Cashu.space
+      </a>
+    </p>
+    <p>
+      Liste med eCash-projekter findes her:
+      <a href="https://docs.cashu.space/projects" target="_blank" rel="noopener noreferrer">
+        docs.cashu.space/projects
+      </a>
+    </p>
+  </section>
+
+  <section class="category-section">
+    <h2>eCash Faucet</h2>
+    <div class="links-grid">
+      <a href="https://www.gandlaf.com/faucet/anarchy" class="link-card" target="_blank" rel="noopener noreferrer">
+        <span class="link-card-title">gandlaf.com/faucet/anarchy</span>
+        <span class="link-card-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="category-section">
+    <h2>eCash Wallets</h2>
+    <div class="links-grid">
+      <a href="https://www.enuts.cash/" class="link-card" target="_blank" rel="noopener noreferrer">
+        <span class="link-card-title">eNuts.cash</span>
+        <span class="link-card-arrow">→</span>
+      </a>
+      <a href="https://wallet.cashu.me/" class="link-card" target="_blank" rel="noopener noreferrer">
+        <span class="link-card-title">Cashu.me</span>
+        <span class="link-card-arrow">→</span>
+      </a>
+      <a href="https://nutstash.app/" class="link-card" target="_blank" rel="noopener noreferrer">
+        <span class="link-card-title">Nutstash.app</span>
+        <span class="link-card-arrow">→</span>
+      </a>
+      <a href="https://www.minibits.cash/" class="link-card" target="_blank" rel="noopener noreferrer">
+        <span class="link-card-title">Minibits.cash</span>
+        <span class="link-card-note">(Android)</span>
+        <span class="link-card-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="category-section">
+    <h2>eCash-værktøjer</h2>
+    <div class="links-grid">
+      <a href="https://proxnut.com/" class="link-card" target="_blank" rel="noopener noreferrer">
+        <span class="link-card-title">Proxnut.com</span>
+        <span class="link-card-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="category-section">
+    <h2>Mints</h2>
+    <div class="links-grid">
+      <a href="https://cashumints.space/" class="link-card" target="_blank" rel="noopener noreferrer">
+        <span class="link-card-title">CashuMints.space</span>
+        <span class="link-card-arrow">→</span>
+      </a>
+      <a href="https://bitcoinmints.com/?tab=mints" class="link-card" target="_blank" rel="noopener noreferrer">
+        <span class="link-card-title">Bitcoinmints.com</span>
+        <span class="link-card-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
+</ResourcePageLayout>
+
+<style>
+  /* Content sections */
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section p {
+    margin-bottom: 1rem;
+  }
+
+  .content-section a {
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .content-section a:hover {
+    color: #f7931a;
+  }
+
+  /* Category sections */
+  .category-section {
+    margin-bottom: 2rem;
+  }
+
+  .category-section h2 {
+    color: var(--primary, #f7931a);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-md, 1rem);
+    padding-bottom: var(--space-sm, 0.5rem);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  /* Links grid */
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--space-md, 1rem);
+  }
+
+  .link-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(247, 147, 26, 0.15);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .link-card:hover {
+    background: rgba(247, 147, 26, 0.08);
+    border-color: var(--primary, #f7931a);
+    transform: translateY(-3px);
+  }
+
+  .link-card-title {
+    color: var(--text-light, #ccc);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .link-card-note {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    margin-left: 0.5rem;
+  }
+
+  .link-card-arrow {
+    color: #f7931a;
+    font-size: 1.1rem;
+    margin-left: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  /* Back to top */
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 567px) {
+    .links-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

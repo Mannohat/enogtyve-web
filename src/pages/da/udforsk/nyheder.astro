@@ -1,0 +1,155 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+
+const sources = [
+  { name: "No Bullshit Bitcoin", url: "https://www.nobsbitcoin.com", desc: "Nyheder uden støj – kun Bitcoin" },
+  { name: "Stacker News", url: "https://stacker.news/", desc: "Fællesskabsdrevet nyhedsplatform med Lightning-integration" },
+  { name: "Bitcoinnews.com", url: "https://bitcoinnews.com/", desc: "Daglige Bitcoin-nyheder" },
+  { name: "Bitcoin Magazine", url: "https://bitcoinmagazine.com/", desc: "En af de ældste og mest etablerede Bitcoin-nyhedskilder" },
+];
+---
+
+<ResourcePageLayout
+  title="Nyheder"
+  description="Bitcoin-nyhedskilder"
+  lang="da"
+>
+  <section class="nav-buttons">
+    <a href="/da/blog/" class="nav-btn">Enogtyve blog</a>
+    <a href="/da/podcasts/" class="nav-btn">Podcasts</a>
+    <a href="/da/kom-igang/" class="nav-btn">Kom i gang med Bitcoin</a>
+  </section>
+
+  <section class="content-section">
+    <p>Herunder finder du nogle af de bedste engelsksprogede Bitcoin-only-nyhedskilder.</p>
+  </section>
+
+  <section class="sources-grid">
+    {sources.map((item) => (
+      <a href={item.url} target="_blank" rel="noopener noreferrer" class="source-card">
+        <span class="source-name">{item.name}</span>
+        <span class="source-desc">{item.desc}</span>
+        <span class="source-arrow">→</span>
+      </a>
+    ))}
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
+</ResourcePageLayout>
+
+<style>
+  .nav-buttons {
+    display: flex;
+    gap: var(--space-md, 1rem);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-btn {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    background-color: #f7931a;
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 1px solid #f7931a;
+    transition: all 0.3s ease;
+  }
+
+  .nav-btn:hover {
+    background-color: transparent;
+    color: #f7931a;
+  }
+
+  .content-section {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section p {
+    margin-bottom: 0.75rem;
+  }
+
+  .sources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.85rem;
+    margin-bottom: 2rem;
+  }
+
+  .source-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.1rem 1.2rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    text-decoration: none;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+    position: relative;
+  }
+
+  .source-card:hover {
+    border-color: rgba(247, 147, 26, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .source-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-light, #ccc);
+    padding-right: 1.5rem;
+  }
+
+  .source-desc {
+    font-size: 0.83rem;
+    line-height: 1.5;
+    color: rgba(204, 204, 204, 0.6);
+    padding-right: 1.5rem;
+  }
+
+  .source-arrow {
+    position: absolute;
+    top: 1.1rem;
+    right: 1rem;
+    color: #f7931a;
+    font-size: 0.95rem;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+  }
+
+  .source-card:hover .source-arrow {
+    opacity: 1;
+  }
+
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 567px) {
+    .nav-buttons {
+      flex-direction: column;
+    }
+
+    .sources-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

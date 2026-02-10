@@ -9,87 +9,221 @@ const sortedPosts = blogPosts.sort((a, b) =>
 ---
 
 <BaseLayout title="Blog" lang="da">
-  <div class="container">
-    <h1>Blog</h1>
-    <p class="subtitle">Artikler og guides om Bitcoin</p>
+  <div class="blog-page">
+    <div class="container">
+      <header class="page-header">
+        <h1>Blog</h1>
+        <p class="intro">Indlæg fra forskellige danske Bitcoinere.</p>
+        <p class="subtitle">Har du selv lavet et projekt, skrevet en guide eller artikel som relaterer til Bitcoin som du mener andre kan få glæde af, så få den publiceret her - eller et andet sted på Enogtyve.org</p>
+      </header>
 
-    <div class="posts-grid">
-      {sortedPosts.map(post => (
-        <article class="post-card">
-          <a href={`/da/blog/${post.slug.replace('da/', '')}`}>
-            <h2>{post.data.title}</h2>
-            <p class="description">{post.data.description}</p>
-            <div class="meta">
-              <span class="author">{post.data.author}</span>
-              <span class="date">{new Date(post.data.pubDate).toLocaleDateString('da-DK')}</span>
-            </div>
-          </a>
-        </article>
-      ))}
+      <div class="posts-grid">
+        {sortedPosts.map(post => (
+          <article class="post-card">
+            <a href={`/da/blog/${post.slug.replace('da/', '')}`} class="card-link">
+              <h2>{post.data.title}</h2>
+              <p class="description">{post.data.description}</p>
+              
+              {post.data.tags && post.data.tags.length > 0 && (
+                <div class="tags">
+                  {post.data.tags.slice(0, 3).map(tag => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </div>
+              )}
+              
+              <div class="meta">
+                <span class="author">{post.data.author}</span>
+                <span class="separator">•</span>
+                <span class="date">{new Date(post.data.pubDate).toLocaleDateString('da-DK', { 
+                  year: 'numeric', 
+                  month: 'long', 
+                  day: 'numeric' 
+                })}</span>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+
+      {sortedPosts.length === 0 && (
+        <div class="no-posts">
+          <p>Der er ingen blog posts endnu. Kom snart tilbage!</p>
+        </div>
+      )}
+
+      <div class="external-links">
+        <p>Se også: <a href="https://europeanbitcoiners.com/tag/dan/" target="_blank" rel="noopener noreferrer">European Bitcoiners Danske side</a></p>
+      </div>
     </div>
   </div>
 </BaseLayout>
 
 <style>
+  .blog-page {
+    min-height: 60vh;
+  }
+
   .container {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+
+  .page-header {
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    border-bottom: 2px solid var(--border);
   }
 
   h1 {
     color: var(--primary);
     font-size: 2.5rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .intro {
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.8;
     margin-bottom: var(--space-sm);
   }
 
   .subtitle {
     color: var(--text-light);
-    font-size: 1.25rem;
-    margin-bottom: var(--space-lg);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin: 0;
   }
 
   .posts-grid {
     display: grid;
-    gap: var(--space-md);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
   }
 
   .post-card {
     background: var(--background-card);
-    border: 1px solid var(--border);
+    border: 2px solid var(--border);
     border-radius: 8px;
-    padding: var(--space-md);
+    padding: var(--space-lg);
     transition: all 0.3s ease;
   }
 
   .post-card:hover {
     border-color: var(--primary);
-    transform: translateX(4px);
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(247, 147, 26, 0.2);
   }
 
-  .post-card a {
+  .card-link {
     text-decoration: none;
+    display: block;
   }
 
   .post-card h2 {
     color: var(--text);
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin-bottom: var(--space-sm);
+    line-height: 1.3;
+    transition: color 0.2s ease;
+  }
+
+  .post-card:hover h2 {
+    color: var(--primary);
   }
 
   .description {
     color: var(--text-light);
-    margin-bottom: var(--space-sm);
-    line-height: 1.6;
+    margin-bottom: var(--space-md);
+    line-height: 1.8;
+    font-size: 1rem;
+  }
+
+  .tags {
+    display: flex;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    background: rgba(247, 147, 26, 0.1);
+    color: var(--primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(247, 147, 26, 0.3);
   }
 
   .meta {
     display: flex;
+    align-items: center;
     gap: var(--space-sm);
     font-size: 0.9rem;
     color: var(--text-light);
   }
 
   .author {
-    font-weight: bold;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .separator {
+    opacity: 0.5;
+  }
+
+  .date {
+    font-style: italic;
+  }
+
+  .no-posts {
+    text-align: center;
+    padding: var(--space-xl);
+    background: var(--background-card);
+    border-radius: 8px;
+    border: 2px solid var(--border);
+  }
+
+  .no-posts p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+  }
+
+  .external-links {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .external-links p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .external-links a {
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .external-links a:hover {
+    color: var(--primary);
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    .post-card {
+      padding: var(--space-md);
+    }
+
+    .post-card h2 {
+      font-size: 1.4rem;
+    }
   }
 </style>

@@ -1,56 +1,74 @@
+---
+import { getCollection } from "astro:content";
+
+const blogPosts = await getCollection("blog", ({ id }) => id.startsWith("da/"));
+const latestPosts = blogPosts
+	.sort(
+		(a, b) =>
+			new Date(b.data.pubDate).getTime() -
+			new Date(a.data.pubDate).getTime(),
+	)
+	.slice(0, 3);
+---
+
 <section class="content-showcase">
 	<div class="showcase-grid">
 		<div class="showcase-box featured-news">
 			<div class="box-header">
-				<h3>🎯 Seneste Nyt</h3>
-				<span class="box-badge">Live</span>
+				<h3>📝 Seneste Blog Posts</h3>
+				<span class="box-badge">Blog</span>
 			</div>
 			<div class="box-content">
-				<div class="news-item placeholder">
-					<div class="news-date">DD/MM/ÅÅÅÅ</div>
-					<div class="news-title">Overskrift kommer her</div>
-					<div class="news-excerpt">Kort beskrivelse af nyheden...</div>
-				</div>
-				<div class="news-item placeholder">
-					<div class="news-date">DD/MM/ÅÅÅÅ</div>
-					<div class="news-title">Endnu en spændende nyhed</div>
-					<div class="news-excerpt">Mere indhold på vej...</div>
-				</div>
-				<div class="news-item placeholder">
-					<div class="news-date">DD/MM/ÅÅÅÅ</div>
-					<div class="news-title">Fællesskabsopdatering</div>
-					<div class="news-excerpt">Stay tuned for mere...</div>
-				</div>
+				{
+					latestPosts.map((post) => {
+						const slug = post.slug.replace("da/", "");
+						const date = new Date(
+							post.data.pubDate,
+						).toLocaleDateString("da-DK", {
+							day: "2-digit",
+							month: "2-digit",
+							year: "numeric",
+						});
+						return (
+							<a href={`/da/blog/${slug}`} class="news-item">
+								<div class="news-date">{date}</div>
+								<div class="news-title">{post.data.title}</div>
+								<div class="news-excerpt">
+									{post.data.description}
+								</div>
+							</a>
+						);
+					})
+				}
 			</div>
 		</div>
 
-		<div class="showcase-box community-pulse">
+		<div class="showcase-box upcoming-events">
 			<div class="box-header">
-				<h3>⚡ Community Puls</h3>
+				<h3>📅 Kommende Events</h3>
 			</div>
 			<div class="box-content">
-				<div class="pulse-stats">
-					<div class="pulse-item">
-						<div class="pulse-icon">💬</div>
-						<div class="pulse-info">
-							<div class="pulse-number">—</div>
-							<div class="pulse-label">Kommentarer i dag</div>
+				<div class="event-list">
+					<a href="https://meetup.enogtyve.org" target="_blank" rel="noopener noreferrer" class="event-item">
+						<div class="event-date-block">
+							<div class="event-day">21</div>
+							<div class="event-month">HVER MD.</div>
 						</div>
-					</div>
-					<div class="pulse-item">
-						<div class="pulse-icon">👥</div>
-						<div class="pulse-info">
-							<div class="pulse-number">—</div>
-							<div class="pulse-label">Aktive brugere</div>
+						<div class="event-details">
+							<div class="event-title">Meetup Café Kodan</div>
+							<div class="event-time">Den 21. kl. 19:00 i hver måned</div>
 						</div>
-					</div>
-					<div class="pulse-item">
-						<div class="pulse-icon">🔥</div>
-						<div class="pulse-info">
-							<div class="pulse-number">—</div>
-							<div class="pulse-label">Hot topics</div>
+					</a>
+					<a href="https://www.bitcoincopenhagen.dk" target="_blank" rel="noopener noreferrer" class="event-item">
+						<div class="event-date-block">
+							<div class="event-day">21</div>
+							<div class="event-month">MARTS</div>
 						</div>
-					</div>
+						<div class="event-details">
+							<div class="event-title">Bitcoin Copenhagen</div>
+							<div class="event-time">Heldags konference · Marskensgade 7, København Ø</div>
+						</div>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -79,43 +97,17 @@
 				</div>
 			</div>
 		</div>
-
-		<div class="showcase-box upcoming-events">
-			<div class="box-header">
-				<h3>📅 Kommende Events</h3>
-			</div>
-			<div class="box-content">
-				<div class="event-list">
-					<div class="event-item placeholder">
-						<div class="event-date-block">
-							<div class="event-day">—</div>
-							<div class="event-month">MÅN</div>
-						</div>
-						<div class="event-details">
-							<div class="event-title">Event titel kommer her</div>
-							<div class="event-time">00:00 - 00:00</div>
-						</div>
-					</div>
-					<div class="event-item placeholder">
-						<div class="event-date-block">
-							<div class="event-day">—</div>
-							<div class="event-month">MÅN</div>
-						</div>
-						<div class="event-details">
-							<div class="event-title">Næste meetup</div>
-							<div class="event-time">00:00 - 00:00</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
 </section>
 
 <style>
 	.content-showcase {
 		padding: clamp(2.5rem, 6vh, 4rem) 0;
-		background: linear-gradient(180deg, transparent 0%, rgba(247, 147, 26, 0.02) 100%);
+		background: linear-gradient(
+			180deg,
+			transparent 0%,
+			rgba(247, 147, 26, 0.02) 100%
+		);
 	}
 
 	.showcase-grid {
@@ -140,6 +132,11 @@
 		border-color: rgba(247, 147, 26, 0.3);
 		transform: translateY(-4px);
 		box-shadow: 0 8px 24px rgba(247, 147, 26, 0.15);
+	}
+
+	.showcase-box.upcoming-events:hover {
+		transform: none;
+		box-shadow: none;
 	}
 
 	.box-header {
@@ -173,14 +170,24 @@
 		padding: 1.25rem;
 	}
 
-	.news-item {
-		padding: 0.85rem 0;
+	/* News items */
+	a.news-item {
+		text-decoration: none;
+		color: inherit;
+		display: block;
+		padding: 0.85rem;
+		margin: 0 -0.85rem;
 		border-bottom: 1px solid rgba(247, 147, 26, 0.08);
+		border-radius: 8px;
+		transition: background 0.2s ease;
 	}
 
-	.news-item:last-child {
+	a.news-item:last-child {
 		border-bottom: none;
-		padding-bottom: 0;
+	}
+
+	a.news-item:hover {
+		background: rgba(247, 147, 26, 0.05);
 	}
 
 	.news-date {
@@ -204,44 +211,7 @@
 		line-height: 1.4;
 	}
 
-	.pulse-stats {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-	}
-
-	.pulse-item {
-		display: flex;
-		align-items: center;
-		gap: 0.85rem;
-		padding: 0.85rem;
-		background: rgba(247, 147, 26, 0.05);
-		border-radius: 10px;
-		border: 1px solid rgba(247, 147, 26, 0.1);
-	}
-
-	.pulse-icon {
-		font-size: 1.75rem;
-		line-height: 1;
-	}
-
-	.pulse-info {
-		flex: 1;
-	}
-
-	.pulse-number {
-		font-size: 1.35rem;
-		font-weight: 700;
-		color: var(--primary);
-		line-height: 1;
-		margin-bottom: 0.25rem;
-	}
-
-	.pulse-label {
-		font-size: 0.8rem;
-		color: var(--text-light);
-	}
-
+	/* Trending */
 	.trending-list {
 		display: flex;
 		flex-direction: column;
@@ -276,6 +246,7 @@
 		color: var(--text-light);
 	}
 
+	/* Events */
 	.event-list {
 		display: flex;
 		flex-direction: column;
@@ -289,6 +260,19 @@
 		background: rgba(247, 147, 26, 0.03);
 		border-radius: 10px;
 		border: 1px solid rgba(247, 147, 26, 0.1);
+	}
+
+	a.event-item {
+		text-decoration: none;
+		color: inherit;
+		transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	a.event-item:hover {
+		border-color: rgba(247, 147, 26, 0.35);
+		background: rgba(247, 147, 26, 0.06);
+		transform: translateY(-3px);
+		box-shadow: 0 6px 16px rgba(247, 147, 26, 0.15);
 	}
 
 	.event-date-block {

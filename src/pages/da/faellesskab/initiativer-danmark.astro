@@ -1,0 +1,399 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+
+const categories = [
+  {
+    title: "Podcasts",
+    icon: "🎙️",
+    items: [
+      { name: "Lad os snakke om Bitcoin", url: "https://www.enogtyve.org/podcasts/", info: "Enogtyve-podcastserie tilgængelig på de fleste podcasttjenester", support: "barekev@walletofsatoshi.com" },
+      { name: "Den Orange Tråd", url: "https://www.youtube.com/watch?v=v1TFbUbQeD8", info: "Dansk Bitcoin-podcast", support: "barekev@walletofsatoshi.com" },
+    ]
+  },
+  {
+    title: "Online læring",
+    icon: "📚",
+    items: [
+      { name: "YouTube-kanalen \"Barekev\"", url: "https://www.youtube.com/@barekev", info: "Dansk Bitcoin-only YouTube-kanal", support: "barekev@walletofsatoshi.com" },
+      { name: "Barekev.dk", url: "https://www.barekev.dk", info: "Dansk hjemmeside med forskelligt Bitcoin-relateret indhold", support: "barekev@walletofsatoshi.com" },
+      { name: "Bitcoinskolen.net", url: "https://www.bitcoinskolen.net", info: "Bitcoinskolens mission er at informere om og undervise dig i Bitcoin, så du selv kan træffe dine egne valg på et oplyst grundlag", support: "" },
+      { name: "Instagramprofilen \"BitcoinDK\"", url: "https://www.instagram.com/bitcoindk", info: "Berører forskellige emner ved Bitcoin på dansk gennem slideshows og visualisering", support: "barekev@walletofsatoshi.com" },
+    ]
+  },
+  {
+    title: "Oversættelser",
+    icon: "🌐",
+    items: [
+      { name: "Bitcoin Standarden på dansk", url: "https://www.bitcoinstandarden.dk", info: "Saifedeans \"The Bitcoin Standard\" oversat til dansk", support: "" },
+      { name: "21 Lessons på dansk", url: "https://www.shop21.dk", info: "Gigis \"21 Lessons\" oversat til dansk", support: "" },
+      { name: "Mempool.space på dansk", url: "https://www.mempool.space", info: "Den nok mest brugte Bitcoin-blokkædeudforsker oversat til dansk", support: "" },
+      { name: "Blink Wallet på dansk", url: "https://www.blink.sv", info: "En utrolig nem og brugervenlig Bitcoin-lommebog med et stort udvalg af funktioner, oversat til dansk", support: "slybtc@getalby.com" },
+      { name: "Gigis \"Kære familie, kære venner\"", url: "https://archive.ph/P6uNk", info: "Gigis \"Dear family, dear friends\" oversat til dansk", support: "" },
+    ]
+  },
+  {
+    title: "Bøger & materiale",
+    icon: "📖",
+    items: [
+      { name: "Hvorfor Bitcoin?", url: "https://drive.google.com/file/d/1APSqzg21MjnejallrKeRf16BB1OqLZwz/view", info: "En lille dansk håndbog om, hvordan Bitcoin som ny teknologi kan hjælpe verden, klimaet, samfundet og dig og din families fremtid", support: "" },
+      { name: "Bitcoin-folder", url: "https://www.enogtyve.org/wp-content/uploads/2024/04/21-HURTIGE.pdf", info: "En folder med 21 hurtige forklaringer og svar vedrørende Bitcoin", support: "barekev@walletofsatoshi.com" },
+      { name: "En verden med faldende priser", url: "https://www.enogtyve.org/2023/10/04/en-verden-med-faldende-priser/", info: "Blogindlæg, der kommer omkring en række udfordringer sammen med en introduktion til, hvorledes Bitcoin kan være løsningen", support: "barekev@walletofsatoshi.com" },
+    ]
+  },
+  {
+    title: "Opslagsværker",
+    icon: "🔍",
+    items: [
+      { name: "Ord & Begreber", url: "/da/ressourcer/begreber-ord/", info: "Ordliste for Bitcoin- og økonomibegreber på dansk", support: "" },
+    ]
+  },
+  {
+    title: "Webshops",
+    icon: "🛒",
+    items: [
+      { name: "Shop21.dk", url: "https://www.shop21.dk/?ref=enogtyve.org", info: "Danske bøger om Bitcoin og frihed mv.", support: "" },
+    ]
+  },
+];
+
+const upcoming = [
+  { name: "Shelling Out", type: "Oversættelse", info: "Nick Szabo-artikel omhandlende pengehistorie", support: "slybtc@getalby.com" },
+];
+---
+
+<ResourcePageLayout
+  title="Bitcoin-initiativer i Danmark"
+  description="Oversigt over danske Bitcoin-only initiativer – Proof of Work"
+  lang="da"
+>
+  <section class="content-section intro">
+    <div class="intro-grid">
+      <div>
+        <h2>Proof of Work</h2>
+        <p>Her på siden finder du Bitcoin-only-initiativer, som alle bidrager til en bedre og bredere forståelse af, hvad Bitcoin er.</p>
+        <p>Hvis du sætter pris på nogle af disse initiativer, kan du vælge at sende lidt sats til de personer, som står bag. Du finder en Lightning-adresse ud for hvert af disse initiativer.</p>
+        <p>Har du selv ideer og forudsætninger for at tage initiativ, så overvej det. Bitcoin er Proof of Work.</p>
+      </div>
+      <div class="intro-image">
+        <img src="/images/en-og-tyve_large.png" alt="Enogtyve logo" />
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <p>Kender du et Bitcoin-only-initiativ på dansk, som du mener mangler på listen, så send en mail på <a href="mailto:kontakt@enogtyve.org"><strong>kontakt@enogtyve.org</strong></a> eller hop ind i "Proof of Work"-tråden på Telegram: <a href="https://t.me/enogtyvedk/7560" target="_blank" rel="noopener noreferrer"><strong>Enogtyve Proof of Work</strong></a>.</p>
+  </section>
+
+  {categories.map((cat) => (
+    <section class="category-section">
+      <h3 class="category-heading"><span class="category-icon">{cat.icon}</span> {cat.title}</h3>
+      <div class="initiatives-grid">
+        {cat.items.map((item) => (
+          <div class="initiative-card">
+            {item.url ? (
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="card-name">{item.name}</a>
+            ) : (
+              <span class="card-name">{item.name}</span>
+            )}
+            <p class="card-info">{item.info}</p>
+            {item.support && (
+              <div class="card-support">
+                <span class="support-label">⚡</span>
+                <code>{item.support}</code>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  ))}
+
+  <section class="category-section upcoming-section">
+    <h3 class="category-heading"><span class="category-icon">🚧</span> Under udarbejdelse</h3>
+    <p class="upcoming-note">Herunder er initiativer, der arbejdes på. Denne liste kan meget vel være forældet – hør ad i <a href="https://t.me/enogtyvedk/7560" target="_blank" rel="noopener noreferrer"><strong>"Proof of Work"-tråden</strong></a> på Telegram.</p>
+    <div class="initiatives-grid">
+      {upcoming.map((item) => (
+        <div class="initiative-card upcoming">
+          <div class="card-top-row">
+            <span class="card-name">{item.name}</span>
+            <span class="upcoming-badge">{item.type}</span>
+          </div>
+          <p class="card-info">{item.info}</p>
+          {item.support && (
+            <div class="card-support">
+              <span class="support-label">⚡</span>
+              <code>{item.support}</code>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h3>Hjælp med oversættelser</h3>
+    <p>Hvis du ønsker at bidrage med oversættelse af læringsmateriale, er der rig mulighed for det, og i nogle tilfælde kan du optjene sats for din indsats. Det skal dog være lysten, der driver værket, da det oftest er mindre symbolske beløb.</p>
+    <p>Der udvikles hele tiden bedre værktøjer til f.eks. oversættelser, ligesom der er flere initiativer, hvor du kan få sparring omkring, hvordan du mest effektivt løser en oversættelsesopgave:</p>
+    <div class="resource-links">
+      <a href="https://planb.network/" target="_blank" rel="noopener noreferrer" class="resource-link">Planb.network →</a>
+      <a href="https://www.blink.sv" target="_blank" rel="noopener noreferrer" class="resource-link">Blink Blog →</a>
+    </div>
+  </section>
+
+  <section class="content-section cta-section">
+    <a href="https://t.me/enogtyvedk/7560" target="_blank" rel="noopener noreferrer" class="cta-link">
+      Tøv ikke med at skrive eller stille spørgsmål i Enogtyve Proof of Work-gruppen →
+    </a>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
+</ResourcePageLayout>
+
+<style>
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section p {
+    margin-bottom: 0.75rem;
+  }
+
+  .content-section a {
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .content-section a:hover {
+    color: #f7931a;
+  }
+
+  .content-section h2 {
+    font-size: 1.8rem;
+    color: #f7931a;
+    margin-bottom: 1rem;
+  }
+
+  .content-section h3 {
+    font-size: 1.3rem;
+    color: #f7931a;
+    margin-bottom: 1rem;
+  }
+
+  /* Intro grid */
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .intro-image img {
+    width: 100%;
+    max-width: 200px;
+    margin-left: auto;
+    display: block;
+    opacity: 0.85;
+  }
+
+  /* Category sections */
+  .category-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .category-heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #f7931a;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(247, 147, 26, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .category-icon {
+    font-size: 1.1rem;
+  }
+
+  /* Initiative cards */
+  .initiatives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.85rem;
+  }
+
+  .initiative-card {
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 10px;
+    padding: 1.1rem 1.2rem;
+    background: rgba(255, 255, 255, 0.03);
+    transition: border-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .initiative-card:hover {
+    border-color: rgba(247, 147, 26, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .initiative-card.upcoming {
+    border-style: dashed;
+    opacity: 0.75;
+  }
+
+  .card-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-light, #ccc);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a.card-name:hover {
+    color: #f7931a;
+  }
+
+  .card-info {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(204, 204, 204, 0.7);
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .card-support {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(247, 147, 26, 0.08);
+  }
+
+  .support-label {
+    font-size: 0.9rem;
+  }
+
+  .card-support code {
+    font-size: 0.73rem;
+    color: rgba(247, 147, 26, 0.7);
+    background: rgba(247, 147, 26, 0.08);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    word-break: break-all;
+  }
+
+  /* Upcoming section */
+  .upcoming-section .upcoming-note {
+    font-size: 0.9rem;
+    color: rgba(204, 204, 204, 0.7);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+
+  .upcoming-section .upcoming-note a {
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .card-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .upcoming-badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: rgba(247, 147, 26, 0.8);
+    background: rgba(247, 147, 26, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  /* Resource links */
+  .resource-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+  }
+
+  .resource-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(247, 147, 26, 0.1);
+    color: #f7931a !important;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none !important;
+    transition: background 0.2s ease;
+  }
+
+  .resource-link:hover {
+    background: rgba(247, 147, 26, 0.2);
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: 1.5rem;
+    background: rgba(247, 147, 26, 0.06);
+    border: 1px solid rgba(247, 147, 26, 0.2);
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .cta-link {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #f7931a !important;
+    text-decoration: none !important;
+    transition: opacity 0.2s ease;
+  }
+
+  .cta-link:hover {
+    opacity: 0.8;
+  }
+
+  /* Back to top */
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 567px) {
+    .intro-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .intro-image {
+      display: none;
+    }
+
+    .initiatives-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

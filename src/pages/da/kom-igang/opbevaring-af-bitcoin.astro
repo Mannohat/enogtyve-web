@@ -1,0 +1,223 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+---
+
+<ResourcePageLayout
+  title="Opbevaring af bitcoin"
+  description="Hvorfor og hvordan du opbevarer dine bitcoin sikkert i din egen tegnebog"
+  lang="da"
+>
+  <section class="nav-buttons">
+    <a href="/da/privatliv-og-best-practice/" class="nav-btn">Privatliv og best practice</a>
+    <a href="/da/hardware-wallets/" class="nav-btn">Hardware-tegnebøger</a>
+    <a href="/da/bitcoin-software/" class="nav-btn">Bitcoin software</a>
+  </section>
+
+  <section class="content-section">
+    <p class="warning-text">
+      <strong>
+        Det er generelt anbefalet at flytte dine bitcoin fra f.eks. onlinebørser
+        og over i din egen sikre tegnebog af flere årsager:
+      </strong>
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Sikkerhed</h2>
+    <ul class="info-list">
+      <li>
+        <strong>Børserisici:</strong> Børser kan være sårbare over for hacking
+        eller andre sikkerhedsbrud. Der har været tilfælde i fortiden, hvor børser
+        er blevet kompromitteret, hvilket har resulteret i, at brugere har mistet
+        bitcoin.
+      </li>
+      <li>
+        <strong>Egen tegnebog:</strong> Når du har dine private nøgler i en
+        personlig tegnebog, har du kontrol over sikkerhedsforanstaltningerne,
+        f.eks. ved brug af hardware-tegnebøger, som generelt anses for mere sikre
+        end onlinebørser.
+      </li>
+      <li>
+        Sørg for at sikre en backup af dine
+        <a href="/backup/">gendannelsesord / Seed Phrase</a>. Læs mere her:
+        <a href="/backup/">Gendannelsesord / Seed Phrase</a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <h2>Ejerskab og kontrol</h2>
+    <ul class="info-list">
+      <li>
+        Når dine bitcoin er på en børs, ejer du teknisk set ikke de private
+        nøgler til din tegnebog; børsen gør det. Dette betyder, at du stoler på
+        børsen for at sikre og administrere dine bitcoin korrekt. Ved at flytte
+        dine bitcoin til din egen tegnebog får du fuldt ejerskab og kontrol.
+      </li>
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <h2>Privatliv</h2>
+    <ul class="info-list">
+      <li>
+        Børser kræver normalt identitetsverifikation, og dine transaktioner på
+        børsen er forbundet med din identitet. Ved at bruge din egen tegnebog kan
+        du opretholde en højere grad af privatliv og anonymitet, da
+        Bitcoin-transaktioner generelt er pseudonyme.
+      </li>
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <h2>Undgå problemer med børsen</h2>
+    <ul class="info-list">
+      <li>
+        Børser kan stå over for tekniske problemer, reguleringsmæssige problemer
+        eller andre udfordringer, der midlertidigt eller permanent kan påvirke din
+        adgang til dine bitcoin. At have din egen tegnebog eliminerer denne
+        risiko.
+      </li>
+    </ul>
+  </section>
+
+  <section class="content-section cta-section">
+    <p>
+      <a href="/da/hardware-wallets/">
+        <strong>
+          Se mere og få overblik over et udvalg af gode hardware-tegnebøger her
+        </strong>
+      </a>
+    </p>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
+</ResourcePageLayout>
+
+<style>
+  /* Navigation buttons */
+  .nav-buttons {
+    display: flex;
+    gap: var(--space-md, 1rem);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-btn {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    background-color: #f7931a;
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 1px solid #f7931a;
+    transition: all 0.3s ease;
+  }
+
+  .nav-btn:hover {
+    background-color: transparent;
+    color: #f7931a;
+  }
+
+  /* Content sections */
+  .content-section {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section h2 {
+    color: var(--primary, #f7931a);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-md, 1rem);
+    padding-bottom: var(--space-sm, 0.5rem);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .content-section p {
+    margin-bottom: 1rem;
+  }
+
+  .content-section a {
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .content-section a:hover {
+    color: #f7931a;
+  }
+
+  /* Warning text */
+  .warning-text {
+    color: #e53e3e;
+    font-size: 1.05rem;
+  }
+
+  /* Info list */
+  .info-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .info-list li {
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.1);
+    border-radius: 8px;
+    line-height: 1.7;
+  }
+
+  .info-list li strong {
+    color: rgba(247, 147, 26, 0.9);
+  }
+
+  .info-list li a {
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .info-list li a:hover {
+    color: #f7931a;
+  }
+
+  /* CTA section */
+  .cta-section {
+    margin-top: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .cta-section a {
+    font-size: 1.05rem;
+  }
+
+  /* Back to top */
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 567px) {
+    .nav-buttons {
+      flex-direction: column;
+    }
+  }
+</style>

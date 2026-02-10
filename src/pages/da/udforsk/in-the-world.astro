@@ -1,0 +1,326 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+
+const directories = [
+    {
+        name: "Bitcoinerevents.com",
+        url: "https://www.bitcoinerevents.com/",
+        desc: "Oversigt over Bitcoin-begivenheder",
+    },
+    {
+        name: "Bitcoin-only.com/meetups",
+        url: "https://bitcoin-only.com/meetups",
+        desc: "Bitcoin-only meetups",
+    },
+    {
+        name: "BTCMap.org/communities",
+        url: "https://www.btcmap.org/communities",
+        desc: "Liste med Bitcoin communities",
+    },
+    {
+        name: "Bitcoinconfederation.org",
+        url: "https://www.bitcoinconfederation.org",
+        desc: "Fællesskaber, økonomier & Lightning-projekter",
+    },
+];
+
+const regions = [
+    {
+        title: "Verden",
+        icon: "🌍",
+        links: [
+            {
+                name: "Twentyone.world",
+                url: "/da/udforsk/twentyoneworld",
+                desc: "Globalt Bitcoin-fællesskab",
+                external: false,
+            },
+        ],
+    },
+    {
+        title: "Europa",
+        icon: "🇪🇺",
+        links: [
+            {
+                name: "European Bitcoiners",
+                url: "https://europeanbitcoiners.com/",
+                desc: "Europæisk Bitcoin-fællesskab",
+            },
+            {
+                name: "Noderunners.network",
+                url: "https://noderunners.network/en/",
+                desc: "Netværk af node runners i Europa",
+            },
+        ],
+    },
+    {
+        title: "Norge",
+        icon: "🇳🇴",
+        links: [
+            {
+                name: "Timechain.no",
+                url: "https://timechain.no/",
+                desc: "Norsk Bitcoin-fællesskab",
+            },
+        ],
+    },
+    {
+        title: "Tyskland, Østrig & Schweiz",
+        icon: "🇩🇪",
+        links: [
+            {
+                name: "Einundzwanzig",
+                url: "https://einundzwanzig.space/",
+                desc: "Tysktalende Bitcoin-fællesskab",
+            },
+        ],
+    },
+];
+---
+
+<ResourcePageLayout
+    title="Bitcoin-fællesskaber og meetups"
+    description="Find Bitcoin-fællesskaber og meetups rundt omkring i verden"
+    lang="da"
+>
+    <section class="content-section">
+        <p>
+            Der er rigtig mange Bitcoin-fællesskaber rundt omkring i verden.
+            Herunder finder du oversigter og links til fællesskaber opdelt efter
+            region.
+        </p>
+    </section>
+
+    <section class="category-section">
+        <h3 class="category-heading">
+            <span class="category-icon">🔍</span> Oversigter og kataloger
+        </h3>
+        <div class="links-grid">
+            {
+                directories.map((link) => (
+                    <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="link-card"
+                    >
+                        <div class="link-content">
+                            <span class="link-name">{link.name}</span>
+                            <span class="link-desc">{link.desc}</span>
+                        </div>
+                        <span class="link-arrow">→</span>
+                    </a>
+                ))
+            }
+        </div>
+    </section>
+
+    {
+        regions.map((region) => (
+            <section class="category-section">
+                <h3 class="category-heading">
+                    <span class="category-icon">{region.icon}</span>{" "}
+                    {region.title}
+                </h3>
+                <div class="links-grid">
+                    {region.links.map((link) => (
+                        <a
+                            href={link.url}
+                            target={
+                                link.external === false ? undefined : "_blank"
+                            }
+                            rel={
+                                link.external === false
+                                    ? undefined
+                                    : "noopener noreferrer"
+                            }
+                            class="link-card"
+                        >
+                            <div class="link-content">
+                                <span class="link-name">{link.name}</span>
+                                <span class="link-desc">{link.desc}</span>
+                            </div>
+                            <span class="link-arrow">→</span>
+                        </a>
+                    ))}
+                </div>
+            </section>
+        ))
+    }
+
+    <section class="category-section">
+        <h3 class="category-heading">
+            <span class="category-icon">🏃</span> Andre fællesskaber
+        </h3>
+        <a
+            href="https://www.bitcoinrunners.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="featured-card"
+        >
+            <img
+                src="/images/logos/bitcoinrunners.png"
+                alt="Bitcoin Runners"
+                class="featured-image"
+            />
+            <div class="link-content">
+                <span class="link-name">Bitcoin Runners</span>
+                <span class="link-desc"
+                    >Et globalt løbefællesskab for Bitcoinere</span
+                >
+            </div>
+            <span class="link-arrow">→</span>
+        </a>
+    </section>
+
+    <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
+</ResourcePageLayout>
+
+<style>
+    .content-section {
+        margin-bottom: 2.5rem;
+        line-height: 1.8;
+        color: var(--text-light, #ccc);
+    }
+
+    .content-section p {
+        margin-bottom: 0.75rem;
+    }
+
+    /* Category sections */
+    .category-section {
+        margin-bottom: 2rem;
+    }
+
+    .category-heading {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #f7931a;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(247, 147, 26, 0.2);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .category-icon {
+        font-size: 1.1rem;
+    }
+
+    /* Links grid */
+    .links-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .link-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.15rem;
+        border: 1px solid rgba(247, 147, 26, 0.12);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.03);
+        text-decoration: none;
+        transition:
+            border-color 0.3s ease,
+            transform 0.2s ease;
+    }
+
+    .link-card:hover {
+        border-color: rgba(247, 147, 26, 0.4);
+        transform: translateY(-2px);
+    }
+
+    .link-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+        flex: 1;
+    }
+
+    .link-name {
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: var(--text-light, #ccc);
+    }
+
+    .link-desc {
+        font-size: 0.8rem;
+        line-height: 1.5;
+        color: rgba(204, 204, 204, 0.5);
+    }
+
+    .link-arrow {
+        color: #f7931a;
+        font-size: 0.95rem;
+        opacity: 0.4;
+        flex-shrink: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    .link-card:hover .link-arrow {
+        opacity: 1;
+    }
+
+    /* Featured card */
+    .featured-card {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        padding: 1.15rem 1.25rem;
+        border: 1px solid rgba(247, 147, 26, 0.12);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.03);
+        text-decoration: none;
+        transition:
+            border-color 0.3s ease,
+            transform 0.2s ease;
+    }
+
+    .featured-card:hover {
+        border-color: rgba(247, 147, 26, 0.4);
+        transform: translateY(-2px);
+    }
+
+    .featured-image {
+        width: 180px;
+        height: auto;
+        border-radius: 6px;
+        flex-shrink: 0;
+    }
+
+    /* Back to top */
+    .back-to-top {
+        display: block;
+        width: fit-content;
+        margin: 3rem auto 0 auto;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: rgba(247, 147, 26, 0.9);
+        text-decoration: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .back-to-top:hover {
+        opacity: 0.7;
+    }
+
+    @media (max-width: 567px) {
+        .links-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .featured-card {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .featured-image {
+            width: 100%;
+            max-width: 220px;
+        }
+    }
+</style>

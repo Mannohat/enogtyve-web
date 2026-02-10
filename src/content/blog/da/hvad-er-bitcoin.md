@@ -1,7 +1,7 @@
 ---
 title: "Hvad er Bitcoin og Hvorfor Blev Det Skabt?"
 description: "En dybdegående forklaring på hvorfor Satoshi Nakamoto skabte Bitcoin som svar på problemerne med fiat-valuta"
-pubDate: 2026-02-07T00:00:00.000Z
+pubDate: 2023-08-07T00:00:00.000Z
 author: "Enogtyve Team"
 tags: ["bitcoin", "grundlæggende", "satoshi", "teknologi"]
 language: "da"

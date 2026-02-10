@@ -1,0 +1,385 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+
+const colors = [
+  { name: "Sort", hex: "#000000" },
+  { name: "Orange (Bitcoin)", hex: "#F7931A" },
+  { name: "Lilla (Nostr)", hex: "#371A76" },
+  { name: "Rød (Danmark)", hex: "#FF0000" },
+  { name: "Grøn", hex: "#008000" },
+];
+
+const logos = [
+  {
+    items: [
+      { src: "/images/mediekit/ENOGTYVE_24.png", alt: "Enogtyve 2024 logo" },
+      { src: "/images/mediekit/enogtyve24_favicon.png", alt: "Enogtyve favicon" },
+    ],
+  },
+  {
+    items: [
+      { src: "/images/mediekit/en-og-tyve-dkflag.png", alt: "Enogtyve med dansk flag" },
+      { src: "/images/mediekit/en-og-tyve_tg.png", alt: "Enogtyve Telegram" },
+    ],
+  },
+  {
+    items: [
+      { src: "/images/mediekit/en-og-tyve.png", alt: "En og tyve logo" },
+      { src: "/images/mediekit/enog-tyve.png", alt: "Enog tyve logo" },
+    ],
+  },
+  {
+    items: [
+      { src: "/images/mediekit/en-og-tyve-pod.png", alt: "Enogtyve podcast logo" },
+      { src: "/images/mediekit/newcoiner-gruppe.png", alt: "Newcoiner gruppe logo" },
+    ],
+  },
+  {
+    items: [
+      { src: "/images/mediekit/enogtyve_flag.png", alt: "Enogtyve flag logo" },
+      { src: "/images/mediekit/enogtyve.png", alt: "Enogtyve logo" },
+    ],
+  },
+  {
+    items: [
+      { src: "/images/mediekit/enogtyve-btc-logo-o.png", alt: "Enogtyve Bitcoin logo" },
+    ],
+  },
+];
+
+const verticalLogos = [
+  {
+    items: [
+      { src: "/images/mediekit/v-enogtyve_flag.png", alt: "Vertikal Enogtyve flag" },
+      { src: "/images/mediekit/v-enogtyve.png", alt: "Vertikal Enogtyve" },
+    ],
+  },
+  {
+    items: [
+      { src: "/images/mediekit/v-enogtyve-btc-o-logo.png", alt: "Vertikal Enogtyve Bitcoin logo" },
+    ],
+  },
+];
+
+const printMaterials = [
+  {
+    items: [
+      { src: "/images/mediekit/ENOGTYVE_QR.png", alt: "Enogtyve QR kode" },
+      { src: "/images/mediekit/ENOGTYVEORG_QR.png", alt: "Enogtyve QR kort" },
+      { src: "/images/mediekit/qr_card.png", alt: "Enogtyve QR kort" },
+    ],
+  },
+];
+---
+
+<ResourcePageLayout
+  title="Medie Kit"
+  description="Enogtyve logoer, farver og print materialer"
+  lang="da"
+>
+  <section class="intro">
+    <p>
+      Overblik over de forskellige logoer findes herunder. For bedste kvalitet
+      anbefales det at downloade det samlede mediekit.
+    </p>
+    <p class="file-note">Filtyper: PNG, SVG</p>
+  </section>
+
+  <section class="download-section">
+    <a
+      href="/zip/ENOGTYVE_MEDIEKIT.zip"
+      class="download-btn"
+      download
+    >
+      Download Enogtyve Mediekit
+    </a>
+  </section>
+
+  <section class="color-section">
+    <h2 class="section-heading">Farver</h2>
+    <div class="color-grid">
+      {colors.map((color) => (
+        <div class="color-card" data-hex={color.hex} role="button" tabindex="0" title="Klik for at kopiere">
+          <div class="color-swatch" style={`background-color: ${color.hex};`} />
+          <div class="color-info">
+            <span class="color-name">{color.name}</span>
+            <code class="color-hex">{color.hex}</code>
+          </div>
+          <span class="copy-toast">Kopieret!</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="logo-section">
+    <h2 class="section-heading">Logoer</h2>
+    {logos.map((row) => (
+      <div class={`logo-row ${row.items.length === 1 ? "single" : ""}`}>
+        {row.items.map((logo) => (
+          <div class="logo-card">
+            <img src={logo.src} alt={logo.alt} loading="lazy" />
+          </div>
+        ))}
+      </div>
+    ))}
+  </section>
+
+  <section class="logo-section">
+    <h2 class="section-heading">Vertikale logoer</h2>
+    {verticalLogos.map((row) => (
+      <div class={`logo-row ${row.items.length === 1 ? "single" : ""}`}>
+        {row.items.map((logo) => (
+          <div class="logo-card">
+            <img src={logo.src} alt={logo.alt} loading="lazy" />
+          </div>
+        ))}
+      </div>
+    ))}
+  </section>
+
+  <hr class="divider" />
+
+  <section class="logo-section">
+    <h2 class="section-heading">Print</h2>
+    {printMaterials.map((row) => (
+      <div class={`logo-row ${row.items.length === 1 ? "single" : ""}`}>
+        {row.items.map((logo) => (
+          <div class="logo-card">
+            <img src={logo.src} alt={logo.alt} loading="lazy" />
+          </div>
+        ))}
+      </div>
+    ))}
+  </section>
+
+
+
+  <a href="#" class="back-to-top">↑ Tilbage til toppen</a>
+</ResourcePageLayout>
+
+<style>
+  /* Intro */
+  .intro {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .intro p {
+    margin-bottom: 0.5rem;
+  }
+
+  .file-note {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: rgba(204, 204, 204, 0.6);
+  }
+
+  /* Download button */
+  .download-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .download-btn {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    background-color: #f7931a;
+    color: #000;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 2px solid #f7931a;
+    transition: all 0.3s ease;
+  }
+
+  .download-btn:hover {
+    background-color: transparent;
+    color: #f7931a;
+  }
+
+  /* Section headings */
+  .section-heading {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #f7931a;
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid rgba(247, 147, 26, 0.25);
+  }
+
+  /* Divider */
+  .divider {
+    border: none;
+    border-top: 2px solid rgba(247, 147, 26, 0.3);
+    margin: 2.5rem 0;
+  }
+
+  /* Color section */
+  .color-section {
+    margin-bottom: 2rem;
+  }
+
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .color-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(247, 147, 26, 0.1);
+    border-radius: 10px;
+    transition: border-color 0.3s ease;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .color-card:hover {
+    border-color: rgba(247, 147, 26, 0.35);
+  }
+
+  .copy-toast {
+    position: absolute;
+    right: 0.75rem;
+    font-size: 0.75rem;
+    color: #f7931a;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .color-card.copied .copy-toast {
+    opacity: 1;
+  }
+
+  .color-swatch {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    flex-shrink: 0;
+  }
+
+  .color-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .color-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-light, #ccc);
+  }
+
+  .color-hex {
+    font-size: 0.8rem;
+    color: rgba(247, 147, 26, 0.7);
+    background: rgba(247, 147, 26, 0.1);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    width: fit-content;
+  }
+
+  /* Logo sections */
+  .logo-section {
+    margin-bottom: 2rem;
+  }
+
+  .logo-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .logo-row.single {
+    grid-template-columns: 1fr;
+    max-width: 50%;
+  }
+
+  .logo-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s ease;
+  }
+
+  .logo-card:hover {
+    border-color: rgba(247, 147, 26, 0.35);
+  }
+
+  .logo-card img {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: contain;
+  }
+
+  /* Back to top */
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 768px) {
+    .logo-row {
+      grid-template-columns: 1fr;
+    }
+
+    .logo-row.single {
+      max-width: 100%;
+    }
+
+    .color-grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.color-card[data-hex]').forEach((card) => {
+    card.addEventListener('click', async () => {
+      const hex = card.getAttribute('data-hex');
+      if (!hex) return;
+
+      try {
+        await navigator.clipboard.writeText(hex);
+        card.classList.add('copied');
+        setTimeout(() => card.classList.remove('copied'), 1500);
+      } catch {
+        // Fallback
+        const input = document.createElement('input');
+        input.value = hex;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('copy');
+        document.body.removeChild(input);
+        card.classList.add('copied');
+        setTimeout(() => card.classList.remove('copied'), 1500);
+      }
+    });
+  });
+</script>

@@ -1,0 +1,364 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+---
+
+<ResourcePageLayout
+  title="Privatliv"
+  description="Bitcoin og privatliv – forstå hvordan du beskytter dit økonomiske privatliv"
+  lang="da"
+>
+  <section class="nav-buttons">
+    <a href="/da/bitcoin-software/" class="nav-btn">Bitcoin software</a>
+    <a href="/da/fakta/" class="nav-btn">FUD / FAKTA</a>
+    <a href="/da/bitcoin-blockchain/" class="nav-btn">Bitcoin Blokkæden</a>
+  </section>
+
+  <section class="content-section">
+    <p>
+      Bitcoin blev grundlagt med et solidt princip om gennemsigtighed, der
+      tillader brugerne at verificere systemets integritet på egen hånd. Ikke
+      desto mindre betyder den transparente karakter af Bitcoin-protokollen ikke,
+      at brugerne ikke kan bevare deres økonomiske privatliv. Denne side berører
+      nogle af de nuancerede aspekter af Bitcoin-privatliv og forsøger at
+      præsentere nogle ideer samt introducere værktøjer til at bevare
+      fortroligheden omkring ens transaktioner.
+    </p>
+    <p>
+      Gennemsigtighed er utroligt vigtigt i Bitcoin-netværket. Den giver alle
+      mulighed for at verificere afgørende elementer, såsom overholdelse af
+      forsyningsbegrænsningen på 21 millioner bitcoin og den endelige afvikling
+      af betalinger, uden behov for at stole på en central myndighed.
+    </p>
+    <p>
+      Selvom transaktioner på Bitcoins blokkæde er offentligt tilgængelige,
+      findes der mekanismer i Bitcoin, der muliggør mere eller mindre private
+      transaktioner. Det er afgørende for enhver, der ønsker at beskytte deres
+      økonomiske privatliv, at forstå, hvordan man benytter disse funktioner og
+      værktøjer.
+    </p>
+    <p>
+      Hvis du endnu ikke har prøvet at udforske Bitcoins blokkæde, kan du se en
+      oversigt over nogle værktøjer for det
+      <a href="/bitcoin-blockchain/">her</a>. Hvis du vil åbne den nok mest
+      populære blokudforsker i et nyt vindue, kan du klikke her:
+      <a href="https://www.mempool.space/" target="_blank" rel="noopener noreferrer">
+        https://www.mempool.space
+      </a>
+    </p>
+    <p>
+      At man kan se alle transaktioner og adresser, er med til at sikre
+      gennemsigtigheden af, hvad der historisk er sket på blokkæden, og da der
+      ikke er nogen identitet knyttet til disse, vil det altid være et spørgsmål
+      om, hvordan en identitet er knyttet til en adresse uden for blokkæden. For
+      eksempel vil en person, der modtager eller sender en bitcoin-transaktion
+      mellem dig og den anden part, nu vide, at du er ejeren af en given
+      bitcoin-adresse.
+    </p>
+    <p>
+      Det er en grund til, at det anbefales ikke at genbruge adresser, og heldigvis
+      sørger de fleste nyere Bitcoin-tegnebøger for at vise en ny adresse hver
+      gang du f.eks. anmoder om en ny betaling.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Bitcoins UTXO-model</h2>
+    <p>
+      Bitcoins UTXO-model (Unspent Transaction Output) udgør en essentiel del af
+      Bitcoins transaktionsmekanisme. I stedet for at følge den traditionelle
+      kontomodel, hvor saldoen af en konto opdateres, benytter Bitcoin denne
+      model til at registrere ubrugte transaktionsoutputs. Ved hver transaktion
+      refereres input fra tidligere transaktioner som UTXOs, og output fra den
+      aktuelle transaktion oprettes som nye UTXOs.
+    </p>
+    <p>
+      Den grundlæggende idé er at holde styr på, hvilke enheder af bitcoin eller
+      outputs der endnu ikke er blevet brugt. Når en transaktion finder sted,
+      bruger den input fra eksisterende UTXOs og skaber nye, hvilket skaber en
+      effektiv og sporbar historik over bevægelserne på blokkæden. Denne model
+      bidrager til sikkerheden og gennemsigtigheden i Bitcoin-netværket ved at
+      sikre, at hver transaktion refererer til tidligere, gyldige transaktioner og
+      unikt identificerer ubrugte midler.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>UTXO og privatliv</h2>
+    <p>
+      Bitcoins UTXO-model har betydelige implikationer for privatlivet, da den
+      påvirker, hvordan transaktioner håndteres og spores på blokkæden:
+    </p>
+    <ol class="numbered-list">
+      <li>
+        <strong>Pseudonymitet, ikke anonymitet:</strong> Selvom Bitcoin-transaktioner
+        ikke er direkte knyttet til identiteter, er de knyttet til adresser.
+        UTXO-modellen gør det muligt at spore bevægelser af bitcoin gennem
+        forskellige adresser, hvilket betyder, at brugeraktivitet ikke er helt
+        anonym, men pseudonym. Med tilstrækkelig analyse kan nogen følge
+        transaktioner og forsøge at knytte dem til bestemte brugere.
+      </li>
+      <li>
+        <strong>Historik og transparens:</strong> UTXO-modellen bidrager til en
+        fuldstændig og gennemsigtig historik over bevægelser. Selvom dette er en
+        fordel for sikkerhed og bogføring, kan det udgøre en udfordring for dem,
+        der ønsker økonomisk privatliv, da alle transaktioner er synlige og kan
+        analyseres.
+      </li>
+      <li>
+        <strong>Genbrug af adresser og sporbarhed:</strong> Som tidligere nævnt, hvis en
+        bruger genbruger en Bitcoin-adresse, kan det føre til, at transaktioner
+        knyttes sammen, hvilket potentielt afslører mere om brugerens økonomiske
+        aktiviteter. Dette kan mindske privatlivet, da mere information kan
+        afdækkes over tid.
+      </li>
+      <li>
+        <strong>Input- og output-relationer:</strong> Når du sender en
+        Bitcoin-transaktion, kan UTXO-modellen også have indflydelse på dit
+        privatliv. Bitcoin-transaktioner bruger ofte flere UTXOs som input og
+        opretter nye UTXOs som output. Dette skaber en forbindelse mellem
+        tidligere transaktioner og den aktuelle, hvilket potentielt kan afsløre
+        mere om dine finansielle aktiviteter.
+      </li>
+      <li>
+        <strong>Offentliggørelse af transaktionsdata:</strong> Det er også vigtigt
+        at være opmærksom på, om og hvordan transaktionsdata bliver delt med
+        tredjeparter. Nogle tjenester eller betalingsgateways kan kræve
+        yderligere information, der potentielt kan kompromittere dit privatliv.
+      </li>
+      <li>
+        <strong>Brug af mixere og privatlivsværktøjer:</strong> For at højne graden
+        af privatliv kan brugere benytte mixere eller CoinJoin-protokoller, der
+        blander transaktioner fra forskellige deltagere for at gøre det sværere
+        at spore deres oprindelse. Implementering af privatlivsværktøjer bliver
+        afgørende for dem, der ønsker at sikre deres økonomiske privatliv.
+      </li>
+    </ol>
+  </section>
+
+  <section class="content-section">
+    <h2>UTXO-eksempel</h2>
+    <p>
+      Lad os prøve at forestille os, at en UTXO i vores Bitcoin-tegnebog svarer
+      til en almindelig dansk tusindekroneseddel. Du vil gerne købe en bog om
+      Bitcoin, som koster 200 kr., og gebyret for denne transaktion er 10 kr.
+      Betaler du med 1.000 kr. for bogen, så vil modtageren få 200 kr., gebyret
+      er 10 kr., og du vil så selv få 790 kr. i byttepenge. I dette eksempel har
+      du nu oplyst modtageren af betaling for bogen, at du havde 1.000 kr.,
+      ligesom modtageren nu ved, at du har 790 kr. tilbage samt fremadrettet kan
+      følge med i, hvordan den nye UTXO på de 790 kr., der nu er i din
+      Bitcoin-tegnebog, vil indgå i transaktioner fremadrettet. Se illustrationen
+      herunder, hvor du kan forestille dig, at de 1.000 kr. fungerer som input i
+      transaktionen.
+    </p>
+    <figure class="illustration">
+      <img
+        src="/images/graphics/trx_utxo.png"
+        alt="Illustration af en UTXO-transaktion med input og output"
+      />
+    </figure>
+    <p>
+      Antallet og størrelsen på de enkelte UTXOs vil kunne kombineres og indgå i
+      transaktionen på forskellige måder. Det kan være væsentligt at være
+      opmærksom på i forbindelse med privatliv. Med f.eks. Sparrow er det muligt
+      at tilføje en note til sine UTXOs, også kendt som "Labelling".
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Opsummering</h2>
+    <p>
+      I det store hele kræver opretholdelse af privatliv på Bitcoin-netværket en
+      kombination af forsigtig adfærd fra brugerne og brugen af specialiserede
+      værktøjer og teknologier. Det er vigtigt at forstå, at mens Bitcoin giver
+      mulighed for visse niveauer af privatliv, kræver det aktiv bevidsthed og
+      indsats fra brugerne at opnå det.
+    </p>
+    <p>
+      Ting, der er værd at blive klogere på, hvis man vil lære mere om privatliv på
+      Bitcoin-blokkæden, kan bl.a. være:
+    </p>
+    <ul class="topic-list">
+      <li><strong>Undgå genbrug af adresser</strong></li>
+      <li><strong>UTXO management og labelling</strong></li>
+      <li><strong>Coinjoin</strong></li>
+      <li><strong>Payjoin</strong></li>
+      <li>
+        <strong>
+          <a href="/liquid/">Liquid</a>,
+          <a href="/bitcoin-lightning/">Lightning</a> og
+          <a href="/ecash/">E-cash</a>
+        </strong>
+      </li>
+      <li><strong>Eget Bitcoin-knudepunkt</strong></li>
+      <li><strong>Tor-netværket</strong></li>
+      <li><strong>VPN</strong></li>
+    </ul>
+    <p>
+      Med den rette viden og de rette værktøjer kan du bevæge dig sikkert rundt
+      på det transparente Bitcoin-netværk. Som teknologien udvikler sig, udvikles
+      også de funktioner og værktøjer, der forbedrer privatlivet for
+      Bitcoin-transaktioner.
+    </p>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
+</ResourcePageLayout>
+
+<style>
+  /* Navigation buttons */
+  .nav-buttons {
+    display: flex;
+    gap: var(--space-md, 1rem);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-btn {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    background-color: #f7931a;
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 1px solid #f7931a;
+    transition: all 0.3s ease;
+  }
+
+  .nav-btn:hover {
+    background-color: transparent;
+    color: #f7931a;
+  }
+
+  /* Content sections */
+  .content-section {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section h2 {
+    color: var(--primary, #f7931a);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-md, 1rem);
+    padding-bottom: var(--space-sm, 0.5rem);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .content-section p {
+    margin-bottom: 1rem;
+  }
+
+  .content-section a {
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .content-section a:hover {
+    color: #f7931a;
+  }
+
+  /* Numbered list */
+  .numbered-list {
+    list-style: none;
+    counter-reset: item;
+    padding-left: 0;
+    margin: 1.5rem 0;
+  }
+
+  .numbered-list li {
+    counter-increment: item;
+    padding: 1rem 1.25rem 1rem 3rem;
+    margin-bottom: 0.75rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.1);
+    border-radius: 8px;
+    position: relative;
+    line-height: 1.7;
+  }
+
+  .numbered-list li::before {
+    content: counter(item);
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    color: #f7931a;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .numbered-list li strong {
+    color: rgba(247, 147, 26, 0.9);
+  }
+
+  /* Illustration */
+  .illustration {
+    margin: 2rem auto;
+    text-align: center;
+  }
+
+  .illustration img {
+    max-width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgba(247, 147, 26, 0.15);
+  }
+
+  /* Topic list */
+  .topic-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 1.5rem 0;
+  }
+
+  .topic-list li {
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.4rem;
+    border-left: 3px solid rgba(247, 147, 26, 0.5);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 0 6px 6px 0;
+  }
+
+  .topic-list li strong {
+    color: var(--text-light, #ccc);
+  }
+
+  .topic-list li a {
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .topic-list li a:hover {
+    color: #f7931a;
+  }
+
+  /* Back to top */
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 567px) {
+    .nav-buttons {
+      flex-direction: column;
+    }
+
+    .numbered-list li {
+      padding-left: 2.5rem;
+    }
+  }
+</style>

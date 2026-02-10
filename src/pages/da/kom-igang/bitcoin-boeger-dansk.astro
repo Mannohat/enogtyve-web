@@ -1,0 +1,226 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+---
+
+<ResourcePageLayout
+  title="Bitcoin-bøger på dansk"
+  description="Danske Bitcoin-bøger – oversatte titler og hvor du kan købe dem"
+  lang="da"
+>
+  <section class="content-section">
+    <p>
+      Der findes et hav af gode og velskrevne bøger om Bitcoin, langt de fleste
+      er dog på engelsk. Herunder er der en liste med de Bitcoin-bøger, som er
+      oversat til dansk. En liste, som forhåbentlig vokser sig længere med
+      tiden. Giv endelig besked, hvis du kender en bog, som du mener bør være på
+      siden her. Tag et kig, og husk, at en bog om Bitcoin også kan være en
+      fantastisk gave.
+    </p>
+    <p>
+      Køb bøger på dansk inde på
+      <strong>
+        <a href="https://www.shop21.dk" target="_blank" rel="noopener noreferrer">
+          Shop21
+        </a>
+      </strong>
+      – med rabatkoden "<strong>enogtyve</strong>" gives der en mindre rabat på
+      nogle af bøgerne.
+    </p>
+    <p>
+      Ønsker du inspiration til flere Bitcoin-bøger på engelsk, kan du finde det
+      her på
+      <a href="https://www.bitcoinerbooks.com/" target="_blank" rel="noopener noreferrer">
+        <strong>Bitcoinerbooks.com</strong></a>.
+    </p>
+  </section>
+
+  <section class="book-card">
+    <div class="book-image">
+      <img
+        src="/images/books/21_lektioner.png"
+        alt="21 Lektioner – bogomslag"
+      />
+    </div>
+    <div class="book-text">
+      <h2>21 Lektioner</h2>
+      <p>
+        <strong>21 Lektioner</strong> – Gigi, der er kendt som både
+        underholdende og teknisk stærk, har skrevet en bog om sin rejse ned i
+        Bitcoin-kaninhullet. Bogen indeholder, som navnet antyder, 21 lektioner,
+        som han har lært undervejs. Både filosofi, økonomi og teknologi bliver
+        berørt, og bogen giver på den måde et godt overblik over de mange lag af
+        viden, der kræves for at forstå Bitcoin bedre. Bogen er skrevet i et
+        afslappet toneleje og berører ikke emnerne i dybden, men giver i stedet
+        en introduktion til hver af dem.
+      </p>
+      <p>
+        Bogen kan
+        <a href="https://github.com/Shop21DK/21-Lektioner/raw/master/21%20Lektioner%20-%20latest%20version.pdf" target="_blank" rel="noopener noreferrer">
+          <strong>downloades gratis</strong></a>
+        eller købes i fysisk format på
+        <a href="https://shop21.dk/vare/21-lektioner/?apply_coupon=ENOGTYVE" target="_blank" rel="noopener noreferrer">
+          <strong>Shop21</strong></a>.
+        Med rabatkoden "<strong>enogtyve</strong>" får du 5 % rabat på din
+        ordre.
+      </p>
+    </div>
+  </section>
+
+  <section class="book-card reverse">
+    <div class="book-text">
+      <h2>Bitcoinstandarden</h2>
+      <p>
+        <strong>Bitcoinstandarden</strong> – bogen anses af mange som den bedste
+        måde at få en god introduktion til Bitcoin.
+      </p>
+      <p>
+        Bitcoinstandarden udforsker pengenes historie, fra brugen af skaller,
+        perler og salt til metaller og pengesedler. Bogen dykker ned i de
+        egenskaber, der har muliggjort Bitcoins betydelige vækst, og undersøger
+        dens økonomiske, politiske og sociale konsekvenser.
+      </p>
+      <p>
+        Læserne vil opnå forståelse for, hvad der adskiller Bitcoin fra de mere
+        end 10.000 efterfølgere, og hvorfor Bitcoin er immun over for
+        efterligning og ekstern kontrol.
+      </p>
+      <p>
+        Siden Saifedean Ammous udgav bogen i 2018, er den blevet oversat til 30
+        forskellige sprog og er anerkendt som et essentielt værk for dem, der
+        ønsker at forstå Bitcoin.
+      </p>
+      <p>
+        Du kan købe bogen i fysisk format her:
+        <a href="https://shop21.dk/vare/bitcoinstandarden/?apply_coupon=ENOGTYVE" target="_blank" rel="noopener noreferrer">
+          <strong>Shop21</strong></a>.
+        <br />
+        Med rabatkoden "<strong>Enogtyve</strong>" får du 5 % på din ordre.
+      </p>
+    </div>
+    <div class="book-image">
+      <img
+        src="/images/books/bitcoinstandarden.png"
+        alt="Bitcoinstandarden – bogomslag"
+      />
+    </div>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
+</ResourcePageLayout>
+
+<style>
+  /* Content sections */
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section p {
+    margin-bottom: 1rem;
+  }
+
+  .content-section a {
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .content-section a:hover {
+    color: #f7931a;
+  }
+
+  /* Book cards */
+  .book-card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.1);
+    border-radius: 12px;
+    transition: border-color 0.3s ease;
+  }
+
+  .book-card:hover {
+    border-color: rgba(247, 147, 26, 0.3);
+  }
+
+  .book-card.reverse {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .book-image {
+    text-align: center;
+  }
+
+  .book-image img {
+    max-width: 220px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .book-text {
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .book-text h2 {
+    color: var(--primary, #f7931a);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-md, 1rem);
+    padding-bottom: var(--space-sm, 0.5rem);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .book-text p {
+    margin-bottom: 0.75rem;
+  }
+
+  .book-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .book-text a {
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .book-text a:hover {
+    color: #f7931a;
+  }
+
+  /* Back to top */
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 567px) {
+    .book-card,
+    .book-card.reverse {
+      grid-template-columns: 1fr;
+    }
+
+    .book-image {
+      order: -1;
+    }
+
+    .book-image img {
+      max-width: 180px;
+    }
+  }
+</style>

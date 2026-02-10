@@ -1,0 +1,197 @@
+---
+import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
+---
+
+<ResourcePageLayout 
+  title="Bitcoin Software" 
+  description="Anbefalede open source wallet software til bitcoin"
+  lang="da"
+>
+  <div class="quick-links">
+    <a href="/da/hardware-wallets" class="quick-link-btn">Hardware tegnebøger</a>
+    <a href="/da/privatliv-og-best-practice" class="quick-link-btn">Privatliv og best practice</a>
+    <a href="/da/fakta" class="quick-link-btn">FUD / Fakta</a>
+  </div>
+
+  <section class="intro">
+    <p>Uanset om du benytter services eller downloader software eller andet som har med Bitcoin at gøre, så vær sikker på altid at tjekke for dig selv at du er på den rigtige side, og det er det du forventer at downloade som du downloader. Her på siden finder du links direkte til de services mv. som der omtales, men alligevel så vis en sund skepsis og tjek efter selv. <strong>Don't trust, verify</strong>.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Wallet software</h2>
+    <p>Flere producenter af hardware wallets laver en tilhørende software wallet. Der er flere grunde til at undgå at bruge disse. Herunder er nogle anbefalede alternativer som alle er FOSS*, og som kan bruges sammen med de fleste hardware wallets.</p>
+  </section>
+
+  <section class="software-section">
+    <div class="software-grid">
+      <div class="software-card">
+        <h3><a href="https://sparrowwallet.com/" target="_blank" rel="noopener noreferrer">Sparrow Wallet</a></h3>
+        <p>Sparrow Wallet er en fantastisk wallet software til din computer. Du finder et bredt udvalg af funktioner som du vil finde mere og mere brugbare jo mere du lærer om Bitcoin. Hertil kan det siges at måden Sparrow viser transaktioner og overblik på endda kan bidrage til forståelsen af hvordan Bitcoin fungerer.</p>
+        <a href="https://sparrowwallet.com/" class="software-link" target="_blank" rel="noopener noreferrer">
+          Find mere information og download Sparrow Wallet →
+        </a>
+      </div>
+
+      <div class="software-card">
+        <h3><a href="https://wasabiwallet.io/" target="_blank" rel="noopener noreferrer">Wasabi Wallet</a></h3>
+        <p>Wasabi Wallet er også en super god software wallet til din computer. Wasabi har stort fokus på privatliv og har en række muligheder som du måske vil finde interessant at benytte.</p>
+        <a href="https://wasabiwallet.io/" class="software-link" target="_blank" rel="noopener noreferrer">
+          Find mere information og download Wasabi →
+        </a>
+      </div>
+
+      <div class="software-card">
+        <h3><a href="https://specter.solutions/desktop/" target="_blank" rel="noopener noreferrer">Specter</a></h3>
+        <p>Specter Wallet er ligesom Sparrow og Wasabi free and open source (FOSS*).</p>
+        <a href="https://specter.solutions/desktop/" class="software-link" target="_blank" rel="noopener noreferrer">
+          Find mere information og download Specter →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="foss-note">
+    <p>*FOSS — Free and open source software (gratis og åben kode så alle kan se for dem selv hvordan programmet virker og sikre at der ikke sker noget der ikke skal ske bag kulissen).</p>
+  </section>
+
+  <a href="#" class="back-to-top">
+    ↑ Tilbage til toppen
+  </a>
+</ResourcePageLayout>
+
+<style>
+  .quick-links {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .quick-link-btn {
+    display: inline-block;
+    background: var(--primary);
+    color: #000;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+  }
+
+  .quick-link-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+  }
+
+  .intro {
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .intro p {
+    color: var(--text-light);
+  }
+
+  .content-section {
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .content-section h2 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .content-section p {
+    color: var(--text-light);
+  }
+
+  .software-section {
+    margin-bottom: 3rem;
+  }
+
+  .software-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .software-card {
+    background: var(--background-card);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: var(--space-lg);
+    transition: all 0.3s ease;
+  }
+
+  .software-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+  }
+
+  .software-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .software-card h3 a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+
+  .software-card h3 a:hover {
+    opacity: 0.8;
+  }
+
+  .software-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+  }
+
+  .software-link {
+    display: inline-block;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+    transition: opacity 0.2s ease;
+  }
+
+  .software-link:hover {
+    opacity: 0.7;
+  }
+
+  .foss-note {
+    margin-top: 2rem;
+    padding: var(--space-md);
+    background: var(--background-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+
+  .foss-note p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+</style>

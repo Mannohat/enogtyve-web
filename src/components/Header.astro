@@ -9,7 +9,7 @@ const currentPath = Astro.url.pathname;
 const menuItems = [
     {
         label: "Velkommen",
-        href: `/${lang}/velkommen`,
+        href: `/${lang}`,
         submenu: [
             { label: "Lidt om penge", href: `/${lang}/blog/penges-historie` },
             {
@@ -26,18 +26,24 @@ const menuItems = [
                 href: `/pdf/cypherpunks-manifesto.pdf`,
                 target: "_blank",
             },
-            { label: "FUD / Fakta", href: `/${lang}/velkommen/fud-fakta` },
+            { label: "FUD / Fakta", href: `/${lang}/velkommen/fud-facts` },
         ],
     },
     {
         label: "Kom igang",
         href: `/${lang}/kom-igang`,
         submenu: [
-            { label: "Anskaffelse af bitcoin", href: `/${lang}/kob-bitcoin` },
-            { label: "Optjen bitcoin", href: `/${lang}/kom-igang/optjen` },
+            {
+                label: "Anskaffelse af bitcoin",
+                href: `/${lang}/kom-igang/kob-bitcoin`,
+            },
+            {
+                label: "Optjen bitcoin",
+                href: `/${lang}/kom-igang/optjen-bitcoin`,
+            },
             {
                 label: "Opbevaring af bitcoin",
-                href: `/${lang}/kom-igang/opbevaring`,
+                href: `/${lang}/kom-igang/opbevaring-af-bitcoin`,
             },
             {
                 label: "Hardware Wallets",
@@ -47,10 +53,21 @@ const menuItems = [
                 label: "Gendannelsesord / Seed Phrase",
                 href: `/${lang}/kom-igang/seed-phrase`,
             },
-            { label: "Bitcoin Software", href: `/${lang}/kom-igang/software` },
+            {
+                label: "Bitcoin Software",
+                href: `/${lang}/kom-igang/bitcoin-software`,
+            },
             {
                 label: "Privatliv og best Practice",
-                href: `/${lang}/kom-igang/privatliv`,
+                href: `/${lang}/kom-igang/privatliv-best-practice`,
+            },
+            {
+                label: "Begreber og Ord",
+                href: `/${lang}/kom-igang/begreber-ord`,
+            },
+            {
+                label: "Bitcoin Bøger på Dansk",
+                href: `/${lang}/kom-igang/bitcoin-boeger-dansk`,
             },
         ],
     },
@@ -60,7 +77,7 @@ const menuItems = [
         submenu: [
             {
                 label: "Bitcoin Blokkæden",
-                href: `/${lang}/laer-mere/blokkaeden`,
+                href: `/${lang}/laer-mere/bitcoin-blockchain`,
             },
             {
                 label: "Bitcoin Lightning",
@@ -68,51 +85,92 @@ const menuItems = [
             },
             { label: "Liquid", href: `/${lang}/laer-mere/liquid` },
             { label: "eCash", href: `/${lang}/laer-mere/ecash` },
-            { label: "Begreber og Ord", href: `/${lang}/laer-mere/begreber` },
-            {
-                label: "Bitcoin Bøger på Dansk",
-                href: `/${lang}/laer-mere/boger`,
-            },
             {
                 label: "Quotes oversat til Dansk",
-                href: `/${lang}/laer-mere/quotes`,
+                href: `/${lang}/laer-mere/quotes-dansk`,
             },
             {
-                label: "Bitcoin ressourcer på engelsk",
-                href: `/${lang}/laer-mere/ressourcer-engelsk`,
+                label: "Bitcoin og din forretning",
+                href: `/${lang}/laer-mere/bitcoin-og-din-forretning`,
             },
-            { label: "Værktøjer", href: `/${lang}/laer-mere/vaerktojer` },
+            {
+                label: "Lightning Produkter og Services",
+                href: `/${lang}/laer-mere/lightning-produkter-services`,
+            },
+            {
+                label: "Bitcoin Services og Produkter",
+                href: `/${lang}/laer-mere/bitcoin-services-og-produkter`,
+            },
+            {
+                label: "Value 4 Value",
+                href: `/${lang}/laer-mere/value4value`,
+            },
         ],
+    },
+    {
+        label: "Podcasts",
+        href: `/${lang}/podcasts`,
+        submenu: [],
+    },
+    {
+        label: "Blog",
+        href: `/${lang}/blog`,
+        submenu: [],
     },
     {
         label: "Mining",
         href: `/${lang}/mining`,
         submenu: [
-            { label: "Solo Mining", href: `/${lang}/mining/solo` },
+            { label: "Solo Mining", href: `/${lang}/mining/solo-mining` },
             {
                 label: "Mining for opvarmning",
-                href: `/${lang}/mining/opvarmning`,
+                href: `/${lang}/mining/mining-for-opvarmning`,
             },
         ],
     },
     {
-        label: "Byg & Anvend",
-        href: `/${lang}/byg-anvend`,
+        label: "Udforsk",
+        href: `/${lang}/udforsk/udforsk`,
         submenu: [
             {
-                label: "Bitcoin og din forretning",
-                href: `/${lang}/byg-anvend/forretning`,
+                label: "Mød ligesindede når du rejser",
+                href: `/${lang}/udforsk/moed-andre`,
             },
             {
-                label: "Lightning Produkter og Services",
-                href: `/${lang}/byg-anvend/lightning-produkter`,
+                label: "Bitcoin Fællesskaber og Meetups i verden",
+                href: `/${lang}/udforsk/in-the-world`,
             },
             {
-                label: "Bitcoin Services og Produkter",
-                href: `/${lang}/byg-anvend/services`,
+                label: "Bitcoin Cirkulære Økonomier",
+                href: `/${lang}/udforsk/cirkulaere-okonomier`,
             },
-            { label: "Value 4 Value", href: `/${lang}/byg-anvend/value4value` },
+            {
+                label: "Frie Byer og Samfund",
+                href: `/${lang}/udforsk/freecities`,
+            },
+            {
+                label: "Bitcoin Konferencer",
+                href: `/${lang}/udforsk/konferencer`,
+            },
+            { label: "Nyheder", href: `/${lang}/udforsk/nyheder` },
+            {
+                label: "Bitcoin ressourcer på engelsk",
+                href: `/${lang}/udforsk/ressources-english`,
+            },
+            {
+                label: "Bitcoin Ressourcer",
+                href: `/${lang}/udforsk/bitcoin-ressources`,
+            },
+            {
+                label: "Twentyone.world",
+                href: `/${lang}/udforsk/twentyoneworld`,
+            },
         ],
+    },
+    {
+        label: "Idé Værksted",
+        href: `/${lang}/idevaerksted/buidl`,
+        submenu: [{ label: "Buidl", href: `/${lang}/idevaerksted/buidl` }],
     },
     {
         label: "Fællesskab",
@@ -122,46 +180,12 @@ const menuItems = [
                 label: "Bitcoin Initiativer i Danmark",
                 href: `/${lang}/faellesskab/initiativer-danmark`,
             },
+            { label: "Support", href: `/${lang}/faellesskab/support` },
+            { label: "Medie Kit", href: `/${lang}/faellesskab/mediekit` },
             {
-                label: "Mød ligesindede når du rejser",
-                href: `/${lang}/faellesskab/rejser`,
+                label: "Spotify Playliste",
+                href: `/${lang}/faellesskab/playliste`,
             },
-            {
-                label: "Bitcoin Fællesskaber og Meetup rundt omkring i verden",
-                href: `/${lang}/faellesskab/meetups`,
-            },
-            {
-                label: "Bitcoin Cirkulære Økonomier",
-                href: `/${lang}/faellesskab/cirkulaere-oekonomier`,
-            },
-            {
-                label: "Frie Byer og Samfund",
-                href: `/${lang}/faellesskab/frie-byer`,
-            },
-            {
-                label: "Bitcoin Konferencer",
-                href: `/${lang}/faellesskab/konferencer`,
-            },
-        ],
-    },
-    {
-        label: "Indhold",
-        href: `/${lang}/indhold`,
-        submenu: [
-            { label: "Blogs", href: `/${lang}/blog` },
-            { label: "Podcasts", href: `/${lang}/podcasts` },
-            { label: "Nyheder", href: `/${lang}/indhold/nyheder` },
-            { label: "Spotify Playliste", href: `/${lang}/indhold/spotify` },
-        ],
-    },
-    {
-        label: "Bidrag",
-        href: `/${lang}/bidrag`,
-        submenu: [
-            { label: "Support", href: `/${lang}/support` },
-            { label: "Twentyone.world", href: `/${lang}/bidrag/twentyone` },
-            { label: "Medie Kit", href: `/${lang}/bidrag/medie-kit` },
-            { label: "Merchandise", href: `/${lang}/bidrag/merchandise` },
             { label: "Rabatter", href: `/${lang}/rabat` },
         ],
     },
@@ -466,6 +490,9 @@ function getSwitchedPath(targetLang: string): string {
         background: none;
         border: none;
         font-family: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+        text-align: left;
         cursor: pointer;
     }
 

@@ -7,22 +7,22 @@ const { lang } = Astro.props;
 	<div class="feature-grid">
 		<a href={`/${lang}/blog`} class="feature-card">
 			<h3>📝 Blog</h3>
-			<p>Læs artikler og bidrag fra fællesskabet</p>
-		</a>
-
-		<a href={`/${lang}/videos`} class="feature-card">
-			<h3>🎥 Videoer</h3>
-			<p>Lær gennem uddannelsesvideoer</p>
+			<p>Artikler og blogindlæg</p>
 		</a>
 
 		<a href={`/${lang}/podcasts`} class="feature-card">
 			<h3>🎙️ Podcasts</h3>
-			<p>Lyt til dybdegående samtaler</p>
+			<p>Liste over danske Bitcoin Podcasts</p>
 		</a>
 
-		<a href={`/${lang}/resources`} class="feature-card">
-			<h3>📚 Ressourcer</h3>
-			<p>Find værktøjer og guides</p>
+		<a href={`/${lang}/udforsk/udforsk`} class="feature-card">
+			<h3>🌍 Udforsk</h3>
+			<p>Fællesskaber, meetups og konferencer</p>
+		</a>
+
+		<a href={`/${lang}/kom-igang/kob-bitcoin`} class="feature-card">
+			<h3>🚀 Kom igang</h3>
+			<p>Lær at anskaffe og opbevare bitcoin</p>
 		</a>
 
 		<a href={`/${lang}/rabat`} class="feature-card">
@@ -30,7 +30,7 @@ const { lang } = Astro.props;
 			<p>Spar penge med vores partnere</p>
 		</a>
 
-		<a href={`/${lang}/support`} class="feature-card">
+		<a href={`/${lang}/faellesskab/support`} class="feature-card">
 			<h3>❤️ Støt os</h3>
 			<p>Hjælp fællesskabet med at vokse</p>
 		</a>
@@ -76,13 +76,17 @@ const { lang } = Astro.props;
 	}
 
 	.feature-card::before {
-		content: '';
+		content: "";
 		position: absolute;
 		top: 0;
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: radial-gradient(circle at center, rgba(247, 147, 26, 0.05), transparent);
+		background: radial-gradient(
+			circle at center,
+			rgba(247, 147, 26, 0.05),
+			transparent
+		);
 		opacity: 0;
 		transition: opacity 0.3s ease;
 	}

@@ -1,34 +1,93 @@
 ---
 const { lang } = Astro.props;
 
+const logos = [
+	{ href: "https://mempool.space/da", logo: "/images/logos/mempool.png" },
+	{
+		href: "https://timechaincalendar.com",
+		logo: "/images/logos/timechaincal.png",
+	},
+	{ href: "https://bitcoin.clarkmoody.com/dashboard/", logo: "/images/logos/clarkmoody.png" },
+	{ href: "https://amboss.space", logo: "/images/logos/amboss.png" },
+	{
+		href: "https://nakamotoinstitute.org",
+		logo: "/images/logos/nakamotoinstitute.png",
+	},
+	{ href: "https://bitbo.io", logo: "/images/logos/bitbo.png" },
+];
+
 const actions = [
-	{ icon: '📖', label: 'Bogmærker', href: `/${lang}/bookmarks` },
-	{ icon: '💰', label: 'Podcasts', href: `/${lang}/podcasts` },
-	{ icon: '🔐', label: 'Rabat', href: `/${lang}/rabat` },
-	{ icon: '🎓', label: 'Blokkæden', href: `/${lang}/blockchain` },
+	{ icon: "📖", label: "Bogmærker", href: `/${lang}/bookmarks` },
+	{ icon: "💰", label: "Podcasts", href: `/${lang}/podcasts` },
+	{ icon: "🔐", label: "Rabat", href: `/${lang}/rabat` },
+	{
+		icon: "🎓",
+		label: "Blokkæden",
+		href: "https://www.enogtyve.org/stillearly.html",
+		external: true,
+	},
 ];
 ---
 
 <section class="quick-actions">
 	<div class="container">
-		<div class="action-cards">
-			{actions.map(action => (
-				<a href={action.href} class="action-card">
-					<span class="card-icon">{action.icon}</span>
-					<span class="card-label">{action.label}</span>
-				</a>
-			))}
+		<div class="logo-cards">
+			{
+				logos.map((item) => (
+					<a
+						href={item.href}
+						class="logo-card"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<img src={item.logo} alt="" class="logo-img" />
+					</a>
+				))
+			}
 		</div>
-		
+
+		<div class="action-cards">
+			{
+				actions.map((action) =>
+					action.external ? (
+						<a
+							href={action.href}
+							class="action-card"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<span class="card-icon">{action.icon}</span>
+							<span class="card-label">{action.label}</span>
+						</a>
+					) : (
+						<a href={action.href} class="action-card">
+							<span class="card-icon">{action.icon}</span>
+							<span class="card-label">{action.label}</span>
+						</a>
+					),
+				)
+			}
+		</div>
+
 		<div class="news-ticker">
-			<span class="ticker-icon">📰</span>
-			<span class="ticker-label">Seneste:</span>
+			<span class="ticker-icon">🧡</span>
+			<span class="ticker-label">HUSK:</span>
 			<div class="ticker-content">
-				<span class="ticker-item">Ny guide om cold storage</span>
-				<span class="ticker-separator">•</span>
-				<span class="ticker-item">Video tutorial om Lightning</span>
-				<span class="ticker-separator">•</span>
-				<span class="ticker-item">Opdateret ressource-liste</span>
+				<a
+					href="https://www.bitcoincopenhagen.dk"
+					class="ticker-item ticker-link"
+					target="_blank"
+					rel="noopener noreferrer"
+					>Bitcoin Copenhagen Konference d. 21. marts 2026</a
+				>
+				<span class="ticker-separator">|</span>
+				<a href={`/${lang}/udforsk/konferencer`} class="ticker-item ticker-link"
+					>Klik her for at se anbefalede konferencer</a
+				>
+				<span class="ticker-separator">|</span>
+				<a href={`/${lang}/blog`} class="ticker-item ticker-link"
+					>Opdateret ressource-liste</a
+				>
 			</div>
 		</div>
 	</div>
@@ -40,6 +99,36 @@ const actions = [
 		border-bottom: 1px solid rgba(247, 147, 26, 0.1);
 	}
 
+	.logo-cards {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		gap: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.logo-card {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.75rem 1rem;
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid rgba(247, 147, 26, 0.15);
+		border-radius: 8px;
+		text-decoration: none;
+		transition: all 0.3s ease;
+	}
+
+	.logo-card:hover {
+		background: rgba(247, 147, 26, 0.08);
+		border-color: var(--primary);
+		transform: translateY(-3px);
+	}
+
+	.logo-img {
+		max-height: 28px;
+		max-width: 100%;
+		object-fit: contain;
+	}
 
 	.action-cards {
 		display: grid;
@@ -115,12 +204,27 @@ const actions = [
 		flex-shrink: 0;
 	}
 
+	.ticker-link {
+		text-decoration: none;
+		color: var(--text-light);
+		transition: color 0.2s ease;
+	}
+
+	.ticker-link:hover {
+		color: #f7931a;
+		text-decoration: none;
+	}
+
 	.ticker-separator {
 		color: var(--primary);
 		flex-shrink: 0;
 	}
 
 	@media (max-width: 768px) {
+		.logo-cards {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
 		.action-cards {
 			grid-template-columns: repeat(2, 1fr);
 		}

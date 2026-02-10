@@ -1,0 +1,242 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+
+const links = [
+  {
+    name: "Bitcoin-ressourcer på engelsk",
+    url: "/da/udforsk/bitcoin-ressources",
+    desc: "En kurateret samling af de bedste engelsksprogede Bitcoin-ressourcer.",
+    icon: "📚",
+    external: false,
+  },
+  {
+    name: "Bitcoin-konferencer",
+    url: "/da/udforsk/konferencer",
+    desc: "Konferencer, hvor folk med interesse fra hele verden mødes og deler deres tanker og ideer.",
+    icon: "🎤",
+    external: false,
+  },
+  {
+    name: "Bitcoin-fællesskaber og meetups",
+    url: "/da/udforsk/in-the-world",
+    desc: "Fællesskaber og meetups rundt omkring i verden – du bliver muligvis overrasket over, hvor mange der findes.",
+    icon: "🤝",
+    external: false,
+  },
+  {
+    name: "Bitcoin cirkulære økonomier",
+    url: "/da/udforsk/cirkulaere-okonomier",
+    desc: "Steder, hvor Bitcoin allerede bruges som den foretrukne opsparings- og betalingsmåde.",
+    icon: "🔄",
+    external: false,
+  },
+  {
+    name: "Bitcoin-projekter og startups",
+    url: "#",
+    desc: "Kommer snart – en oversigt over spændende Bitcoin-projekter og startups.",
+    icon: "🚀",
+    external: false,
+    upcoming: true,
+  },
+  {
+    name: "Bitcoin services og produkter",
+    url: "/da/laer-mere/bitcoin-services-og-produkter",
+    desc: "En lang række etablerede Bitcoin-virksomheder og services rundt omkring i verden.",
+    icon: "🛠️",
+    external: false,
+  },
+  {
+    name: "Bitcoin som betaling",
+    url: "#",
+    desc: "Kommer snart – alt om at bruge Bitcoin som betalingsmiddel.",
+    icon: "💳",
+    external: false,
+    upcoming: true,
+  },
+];
+---
+
+<ResourcePageLayout
+  title="Udforsk"
+  description="Udforsk Bitcoin-verdenen – fællesskaber, konferencer, cirkulære økonomier og meget mere"
+  lang="da"
+>
+  <section class="content-section">
+    <p>
+      Her på siden finder du forskellige emner, som du garanteret synes er
+      interessante, når du har lært lidt mere om Bitcoin. Der er et hav af
+      Bitcoin-ressourcer på engelsk, og nogle af disse er samlet på en side, som
+      der er linket til herunder.
+    </p>
+    <p>
+      Du kan også finde en liste med konferencer, hvor folk med interesse fra
+      hele verden mødes og deler deres tanker og ideer. Du bliver muligvis
+      overrasket over, hvor mange Bitcoin-fællesskaber der findes, samt hvor
+      langt de mange steder er med at få integreret Bitcoin som den foretrukne
+      opsparings- og betalingsmåde.
+    </p>
+    <p>
+      Kort fortalt er her på siden et forsøg på at samle nogle relevante links.
+    </p>
+  </section>
+
+  <section class="links-grid">
+    {
+      links.map((link) => (
+        <a
+          href={link.url}
+          class={`link-card ${link.upcoming ? "upcoming" : ""}`}
+          target={link.external ? "_blank" : undefined}
+          rel={link.external ? "noopener noreferrer" : undefined}
+        >
+          <span class="link-icon">{link.icon}</span>
+          <div class="link-content">
+            <span class="link-name">{link.name}</span>
+            <span class="link-desc">{link.desc}</span>
+          </div>
+          {link.upcoming ? (
+            <span class="upcoming-badge">Kommer snart</span>
+          ) : (
+            <span class="link-arrow">→</span>
+          )}
+        </a>
+      ))
+    }
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
+</ResourcePageLayout>
+
+<style>
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section p {
+    margin-bottom: 0.75rem;
+  }
+
+  /* Links grid */
+  .links-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-bottom: 2rem;
+  }
+
+  .link-card {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    text-decoration: none;
+    transition:
+      border-color 0.3s ease,
+      transform 0.2s ease;
+    position: relative;
+  }
+
+  .link-card:hover {
+    border-color: rgba(247, 147, 26, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .link-card.upcoming {
+    border-style: dashed;
+    opacity: 0.65;
+    pointer-events: none;
+  }
+
+  .link-icon {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+    width: 2.5rem;
+    text-align: center;
+  }
+
+  .link-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1;
+  }
+
+  .link-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-light, #ccc);
+  }
+
+  .link-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(204, 204, 204, 0.6);
+  }
+
+  .link-arrow {
+    font-size: 1.1rem;
+    color: #f7931a;
+    opacity: 0.5;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .link-card:hover .link-arrow {
+    opacity: 1;
+  }
+
+  .upcoming-badge {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #f7931a;
+    border: 1px solid rgba(247, 147, 26, 0.3);
+    border-radius: 4px;
+    padding: 0.2rem 0.5rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  /* Back to top */
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 567px) {
+    .link-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1rem 1.15rem;
+    }
+
+    .link-icon {
+      width: auto;
+    }
+
+    .link-arrow {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+
+    .upcoming-badge {
+      align-self: flex-start;
+    }
+  }
+</style>

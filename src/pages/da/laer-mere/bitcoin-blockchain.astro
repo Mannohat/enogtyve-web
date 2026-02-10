@@ -1,0 +1,325 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+---
+
+<ResourcePageLayout
+  title="Bitcoin Blokkæden"
+  description="Information og værktøjer til at udforske Bitcoin-blokkæden"
+  lang="da"
+>
+  <section class="nav-buttons">
+    <a href="/da/privatliv-best-practice/" class="nav-btn">Privatliv og best practice</a>
+    <a href="/da/opbevaring-af-bitcoin/" class="nav-btn">Opbevaring af bitcoin</a>
+    <a href="/da/bitcoin-software/" class="nav-btn">Bitcoin software</a>
+  </section>
+
+  <section class="content-section">
+    <p>
+      <strong>
+        Her på siden finder du information og forskellige værktøjer i forbindelse
+        med Bitcoin-blokkæden.
+      </strong>
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>
+      <a href="/stillearly.html" target="_blank" rel="noopener noreferrer">
+        Still early!
+      </a>
+    </h2>
+    <div class="feature-block">
+      <a href="/stillearly.html" target="_blank" rel="noopener noreferrer" class="feature-image">
+        <img
+          src="/images/stillearly.png"
+          alt="Still early – Bitcoin epoke-statistik"
+        />
+      </a>
+      <div class="feature-text">
+        <p>
+          For at få en idé om, hvor tidligt i Bitcoins historie vi er, kan du
+          åbne dette link med lidt statistik og grafik. Bitcoin måler tid i
+          blokhøjde, og hver blok varer ca. 10 min. i gennemsnit. Du kan se,
+          hvilken epoke vi er i ud af de i alt 33 epoker, som Bitcoin har.
+          <strong>
+            <a href="/stillearly.html" target="_blank" rel="noopener noreferrer">
+              Epoke nr. 33 er den sidste og vil formentlig vare for evigt!
+            </a>
+          </strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Mempool.space</h2>
+    <div class="feature-block reverse">
+      <div class="feature-text">
+        <p>
+          <strong>Mempool.space</strong> er et godt værktøj til at følge med i
+          aktiviteten på Bitcoin-blokkæden.
+        </p>
+        <p>
+          <a href="https://mempool.space" target="_blank" rel="noopener noreferrer">
+            Mempool.space
+          </a>
+        </p>
+      </div>
+      <a href="https://mempool.space" target="_blank" rel="noopener noreferrer" class="feature-image">
+        <img
+          src="/images/mempool.png"
+          alt="Mempool.space – Bitcoin blokkæde-udforsker"
+        />
+      </a>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Timechain Calendar</h2>
+    <div class="feature-block">
+      <a href="https://timechaincalendar.com/en" target="_blank" rel="noopener noreferrer" class="feature-image">
+        <img
+          src="/images/timechaincalendar.png"
+          alt="Timechain Calendar – Bitcoin-information"
+        />
+      </a>
+      <div class="feature-text">
+        <p>
+          <strong>Timechain Calendar</strong> er et andet godt værktøj, som også
+          giver dig gode informationer om Bitcoin.
+        </p>
+        <p>
+          <a href="https://timechaincalendar.com/en" target="_blank" rel="noopener noreferrer">
+            Timechaincalendar.com
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Flere værktøjer</h2>
+    <p>Herunder er en liste med flere gode værktøjer, man kan udforske.</p>
+    <div class="tools-grid">
+      <a
+        href="https://timechainstats.com/"
+        class="tool-card"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="tool-name">Timechainstats.com</span>
+      </a>
+      <a
+        href="https://bitcoin.clarkmoody.com/dashboard/"
+        class="tool-card"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="tool-name">Clark Moody</span>
+      </a>
+      <a
+        href="https://mempool.space/"
+        class="tool-card"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="tool-name">Mempool.space</span>
+      </a>
+      <a
+        href="https://miningpool.observer/"
+        class="tool-card"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="tool-name">Miningpool.observer</span>
+      </a>
+      <a
+        href="https://bitfeed.live/"
+        class="tool-card"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="tool-name">Bitfeed</span>
+      </a>
+      <a
+        href="https://www.utxo.live"
+        class="tool-card"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="tool-name">UTXO.live</span>
+      </a>
+      <a
+        href="https://bit.ly/luke-nodecount"
+        class="tool-card"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="tool-name">Bitcoin-knudepunkter / Nodes</span>
+      </a>
+    </div>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
+</ResourcePageLayout>
+
+<style>
+  /* Navigation buttons */
+  .nav-buttons {
+    display: flex;
+    gap: var(--space-md, 1rem);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-btn {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    background-color: #f7931a;
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 1px solid #f7931a;
+    transition: all 0.3s ease;
+  }
+
+  .nav-btn:hover {
+    background-color: transparent;
+    color: #f7931a;
+  }
+
+  /* Content sections */
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section h2 {
+    color: var(--primary, #f7931a);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-md, 1rem);
+    padding-bottom: var(--space-sm, 0.5rem);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .content-section h2 a {
+    color: var(--primary, #f7931a);
+    text-decoration: none;
+  }
+
+  .content-section h2 a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .content-section p {
+    margin-bottom: 1rem;
+  }
+
+  .content-section a {
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .content-section a:hover {
+    color: #f7931a;
+  }
+
+  /* Feature blocks (image + text side by side) */
+  .feature-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .feature-image {
+    display: block;
+    text-decoration: none;
+  }
+
+  .feature-image img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgba(247, 147, 26, 0.15);
+    transition: border-color 0.3s ease;
+  }
+
+  .feature-image:hover img {
+    border-color: var(--primary, #f7931a);
+  }
+
+  .feature-text p {
+    margin-bottom: 0.75rem;
+  }
+
+  /* Tools grid */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-md, 1rem);
+    margin-top: 1rem;
+  }
+
+  .tool-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(247, 147, 26, 0.15);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .tool-card:hover {
+    background: rgba(247, 147, 26, 0.08);
+    border-color: var(--primary, #f7931a);
+    transform: translateY(-3px);
+  }
+
+  .tool-name {
+    color: var(--text-light, #ccc);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  /* Back to top */
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 567px) {
+    .nav-buttons {
+      flex-direction: column;
+    }
+
+    .feature-block,
+    .feature-block.reverse {
+      grid-template-columns: 1fr;
+    }
+
+    .tools-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

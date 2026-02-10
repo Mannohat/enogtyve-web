@@ -1,0 +1,230 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+
+const platforms = [
+  {
+    name: "Orange Pill App",
+    image: "/images/logos/cluborange.svg",
+    tagline: "Stack Friends Who Stack Sats ⚡️",
+    description: "Om det er forretningsrejse eller på tur med familien, kan det være, man får lyst til at møde lokale Bitcoiners. Det kan du ret nemt med Orange Pill App. OPA giver et nemt lokationsbestemt overblik over Bitcoiners i et område. Det er nemt at komme i gang, og for ganske nyligt lancerede de også en Lightning wallet-funktionalitet i appen. Desuden finder man mange andre ting som meetups, merchants mv.",
+    url: "https://signup.theorangepillapp.com/opa/Jake",
+    linkLabel: "Download Orange Pill App",
+  },
+  {
+    name: "BTCMap.org",
+    image: "/images/logos/btcmap.svg",
+    tagline: "Find Bitcoin-venlige steder over hele verden",
+    description: "BTCMap.org hjælper dig med at finde en frisør, kaffebar eller hvad du måtte være på jagt efter af service eller produkter, der accepterer Bitcoin.",
+    url: "https://www.btcmap.org",
+    linkLabel: "Åbn BTCMap.org",
+  },
+  {
+    name: "Satlantis.io",
+    image: "/images/logos/satlantis.png",
+    tagline: "Tripadvisor for Bitcoiners",
+    description: "Destinationer, anmeldelser, begivenheder mv. Du kan logge ind med din Nostr-nøgle. Hvis du ikke kender til Nostr endnu, kan du lære mere om det på nostr.dk.",
+    url: "https://www.satlantis.io",
+    linkLabel: "Åbn Satlantis.io",
+    extra: [
+      { label: "Lær om Nostr →", url: "https://www.nostr.dk" },
+    ],
+  },
+];
+---
+
+<ResourcePageLayout
+  title="Bitcoin-fællesskaber"
+  description="Find Bitcoiners, meetups og Bitcoin-venlige steder over hele verden"
+  lang="da"
+>
+  <section class="content-section">
+    <p>Du bliver muligvis overrasket over, hvor mange Bitcoin-fællesskaber der findes rundt omkring i verden. Her finder du nogle af de bedste værktøjer til at finde lokale Bitcoiners, meetups og steder, der accepterer Bitcoin.</p>
+  </section>
+
+  <section class="platforms-list">
+    {platforms.map((p) => (
+      <div class="platform-card">
+        <div class="platform-image">
+          <a href={p.url} target="_blank" rel="noopener noreferrer">
+            <img src={p.image} alt={p.name} />
+          </a>
+        </div>
+        <div class="platform-content">
+          <h3 class="platform-name">{p.name}</h3>
+          <p class="platform-tagline">{p.tagline}</p>
+          <p class="platform-desc">{p.description}</p>
+          <div class="platform-links">
+            <a href={p.url} target="_blank" rel="noopener noreferrer" class="platform-cta">
+              {p.linkLabel} →
+            </a>
+            {p.extra && p.extra.map((link) => (
+              <a href={link.url} target="_blank" rel="noopener noreferrer" class="platform-extra">
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
+</ResourcePageLayout>
+
+<style>
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section p {
+    margin-bottom: 0.75rem;
+  }
+
+  /* Platforms */
+  .platforms-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .platform-card {
+    display: flex;
+    gap: 2rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 12px;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    transition: border-color 0.3s ease;
+  }
+
+  .platform-card:hover {
+    border-color: rgba(247, 147, 26, 0.35);
+  }
+
+  .platform-image {
+    flex-shrink: 0;
+    width: 160px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 0.25rem;
+  }
+
+  .platform-image img {
+    width: 100%;
+    max-width: 160px;
+    height: auto;
+    border-radius: 10px;
+    transition: opacity 0.2s ease;
+  }
+
+  .platform-image img:hover {
+    opacity: 0.85;
+  }
+
+  .platform-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+  }
+
+  .platform-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-light, #ccc);
+    margin: 0;
+  }
+
+  .platform-tagline {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #f7931a;
+    margin: 0;
+  }
+
+  .platform-desc {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: rgba(204, 204, 204, 0.7);
+    margin: 0.25rem 0 0 0;
+    flex-grow: 1;
+  }
+
+  .platform-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .platform-cta {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(247, 147, 26, 0.12);
+    color: #f7931a;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .platform-cta:hover {
+    background: rgba(247, 147, 26, 0.22);
+  }
+
+  .platform-extra {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(204, 204, 204, 0.8);
+    font-size: 0.82rem;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid rgba(247, 147, 26, 0.1);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .platform-extra:hover {
+    border-color: rgba(247, 147, 26, 0.3);
+    color: #f7931a;
+  }
+
+  /* Back to top */
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 567px) {
+    .platform-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+    }
+
+    .platform-image {
+      width: 140px;
+    }
+
+    .platform-links {
+      justify-content: center;
+    }
+  }
+</style>

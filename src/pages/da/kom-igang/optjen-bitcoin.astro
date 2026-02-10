@@ -1,0 +1,142 @@
+---
+import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
+---
+
+<ResourcePageLayout 
+  title="Optjen Bitcoin" 
+  description="Forskellige måder at optjene bitcoin på"
+  lang="da"
+>
+  <section class="intro">
+    <p>Der kommer løbende nye services og måder hvorpå man kan optjene bitcoin på forskellig vis. Det kan f.eks. være som cashback ved køb online, ved udførelse af opgaver eller når du ser en annonce mv.</p>
+    
+    <p>Herunder er en liste med forskellige muligheder for at optjene bitcoin. Ønsker du at købe bitcoin, så læs mere om hvor og hvordan du kan gøre det her: <a href="/da/kob-bitcoin">Anskaffelse af bitcoin</a></p>
+  </section>
+
+  <section class="services-section">
+    <div class="service-grid">
+      <div class="service-card">
+        <h3><a href="https://satsback.com/register/6zj3laKvOmPVyKE5" target="_blank" rel="noopener noreferrer">Satsback.com</a></h3>
+        <p>Satsback har lavet en browserudvidelse som giver dig mulighed for at optjene cashback ved køb på mange tusinde hjemmesider.</p>
+        <a href="https://satsback.com/register/6zj3laKvOmPVyKE5" class="service-link" target="_blank" rel="noopener noreferrer">
+          Læs mere og opret dig her →
+        </a>
+      </div>
+
+      <div class="service-card">
+        <h3><a href="https://addslice.com/?crew=f5DzF" target="_blank" rel="noopener noreferrer">AddSlice.com</a></h3>
+        <p>Slice er en browserudvidelse som giver dig satoshis for at vise reklamer. Du optjener altså sats bare ved at browse internettet.</p>
+        <a href="https://addslice.com/?crew=f5DzF" class="service-link" target="_blank" rel="noopener noreferrer">
+          Læs mere og opret dig her →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-note">
+    <p>Kender du andre services? Send endelig en mail til <a href="mailto:kontakt@enogtyve.org">kontakt@enogtyve.org</a> eller skriv i <a href="http://chat.enogtyve.org" target="_blank" rel="noopener noreferrer">Telegramgruppen</a>.</p>
+  </section>
+
+  <a href="#" class="back-to-top">
+    ↑ Tilbage til toppen
+  </a>
+</ResourcePageLayout>
+
+<style>
+  .intro {
+    margin-bottom: var(--space-lg);
+    line-height: 1.7;
+  }
+
+  .intro p {
+    margin-bottom: var(--space-md);
+  }
+
+  .intro a {
+    color: var(--primary);
+  }
+
+  .services-section {
+    margin: var(--space-xl) 0;
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .service-card {
+    background: var(--background-card);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: var(--space-md);
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+  }
+
+  .service-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .service-card h3 a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+
+  .service-card h3 a:hover {
+    opacity: 0.8;
+  }
+
+  .service-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+  }
+
+  .service-link {
+    display: inline-block;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: var(--space-sm);
+    transition: opacity 0.2s ease;
+  }
+
+  .service-link:hover {
+    opacity: 0.7;
+  }
+
+  .contact-note {
+    margin-top: 4rem;
+  }
+
+  .contact-note p {
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  .contact-note a {
+    color: var(--primary);
+  }
+
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+</style>

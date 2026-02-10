@@ -1,0 +1,347 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+
+const conferences = [
+  {
+    name: "Bitcoin Copenhagen",
+    image: "/images/logos/btccph.png",
+    date: "21. marts 2026",
+    location: "København, Danmark",
+    description: "En dansk Bitcoin-konference – en endagsbegivenhed, som giver nysgerrige mulighed for at få et indblik i, hvad Bitcoin er, og hvilke udfordringer det kan være løsningen på. Billet koster kun 500 kr. Der vil være flertal af danske talere, et par engelske oplæg og – vigtigst af alt – en oplagt mulighed for at møde andre, få svar på dine spørgsmål eller bare hænge ud med andre Bitcoinere. Der vil kun blive 121 billetter til salg.",
+    url: "https://www.bitcoincopenhagen.dk",
+    linkLabel: "Køb billet",
+    discount: null,
+  },
+  {
+    name: "BTCHEL",
+    image: "/images/logos/btchel.png",
+    date: "25.–26. september 2026",
+    location: "Helsinki, Finland",
+    description: "BTCHEL 2025 var den første større Bitcoin-konference i Norden, og det var en stor succes. To dage med fokus på Bitcoin, fyldt med keynotes, paneler og workshops. Talere ved BTCHEL kommer fra hele verden, og der vil være et fokus på Bitcoin i de nordiske lande. Sørg for også at tjekke side-events ud og tilmeld dig i tide, da der ofte er stor interesse og begrænsede pladser.",
+    url: "https://btchel.com/",
+    linkLabel: "Køb billet",
+    discount: 'Brug rabatkoden "enogtyve" og få 10% rabat',
+  },
+  {
+    name: "BTCPrague",
+    image: "/images/logos/btcprague.png",
+    date: "Juni 2026",
+    location: "Prag, Tjekkiet",
+    description: "En super velorganiseret og rigtig god konference i Prag. Her kommer der 7.500–10.000 mennesker, og der er et bredt og tætpakket program, så man helt sikkert kan finde noget eller nogen, som beskæftiger sig med lige præcis det, du selv finder allermest interessant i og omkring Bitcoin. BTCPrague har også en stor palette af side-events, som kan anbefales.",
+    url: "https://btcprg.me/ENOGTYVE",
+    linkLabel: "Køb billet",
+    discount: 'Brug rabatkoden "enogtyve" og få 10% rabat',
+  },
+];
+---
+
+<ResourcePageLayout
+  title="Bitcoin-konferencer"
+  description="Anbefalede Bitcoin-konferencer i Europa og Norden"
+  lang="da"
+>
+  <section class="content-section">
+    <p>Deltagelse i en Bitcoin-konference er en god måde at lære nyt, møde andre Bitcoinere samt i det hele taget få en fornemmelse af, hvad der rører sig i og omkring Bitcoin. Husk også at tjekke de satellitbegivenheder, som ofte finder sted før og efter det officielle program.</p>
+    <p>Efter at have deltaget i mange forskellige Bitcoin-konferencer er her et par anbefalinger:</p>
+  </section>
+
+  <section class="conferences-list">
+    {conferences.map((conf) => (
+      <div class="conference-card">
+        <a href={conf.url} target="_blank" rel="noopener noreferrer" class="conference-image-link">
+          <img src={conf.image} alt={conf.name} class="conference-image" />
+        </a>
+        <div class="conference-content">
+          <h3 class="conference-name">{conf.name}</h3>
+          <div class="conference-meta">
+            <span class="conference-date">📅 {conf.date}</span>
+            <span class="conference-location">📍 {conf.location}</span>
+          </div>
+          <p class="conference-desc">{conf.description}</p>
+          <div class="conference-actions">
+            <a href={conf.url} target="_blank" rel="noopener noreferrer" class="conference-cta">
+              {conf.linkLabel} →
+            </a>
+          </div>
+          {conf.discount && (
+            <p class="conference-discount">🎟️ {conf.discount}</p>
+          )}
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <section class="category-section">
+    <h3 class="category-heading"><span class="category-icon">💡</span> Også værd at overveje</h3>
+    <a href="https://oslofreedomforum.com/" target="_blank" rel="noopener noreferrer" class="mention-card">
+      <div class="mention-content">
+        <span class="mention-name">Oslo Freedom Forum</span>
+        <span class="mention-desc">Afholdes årligt i Oslo, hvor Bitcoin og financial freedom track fylder stadig mere i programmet.</span>
+      </div>
+      <span class="mention-arrow">→</span>
+    </a>
+  </section>
+
+  <section class="overview-note">
+    <p>Oversigt over flere Bitcoin-konferencer: <a href="https://bitcoin.review/bitcoin-events/" target="_blank" rel="noopener noreferrer"><strong>Bitcoin.review – Events →</strong></a></p>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
+</ResourcePageLayout>
+
+<style>
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section p {
+    margin-bottom: 0.75rem;
+  }
+
+  /* Conferences */
+  .conferences-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .conference-card {
+    display: flex;
+    gap: 2rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 12px;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    transition: border-color 0.3s ease;
+  }
+
+  .conference-card:hover {
+    border-color: rgba(247, 147, 26, 0.3);
+  }
+
+  .conference-image-link {
+    flex-shrink: 0;
+    width: 220px;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .conference-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: opacity 0.2s ease;
+  }
+
+  .conference-image-link:hover .conference-image {
+    opacity: 0.85;
+  }
+
+  .conference-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+  }
+
+  .conference-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-light, #ccc);
+    margin: 0;
+  }
+
+  .conference-meta {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .conference-date,
+  .conference-location {
+    font-size: 0.82rem;
+    color: rgba(204, 204, 204, 0.6);
+    font-weight: 600;
+  }
+
+  .conference-desc {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: rgba(204, 204, 204, 0.7);
+    margin: 0.25rem 0 0 0;
+    flex-grow: 1;
+  }
+
+  .conference-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .conference-cta {
+    display: inline-block;
+    padding: 0.45rem 1.1rem;
+    background: rgba(247, 147, 26, 0.12);
+    color: #f7931a;
+    font-size: 0.88rem;
+    font-weight: 700;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .conference-cta:hover {
+    background: rgba(247, 147, 26, 0.22);
+  }
+
+  .conference-discount {
+    font-size: 0.82rem;
+    color: #f7931a;
+    font-weight: 600;
+    margin: 0.25rem 0 0 0;
+    padding: 0.4rem 0.75rem;
+    background: rgba(247, 147, 26, 0.06);
+    border-radius: 6px;
+    width: fit-content;
+  }
+
+  /* Category section */
+  .category-section {
+    margin-bottom: 2rem;
+  }
+
+  .category-heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #f7931a;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(247, 147, 26, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .category-icon {
+    font-size: 1.1rem;
+  }
+
+  .mention-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.15rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    text-decoration: none;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .mention-card:hover {
+    border-color: rgba(247, 147, 26, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .mention-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    flex: 1;
+  }
+
+  .mention-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-light, #ccc);
+  }
+
+  .mention-desc {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: rgba(204, 204, 204, 0.55);
+  }
+
+  .mention-arrow {
+    color: #f7931a;
+    font-size: 0.95rem;
+    opacity: 0.4;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .mention-card:hover .mention-arrow {
+    opacity: 1;
+  }
+
+  /* Overview note */
+  .overview-note {
+    margin-bottom: 1rem;
+    padding: 1rem 1.25rem;
+    background: rgba(247, 147, 26, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 10px;
+    text-align: center;
+    color: var(--text-light, #ccc);
+  }
+
+  .overview-note p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .overview-note a {
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .overview-note a:hover {
+    color: #f7931a;
+  }
+
+  /* Back to top */
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 567px) {
+    .conference-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+    }
+
+    .conference-image-link {
+      width: 100%;
+      max-width: 280px;
+    }
+
+    .conference-meta {
+      justify-content: center;
+    }
+
+    .conference-actions {
+      justify-content: center;
+    }
+
+    .conference-discount {
+      align-self: center;
+    }
+  }
+</style>

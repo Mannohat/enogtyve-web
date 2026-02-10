@@ -1,0 +1,243 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+---
+
+<ResourcePageLayout
+  title="Bitcoin Lightning"
+  description="Lightning-netværket – en skaleringsløsning for Bitcoin med øjeblikkelige betalinger"
+  lang="da"
+>
+  <section class="nav-buttons">
+    <a href="/byg-selv/" class="nav-btn">Byg selv</a>
+    <a href="/liquid/" class="nav-btn">Liquid-netværket</a>
+    <a href="/lightning-services/" class="nav-btn">Lightning produkter og services</a>
+  </section>
+
+  <section class="content-section">
+    <p>
+      <strong>Lightning-netværket er en skaleringsløsning for Bitcoin.</strong>
+    </p>
+    <p>
+      På Bitcoin-netværket grupperes transaktioner sammen i blokke, og nye blokke
+      tilføjes til blokkæden cirka hver 10. minut. Når en betaling foretages ved
+      hjælp af Bitcoin, betragtes den som sikker, efter den er blevet bekræftet
+      af seks blokke, eller omkring en time. På Lightning-netværket behøver
+      betalinger ikke at vente på blokbekræftelser for at blive betragtet som
+      sikre. I stedet er de øjeblikkelige og fuldføres på få sekunder. Dette gør
+      det muligt at bruge Lightning-netværket til detailtransaktioner, betalinger
+      mellem personer, som vi kender det fra MobilePay, eller enhver anden
+      situation, hvor du har brug for at foretage en betaling med det samme.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Skalerbarhed</h2>
+    <p>
+      Skalerbarhed refererer til evnen hos et system, såsom et netværk eller en
+      platform, til at håndtere en stor mængde brugere eller trafik uden at
+      opleve problemer eller forsinkelser. Skalerbarhed er vigtig for Bitcoin,
+      fordi netværket skal være i stand til at understøtte en meget højere
+      volumen af transaktioner for at imødekomme efterspørgslen efter detail- og
+      automatiserede betalinger. Lightning-netværket giver brugere mulighed for
+      at udføre et næsten ubegrænset antal transaktioner med hinanden uden for
+      Bitcoin-blokkæden, eller som det også kaldes, off-chain. Dette betyder, at
+      transaktioner kan udføres, uden at hver enkelt transaktion skal optages på
+      blokkæden, hvilket hjælper med at reducere belastningen på netværket og gør
+      det i stand til at håndtere flere transaktioner.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Betalingskanaler</h2>
+    <p>
+      Lightning-netværket består af tusindvis af toparts betalingskanaler. Du kan
+      tænke på en Lightning-kanal som at åbne en regning på din lokale bar. I
+      stedet for at hive din pung op og betale, hver gang du bestiller en drink,
+      giver det mening at spare tid, energi og gebyrer ved at samle alle dine
+      drinks sammen i slutningen af aftenen og foretage den endelige afregning i
+      én betaling. Lightning fungerer på samme måde. Hver gang en betaling
+      foretages fra person A til person B, skubbes bitcoin fra den ene side af
+      kanalen til den anden. To brugere kan betale hinanden frem og tilbage, så
+      mange gange de ønsker, næsten øjeblikkeligt og med næsten ingen gebyrer.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Routing</h2>
+    <p>
+      Du tænker måske, at det ville være besværligt at opsætte en betalingskanal
+      med hundredvis af virksomheder, men det er det ikke. Det formidable ved
+      Lightning-netværket er, at det er et netværk af sammenkoblede kanaler. Lad
+      os sige, at Bob overtalte sin ven Carol til også at tilslutte sig
+      Lightning-netværket. Alice har en kanal med Bob, og Bob har en kanal med
+      Carol. Alice og Carol kan derefter betale hinanden ved at "route" gennem
+      Bob. Nogle ret smarte kryptografiske tricks garanterer, at Bob ikke kan
+      stjæle pengene, mens de passerer gennem ham. Når du foretager en betaling
+      på Lightning-netværket, søger dit knudepunkt efter en sti af kanaler mellem
+      dig og din destination. Dette er, hvad der refereres til som routing. Dette
+      forløber selvfølgelig helt automatisk mellem de involverede
+      Lightning-knudepunkter, så det sker øjeblikkeligt.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Mikrobetalinger</h2>
+    <p>
+      <strong>Mikrobetalinger</strong> refererer til meget små finansielle
+      transaktioner, ofte beløb på mindre end 5 kroner. Disse typer betalinger
+      kan være vanskelige at foretage ved hjælp af traditionelle finansielle
+      systemer, da de ofte har minimumsbeløb, der kan overføres, samt faste
+      gebyrer, der kan gøre små betalinger upraktiske.
+    </p>
+    <p>
+      Lightning-netværket giver mulighed for at foretage mikrobetalinger ved
+      hjælp af Bitcoin. Det gør det muligt for brugere at sende meget små
+      mængder af bitcoin, ned til 1 satoshi, uden risikoen for at miste kontrol
+      over deres midler til en tredjepart (kaldet "forvaltningsrisiko"). I
+      modsætning til Bitcoin-blokkæden, som i øjeblikket har
+      minimumstransaktionsbeløb samt gebyrer, der gør mikrobetalinger upraktiske,
+      giver Lightning-netværket altså mulighed for meget små betalinger i
+      fraktioner af bitcoin (satoshis/sats). Dette åbner muligheden for at skabe
+      nye markeder og gøre små betalinger mere praktiske.
+    </p>
+  </section>
+
+  <section class="content-section link-section">
+    <h2>Læs mere</h2>
+    <div class="link-cards">
+      <a href="/lightning-wallets/" class="link-card">
+        <span class="link-card-title">Lightning Wallets</span>
+        <span class="link-card-arrow">→</span>
+      </a>
+      <a href="/lightning-services/" class="link-card">
+        <span class="link-card-title">Lightning produkter og services</span>
+        <span class="link-card-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
+</ResourcePageLayout>
+
+<style>
+  /* Navigation buttons */
+  .nav-buttons {
+    display: flex;
+    gap: var(--space-md, 1rem);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-btn {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    background-color: #f7931a;
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 1px solid #f7931a;
+    transition: all 0.3s ease;
+  }
+
+  .nav-btn:hover {
+    background-color: transparent;
+    color: #f7931a;
+  }
+
+  /* Content sections */
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section h2 {
+    color: var(--primary, #f7931a);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-md, 1rem);
+    padding-bottom: var(--space-sm, 0.5rem);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .content-section p {
+    margin-bottom: 1rem;
+  }
+
+  .content-section a {
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .content-section a:hover {
+    color: #f7931a;
+  }
+
+  /* Link cards */
+  .link-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--space-md, 1rem);
+    margin-top: 1rem;
+  }
+
+  .link-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(247, 147, 26, 0.15);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .link-card:hover {
+    background: rgba(247, 147, 26, 0.08);
+    border-color: var(--primary, #f7931a);
+    transform: translateY(-3px);
+  }
+
+  .link-card-title {
+    color: var(--text-light, #ccc);
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .link-card-arrow {
+    color: #f7931a;
+    font-size: 1.2rem;
+    margin-left: 1rem;
+  }
+
+  /* Back to top */
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 567px) {
+    .nav-buttons {
+      flex-direction: column;
+    }
+
+    .link-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

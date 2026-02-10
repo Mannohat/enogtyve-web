@@ -1,0 +1,349 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+
+const categories = [
+    {
+        title: "Hardware wallets",
+        icon: "🔐",
+        links: [
+            {
+                name: "Anbefalinger",
+                url: "/da/kom-igang/hardware-wallets",
+                desc: "Se vores anbefalinger til hardware wallets",
+                external: false,
+            },
+        ],
+    },
+    {
+        title: "Miners / ASICs",
+        icon: "⛏️",
+        links: [
+            {
+                name: "Miningwholesale.eu",
+                url: "https://miningwholesale.eu/",
+                desc: "Europæisk forhandler af mining-udstyr",
+            },
+            {
+                name: "21energy.io",
+                url: "https://21energy.com/enogtyve",
+                desc: "Bitcoin-varmeprodukter",
+            },
+        ],
+    },
+    {
+        title: "Mining pools",
+        icon: "🏊",
+        links: [
+            {
+                name: "Braiins",
+                url: "https://braiins.com/",
+                desc: "Open source mining pool og firmware",
+            },
+        ],
+    },
+    {
+        title: "Hosted mining services",
+        icon: "🏭",
+        links: [
+            {
+                name: "Munich International Mining (MIM)",
+                url: "https://www.mim.farm",
+                desc: "Hosted mining service",
+            },
+        ],
+    },
+    {
+        title: "Merchandise",
+        icon: "👕",
+        links: [
+            {
+                name: "Store of Value",
+                url: "https://www.storeofvalue.eu/discount/enogtyve",
+                desc: "Bitcoin-tøj og merch",
+            },
+            {
+                name: "Satoshistore.io",
+                url: "https://www.satoshistore.io",
+                desc: "Bitcoin merchandise",
+            },
+            {
+                name: "Cryptocloaks.com",
+                url: "https://www.cryptocloaks.com",
+                desc: "3D-printede Bitcoin-produkter",
+            },
+            {
+                name: "Bitcoinstickers.co.uk",
+                url: "https://www.bitcoinstickers.co.uk",
+                desc: "Bitcoin-klistermærker",
+            },
+        ],
+    },
+    {
+        title: "Gizmos, signers m.m.",
+        icon: "🔧",
+        links: [
+            {
+                name: "Shop.LNBits.com",
+                url: "https://shop.lnbits.com/",
+                desc: "LNBits hardware shop",
+            },
+            {
+                name: "Solosatoshi.com",
+                url: "https://www.solosatoshi.com/",
+                desc: "Solo mining hardware",
+            },
+            {
+                name: "GoBrrr.me",
+                url: "https://www.gobrrr.me/",
+                desc: "Bitcoin gadgets",
+            },
+            {
+                name: "D-Central",
+                url: "https://d-central.tech/",
+                desc: "Mining og Bitcoin tech",
+            },
+            {
+                name: "Thesolomining.co",
+                url: "https://www.thesolomining.co/",
+                desc: "Solo mining udstyr",
+            },
+            {
+                name: "Bitcoinbrabant.com",
+                url: "https://bitcoinbrabant.com/",
+                desc: "Bitcoin hardware fra Holland",
+            },
+            {
+                name: "Bitronics.store",
+                url: "https://bitronics.store?ref=1089",
+                desc: "Bitcoin elektronik og gadgets",
+            },
+            {
+                name: "BTClock.store",
+                url: "https://btclock.store/",
+                desc: "Bitcoin-ure og displays",
+            },
+        ],
+    },
+    {
+        title: "Rejser & oplevelser",
+        icon: "✈️",
+        links: [
+            {
+                name: "Airbtc.online",
+                url: "https://airbtc.online/",
+                desc: "Book overnatning med Bitcoin",
+            },
+            {
+                name: "Travala",
+                url: "https://www.travala.com/",
+                desc: "Rejser og hoteller med Bitcoin",
+            },
+        ],
+    },
+];
+---
+
+<ResourcePageLayout
+    title="Bitcoin services og produkter"
+    description="Hardware wallets, miners, merchandise, gadgets og meget mere"
+    lang="da"
+>
+    <section class="content-section">
+        <p>
+            Herunder finder du en samling af Bitcoin-relaterede services og
+            produkter – fra hardware wallets og miners til merchandise og
+            rejser.
+        </p>
+        <p class="highlight">
+            Husk også at tjekke siden med <a href="/da/rabat/"
+                ><strong>rabatter her</strong></a
+            >.
+        </p>
+    </section>
+
+    {
+        categories.map((cat) => (
+            <section class="category-section">
+                <h3 class="category-heading">
+                    <span class="category-icon">{cat.icon}</span> {cat.title}
+                </h3>
+                <div class="links-grid">
+                    {cat.links.map((link) => (
+                        <a
+                            href={link.url}
+                            target={
+                                link.external === false ? undefined : "_blank"
+                            }
+                            rel={
+                                link.external === false
+                                    ? undefined
+                                    : "noopener noreferrer"
+                            }
+                            class="link-card"
+                        >
+                            <div class="link-content">
+                                <span class="link-name">{link.name}</span>
+                                <span class="link-desc">{link.desc}</span>
+                            </div>
+                            <span class="link-arrow">→</span>
+                        </a>
+                    ))}
+                </div>
+            </section>
+        ))
+    }
+
+    <section class="content-section overview-note">
+        <p>
+            Se en samlet oversigt over virksomheder, der accepterer Bitcoin: <a
+                href="https://www.bitlist.com/"
+                target="_blank"
+                rel="noopener noreferrer"><strong>Bitlist.com →</strong></a>
+        </p>
+    </section>
+
+    <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
+</ResourcePageLayout>
+
+<style>
+    .content-section {
+        margin-bottom: 2rem;
+        line-height: 1.8;
+        color: var(--text-light, #ccc);
+    }
+
+    .content-section p {
+        margin-bottom: 0.75rem;
+    }
+
+    .content-section a {
+        color: rgba(247, 147, 26, 0.9);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+    }
+
+    .content-section a:hover {
+        color: #f7931a;
+    }
+
+    .highlight {
+        padding: 0.75rem 1rem;
+        background: rgba(247, 147, 26, 0.06);
+        border-left: 3px solid #f7931a;
+        border-radius: 0 8px 8px 0;
+    }
+
+    .overview-note {
+        margin-top: 1rem;
+        padding: 1rem 1.25rem;
+        background: rgba(247, 147, 26, 0.04);
+        border: 1px solid rgba(247, 147, 26, 0.12);
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .overview-note p {
+        margin: 0;
+    }
+
+    /* Category sections */
+    .category-section {
+        margin-bottom: 2rem;
+    }
+
+    .category-heading {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #f7931a;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(247, 147, 26, 0.2);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .category-icon {
+        font-size: 1.1rem;
+    }
+
+    /* Links grid */
+    .links-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .link-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.15rem;
+        border: 1px solid rgba(247, 147, 26, 0.12);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.03);
+        text-decoration: none;
+        transition:
+            border-color 0.3s ease,
+            transform 0.2s ease;
+        position: relative;
+    }
+
+    .link-card:hover {
+        border-color: rgba(247, 147, 26, 0.4);
+        transform: translateY(-2px);
+    }
+
+    .link-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        flex: 1;
+    }
+
+    .link-name {
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: var(--text-light, #ccc);
+    }
+
+    .link-desc {
+        font-size: 0.8rem;
+        line-height: 1.5;
+        color: rgba(204, 204, 204, 0.55);
+    }
+
+    .link-arrow {
+        color: #f7931a;
+        font-size: 0.95rem;
+        opacity: 0.4;
+        flex-shrink: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    .link-card:hover .link-arrow {
+        opacity: 1;
+    }
+
+    /* Back to top */
+    .back-to-top {
+        display: block;
+        width: fit-content;
+        margin: 3rem auto 0 auto;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: rgba(247, 147, 26, 0.9);
+        text-decoration: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .back-to-top:hover {
+        opacity: 0.7;
+    }
+
+    @media (max-width: 567px) {
+        .links-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

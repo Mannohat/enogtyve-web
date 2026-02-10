@@ -1,7 +1,7 @@
 ---
 title: "Penges Historie: Fra Byttehandel til Bitcoin"
 description: "En rejse gennem penges evolution fra byttehandel over guldstandarden til moderne fiat-valuta og Bitcoin"
-pubDate: 2026-02-07T00:00:00.000Z
+pubDate: 2023-08-07T00:00:00.000Z
 author: "Enogtyve Team"
 tags: ["historie", "penge", "bitcoin", "økonomi"]
 language: "da"
