@@ -3,8 +3,7 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
 
 const categories = [
     {
-        title: "Hardware wallets",
-        icon: "🔐",
+        title: "Hardware Wallets",
         links: [
             {
                 name: "Anbefalinger",
@@ -16,23 +15,28 @@ const categories = [
     },
     {
         title: "Miners / ASICs",
-        icon: "⛏️",
         links: [
+            {
+                name: "21energy",
+                url: "https://21energy.com/enogtyve",
+                desc: "Bitcoin-varmeprodukter",
+                logo: "/images/logos/21energy.png",
+            },
+            {
+                name: "Heatbit",
+                url: "https://heatbit.com/?ref=ENOGTYVE",
+                desc: "Bitcoin-varmeløsninger til hjemmet",
+                logo: "/images/logos/heatbit_w.svg",
+            },
             {
                 name: "Miningwholesale.eu",
                 url: "https://miningwholesale.eu/",
                 desc: "Europæisk forhandler af mining-udstyr",
             },
-            {
-                name: "21energy.io",
-                url: "https://21energy.com/enogtyve",
-                desc: "Bitcoin-varmeprodukter",
-            },
         ],
     },
     {
-        title: "Mining pools",
-        icon: "🏊",
+        title: "Mining Pools",
         links: [
             {
                 name: "Braiins",
@@ -42,8 +46,7 @@ const categories = [
         ],
     },
     {
-        title: "Hosted mining services",
-        icon: "🏭",
+        title: "Hosted Mining",
         links: [
             {
                 name: "Munich International Mining (MIM)",
@@ -53,13 +56,90 @@ const categories = [
         ],
     },
     {
+        title: "Gizmos, Signers & Gadgets",
+        links: [
+            {
+                name: "Coinkite",
+                url: "https://store.coinkite.com/promo/F5E096EEF1AEDDAC4255",
+                desc: "COLDCARD og Bitcoin-sikkerhedsprodukter",
+                logo: "/images/logos/coinkite.png",
+            },
+            {
+                name: "GoBrrr",
+                url: "https://www.gobrrr.me/?coupon=enogtyve",
+                desc: "Bitcoin gadgets og Seedsigner",
+                logo: "/images/logos/gobrrr.svg",
+            },
+            {
+                name: "Bitronics",
+                url: "https://bitronics.store/?ref=1089",
+                desc: "Bitcoin elektronik og gadgets",
+                logo: "/images/logos/bitronics.svg",
+            },
+            {
+                name: "Tinyseed",
+                url: "https://tinyseed.io/enogtyve",
+                desc: "Kompakt seed phrase-backup i stål",
+                logo: "/images/logos/tinyseed.png",
+            },
+            {
+                name: "Pleb Style",
+                url: "https://pleb.style/",
+                desc: "DIY Bitcoin-gadgets og kits",
+                logo: "/images/logos/plebstyle.webp",
+            },
+            {
+                name: "Shop.LNBits.com",
+                url: "https://shop.lnbits.com/",
+                desc: "LNBits hardware shop",
+            },
+            {
+                name: "Solosatoshi.com",
+                url: "https://www.solosatoshi.com/",
+                desc: "Solo mining hardware",
+            },
+            {
+                name: "D-Central",
+                url: "https://d-central.tech/",
+                desc: "Mining og Bitcoin tech",
+            },
+            {
+                name: "Thesolomining.co",
+                url: "https://www.thesolomining.co/",
+                desc: "Solo mining udstyr",
+            },
+            {
+                name: "Bitcoinbrabant.com",
+                url: "https://bitcoinbrabant.com/",
+                desc: "Bitcoin hardware fra Holland",
+            },
+            {
+                name: "BTClock.store",
+                url: "https://btclock.store/",
+                desc: "Bitcoin-ure og displays",
+            },
+        ],
+    },
+    {
         title: "Merchandise",
-        icon: "👕",
         links: [
             {
                 name: "Store of Value",
                 url: "https://www.storeofvalue.eu/discount/enogtyve",
                 desc: "Bitcoin-tøj og merch",
+                logo: "/images/logos/storeofvalue.png",
+            },
+            {
+                name: "Shop21.dk",
+                url: "https://shop21.dk/",
+                desc: "Dansk Bitcoin-merchandise",
+                logo: "/images/logos/shop21.png",
+            },
+            {
+                name: "Free Madeira shop",
+                url: "https://shop.freemadeira.org/discount/enogtyve",
+                desc: "Bitcoin-merch fra Madeira",
+                logo: "/images/logos/freemadeira.webp",
             },
             {
                 name: "Satoshistore.io",
@@ -79,54 +159,7 @@ const categories = [
         ],
     },
     {
-        title: "Gizmos, signers m.m.",
-        icon: "🔧",
-        links: [
-            {
-                name: "Shop.LNBits.com",
-                url: "https://shop.lnbits.com/",
-                desc: "LNBits hardware shop",
-            },
-            {
-                name: "Solosatoshi.com",
-                url: "https://www.solosatoshi.com/",
-                desc: "Solo mining hardware",
-            },
-            {
-                name: "GoBrrr.me",
-                url: "https://www.gobrrr.me/",
-                desc: "Bitcoin gadgets",
-            },
-            {
-                name: "D-Central",
-                url: "https://d-central.tech/",
-                desc: "Mining og Bitcoin tech",
-            },
-            {
-                name: "Thesolomining.co",
-                url: "https://www.thesolomining.co/",
-                desc: "Solo mining udstyr",
-            },
-            {
-                name: "Bitcoinbrabant.com",
-                url: "https://bitcoinbrabant.com/",
-                desc: "Bitcoin hardware fra Holland",
-            },
-            {
-                name: "Bitronics.store",
-                url: "https://bitronics.store?ref=1089",
-                desc: "Bitcoin elektronik og gadgets",
-            },
-            {
-                name: "BTClock.store",
-                url: "https://btclock.store/",
-                desc: "Bitcoin-ure og displays",
-            },
-        ],
-    },
-    {
-        title: "Rejser & oplevelser",
-        icon: "✈️",
+        title: "Rejser & Oplevelser",
         links: [
             {
                 name: "Airbtc.online",
@@ -144,43 +177,36 @@ const categories = [
 ---
 
 <ResourcePageLayout
-    title="Bitcoin services og produkter"
+    title="Bitcoin Services og Produkter"
     description="Hardware wallets, miners, merchandise, gadgets og meget mere"
     lang="da"
 >
-    <section class="content-section">
+    <section class="intro">
         <p>
             Herunder finder du en samling af Bitcoin-relaterede services og
             produkter – fra hardware wallets og miners til merchandise og
             rejser.
         </p>
         <p class="highlight">
-            Husk også at tjekke siden med <a href="/da/rabat/"
-                ><strong>rabatter her</strong></a
-            >.
+            Husk også at tjekke siden med <a href="/da/rabat"><strong>rabatter her</strong></a>.
         </p>
     </section>
 
     {
         categories.map((cat) => (
             <section class="category-section">
-                <h3 class="category-heading">
-                    <span class="category-icon">{cat.icon}</span> {cat.title}
-                </h3>
+                <h2>{cat.title}</h2>
                 <div class="links-grid">
                     {cat.links.map((link) => (
                         <a
                             href={link.url}
-                            target={
-                                link.external === false ? undefined : "_blank"
-                            }
-                            rel={
-                                link.external === false
-                                    ? undefined
-                                    : "noopener noreferrer"
-                            }
+                            target={link.external === false ? undefined : "_blank"}
+                            rel={link.external === false ? undefined : "noopener noreferrer"}
                             class="link-card"
                         >
+                            {link.logo && (
+                                <img src={link.logo} alt="" class="link-logo" />
+                            )}
                             <div class="link-content">
                                 <span class="link-name">{link.name}</span>
                                 <span class="link-desc">{link.desc}</span>
@@ -193,12 +219,12 @@ const categories = [
         ))
     }
 
-    <section class="content-section overview-note">
+    <section class="overview-note">
         <p>
-            Se en samlet oversigt over virksomheder, der accepterer Bitcoin: <a
-                href="https://www.bitlist.com/"
-                target="_blank"
-                rel="noopener noreferrer"><strong>Bitlist.com →</strong></a>
+            Se en samlet oversigt over virksomheder, der accepterer Bitcoin:
+            <a href="https://www.bitlist.com/" target="_blank" rel="noopener noreferrer">
+                <strong>Bitlist.com →</strong>
+            </a>
         </p>
     </section>
 
@@ -206,65 +232,35 @@ const categories = [
 </ResourcePageLayout>
 
 <style>
-    .content-section {
-        margin-bottom: 2rem;
+    .intro {
+        margin-bottom: 2.5rem;
         line-height: 1.8;
         color: var(--text-light, #ccc);
     }
 
-    .content-section p {
+    .intro p {
         margin-bottom: 0.75rem;
-    }
-
-    .content-section a {
-        color: rgba(247, 147, 26, 0.9);
-        text-decoration: underline;
-        text-underline-offset: 2px;
-    }
-
-    .content-section a:hover {
-        color: #f7931a;
     }
 
     .highlight {
         padding: 0.75rem 1rem;
         background: rgba(247, 147, 26, 0.06);
-        border-left: 3px solid #f7931a;
+        border-left: 3px solid var(--primary);
         border-radius: 0 8px 8px 0;
-    }
-
-    .overview-note {
-        margin-top: 1rem;
-        padding: 1rem 1.25rem;
-        background: rgba(247, 147, 26, 0.04);
-        border: 1px solid rgba(247, 147, 26, 0.12);
-        border-radius: 10px;
-        text-align: center;
-    }
-
-    .overview-note p {
-        margin: 0;
     }
 
     /* Category sections */
     .category-section {
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
     }
 
-    .category-heading {
+    .category-section h2 {
         font-size: 1.2rem;
         font-weight: 700;
-        color: #f7931a;
+        color: var(--primary);
         margin-bottom: 1rem;
         padding-bottom: 0.5rem;
-        border-bottom: 2px solid rgba(247, 147, 26, 0.2);
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .category-icon {
-        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(247, 147, 26, 0.2);
     }
 
     /* Links grid */
@@ -277,16 +273,15 @@ const categories = [
     .link-card {
         display: flex;
         align-items: center;
-        gap: 1rem;
-        padding: 1rem 1.15rem;
+        gap: 0.75rem;
+        padding: 0.85rem 1rem;
+        min-height: 68px;
         border: 1px solid rgba(247, 147, 26, 0.12);
         border-radius: 10px;
         background: rgba(255, 255, 255, 0.03);
-        text-decoration: none;
         transition:
             border-color 0.3s ease,
             transform 0.2s ease;
-        position: relative;
     }
 
     .link-card:hover {
@@ -294,11 +289,22 @@ const categories = [
         transform: translateY(-2px);
     }
 
+    .link-logo {
+        height: 40px;
+        width: auto;
+        min-width: 40px;
+        max-width: 80px;
+        object-fit: contain;
+        flex-shrink: 0;
+        border-radius: 4px;
+    }
+
     .link-content {
         display: flex;
         flex-direction: column;
-        gap: 0.2rem;
+        gap: 0.15rem;
         flex: 1;
+        min-width: 0;
     }
 
     .link-name {
@@ -309,20 +315,36 @@ const categories = [
 
     .link-desc {
         font-size: 0.8rem;
-        line-height: 1.5;
-        color: rgba(204, 204, 204, 0.55);
+        line-height: 1.4;
+        color: rgba(204, 204, 204, 0.5);
     }
 
     .link-arrow {
-        color: #f7931a;
-        font-size: 0.95rem;
-        opacity: 0.4;
+        color: var(--primary);
+        font-size: 0.9rem;
+        opacity: 0.3;
         flex-shrink: 0;
         transition: opacity 0.2s ease;
     }
 
     .link-card:hover .link-arrow {
         opacity: 1;
+    }
+
+    /* Overview note */
+    .overview-note {
+        margin-top: 1rem;
+        padding: 1rem 1.25rem;
+        background: rgba(247, 147, 26, 0.04);
+        border: 1px solid rgba(247, 147, 26, 0.12);
+        border-radius: 10px;
+        text-align: center;
+        line-height: 1.7;
+        color: var(--text-light, #ccc);
+    }
+
+    .overview-note p {
+        margin: 0;
     }
 
     /* Back to top */
@@ -333,7 +355,6 @@ const categories = [
         font-size: 0.9rem;
         font-weight: 500;
         color: rgba(247, 147, 26, 0.9);
-        text-decoration: none;
         transition: opacity 0.3s ease;
     }
 

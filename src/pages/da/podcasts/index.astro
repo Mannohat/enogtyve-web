@@ -63,11 +63,8 @@ const podcasts = [
     lang="da"
 >
     <section class="nav-buttons">
-        <a href="/da/blog/penges-historie" class="nav-btn">Lidt om penge</a
-        >
-        <a href="/da/blog/hvad-er-bitcoin" class="nav-btn"
-            >Lidt om Bitcoin</a
-        >
+        <a href="/da/blog/penges-historie" class="nav-btn">Lidt om penge</a>
+        <a href="/da/blog/hvad-er-bitcoin" class="nav-btn">Lidt om Bitcoin</a>
         <a href="/da/blog/" class="nav-btn">Enogtyve blog</a>
     </section>
 
@@ -135,19 +132,18 @@ const podcasts = [
         min-width: 150px;
         text-align: center;
         padding: 0.75rem 1.5rem;
-        background-color: #f7931a;
+        background-color: var(--primary);
         color: #000;
         font-weight: 700;
         font-size: 0.9rem;
-        text-decoration: none;
         border-radius: 6px;
-        border: 1px solid #f7931a;
+        border: 1px solid var(--primary);
         transition: all 0.3s ease;
     }
 
     .nav-btn:hover {
         background-color: transparent;
-        color: #f7931a;
+        color: var(--primary);
     }
 
     .content-section {
@@ -160,23 +156,13 @@ const podcasts = [
         margin-bottom: 0.75rem;
     }
 
-    .content-section a {
-        color: rgba(247, 147, 26, 0.9);
-        text-decoration: underline;
-        text-underline-offset: 2px;
-    }
-
-    .content-section a:hover {
-        color: #f7931a;
-    }
-
     .section-title {
         font-size: 1.4rem;
         font-weight: 800;
-        color: #f7931a;
+        color: var(--primary);
         margin-bottom: 1.5rem;
         padding-bottom: 0.5rem;
-        border-bottom: 2px solid rgba(247, 147, 26, 0.25);
+        border-bottom: 1px solid rgba(247, 147, 26, 0.25);
     }
 
     /* Podcast list */
@@ -218,10 +204,12 @@ const podcasts = [
         height: 100%;
         object-fit: cover;
     }
+
     .podcast-card:last-child .podcast-image img {
         object-fit: contain;
         padding: 0.5rem;
     }
+
     .podcast-content {
         display: flex;
         flex-direction: column;
@@ -256,11 +244,10 @@ const podcasts = [
         display: inline-block;
         padding: 0.35rem 0.85rem;
         background: rgba(247, 147, 26, 0.1);
-        color: #f7931a;
+        color: var(--primary);
         font-size: 0.82rem;
         font-weight: 600;
         border-radius: 6px;
-        text-decoration: none;
         transition: background 0.2s ease;
     }
 
@@ -276,7 +263,6 @@ const podcasts = [
         font-size: 0.9rem;
         font-weight: 500;
         color: rgba(247, 147, 26, 0.9);
-        text-decoration: none;
         transition: opacity 0.3s ease;
     }
 

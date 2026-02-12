@@ -73,32 +73,67 @@ const latestPosts = blogPosts
 			</div>
 		</div>
 
-		<div class="showcase-box trending">
+		<div class="showcase-box stacker-news">
 			<div class="box-header">
-				<h3>📈 Trending Nu</h3>
+				<h3>⚡ Seneste nyheder fra Stacker.news</h3>
+				<span class="box-badge">Stacker News</span>
 			</div>
-			<div class="box-content">
-				<div class="trending-list">
-					<div class="trending-item placeholder">
-						<span class="trending-rank">#1</span>
-						<span class="trending-title">Populær artikel titel</span>
-						<span class="trending-views">— visninger</span>
-					</div>
-					<div class="trending-item placeholder">
-						<span class="trending-rank">#2</span>
-						<span class="trending-title">Video der går viralt</span>
-						<span class="trending-views">— visninger</span>
-					</div>
-					<div class="trending-item placeholder">
-						<span class="trending-rank">#3</span>
-						<span class="trending-title">Diskussion af ugen</span>
-						<span class="trending-views">— visninger</span>
-					</div>
-				</div>
+			<div class="box-content" id="stacker-news-list">
+				<a href="#" class="news-item placeholder">
+					<div class="news-title">Henter artikler...</div>
+				</a>
 			</div>
 		</div>
 	</div>
 </section>
+
+<script>
+	async function fetchStackerNews() {
+		const container = document.getElementById("stacker-news-list");
+		if (!container) return;
+
+		try {
+			const res = await fetch("/api/stacker-news.json");
+			const posts = await res.json();
+
+			if (!posts.length) {
+				container.innerHTML = `
+					<div class="news-item placeholder">
+						<div class="news-title">Ingen artikler fundet</div>
+					</div>`;
+				return;
+			}
+
+			container.innerHTML = posts
+				.map((post: { title: string; link: string; pubDate: string; author: string }) => {
+					const date = post.pubDate
+						? new Date(post.pubDate).toLocaleDateString("da-DK", {
+							day: "2-digit",
+							month: "2-digit",
+							year: "numeric",
+						})
+						: "";
+					return `
+						<a href="${post.link}" target="_blank" rel="noopener noreferrer" class="news-item">
+							<div class="news-date">${date}</div>
+							<div class="news-title">${post.title}</div>
+							<div class="news-excerpt">af ${post.author}</div>
+						</a>`;
+				})
+				.join("");
+		} catch (e) {
+			console.error("Failed to fetch Stacker News:", e);
+			if (container) {
+				container.innerHTML = `
+					<div class="news-item placeholder">
+						<div class="news-title">Kunne ikke hente artikler</div>
+					</div>`;
+			}
+		}
+	}
+
+	fetchStackerNews();
+</script>
 
 <style>
 	.content-showcase {
@@ -170,8 +205,9 @@ const latestPosts = blogPosts
 		padding: 1.25rem;
 	}
 
-	/* News items */
-	a.news-item {
+	/* News items (shared by blog posts and stacker news) */
+	a.news-item,
+	:global(#stacker-news-list a.news-item) {
 		text-decoration: none;
 		color: inherit;
 		display: block;
@@ -182,15 +218,18 @@ const latestPosts = blogPosts
 		transition: background 0.2s ease;
 	}
 
-	a.news-item:last-child {
+	a.news-item:last-child,
+	:global(#stacker-news-list a.news-item:last-child) {
 		border-bottom: none;
 	}
 
-	a.news-item:hover {
+	a.news-item:hover,
+	:global(#stacker-news-list a.news-item:hover) {
 		background: rgba(247, 147, 26, 0.05);
 	}
 
-	.news-date {
+	.news-date,
+	:global(#stacker-news-list .news-date) {
 		font-size: 0.7rem;
 		color: var(--primary);
 		font-weight: 600;
@@ -198,52 +237,19 @@ const latestPosts = blogPosts
 		text-transform: uppercase;
 	}
 
-	.news-title {
+	.news-title,
+	:global(#stacker-news-list .news-title) {
 		font-weight: 600;
 		font-size: 0.95rem;
 		color: var(--text);
 		margin-bottom: 0.25rem;
 	}
 
-	.news-excerpt {
+	.news-excerpt,
+	:global(#stacker-news-list .news-excerpt) {
 		font-size: 0.85rem;
 		color: var(--text-light);
 		line-height: 1.4;
-	}
-
-	/* Trending */
-	.trending-list {
-		display: flex;
-		flex-direction: column;
-		gap: 0.65rem;
-	}
-
-	.trending-item {
-		display: grid;
-		grid-template-columns: auto 1fr auto;
-		gap: 0.85rem;
-		align-items: center;
-		padding: 0.65rem;
-		background: rgba(247, 147, 26, 0.03);
-		border-radius: 8px;
-		border: 1px solid rgba(247, 147, 26, 0.1);
-	}
-
-	.trending-rank {
-		font-weight: 700;
-		color: var(--primary);
-		font-size: 1rem;
-	}
-
-	.trending-title {
-		color: var(--text);
-		font-weight: 500;
-		font-size: 0.9rem;
-	}
-
-	.trending-views {
-		font-size: 0.8rem;
-		color: var(--text-light);
 	}
 
 	/* Events */

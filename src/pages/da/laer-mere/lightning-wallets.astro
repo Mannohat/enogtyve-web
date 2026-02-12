@@ -1,0 +1,183 @@
+---
+import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
+---
+
+<ResourcePageLayout 
+  title="Lightning Wallets" 
+  description="Oversigt over populære Bitcoin Lightning-tegnebøger"
+  lang="da"
+>
+<section class="nav-buttons">
+    <a href="/da/laer-mere/lightning" class="nav-btn">Lightning-netværket</a>
+    <a href="/da/laer-mere/lightning-produkter-services" class="nav-btn">Lightning produkter & services</a>
+    <a href="/da/kom-igang/hardware-wallets" class="nav-btn">Hardware-tegnebøger</a>
+</section>
+
+  <section class="intro">
+    <p>Der findes mange forskellige wallets, som understøtter Bitcoin Lightning-netværket. Herunder er en liste med nogle af de mest populære samt en kort beskrivelse.</p>
+  </section>
+
+  <section class="wallets-section">
+    <div class="wallet-card">
+      <img src="/images/logos/blink.png" alt="Blink" class="wallet-logo" />
+      <h3><a href="https://www.blink.sv/" target="_blank" rel="noopener noreferrer">Blink</a></h3>
+      <p>Blink er en brugervenlig tegnebog med mange funktioner og muligheder, herunder lightning-transaktioner, onchain-overførsler, "stable sats"*, betalingskoder (QR-koder) og Point of Sale (POS). Du er lynhurtigt i gang, og der er en fremragende mulighed for at lære om penge og Bitcoin, samtidig med at du optjener sats.</p>
+      <a href="https://www.blink.sv/" class="wallet-link" target="_blank" rel="noopener noreferrer">
+        Læs mere og download Blink →
+      </a>
+    </div>
+
+    <div class="wallet-card">
+      <img src="/images/logos/phoenix.jpeg" alt="Phoenix Wallet" class="wallet-logo" />
+      <h3><a href="https://phoenix.acinq.co/" target="_blank" rel="noopener noreferrer">Phoenix Wallet</a></h3>
+      <p>Phoenix Wallet er en super god lightning-tegnebog, som giver mulighed for at sende on-chain bitcoin og swap til Lightning. Det er en non-custodial wallet, hvilket altid anbefales til dem, der ved, hvordan det fungerer. Phoenix har en god brugerflade og er lige til at gå til. Husk at lave en backup af din wallet.</p>
+      <a href="https://phoenix.acinq.co/" class="wallet-link" target="_blank" rel="noopener noreferrer">
+        Læs mere og download Phoenix Wallet →
+      </a>
+    </div>
+
+    <div class="wallet-card">
+      <img src="/images/logos/wos.jpeg" alt="Wallet of Satoshi" class="wallet-logo" />
+      <h3><a href="https://www.walletofsatoshi.com/" target="_blank" rel="noopener noreferrer">Wallet of Satoshi</a></h3>
+      <p>Wallet of Satoshi er en populær lightning-tegnebog med en simpel brugerflade og god brugeroplevelse. Du får en autogenereret Lightning-adresse, som ligner en e-mailadresse, hvortil andre kan sende bitcoin. Det er en custodial wallet, hvilket betyder, at det er virksomheden bag Wallet of Satoshi, der holder dine sats — derfor anbefales det ikke at have større beløb stående her.</p>
+      <p><strong>Point of Sale:</strong> Wallet of Satoshi har en fin POS-funktion, som du kan bruge i din forretning, hvis du ønsker at give dine kunder mulighed for at betale med bitcoin.</p>
+      <a href="https://www.walletofsatoshi.com/" class="wallet-link" target="_blank" rel="noopener noreferrer">
+        Læs mere og download Wallet of Satoshi →
+      </a>
+    </div>
+  </section>
+
+  <section class="note-section">
+    <p>*"Stable sats" er en funktion, der gør det muligt at holde værdien af dine sats stabil i forhold til en valuta som f.eks. USD, uden at veksle til en stablecoin.</p>
+  </section>
+
+  <a href="#" class="back-to-top">
+    ↑ Tilbage til toppen
+  </a>
+</ResourcePageLayout>
+
+<style>
+  /* Navigation buttons */
+  .nav-buttons {
+    display: flex;
+    gap: var(--space-md, 1rem);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-btn {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease;
+  }
+
+  .nav-btn:hover {
+    background-color: transparent;
+    color: var(--primary);
+  }
+
+  .intro {
+    margin-bottom: 2rem;
+    line-height: 1.7;
+    color: var(--text-light);
+  }
+
+  .wallets-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .wallet-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--background-card);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: var(--space-lg);
+    transition: all 0.3s ease;
+  }
+
+  .wallet-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+  }
+
+  .wallet-logo {
+    height: 48px;
+    max-width: 160px;
+    object-fit: contain;
+    object-position: left;
+    margin-bottom: var(--space-sm);
+  }
+
+  .wallet-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .wallet-card h3 a:hover {
+    opacity: 0.8;
+  }
+
+  .wallet-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+    flex: 1;
+  }
+
+  .wallet-link {
+    display: inline-block;
+    font-weight: bold;
+    margin-top: auto;
+    padding-top: var(--space-sm);
+    transition: opacity 0.2s ease;
+  }
+
+  .wallet-link:hover {
+    opacity: 0.7;
+  }
+
+  .note-section {
+    padding: var(--space-md);
+    background: var(--background-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+
+  .note-section p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 567px) {
+    .nav-buttons {
+      flex-direction: column;
+    }
+  }
+</style>

@@ -8,9 +8,9 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
   lang="da"
 >
   <section class="nav-buttons">
-    <a href="/da/bitcoin-software/" class="nav-btn">Bitcoin software</a>
-    <a href="/da/fakta/" class="nav-btn">FUD / FAKTA</a>
-    <a href="/da/bitcoin-blockchain/" class="nav-btn">Bitcoin Blokkæden</a>
+    <a href="/da/kom-igang/bitcoin-software" class="nav-btn">Bitcoin software</a>
+    <a href="/da/velkommen/fud-facts" class="nav-btn">FUD / FAKTA</a>
+    <a href="/da/laer-mere/bitcoin-blockchain" class="nav-btn">Bitcoin Blokkæden</a>
   </section>
 
   <section class="content-section">
@@ -39,9 +39,9 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
     <p>
       Hvis du endnu ikke har prøvet at udforske Bitcoins blokkæde, kan du se en
       oversigt over nogle værktøjer for det
-      <a href="/bitcoin-blockchain/">her</a>. Hvis du vil åbne den nok mest
+      <a href="/da/laer-mere/bitcoin-blockchain">her</a>. Hvis du vil åbne den nok mest
       populære blokudforsker i et nyt vindue, kan du klikke her:
-      <a href="https://www.mempool.space/" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.mempool.space/da" target="_blank" rel="noopener noreferrer">
         https://www.mempool.space
       </a>
     </p>
@@ -184,9 +184,9 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
       <li><strong>Payjoin</strong></li>
       <li>
         <strong>
-          <a href="/liquid/">Liquid</a>,
-          <a href="/bitcoin-lightning/">Lightning</a> og
-          <a href="/ecash/">E-cash</a>
+          <a href="/da/laer-mere/liquid">Liquid</a>,
+          <a href="/da/laer-mere/lightning">Lightning</a> og
+          <a href="/da/laer-mere/ecash">E-cash</a>
         </strong>
       </li>
       <li><strong>Eget Bitcoin-knudepunkt</strong></li>
@@ -218,19 +218,18 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
     min-width: 150px;
     text-align: center;
     padding: 0.75rem 1.5rem;
-    background-color: #f7931a;
+    background-color: var(--primary);
     color: #000;
     font-weight: 700;
     font-size: 0.9rem;
-    text-decoration: none;
     border-radius: 6px;
-    border: 1px solid #f7931a;
+    border: 1px solid var(--primary);
     transition: all 0.3s ease;
   }
 
   .nav-btn:hover {
     background-color: transparent;
-    color: #f7931a;
+    color: var(--primary);
   }
 
   /* Content sections */
@@ -241,7 +240,7 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
   }
 
   .content-section h2 {
-    color: var(--primary, #f7931a);
+    color: var(--primary);
     font-size: 1.4rem;
     margin-bottom: var(--space-md, 1rem);
     padding-bottom: var(--space-sm, 0.5rem);
@@ -250,16 +249,6 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
 
   .content-section p {
     margin-bottom: 1rem;
-  }
-
-  .content-section a {
-    color: rgba(247, 147, 26, 0.9);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  .content-section a:hover {
-    color: #f7931a;
   }
 
   /* Numbered list */
@@ -286,7 +275,7 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
     position: absolute;
     left: 1rem;
     top: 1rem;
-    color: #f7931a;
+    color: var(--primary);
     font-weight: 700;
     font-size: 0.9rem;
   }
@@ -326,16 +315,6 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
     color: var(--text-light, #ccc);
   }
 
-  .topic-list li a {
-    color: rgba(247, 147, 26, 0.9);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  .topic-list li a:hover {
-    color: #f7931a;
-  }
-
   /* Back to top */
   .back-to-top {
     display: block;
@@ -344,7 +323,6 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
     font-size: 0.9rem;
     font-weight: 500;
     color: rgba(247, 147, 26, 0.9);
-    text-decoration: none;
     transition: opacity 0.3s ease;
   }
 

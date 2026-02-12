@@ -6,6 +6,7 @@ const sources = [
   { name: "Stacker News", url: "https://stacker.news/", desc: "Fællesskabsdrevet nyhedsplatform med Lightning-integration" },
   { name: "Bitcoinnews.com", url: "https://bitcoinnews.com/", desc: "Daglige Bitcoin-nyheder" },
   { name: "Bitcoin Magazine", url: "https://bitcoinmagazine.com/", desc: "En af de ældste og mest etablerede Bitcoin-nyhedskilder" },
+  { name: "Lightning News", url: "https://lightning.news/", desc: "Nyheder med fokus på Lightning Network" },
 ];
 ---
 
@@ -17,7 +18,7 @@ const sources = [
   <section class="nav-buttons">
     <a href="/da/blog/" class="nav-btn">Enogtyve blog</a>
     <a href="/da/podcasts/" class="nav-btn">Podcasts</a>
-    <a href="/da/kom-igang/" class="nav-btn">Kom i gang med Bitcoin</a>
+    <a href="/da/laer-mere/bitcoin-blockchain" class="nav-btn">Bitcoin Blokkæden</a>
   </section>
 
   <section class="content-section">
@@ -50,19 +51,18 @@ const sources = [
     min-width: 150px;
     text-align: center;
     padding: 0.75rem 1.5rem;
-    background-color: #f7931a;
+    background-color: var(--primary);
     color: #000;
     font-weight: 700;
     font-size: 0.9rem;
-    text-decoration: none;
     border-radius: 6px;
-    border: 1px solid #f7931a;
+    border: 1px solid var(--primary);
     transition: all 0.3s ease;
   }
 
   .nav-btn:hover {
     background-color: transparent;
-    color: #f7931a;
+    color: var(--primary);
   }
 
   .content-section {
@@ -90,7 +90,6 @@ const sources = [
     border: 1px solid rgba(247, 147, 26, 0.12);
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.03);
-    text-decoration: none;
     transition: border-color 0.3s ease, transform 0.2s ease;
     position: relative;
   }
@@ -118,7 +117,7 @@ const sources = [
     position: absolute;
     top: 1.1rem;
     right: 1rem;
-    color: #f7931a;
+    color: var(--primary);
     font-size: 0.95rem;
     opacity: 0.5;
     transition: opacity 0.2s ease;
@@ -135,7 +134,6 @@ const sources = [
     font-size: 0.9rem;
     font-weight: 500;
     color: rgba(247, 147, 26, 0.9);
-    text-decoration: none;
     transition: opacity 0.3s ease;
   }
 

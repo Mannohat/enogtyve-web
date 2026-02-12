@@ -10,12 +10,13 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
   <section class="intro">
     <p>Der kommer løbende nye services og måder hvorpå man kan optjene bitcoin på forskellig vis. Det kan f.eks. være som cashback ved køb online, ved udførelse af opgaver eller når du ser en annonce mv.</p>
     
-    <p>Herunder er en liste med forskellige muligheder for at optjene bitcoin. Ønsker du at købe bitcoin, så læs mere om hvor og hvordan du kan gøre det her: <a href="/da/kob-bitcoin">Anskaffelse af bitcoin</a></p>
+    <p>Herunder er en liste med forskellige muligheder for at optjene bitcoin. Ønsker du at købe bitcoin, så læs mere om hvor og hvordan du kan gøre det her: <a href="/da/kom-igang/kob-bitcoin">Anskaffelse af bitcoin</a></p>
   </section>
 
   <section class="services-section">
     <div class="service-grid">
       <div class="service-card">
+        <img src="/images/logos/satsback.png" alt="Satsback" class="service-logo" />
         <h3><a href="https://satsback.com/register/6zj3laKvOmPVyKE5" target="_blank" rel="noopener noreferrer">Satsback.com</a></h3>
         <p>Satsback har lavet en browserudvidelse som giver dig mulighed for at optjene cashback ved køb på mange tusinde hjemmesider.</p>
         <a href="https://satsback.com/register/6zj3laKvOmPVyKE5" class="service-link" target="_blank" rel="noopener noreferrer">
@@ -24,6 +25,7 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
       </div>
 
       <div class="service-card">
+        <img src="/images/logos/addslice.jpeg" alt="AddSlice" class="service-logo" />
         <h3><a href="https://addslice.com/?crew=f5DzF" target="_blank" rel="noopener noreferrer">AddSlice.com</a></h3>
         <p>Slice er en browserudvidelse som giver dig satoshis for at vise reklamer. Du optjener altså sats bare ved at browse internettet.</p>
         <a href="https://addslice.com/?crew=f5DzF" class="service-link" target="_blank" rel="noopener noreferrer">
@@ -52,10 +54,6 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     margin-bottom: var(--space-md);
   }
 
-  .intro a {
-    color: var(--primary);
-  }
-
   .services-section {
     margin: var(--space-xl) 0;
   }
@@ -67,6 +65,8 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
   }
 
   .service-card {
+    display: flex;
+    flex-direction: column;
     background: var(--background-card);
     border: 2px solid var(--border);
     border-radius: 8px;
@@ -84,9 +84,12 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     margin-bottom: var(--space-sm);
   }
 
-  .service-card h3 a {
-    color: var(--primary);
-    text-decoration: none;
+  .service-logo {
+    height: 32px;
+    max-width: 120px;
+    object-fit: contain;
+    object-position: left;
+    margin-bottom: var(--space-sm);
   }
 
   .service-card h3 a:hover {
@@ -97,14 +100,14 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     color: var(--text-light);
     line-height: 1.6;
     margin-bottom: var(--space-md);
+    flex: 1;
   }
 
   .service-link {
     display: inline-block;
-    color: var(--primary);
-    text-decoration: none;
     font-weight: bold;
-    margin-top: var(--space-sm);
+    margin-top: auto;
+    padding-top: var(--space-sm);
     transition: opacity 0.2s ease;
   }
 
@@ -121,10 +124,6 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     line-height: 1.7;
   }
 
-  .contact-note a {
-    color: var(--primary);
-  }
-
   .back-to-top {
     display: block;
     width: fit-content;
@@ -132,7 +131,6 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     font-size: 0.9rem;
     font-weight: 500;
     color: rgba(247, 147, 26, 0.9);
-    text-decoration: none;
     transition: opacity 0.3s ease;
   }
 

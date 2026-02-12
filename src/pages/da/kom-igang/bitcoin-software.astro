@@ -8,9 +8,9 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
   lang="da"
 >
   <div class="quick-links">
-    <a href="/da/hardware-wallets" class="quick-link-btn">Hardware tegnebøger</a>
-    <a href="/da/privatliv-og-best-practice" class="quick-link-btn">Privatliv og best practice</a>
-    <a href="/da/fakta" class="quick-link-btn">FUD / Fakta</a>
+    <a href="/da/kom-igang/hardware-wallets" class="quick-link-btn">Hardware tegnebøger</a>
+    <a href="/da/kom-igang/privatliv-best-practice" class="quick-link-btn">Privatliv og best practice</a>
+    <a href="/da/velkommen/fud-facts" class="quick-link-btn">FUD / Fakta</a>
   </div>
 
   <section class="intro">
@@ -25,6 +25,7 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
   <section class="software-section">
     <div class="software-grid">
       <div class="software-card">
+        <img src="/images/logos/sparrow.png" alt="Sparrow Wallet" class="software-logo" />
         <h3><a href="https://sparrowwallet.com/" target="_blank" rel="noopener noreferrer">Sparrow Wallet</a></h3>
         <p>Sparrow Wallet er en fantastisk wallet software til din computer. Du finder et bredt udvalg af funktioner som du vil finde mere og mere brugbare jo mere du lærer om Bitcoin. Hertil kan det siges at måden Sparrow viser transaktioner og overblik på endda kan bidrage til forståelsen af hvordan Bitcoin fungerer.</p>
         <a href="https://sparrowwallet.com/" class="software-link" target="_blank" rel="noopener noreferrer">
@@ -33,6 +34,7 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
       </div>
 
       <div class="software-card">
+        <img src="/images/logos/wasabi.svg" alt="Wasabi Wallet" class="software-logo" />
         <h3><a href="https://wasabiwallet.io/" target="_blank" rel="noopener noreferrer">Wasabi Wallet</a></h3>
         <p>Wasabi Wallet er også en super god software wallet til din computer. Wasabi har stort fokus på privatliv og har en række muligheder som du måske vil finde interessant at benytte.</p>
         <a href="https://wasabiwallet.io/" class="software-link" target="_blank" rel="noopener noreferrer">
@@ -41,8 +43,9 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
       </div>
 
       <div class="software-card">
+        <img src="/images/logos/specter.png" alt="Specter" class="software-logo" />
         <h3><a href="https://specter.solutions/desktop/" target="_blank" rel="noopener noreferrer">Specter</a></h3>
-        <p>Specter Wallet er ligesom Sparrow og Wasabi free and open source (FOSS*).</p>
+        <p>Specter Wallet er ligesom Sparrow og Wasabi free and open source (FOSS*). Specter har særligt fokus på multisig-opsætninger og gør det nemt at administrere flere hardware wallets sammen for ekstra sikkerhed.</p>
         <a href="https://specter.solutions/desktop/" class="software-link" target="_blank" rel="noopener noreferrer">
           Find mere information og download Specter →
         </a>
@@ -74,7 +77,6 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     color: #000;
     padding: var(--space-sm) var(--space-md);
     border-radius: 6px;
-    text-decoration: none;
     font-weight: bold;
     font-size: 0.95rem;
     transition: all 0.3s ease;
@@ -122,6 +124,8 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
   }
 
   .software-card {
+    display: flex;
+    flex-direction: column;
     background: var(--background-card);
     border: 2px solid var(--border);
     border-radius: 8px;
@@ -139,9 +143,12 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     margin-bottom: var(--space-sm);
   }
 
-  .software-card h3 a {
-    color: var(--primary);
-    text-decoration: none;
+  .software-logo {
+    height: 28px;
+    max-width: 100px;
+    object-fit: contain;
+    object-position: left;
+    margin-bottom: var(--space-sm);
   }
 
   .software-card h3 a:hover {
@@ -152,13 +159,14 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     color: var(--text-light);
     line-height: 1.7;
     margin-bottom: var(--space-md);
+    flex: 1;
   }
 
   .software-link {
     display: inline-block;
-    color: var(--primary);
-    text-decoration: none;
     font-weight: bold;
+    margin-top: auto;
+    padding-top: var(--space-sm);
     transition: opacity 0.2s ease;
   }
 
@@ -187,7 +195,6 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     font-size: 0.9rem;
     font-weight: 500;
     color: rgba(247, 147, 26, 0.9);
-    text-decoration: none;
     transition: opacity 0.3s ease;
   }
 

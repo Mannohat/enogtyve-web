@@ -6,7 +6,7 @@ const categories = [
     title: "Podcasts",
     icon: "🎙️",
     items: [
-      { name: "Lad os snakke om Bitcoin", url: "https://www.enogtyve.org/podcasts/", info: "Enogtyve-podcastserie tilgængelig på de fleste podcasttjenester", support: "barekev@walletofsatoshi.com" },
+      { name: "Lad os snakke om Bitcoin", url: "/da/podcasts/", info: "Enogtyve-podcastserie tilgængelig på de fleste podcasttjenester", support: "barekev@walletofsatoshi.com" },
       { name: "Den Orange Tråd", url: "https://www.youtube.com/watch?v=v1TFbUbQeD8", info: "Dansk Bitcoin-podcast", support: "barekev@walletofsatoshi.com" },
     ]
   },
@@ -75,7 +75,7 @@ const upcoming = [
         <p>Har du selv ideer og forudsætninger for at tage initiativ, så overvej det. Bitcoin er Proof of Work.</p>
       </div>
       <div class="intro-image">
-        <img src="/images/en-og-tyve_large.png" alt="Enogtyve logo" />
+        <img src="/images/content/eotpow.png" alt="Enogtyve logo" />
       </div>
     </div>
   </section>
@@ -86,11 +86,13 @@ const upcoming = [
 
   {categories.map((cat) => (
     <section class="category-section">
-      <h3 class="category-heading"><span class="category-icon">{cat.icon}</span> {cat.title}</h3>
+      <h2>{cat.icon} {cat.title}</h2>
       <div class="initiatives-grid">
         {cat.items.map((item) => (
           <div class="initiative-card">
-            {item.url ? (
+            {item.url.startsWith("/") ? (
+              <a href={item.url} class="card-name">{item.name}</a>
+            ) : item.url ? (
               <a href={item.url} target="_blank" rel="noopener noreferrer" class="card-name">{item.name}</a>
             ) : (
               <span class="card-name">{item.name}</span>
@@ -109,7 +111,7 @@ const upcoming = [
   ))}
 
   <section class="category-section upcoming-section">
-    <h3 class="category-heading"><span class="category-icon">🚧</span> Under udarbejdelse</h3>
+    <h2>🚧 Under udarbejdelse</h2>
     <p class="upcoming-note">Herunder er initiativer, der arbejdes på. Denne liste kan meget vel være forældet – hør ad i <a href="https://t.me/enogtyvedk/7560" target="_blank" rel="noopener noreferrer"><strong>"Proof of Work"-tråden</strong></a> på Telegram.</p>
     <div class="initiatives-grid">
       {upcoming.map((item) => (
@@ -131,12 +133,16 @@ const upcoming = [
   </section>
 
   <section class="content-section">
-    <h3>Hjælp med oversættelser</h3>
+    <h2>Hjælp med oversættelser</h2>
     <p>Hvis du ønsker at bidrage med oversættelse af læringsmateriale, er der rig mulighed for det, og i nogle tilfælde kan du optjene sats for din indsats. Det skal dog være lysten, der driver værket, da det oftest er mindre symbolske beløb.</p>
     <p>Der udvikles hele tiden bedre værktøjer til f.eks. oversættelser, ligesom der er flere initiativer, hvor du kan få sparring omkring, hvordan du mest effektivt løser en oversættelsesopgave:</p>
     <div class="resource-links">
       <a href="https://planb.network/" target="_blank" rel="noopener noreferrer" class="resource-link">Planb.network →</a>
-      <a href="https://www.blink.sv" target="_blank" rel="noopener noreferrer" class="resource-link">Blink Blog →</a>
+      <a href="https://www.blink.sv/en/blog/adoption" target="_blank" rel="noopener noreferrer" class="resource-link">Blink Blog →</a>
+    </div>
+    <p style="margin-top: 1rem;">Du kan også bidrage direkte til denne hjemmeside via GitHub – f.eks. med blogposts, rettelser eller fejlrapporter:</p>
+    <div class="resource-links">
+      <a href="https://github.com/Mannohat/enogtyve-web" target="_blank" rel="noopener noreferrer" class="resource-link">GitHub – enogtyve-web →</a>
     </div>
   </section>
 
@@ -160,26 +166,18 @@ const upcoming = [
     margin-bottom: 0.75rem;
   }
 
-  .content-section a {
-    color: rgba(247, 147, 26, 0.9);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  .content-section a:hover {
-    color: #f7931a;
-  }
-
   .content-section h2 {
-    font-size: 1.8rem;
-    color: #f7931a;
+    font-size: 1.3rem;
+    color: var(--primary);
     margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
   }
 
-  .content-section h3 {
-    font-size: 1.3rem;
-    color: #f7931a;
-    margin-bottom: 1rem;
+  .intro h2 {
+    font-size: 1.8rem;
+    border-bottom: none;
+    padding-bottom: 0;
   }
 
   /* Intro grid */
@@ -203,20 +201,13 @@ const upcoming = [
     margin-bottom: 2.5rem;
   }
 
-  .category-heading {
+  .category-section h2 {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #f7931a;
+    color: var(--primary);
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid rgba(247, 147, 26, 0.2);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .category-icon {
-    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
   }
 
   /* Initiative cards */
@@ -251,12 +242,11 @@ const upcoming = [
     font-weight: 600;
     font-size: 0.95rem;
     color: var(--text-light, #ccc);
-    text-decoration: none;
     transition: color 0.2s ease;
   }
 
   a.card-name:hover {
-    color: #f7931a;
+    color: var(--primary);
   }
 
   .card-info {
@@ -297,12 +287,6 @@ const upcoming = [
     line-height: 1.7;
   }
 
-  .upcoming-section .upcoming-note a {
-    color: rgba(247, 147, 26, 0.9);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
   .card-top-row {
     display: flex;
     align-items: center;
@@ -334,7 +318,7 @@ const upcoming = [
     display: inline-block;
     padding: 0.5rem 1rem;
     background: rgba(247, 147, 26, 0.1);
-    color: #f7931a !important;
+    color: var(--primary) !important;
     font-size: 0.88rem;
     font-weight: 600;
     border-radius: 6px;
@@ -358,7 +342,7 @@ const upcoming = [
   .cta-link {
     font-size: 1rem;
     font-weight: 700;
-    color: #f7931a !important;
+    color: var(--primary) !important;
     text-decoration: none !important;
     transition: opacity 0.2s ease;
   }
@@ -375,7 +359,6 @@ const upcoming = [
     font-size: 0.9rem;
     font-weight: 500;
     color: rgba(247, 147, 26, 0.9);
-    text-decoration: none;
     transition: opacity 0.3s ease;
   }
 

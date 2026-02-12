@@ -14,7 +14,7 @@ const economies = [
 ];
 
 const elSalvador = [
-  { name: "El Salvador BTC-porteføljetracker", url: "https://nayibtracker.com/" },
+
   { name: "El Salvador, proof of reserves", url: "https://bitcoin.gob.sv/" },
 ];
 ---
@@ -35,7 +35,7 @@ const elSalvador = [
   </section>
 
   <section class="category-section">
-    <h3 class="category-heading"><span class="category-icon">🌍</span> Cirkulære økonomier</h3>
+    <h2>🌍 Cirkulære økonomier</h2>
     <div class="economies-grid">
       {economies.map((eco) => (
         <a href={eco.url} target="_blank" rel="noopener noreferrer" class="economy-card">
@@ -50,7 +50,7 @@ const elSalvador = [
   </section>
 
   <section class="category-section">
-    <h3 class="category-heading"><span class="category-icon">🇸🇻</span> El Salvador & Bitcoin</h3>
+    <h2>🇸🇻 El Salvador & Bitcoin</h2>
     <div class="economies-grid">
       {elSalvador.map((link) => (
         <a href={link.url} target="_blank" rel="noopener noreferrer" class="economy-card">
@@ -64,11 +64,11 @@ const elSalvador = [
   </section>
 
   <section class="category-section">
-    <h3 class="category-heading"><span class="category-icon">🎬</span> Film</h3>
+    <h2>🎬 Film</h2>
     <div class="film-card">
       <img src="/images/content/dtd.jpeg" alt="Dare to Dream" class="film-image" />
       <div class="film-content">
-        <h4 class="film-title">Dare to Dream</h4>
+        <h3 class="film-title">Dare to Dream</h3>
         <p class="film-desc">En film om Bitcoin, El Salvador og Bitcoin Beach, El Zonte. Filmen fortæller historien om, hvordan et lokalsamfund blev forandret af Bitcoin.</p>
         <div class="film-links">
           <a href="https://daretodream-film.com/" target="_blank" rel="noopener noreferrer" class="film-cta">Dare to Dream →</a>
@@ -92,35 +92,18 @@ const elSalvador = [
     margin-bottom: 0.75rem;
   }
 
-  .content-section a {
-    color: rgba(247, 147, 26, 0.9);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  .content-section a:hover {
-    color: #f7931a;
-  }
-
   /* Category sections */
   .category-section {
     margin-bottom: 2.5rem;
   }
 
-  .category-heading {
+  .category-section h2 {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #f7931a;
+    color: var(--primary);
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid rgba(247, 147, 26, 0.2);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .category-icon {
-    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
   }
 
   /* Economies grid */
@@ -138,7 +121,6 @@ const elSalvador = [
     border: 1px solid rgba(247, 147, 26, 0.12);
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.03);
-    text-decoration: none;
     transition: border-color 0.3s ease, transform 0.2s ease;
   }
 
@@ -166,7 +148,7 @@ const elSalvador = [
   }
 
   .economy-arrow {
-    color: #f7931a;
+    color: var(--primary);
     font-size: 0.95rem;
     opacity: 0.4;
     flex-shrink: 0;
@@ -227,11 +209,10 @@ const elSalvador = [
     display: inline-block;
     padding: 0.4rem 1rem;
     background: rgba(247, 147, 26, 0.12);
-    color: #f7931a;
+    color: var(--primary);
     font-size: 0.85rem;
     font-weight: 700;
     border-radius: 6px;
-    text-decoration: none;
     transition: background 0.2s ease;
   }
 
@@ -247,14 +228,13 @@ const elSalvador = [
     font-size: 0.82rem;
     font-weight: 600;
     border-radius: 6px;
-    text-decoration: none;
     border: 1px solid rgba(247, 147, 26, 0.1);
     transition: border-color 0.2s ease, color 0.2s ease;
   }
 
   .film-extra:hover {
     border-color: rgba(247, 147, 26, 0.3);
-    color: #f7931a;
+    color: var(--primary);
   }
 
   /* Back to top */
@@ -265,7 +245,6 @@ const elSalvador = [
     font-size: 0.9rem;
     font-weight: 500;
     color: rgba(247, 147, 26, 0.9);
-    text-decoration: none;
     transition: opacity 0.3s ease;
   }
 

@@ -3,13 +3,19 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
 ---
 
 <ResourcePageLayout
-  title="Lightning produkter & services"
+  title="Lightning Produkter & Services"
   description="Oversigt over Bitcoin Lightning-produkter, wallets, services og værktøjer"
   lang="da"
 >
-  <section class="content-section">
+  <section class="nav-buttons">
+    <a href="/da/laer-mere/lightning" class="nav-btn">Lightning-netværket</a>
+    <a href="/da/laer-mere/lightning-wallets" class="nav-btn">Lightning Wallets</a>
+    <a href="/da/laer-mere/ecash" class="nav-btn">eCash</a>
+  </section>
+
+  <section class="intro">
     <p>
-      <strong>Bitcoin Lightning produkter &amp; services.</strong>
+      Herunder finder du en oversigt over produkter, services og værktøjer bygget på Bitcoin Lightning-netværket – fra wallets og betalingsløsninger til nodes og udforskning.
     </p>
   </section>
 
@@ -36,19 +42,14 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
         <span class="link-card-title">Breez</span>
         <span class="link-card-arrow">→</span>
       </a>
-      <a href="https://muun.com/" class="link-card" target="_blank" rel="noopener noreferrer">
-        <span class="link-card-title">Muun</span>
-        <span class="link-card-arrow">→</span>
-      </a>
       <a href="https://bluewallet.io/" class="link-card" target="_blank" rel="noopener noreferrer">
         <span class="link-card-title">Bluewallet</span>
         <span class="link-card-arrow">→</span>
       </a>
-      <a href="https://www.mutinywallet.com/" class="link-card" target="_blank" rel="noopener noreferrer">
-        <span class="link-card-title">Mutiny</span>
-        <span class="link-card-arrow">→</span>
-      </a>
     </div>
+    <p class="section-note">
+      Se også en mere detaljeret beskrivelse af udvalgte wallets på <a href="/da/laer-mere/lightning-wallets">Lightning Wallets-siden</a>.
+    </p>
   </section>
 
   <section class="category-section">
@@ -96,7 +97,7 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
         <span class="link-card-title">ElenPay</span>
         <span class="link-card-arrow">→</span>
       </a>
-      <a href="https://lipa.swiss/en/index.html" class="link-card" target="_blank" rel="noopener noreferrer">
+      <a href="https://lipa.swiss/" class="link-card" target="_blank" rel="noopener noreferrer">
         <span class="link-card-title">Lipa</span>
         <span class="link-card-arrow">→</span>
       </a>
@@ -105,7 +106,7 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
         <span class="link-card-arrow">→</span>
       </a>
       <a href="http://lnlink.org/" class="link-card" target="_blank" rel="noopener noreferrer">
-        <span class="link-card-title">Simpelt Lightning-betalingslink</span>
+        <span class="link-card-title">LN Link</span>
         <span class="link-card-arrow">→</span>
       </a>
       <a href="https://lncal.com?ref=enogtyve" class="link-card" target="_blank" rel="noopener noreferrer">
@@ -126,13 +127,15 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
   </section>
 
   <section class="category-section">
-    <h2>Udforsk Lightning</h2>
+    <h2>Udforsk Lightning-netværket</h2>
     <div class="links-grid">
       <a href="https://mempool.space/lightning" class="link-card" target="_blank" rel="noopener noreferrer">
+        <img src="/images/logos/mempool.png" alt="" class="link-card-logo" />
         <span class="link-card-title">Mempool.space – Lightning</span>
         <span class="link-card-arrow">→</span>
       </a>
       <a href="https://www.amboss.space/" class="link-card" target="_blank" rel="noopener noreferrer">
+        <img src="/images/logos/amboss.png" alt="" class="link-card-logo" />
         <span class="link-card-title">Amboss.space</span>
         <span class="link-card-arrow">→</span>
       </a>
@@ -151,6 +154,7 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
         <span class="link-card-arrow">→</span>
       </a>
       <a href="https://www.btcmap.org" class="link-card" target="_blank" rel="noopener noreferrer">
+        <img src="/images/logos/btcmap.svg" alt="" class="link-card-logo" />
         <span class="link-card-title">BTCMap.org</span>
         <span class="link-card-arrow">→</span>
       </a>
@@ -176,22 +180,16 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
   </section>
 
   <section class="category-section">
-    <h2>Underholdning og udforskning</h2>
+    <h2>Underholdning & Orangepilling</h2>
     <div class="links-grid">
       <a href="https://zap.stream/" class="link-card" target="_blank" rel="noopener noreferrer">
         <span class="link-card-title">Zap.stream</span>
         <span class="link-card-arrow">→</span>
       </a>
       <a href="https://radio.noderunners.org" class="link-card" target="_blank" rel="noopener noreferrer">
-        <span class="link-card-title">Noderunners Lightning Jukebox</span>
+        <span class="link-card-title">Noderunners Jukebox</span>
         <span class="link-card-arrow">→</span>
       </a>
-    </div>
-  </section>
-
-  <section class="category-section">
-    <h2>Orangepilling</h2>
-    <div class="links-grid">
       <a href="https://lightsats.com/" class="link-card" target="_blank" rel="noopener noreferrer">
         <span class="link-card-title">Lightsats.com</span>
         <span class="link-card-arrow">→</span>
@@ -206,10 +204,6 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
   <section class="category-section">
     <h2>Værktøjer</h2>
     <div class="links-grid">
-      <a href="https://www.lnbits.com" class="link-card" target="_blank" rel="noopener noreferrer">
-        <span class="link-card-title">LNBits</span>
-        <span class="link-card-arrow">→</span>
-      </a>
       <a href="https://lightningdecoder.com/" class="link-card" target="_blank" rel="noopener noreferrer">
         <span class="link-card-title">Lightning Decoder</span>
         <span class="link-card-arrow">→</span>
@@ -225,8 +219,35 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
 </ResourcePageLayout>
 
 <style>
-  /* Content sections */
-  .content-section {
+  /* Navigation buttons */
+  .nav-buttons {
+    display: flex;
+    gap: var(--space-md, 1rem);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-btn {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease;
+  }
+
+  .nav-btn:hover {
+    background-color: transparent;
+    color: var(--primary);
+  }
+
+  /* Intro */
+  .intro {
     margin-bottom: 2rem;
     line-height: 1.8;
     color: var(--text-light, #ccc);
@@ -238,11 +259,19 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
   }
 
   .category-section h2 {
-    color: var(--primary, #f7931a);
+    color: var(--primary);
     font-size: 1.4rem;
     margin-bottom: var(--space-md, 1rem);
     padding-bottom: var(--space-sm, 0.5rem);
     border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .section-note {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    color: var(--text-light, #ccc);
+    line-height: 1.6;
   }
 
   /* Links grid */
@@ -256,30 +285,37 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 0.5rem;
     padding: 1rem 1.25rem;
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(247, 147, 26, 0.15);
-    text-decoration: none;
     transition: all 0.3s ease;
   }
 
   .link-card:hover {
     background: rgba(247, 147, 26, 0.08);
-    border-color: var(--primary, #f7931a);
+    border-color: var(--primary);
     transform: translateY(-3px);
+  }
+
+  .link-card-logo {
+    height: 18px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
   }
 
   .link-card-title {
     color: var(--text-light, #ccc);
     font-size: 0.9rem;
     font-weight: 500;
+    flex: 1;
   }
 
   .link-card-arrow {
-    color: #f7931a;
+    color: var(--primary);
     font-size: 1.1rem;
-    margin-left: 0.75rem;
     flex-shrink: 0;
   }
 
@@ -291,7 +327,6 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
     font-size: 0.9rem;
     font-weight: 500;
     color: rgba(247, 147, 26, 0.9);
-    text-decoration: none;
     transition: opacity 0.3s ease;
   }
 
@@ -300,6 +335,10 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
   }
 
   @media (max-width: 567px) {
+    .nav-buttons {
+      flex-direction: column;
+    }
+
     .links-grid {
       grid-template-columns: repeat(2, 1fr);
     }

@@ -117,7 +117,7 @@ const resources = [
   </section>
 
   <section class="category-section">
-    <h3 class="category-heading"><span class="category-icon">🏛️</span> Etablerede projekter</h3>
+    <h2>🏛️ Etablerede projekter</h2>
     <div class="projects-grid">
       {established.map((proj) => (
         <a href={proj.url} target="_blank" rel="noopener noreferrer" class="project-card">
@@ -133,7 +133,7 @@ const resources = [
   </section>
 
   <section class="category-section">
-    <h3 class="category-heading"><span class="category-icon">🚧</span> Projekter under forberedelse</h3>
+    <h2>🚧 Projekter under forberedelse</h2>
     <div class="projects-grid">
       {preparation.map((proj) => (
         <a href={proj.url} target="_blank" rel="noopener noreferrer" class="project-card preparation">
@@ -148,7 +148,7 @@ const resources = [
   </section>
 
   <section class="category-section">
-    <h3 class="category-heading"><span class="category-icon">🔗</span> Ressourcer</h3>
+    <h2>🔗 Ressourcer</h2>
     <div class="links-grid">
       {resources.map((link) => (
         <a href={link.url} target="_blank" rel="noopener noreferrer" class="link-card">
@@ -176,35 +176,18 @@ const resources = [
     margin-bottom: 0.75rem;
   }
 
-  .content-section a {
-    color: rgba(247, 147, 26, 0.9);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  .content-section a:hover {
-    color: #f7931a;
-  }
-
   /* Category sections */
   .category-section {
     margin-bottom: 2.5rem;
   }
 
-  .category-heading {
+  .category-section h2 {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #f7931a;
+    color: var(--primary);
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid rgba(247, 147, 26, 0.2);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .category-icon {
-    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
   }
 
   /* Project cards grid */
@@ -222,7 +205,6 @@ const resources = [
     border: 1px solid rgba(247, 147, 26, 0.12);
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.03);
-    text-decoration: none;
     transition: border-color 0.3s ease, transform 0.2s ease;
   }
 
@@ -250,7 +232,7 @@ const resources = [
   .project-type {
     font-size: 0.72rem;
     font-weight: 600;
-    color: #f7931a;
+    color: var(--primary);
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }
@@ -285,7 +267,6 @@ const resources = [
     border: 1px solid rgba(247, 147, 26, 0.12);
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.03);
-    text-decoration: none;
     transition: border-color 0.3s ease, transform 0.2s ease;
   }
 
@@ -314,7 +295,7 @@ const resources = [
   }
 
   .link-arrow {
-    color: #f7931a;
+    color: var(--primary);
     font-size: 0.95rem;
     opacity: 0.4;
     flex-shrink: 0;
@@ -333,7 +314,6 @@ const resources = [
     font-size: 0.9rem;
     font-weight: 500;
     color: rgba(247, 147, 26, 0.9);
-    text-decoration: none;
     transition: opacity 0.3s ease;
   }
 

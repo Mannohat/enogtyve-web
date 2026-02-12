@@ -8,7 +8,7 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
   lang="da"
 >
   <section class="intro">
-    <p><strong>Gendannelsesord eller "Seed Phrase"</strong> er en række ord, der genererer en privat nøgle og bruges typisk som en backup. <a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki" target="_blank" rel="noopener noreferrer">BIP39</a> er en standard for generering af disse gendannelsesord og bruges til at generere og sikkerhedskopiere kryptografiske nøgler. Standarden definerer en metode til at konvertere en tilfældig sekvens af bytes til en liste med let huskbare ord, også kaldet mnemonic seed phrase. En typisk BIP39 mnemonic sætning består af 12, 15, 18, 21 eller 24 ord.</p>
+    <p><strong>Gendannelsesord eller "Seed Phrase"</strong> er en række ord, der genererer en privat nøgle og bruges typisk som en backup. <a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki" target="_blank" rel="noopener noreferrer">BIP39</a> er en standard for generering af disse gendannelsesord og bruges til at generere og sikkerhedskopiere kryptografiske nøgler. Standarden definerer en metode til at konvertere en tilfældig sekvens af bytes til en liste med let huskbare ord, også kaldet mnemonic seed phrase. En typisk BIP39 mnemonic sætning består af 12, 15, 18, 21 eller 24 ord, hvor 12 eller 24 ord er det mest anvendte.</p>
   </section>
 
   <section class="content-section">
@@ -53,7 +53,7 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
 
   <section class="content-section">
     <h2>Generering af gendannelsesord</h2>
-    <p>Alle disse informationer som fremgår i eksemplerne er kritiske for sikkerheden af dine bitcoin, og det er meget vigtigt at andre ikke får kendskab til nogle af de informationer. Det anbefales derfor også at disse informationer aldrig er i berøring med enheder der har adgang til internettet. Ved at generere dine gendannelsesord med en <a href="/da/hardware-wallets">bitcoin tegnebog / hardware wallet</a> som udelukkende er konstrueret til det formål, opnår du god sikkerhed.</p>
+    <p>Alle disse informationer som fremgår i eksemplerne er kritiske for sikkerheden af dine bitcoin, og det er meget vigtigt at andre ikke får kendskab til nogle af de informationer. Det anbefales derfor også at disse informationer aldrig er i berøring med enheder der har adgang til internettet. Ved at generere dine gendannelsesord med en <a href="/da/kom-igang/hardware-wallets">bitcoin tegnebog / hardware wallet</a> som udelukkende er konstrueret til det formål, opnår du god sikkerhed.</p>
   </section>
 
   <section class="content-section">
@@ -61,6 +61,7 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     <p>Som før nævnt er det meget vigtigt at disse informationer opbevares sikkert, hvilket også betyder at man ikke skal skrive dem ned på sin telefon eller computer osv. Dine gendannelsesord kan skrives ned på et — eller flere — stykker papir som evt. opbevares i en "manipulationssikret pose" på et sikkert sted. Papir er dog ikke den foretrukne løsning, da det nemt kan blive ødelagt ved oversvømmelse eller brand mv., så det anbefales at sikre denne information på jern eller titanium.</p>
 
     <div class="recommendation-box">
+      <img src="/images/logos/tinyseed.png" alt="Tinyseed" class="recommendation-logo" />
       <h3>Tinyseed</h3>
       <p>En super god løsning er <a href="https://tinyseed.io/enogtyve" target="_blank" rel="noopener noreferrer">Tinyseed</a> som er en lille titaniumsplade der kan modstå de fleste tænkelige scenarier for ødelæggelse. Du kan læse en test af Tinyseed her: <a href="https://jlopp.github.io/metal-bitcoin-storage-reviews/reviews/tinyseed/" target="_blank" rel="noopener noreferrer">Tinyseed review af Jameson Lopp</a></p>
       
@@ -91,10 +92,6 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     color: var(--text-light);
   }
 
-  .intro a {
-    color: var(--primary);
-  }
-
   .content-section {
     margin-bottom: 3rem;
     line-height: 1.7;
@@ -113,10 +110,6 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     margin-bottom: var(--space-md);
   }
 
-  .content-section a {
-    color: var(--primary);
-  }
-
   .process-list {
     color: var(--text-light);
     padding-left: 1.5rem;
@@ -126,10 +119,6 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
   .process-list li {
     margin-bottom: var(--space-sm);
     line-height: 1.7;
-  }
-
-  .process-list a {
-    color: var(--primary);
   }
 
   .example-box {
@@ -190,13 +179,17 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     margin-bottom: var(--space-sm);
   }
 
+  .recommendation-logo {
+    height: 32px;
+    max-width: 120px;
+    object-fit: contain;
+    object-position: left;
+    margin-bottom: var(--space-sm);
+  }
+
   .recommendation-box p {
     color: var(--text-light);
     line-height: 1.7;
-  }
-
-  .recommendation-box a {
-    color: var(--primary);
   }
 
   .promo-code {
@@ -232,8 +225,6 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
 
   .cta-link {
     display: inline-block;
-    color: var(--primary);
-    text-decoration: none;
     font-weight: bold;
     margin-top: var(--space-sm);
     transition: opacity 0.2s ease;
@@ -250,7 +241,6 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     font-size: 0.9rem;
     font-weight: 500;
     color: rgba(247, 147, 26, 0.9);
-    text-decoration: none;
     transition: opacity 0.3s ease;
   }
 

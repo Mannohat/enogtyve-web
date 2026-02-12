@@ -8,9 +8,9 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
   lang="da"
 >
   <section class="nav-buttons">
-    <a href="/byg-selv/" class="nav-btn">Byg selv</a>
-    <a href="/fakta/" class="nav-btn">FUD / FAKTA</a>
-    <a href="/ord/" class="nav-btn">Begreber og ord</a>
+    <a href="/da/idevaerksted/buidl" class="nav-btn">Byg selv</a>
+    <a href="/da/velkommen/fud-facts" class="nav-btn">FUD / FAKTA</a>
+    <a href="/da/kom-igang/begreber-ord" class="nav-btn">Begreber og ord</a>
   </section>
 
   <section class="content-section">
@@ -63,10 +63,6 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
       </a>
       <a href="https://heatbit.com/?ref=ENOGTYVE" class="link-card" target="_blank" rel="noopener noreferrer">
         <span class="link-card-title">Heatbit</span>
-        <span class="link-card-arrow">→</span>
-      </a>
-      <a href="https://nakamotoheating.com/" class="link-card" target="_blank" rel="noopener noreferrer">
-        <span class="link-card-title">Nakamoto Heating</span>
         <span class="link-card-arrow">→</span>
       </a>
     </div>
@@ -167,19 +163,18 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
     min-width: 150px;
     text-align: center;
     padding: 0.75rem 1.5rem;
-    background-color: #f7931a;
+    background-color: var(--primary);
     color: #000;
     font-weight: 700;
     font-size: 0.9rem;
-    text-decoration: none;
     border-radius: 6px;
-    border: 1px solid #f7931a;
+    border: 1px solid var(--primary);
     transition: all 0.3s ease;
   }
 
   .nav-btn:hover {
     background-color: transparent;
-    color: #f7931a;
+    color: var(--primary);
   }
 
   /* Content sections */
@@ -190,7 +185,7 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
   }
 
   .content-section h2 {
-    color: var(--primary, #f7931a);
+    color: var(--primary);
     font-size: 1.4rem;
     margin-bottom: var(--space-md, 1rem);
     padding-bottom: var(--space-sm, 0.5rem);
@@ -199,16 +194,6 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
 
   .content-section p {
     margin-bottom: 1rem;
-  }
-
-  .content-section a {
-    color: rgba(247, 147, 26, 0.9);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  .content-section a:hover {
-    color: #f7931a;
   }
 
   /* Feature blocks */
@@ -252,13 +237,12 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(247, 147, 26, 0.15);
-    text-decoration: none;
     transition: all 0.3s ease;
   }
 
   .link-card:hover {
     background: rgba(247, 147, 26, 0.08);
-    border-color: var(--primary, #f7931a);
+    border-color: var(--primary);
     transform: translateY(-3px);
   }
 
@@ -269,7 +253,7 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
   }
 
   .link-card-arrow {
-    color: #f7931a;
+    color: var(--primary);
     font-size: 1.1rem;
     margin-left: 0.75rem;
     flex-shrink: 0;
@@ -283,7 +267,6 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
     font-size: 0.9rem;
     font-weight: 500;
     color: rgba(247, 147, 26, 0.9);
-    text-decoration: none;
     transition: opacity 0.3s ease;
   }
 

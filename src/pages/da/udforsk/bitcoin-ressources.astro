@@ -8,14 +8,14 @@ const categories = [
     items: [
       { name: "The Bitcoin Whitepaper", url: "https://bitcoin.org/bitcoin.pdf", desc: "Det originale dokument af Satoshi Nakamoto" },
       { name: "The Stories We Tell About Money", url: "https://www.youtube.com/watch?v=ONvg9SbauMg", desc: "Andreas Antonopoulos" },
-      { name: "Speech about Money from Atlas Shrugged", url: "https://www.youtube.com/watch?v=Z9HbQsTgrtk", desc: "" },
+      { name: "Speech about Money from Atlas Shrugged", url: "https://www.youtube.com/watch?v=Z9HbQsTgrtk", desc: "Ayn Rand" },
+      { name: "Hidden Secrets of Money", url: "https://www.youtube.com/playlist?list=PLE88E9ICdiphYjJkeeLL2O09eJoC8r7Dc", desc: "Mike Maloney – videoserie" },
     ]
   },
   {
     title: "Podcasts",
     icon: "🎙️",
     items: [
-      { name: "Hidden Secrets of Money", url: "https://www.youtube.com/playlist?list=PLE88E9ICdiphYjJkeeLL2O09eJoC8r7Dc", desc: "Mike Maloney" },
       { name: "The What is Money Show – The Saylor Series", url: "https://youtube.com/playlist?list=PL2jAZ0x9H0bQFY6wIbQfnrnIlqMcSHd6X", desc: "Michael Saylor" },
       { name: "What Bitcoin Did – Beginners Guide", url: "https://youtube.com/playlist?list=PLutwRFLXGQz0CxnvWaT0yVKxVvpleRk_p", desc: "Peter McCormack" },
       { name: "Bitcoinpodcasts.com", url: "https://bitcoinpodcasts.com/", desc: "Samlet oversigt over Bitcoin-podcasts" },
@@ -25,7 +25,7 @@ const categories = [
     title: "Bøger",
     icon: "📖",
     items: [
-      { name: "Bitcoinerbooks.com", url: "https://www.bitcoinerbooks.com/", desc: "Samling af engelsksprogede Bitcoin-bøger" },
+      { name: "Bitcoinerbooks.com", url: "https://www.bitcoinerbooks.com/", desc: "Kurateret samling af engelsksprogede Bitcoin-bøger" },
     ]
   },
   {
@@ -87,11 +87,11 @@ const categories = [
     title: "Film & dokumentarer",
     icon: "🎬",
     items: [
-      { name: "The Great Reset and the Rise of Bitcoin", url: "https://youtu.be/jzwVNHJxgHE?feature=shared", desc: "" },
-      { name: "Hard Money Film", url: "https://www.hardmoneyfilm.com/", desc: "" },
-      { name: "Petrodollars Film", url: "https://www.petrodollarsfilm.com/", desc: "" },
-      { name: "Anatomy of the State Film", url: "https://www.anatomystatefilm.com/", desc: "" },
-      { name: "The Great Reset Film", url: "https://www.thegreatresetfilm.com/", desc: "" },
+      { name: "The Great Reset and the Rise of Bitcoin", url: "https://youtu.be/jzwVNHJxgHE?feature=shared", desc: "Dokumentar" },
+      { name: "Hard Money Film", url: "https://www.hardmoneyfilm.com/", desc: "Film om sunde penge" },
+      { name: "Petrodollars Film", url: "https://www.petrodollarsfilm.com/", desc: "Film om petrodollar-systemet" },
+      { name: "Anatomy of the State Film", url: "https://www.anatomystatefilm.com/", desc: "Film om statens anatomi" },
+      { name: "The Great Reset Film", url: "https://www.thegreatresetfilm.com/", desc: "Film om den store nulstilling" },
     ]
   },
   {
@@ -131,13 +131,13 @@ const categories = [
   lang="da"
 >
   <section class="content-section">
-    <p>En kurateret samling af Bitcoin-only-ressourcer. Her finder du alt fra det originale whitepaper og podcasts til data-dashboards, værktøjer og film.</p>
-    <p>Se også: <a href="https://bitcoin-resources.com/" target="_blank" rel="noopener noreferrer"><strong>Bitcoin-resources.com</strong></a></p>
+    <p>En kurateret samling af engelsksprogede Bitcoin-only-ressourcer. Her finder du alt fra det originale whitepaper og podcasts til data-dashboards, værktøjer og film. Listen opdateres løbende.</p>
+    <p class="highlight">Se også: <a href="https://bitcoin-resources.com/" target="_blank" rel="noopener noreferrer"><strong>Bitcoin-resources.com</strong></a> – en omfattende samling af Bitcoin-ressourcer.</p>
   </section>
 
   {categories.map((cat) => (
     <section class="category-section">
-      <h3 class="category-heading"><span class="category-icon">{cat.icon}</span> {cat.title}</h3>
+      <h2>{cat.icon} {cat.title}</h2>
       <div class="links-grid">
         {cat.items.map((item) => (
           <a href={item.url} target="_blank" rel="noopener noreferrer" class="link-card">
@@ -164,14 +164,11 @@ const categories = [
     margin-bottom: 0.75rem;
   }
 
-  .content-section a {
-    color: rgba(247, 147, 26, 0.9);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  .content-section a:hover {
-    color: #f7931a;
+  .highlight {
+    padding: 0.75rem 1rem;
+    background: rgba(247, 147, 26, 0.06);
+    border-left: 3px solid var(--primary);
+    border-radius: 0 8px 8px 0;
   }
 
   /* Category sections */
@@ -179,20 +176,13 @@ const categories = [
     margin-bottom: 2.5rem;
   }
 
-  .category-heading {
+  .category-section h2 {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #f7931a;
+    color: var(--primary);
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid rgba(247, 147, 26, 0.2);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .category-icon {
-    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
   }
 
   /* Link cards */
@@ -210,7 +200,6 @@ const categories = [
     border: 1px solid rgba(247, 147, 26, 0.12);
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.03);
-    text-decoration: none;
     transition: border-color 0.3s ease, transform 0.2s ease;
     position: relative;
   }
@@ -238,7 +227,7 @@ const categories = [
     position: absolute;
     top: 0.9rem;
     right: 1rem;
-    color: #f7931a;
+    color: var(--primary);
     font-size: 0.95rem;
     opacity: 0.5;
     transition: opacity 0.2s ease;
@@ -256,7 +245,6 @@ const categories = [
     font-size: 0.9rem;
     font-weight: 500;
     color: rgba(247, 147, 26, 0.9);
-    text-decoration: none;
     transition: opacity 0.3s ease;
   }
 

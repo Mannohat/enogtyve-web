@@ -57,16 +57,6 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
     margin-bottom: 0.75rem;
   }
 
-  .content-section a {
-    color: rgba(247, 147, 26, 0.9);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  .content-section a:hover {
-    color: #f7931a;
-  }
-
   /* CTA */
   .cta-section {
     margin-bottom: 2rem;
@@ -80,7 +70,6 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
     border: 1px solid rgba(247, 147, 26, 0.2);
     border-radius: 12px;
     background: rgba(247, 147, 26, 0.04);
-    text-decoration: none;
     transition: border-color 0.3s ease, transform 0.2s ease;
   }
 
@@ -114,7 +103,7 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
 
   .cta-arrow {
     font-size: 1.2rem;
-    color: #f7931a;
+    color: var(--primary);
     opacity: 0.5;
     flex-shrink: 0;
     transition: opacity 0.2s ease;
@@ -132,7 +121,6 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
     font-size: 0.9rem;
     font-weight: 500;
     color: rgba(247, 147, 26, 0.9);
-    text-decoration: none;
     transition: opacity 0.3s ease;
   }
 

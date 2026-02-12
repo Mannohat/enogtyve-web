@@ -8,9 +8,9 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
   lang="da"
 >
   <div class="quick-links">
-    <a href="/da/privatliv-og-best-practice" class="quick-link-btn">Privatliv og best practice</a>
-    <a href="/da/bitcoin" class="quick-link-btn">Lidt om Bitcoin</a>
-    <a href="/da/bitcoin-software" class="quick-link-btn">Bitcoin software</a>
+    <a href="/da/kom-igang/privatliv-best-practice" class="quick-link-btn">Privatliv og best practice</a>
+    <a href="/da/blog/hvad-er-bitcoin" class="quick-link-btn">Lidt om Bitcoin</a>
+    <a href="/da/kom-igang/bitcoin-software" class="quick-link-btn">Bitcoin software</a>
   </div>
 
   <section class="intro">
@@ -19,14 +19,14 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     <h3>Opbevaring af bitcoin</h3>
     <p>Hardware tegnebøger også kendt som hardware wallets eller signing devices er en af de første ting du skal gøre dig bekendt med når du har anskaffet de første satoshis. Herunder kan du se et par stykker som vi anbefaler. Inden for nærmeste fremtid vil du kunne finde hjælp og vejledning her på hjemmesiden, men første skridt er at anskaffe en, og der findes allerede gode vejledninger på YouTube — dog ikke på dansk endnu. Det lyder måske bøvlet, men det er ikke så svært at finde ud af. Lav altid en testoverførsel med et lille beløb inden du overfører resten. Men sørg for at få dine satoshis i egen varetægt.</p>
     
-    <p>Du kan se en liste med anbefalede hardware wallets herunder. Når du har bestilt en tegnebog, skal du sørge for at du har en god forståelse af hvordan du sikrer en backup af dine gendannelsesord. Det kan du læse mere om her: <a href="/da/seed-phrase"><strong>Gendannelsesord / Seed Phrase</strong></a></p>
+    <p>Du kan se en liste med anbefalede hardware wallets herunder. Når du har bestilt en tegnebog, skal du sørge for at du har en god forståelse af hvordan du sikrer en backup af dine gendannelsesord. Det kan du læse mere om her: <a href="/da/kom-igang/seed-phrase"><strong>Gendannelsesord / Seed Phrase</strong></a></p>
   </section>
 
   <section class="wallets-section">
     <div class="wallet-card">
       <div class="wallet-content">
         <h3><a href="https://store.blockstream.com/?code=enogtyve" target="_blank" rel="noopener noreferrer">Jade & Jade Plus</a></h3>
-        <p><a href="https://store.blockstream.com/?code=enogtyve" target="_blank" rel="noopener noreferrer">Blockstream</a> har lavet en super fin hardware wallet nu i 2 størrelser, begge med et kamera som bl.a. giver mulighed for at signere transaktioner vha. QR-koder. De kan altså bruges "air-gapped", som betyder at den ikke behøver at blive tilsluttet computeren, men kan kommunikere vha. QR-koder. Det kan der være forskellige grunde til at man gerne vil. Den kan også tilsluttes med et kabel hvis man måtte ønske det. Begge versioner kan desuden benyttes i forbindelse med <a href="/da/liquid">Liquid netværket</a>. For mere information om <a href="/da/liquid">Liquid, se her</a>.</p>
+        <p><a href="https://store.blockstream.com/?code=enogtyve" target="_blank" rel="noopener noreferrer">Blockstream</a> har lavet en super fin hardware wallet nu i 2 størrelser, begge med et kamera som bl.a. giver mulighed for at signere transaktioner vha. QR-koder. De kan altså bruges "air-gapped", som betyder at den ikke behøver at blive tilsluttet computeren, men kan kommunikere vha. QR-koder. Det kan der være forskellige grunde til at man gerne vil. Den kan også tilsluttes med et kabel hvis man måtte ønske det. Begge versioner kan desuden benyttes i forbindelse med <a href="/da/laer-mere/liquid">Liquid netværket</a>. For mere information om <a href="/da/laer-mere/liquid">Liquid, se her</a>.</p>
         <a href="https://store.blockstream.com/?code=enogtyve" class="wallet-link" target="_blank" rel="noopener noreferrer">
           Klik her for at bestille Jade →
         </a>
@@ -78,7 +78,7 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
 
   <section class="backup-reminder">
     <h2>Husk også at sikre dig en god forståelse af hvordan du sikrer en backup af dine gendannelsesord.</h2>
-    <p>Det kan du læse mere om her: <a href="/da/seed-phrase">Gendannelsesord / Seed Phrase</a></p>
+    <p>Det kan du læse mere om her: <a href="/da/kom-igang/seed-phrase">Gendannelsesord / Seed Phrase</a></p>
   </section>
 
   <a href="#" class="back-to-top">
@@ -101,7 +101,6 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     color: #000;
     padding: var(--space-sm) var(--space-md);
     border-radius: 6px;
-    text-decoration: none;
     font-weight: bold;
     font-size: 0.95rem;
     transition: all 0.3s ease;
@@ -134,10 +133,6 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     margin-bottom: var(--space-md);
   }
 
-  .intro a {
-    color: var(--primary);
-  }
-
   .wallets-section {
     display: flex;
     flex-direction: column;
@@ -162,11 +157,6 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     margin-bottom: var(--space-sm);
   }
 
-  .wallet-content h3 a {
-    color: var(--primary);
-    text-decoration: none;
-  }
-
   .wallet-content h3 a:hover {
     opacity: 0.8;
   }
@@ -177,10 +167,6 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     margin-bottom: var(--space-md);
   }
 
-  .wallet-content p a {
-    color: var(--primary);
-  }
-
   .shipping-note {
     color: var(--primary) !important;
     font-weight: 500;
@@ -189,8 +175,6 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
 
   .wallet-link {
     display: inline-block;
-    color: var(--primary);
-    text-decoration: none;
     font-weight: bold;
     margin-top: var(--space-sm);
     transition: opacity 0.2s ease;
@@ -219,7 +203,6 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
   }
 
   .backup-reminder a {
-    color: var(--primary);
     font-weight: bold;
   }
 
@@ -230,7 +213,6 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     font-size: 0.9rem;
     font-weight: 500;
     color: rgba(247, 147, 26, 0.9);
-    text-decoration: none;
     transition: opacity 0.3s ease;
   }
 

@@ -50,7 +50,7 @@ const platforms = [
           </a>
         </div>
         <div class="platform-content">
-          <h3 class="platform-name">{p.name}</h3>
+          <h2 class="platform-name">{p.name}</h2>
           <p class="platform-tagline">{p.tagline}</p>
           <p class="platform-desc">{p.description}</p>
           <div class="platform-links">
@@ -137,12 +137,14 @@ const platforms = [
     font-weight: 700;
     color: var(--text-light, #ccc);
     margin: 0;
+    border-bottom: none;
+    padding-bottom: 0;
   }
 
   .platform-tagline {
     font-size: 0.85rem;
     font-weight: 600;
-    color: #f7931a;
+    color: var(--primary);
     margin: 0;
   }
 
@@ -165,11 +167,10 @@ const platforms = [
     display: inline-block;
     padding: 0.4rem 1rem;
     background: rgba(247, 147, 26, 0.12);
-    color: #f7931a;
+    color: var(--primary);
     font-size: 0.85rem;
     font-weight: 700;
     border-radius: 6px;
-    text-decoration: none;
     transition: background 0.2s ease;
   }
 
@@ -185,14 +186,13 @@ const platforms = [
     font-size: 0.82rem;
     font-weight: 600;
     border-radius: 6px;
-    text-decoration: none;
     border: 1px solid rgba(247, 147, 26, 0.1);
     transition: border-color 0.2s ease, color 0.2s ease;
   }
 
   .platform-extra:hover {
     border-color: rgba(247, 147, 26, 0.3);
-    color: #f7931a;
+    color: var(--primary);
   }
 
   /* Back to top */
@@ -203,7 +203,6 @@ const platforms = [
     font-size: 0.9rem;
     font-weight: 500;
     color: rgba(247, 147, 26, 0.9);
-    text-decoration: none;
     transition: opacity 0.3s ease;
   }
 

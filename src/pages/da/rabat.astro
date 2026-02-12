@@ -11,7 +11,7 @@ import ResourcePageLayout from "../../layouts/ResourcePageLayout.astro";
     <p>
       Med rabatkoden <strong>"ENOGTYVE"</strong> kan du mange steder opnå besparelser
       på udvalgte konferencer, produkter og services. Herunder finder du en komplet
-      oversigt over alle vores samarbejdspartnere hvor nogle giver en rabat.
+      oversigt over alle vores samarbejdspartnere, hvor nogle giver en rabat.
     </p>
   </section>
   <section class="category-section">
@@ -139,7 +139,7 @@ import ResourcePageLayout from "../../layouts/ResourcePageLayout.astro";
       >
         <img
           src="/images/logos/swissbitcoinpay_w.png"
-          alt="Wave Space"
+          alt="Swiss Bitcoin Pay"
           class="partner-logo"
         />
         <span class="partner-name">Swiss Bitcoin Pay</span>
@@ -316,12 +316,11 @@ import ResourcePageLayout from "../../layouts/ResourcePageLayout.astro";
       >
         <img
           src="/images/logos/storeofvalue.png"
-          alt="Sote"
+          alt="Store of Value"
           class="partner-logo"
         />
         <span class="partner-name">Store of Value</span>
       </a>
-
       <a
         href="https://shop.freemadeira.org/discount/enogtyve"
         class="partner-card"
@@ -366,7 +365,6 @@ import ResourcePageLayout from "../../layouts/ResourcePageLayout.astro";
         />
         <span class="partner-name">Mitochondriak</span>
       </a>
-
       <a
         href="https://drinksote.com/ENOGTYVE"
         class="partner-card"
@@ -378,6 +376,10 @@ import ResourcePageLayout from "../../layouts/ResourcePageLayout.astro";
       </a>
     </div>
   </section>
+  <section class="cta-section">
+    <p>Hvis du vil samarbejde med ENOGTYVE – med en rabat til vores fællesskab eller som sponsor – så send en e-mail til <a href="mailto:kontakt@enogtyve.org"><strong>kontakt@enogtyve.org</strong></a>.</p>
+  </section>
+
   <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
 </ResourcePageLayout>
 
@@ -420,7 +422,6 @@ import ResourcePageLayout from "../../layouts/ResourcePageLayout.astro";
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(247, 147, 26, 0.15);
-    text-decoration: none;
     transition: all 0.3s ease;
   }
 
@@ -442,6 +443,28 @@ import ResourcePageLayout from "../../layouts/ResourcePageLayout.astro";
     font-weight: 500;
     opacity: 0.8;
   }
+
+  .cta-section {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(247, 147, 26, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.15);
+    border-radius: 10px;
+    text-align: center;
+    color: var(--text-light, #ccc);
+    line-height: 1.7;
+  }
+
+  .cta-section p {
+    margin: 0;
+    font-size: 0.92rem;
+  }
+
+  .cta-section a {
+    color: var(--primary);
+  }
+
   .back-to-top {
     display: block;
     width: fit-content;
@@ -449,7 +472,6 @@ import ResourcePageLayout from "../../layouts/ResourcePageLayout.astro";
     font-size: 0.9rem;
     font-weight: 500;
     color: rgba(247, 147, 26, 0.9);
-    text-decoration: none;
     transition: opacity 0.3s ease;
   }
 

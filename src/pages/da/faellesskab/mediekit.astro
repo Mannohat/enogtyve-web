@@ -154,8 +154,6 @@ const printMaterials = [
     ))}
   </section>
 
-
-
   <a href="#" class="back-to-top">↑ Tilbage til toppen</a>
 </ResourcePageLayout>
 
@@ -185,35 +183,34 @@ const printMaterials = [
   .download-btn {
     display: inline-block;
     padding: 0.85rem 2rem;
-    background-color: #f7931a;
+    background-color: var(--primary);
     color: #000;
     font-weight: 700;
     font-size: 1rem;
-    text-decoration: none;
     border-radius: 8px;
-    border: 2px solid #f7931a;
+    border: 2px solid var(--primary);
     transition: all 0.3s ease;
   }
 
   .download-btn:hover {
     background-color: transparent;
-    color: #f7931a;
+    color: var(--primary);
   }
 
   /* Section headings */
   .section-heading {
     font-size: 1.4rem;
     font-weight: 800;
-    color: #f7931a;
+    color: var(--primary);
     margin-bottom: 1rem;
     padding-bottom: 0.4rem;
-    border-bottom: 2px solid rgba(247, 147, 26, 0.25);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.25);
   }
 
   /* Divider */
   .divider {
     border: none;
-    border-top: 2px solid rgba(247, 147, 26, 0.3);
+    border-top: 1px solid rgba(247, 147, 26, 0.3);
     margin: 2.5rem 0;
   }
 
@@ -249,7 +246,7 @@ const printMaterials = [
     position: absolute;
     right: 0.75rem;
     font-size: 0.75rem;
-    color: #f7931a;
+    color: var(--primary);
     font-weight: 600;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -336,7 +333,6 @@ const printMaterials = [
     font-size: 0.9rem;
     font-weight: 500;
     color: rgba(247, 147, 26, 0.9);
-    text-decoration: none;
     transition: opacity 0.3s ease;
   }
 
@@ -370,7 +366,6 @@ const printMaterials = [
         card.classList.add('copied');
         setTimeout(() => card.classList.remove('copied'), 1500);
       } catch {
-        // Fallback
         const input = document.createElement('input');
         input.value = hex;
         document.body.appendChild(input);
