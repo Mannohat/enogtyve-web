@@ -1,4 +1,4 @@
-export default async (req) => {
+exports.handler = async function(event, context) {
     try {
       const res = await fetch("https://stacker.news/~bitcoin/rss");
       const xml = await res.text();
@@ -10,10 +10,16 @@ export default async (req) => {
         const author = (match[1].match(/<atom:name>(.*?)<\/atom:name>/) || [])[1] || "";
         return { title, link, pubDate, author };
       });
-      return new Response(JSON.stringify(posts), {
+      return {
+        statusCode: 200,
         headers: { "Content-Type": "application/json", "Cache-Control": "public, max-age=300" },
-      });
+        body: JSON.stringify(posts),
+      };
     } catch (e) {
-      return new Response(JSON.stringify([]), { status: 500, headers: { "Content-Type": "application/json" } });
+      return {
+        statusCode: 500,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify([]),
+      };
     }
   };
