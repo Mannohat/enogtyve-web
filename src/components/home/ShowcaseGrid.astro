@@ -103,67 +103,28 @@ const latestPosts = blogPosts
 
 <script is:inline>
 	async function fetchStackerNews() {
-		var container = document.getElementById("stacker-news-list");
-		if (!container) return;
-		try {
-			var res = await fetch("https://stacker.news/~bitcoin/rss");
-			var xml = await res.text();
-			var items = Array.from(xml.matchAll(/<item>([\s\S]*?)<\/item>/g));
-			var posts = items.slice(0, 4).map(function (match) {
-				var title =
-					(match[1].match(/<title>(.*?)<\/title>/) || [])[1] || "";
-				var link =
-					(match[1].match(/<guid>(.*?)<\/guid>/) || [])[1] || "#";
-				var pubDate =
-					(match[1].match(/<pubDate>(.*?)<\/pubDate>/) || [])[1] ||
-					"";
-				var author =
-					(match[1].match(/<atom:name>(.*?)<\/atom:name>/) ||
-						[])[1] || "";
-				return {
-					title: title,
-					link: link,
-					pubDate: pubDate,
-					author: author,
-				};
-			});
-			if (!posts.length) {
-				container.innerHTML =
-					'<div class="news-item placeholder"><div class="news-title">Ingen artikler fundet</div></div>';
-				return;
-			}
-			container.innerHTML = posts
-				.map(function (post) {
-					var date = post.pubDate
-						? new Date(post.pubDate).toLocaleDateString("da-DK", {
-								day: "2-digit",
-								month: "2-digit",
-								year: "numeric",
-							})
-						: "";
-					return (
-						'<a href="' +
-						post.link +
-						'" target="_blank" rel="noopener noreferrer" class="news-item"><div class="news-date">' +
-						date +
-						'</div><div class="news-title">' +
-						post.title +
-						'</div><div class="news-excerpt">af ' +
-						post.author +
-						"</div></a>"
-					);
-				})
-				.join("");
-		} catch (e) {
-			console.error("Failed to fetch Stacker News:", e);
-			if (container) {
-				container.innerHTML =
-					'<div class="news-item placeholder"><div class="news-title">Kunne ikke hente artikler</div></div>';
-			}
+	  var container = document.getElementById("stacker-news-list");
+	  if (!container) return;
+	  try {
+		var res = await fetch("/.netlify/functions/stacker-news");
+		var posts = await res.json();
+		if (!posts.length) {
+		  container.innerHTML = '<div class="news-item placeholder"><div class="news-title">Ingen artikler fundet</div></div>';
+		  return;
 		}
+		container.innerHTML = posts.map(function(post) {
+		  var date = post.pubDate ? new Date(post.pubDate).toLocaleDateString("da-DK", { day: "2-digit", month: "2-digit", year: "numeric" }) : "";
+		  return '<a href="' + post.link + '" target="_blank" rel="noopener noreferrer" class="news-item"><div class="news-date">' + date + '</div><div class="news-title">' + post.title + '</div><div class="news-excerpt">af ' + post.author + '</div></a>';
+		}).join("");
+	  } catch (e) {
+		console.error("Failed to fetch Stacker News:", e);
+		if (container) {
+		  container.innerHTML = '<div class="news-item placeholder"><div class="news-title">Kunne ikke hente artikler</div></div>';
+		}
+	  }
 	}
 	fetchStackerNews();
-</script>
+  </script>
 
 <style>
 	.content-showcase {
