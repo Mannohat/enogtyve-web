@@ -1,0 +1,197 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+
+const topics = [
+  {
+    icon: "🟠",
+    title: "Kom i gang med Bitcoin",
+    desc: "Hjælp til at købe din første bitcoin, opsætte en wallet og forstå de grundlæggende begreber.",
+  },
+  {
+    icon: "🔐",
+    title: "Opbevaring & sikkerhed",
+    desc: "Hardware wallets, seed phrases, multisig og best practices for sikker opbevaring.",
+  },
+  {
+    icon: "⛏️",
+    title: "Mining & nodes",
+    desc: "Opsætning af en Bitcoin-node, mining med BitAxe eller varmeudnyttelse fra mining.",
+  },
+  {
+    icon: "💳",
+    title: "Accepter Bitcoin som betaling",
+    desc: "Kom i gang med at modtage Bitcoin i din forretning – med eller uden Lightning.",
+  },
+  {
+    icon: "🎓",
+    title: "Workshops & præsentationer",
+    desc: "Oplæg og workshops for virksomheder, foreninger, grupper og organisationer – tilpasset jeres behov.",
+  },
+  {
+    icon: "💬",
+    title: "Sparring og rådgivning",
+    desc: "En uformel snak om Bitcoin, strategi eller næste skridt – vi er klar til at tænke med.",
+  },
+];
+
+---
+
+<ResourcePageLayout
+  title="Rådgivning & Workshops"
+  description="Bitcoin-rådgivning for privatpersoner, virksomheder og organisationer"
+  lang="da"
+>
+  <section class="content-section">
+    <p>Vi hjælper både privatpersoner, virksomheder og foreninger – fra en personlig gennemgang til et oplæg for vinklubben, logen eller hele afdelingen.</p>
+    <p>Vi holder workshops og præsentationer om alt fra en introduktion til Bitcoin, sikkerhed og opbevaring, til hvordan Bitcoin bruges rundt om i verden. Hvad med et hyggeligt og lærerigt fredagsarrangement for medarbejderne? Det giver garanteret anledning til gode snakke, masser af spørgsmål og en helt ny forståelse af Bitcoin.</p>
+    <p>Vi tilpasser indhold og format sammen.</p>
+  </section>
+
+  <section class="category-section">
+    <h2>Ideer til hvad vi kan hjælpe med</h2>
+    <div class="topics-grid">
+      {topics.map((topic) => (
+        <div class="topic-card">
+          <span class="topic-icon">{topic.icon}</span>
+          <h3 class="topic-title">{topic.title}</h3>
+          <p class="topic-desc">{topic.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Tag kontakt</h2>
+    <p>Send os en besked – så finder vi ud af det sammen.</p>
+    <a href="mailto:kontakt@enogtyve.org" class="cta-btn">kontakt@enogtyve.org →</a>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
+</ResourcePageLayout>
+
+<style>
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section p {
+    margin-bottom: 0.75rem;
+  }
+
+  /* Category sections */
+  .category-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .category-section h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  /* CTA */
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 0.85rem;
+  }
+
+  .topic-card {
+    padding: 1.15rem 1.25rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: border-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .topic-card:hover {
+    border-color: rgba(247, 147, 26, 0.35);
+    transform: translateY(-2px);
+  }
+
+  .topic-icon {
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .topic-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-light, #ccc);
+    margin: 0 0 0.35rem 0;
+  }
+
+  .topic-desc {
+    font-size: 0.83rem;
+    line-height: 1.6;
+    color: rgba(204, 204, 204, 0.6);
+    margin: 0;
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: 1.5rem;
+    background: rgba(247, 147, 26, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.15);
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .cta-section h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-section p {
+    font-size: 0.9rem;
+    color: var(--text-light, #ccc);
+    margin-bottom: 1rem;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    background: var(--primary);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease;
+  }
+
+  .cta-btn:hover {
+    background: transparent;
+    color: var(--primary);
+  }
+
+  /* Back to top */
+  .back-to-top {
+    display: block;
+    width: fit-content;
+    margin: 3rem auto 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.9);
+    transition: opacity 0.3s ease;
+  }
+
+  .back-to-top:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 567px) {
+    .topics-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

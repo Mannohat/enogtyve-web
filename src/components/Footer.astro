@@ -97,19 +97,23 @@ const { lang = "da" } = Astro.props;
 				<ul>
 					<li>
 						<a href={`/${lang}/kom-igang/kob-bitcoin`}
-							>Anskaffelse af bitcoin</a>
+							>Anskaffelse af bitcoin</a
+						>
 					</li>
 					<li>
 						<a href={`/${lang}/kom-igang/opbevaring-af-bitcoin`}
-							>Opbevaring</a>
+							>Opbevaring</a
+						>
 					</li>
 					<li>
 						<a href={`/${lang}/kom-igang/hardware-wallets`}
-							>Hardware Wallets</a>
+							>Hardware Wallets</a
+						>
 					</li>
 					<li>
 						<a href={`/${lang}/kom-igang/begreber-ord`}
-							>Begreber og Ord</a>
+							>Begreber og Ord</a
+						>
 					</li>
 				</ul>
 			</div>
@@ -128,17 +132,23 @@ const { lang = "da" } = Astro.props;
 				<h4>Fællesskab</h4>
 				<ul>
 					<li>
-						<a href={`/${lang}/faellesskab/support`}>Støt op</a>
+						<button class="support-btn" onclick="openSupport()">
+							<span class="heart">♥</span>
+							<span>Støt med sats ⚡</span>
+						</button>
 					</li>
 					<li>
-						<a href={`/${lang}/faellesskab/mediekit`}>Medie Kit</a>
+						<a href={`/${lang}/rabat`}>Rabat med enogtyve</a>
 					</li>
-					<li><a href={`/${lang}/rabat`}>Rabat med enogtyve</a></li>
 					<li>
 						<a
 							href="https://github.com/Mannohat/enogtyve-web"
 							target="_blank"
-							rel="noopener noreferrer">Bidrag på GitHub</a>
+							rel="noopener noreferrer">Bidrag på GitHub</a
+						>
+					</li>
+					<li>
+						<a href={`/${lang}/faellesskab/mediekit`}>Medie Kit</a>
 					</li>
 				</ul>
 			</div>
@@ -238,7 +248,9 @@ const { lang = "da" } = Astro.props;
 	.footer-section ul li a:hover {
 		color: var(--primary);
 	}
-
+	.support-btn {
+		margin-top: 0.25rem;
+	}
 	.social-links {
 		display: flex;
 		gap: 1rem;

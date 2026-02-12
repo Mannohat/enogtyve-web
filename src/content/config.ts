@@ -12,8 +12,6 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog };
-
 const videos = defineCollection({
   type: 'content',
   schema: z.object({

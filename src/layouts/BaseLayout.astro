@@ -1,7 +1,8 @@
 ---
-import '../styles/global.css';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import "../styles/global.css";
+import "../styles/support-modal.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
     title: string;
@@ -32,12 +33,169 @@ const {
         </main>
 
         <Footer lang={lang} />
+
+        <!-- Support Modal -->
+        <div
+            class="support-overlay"
+            id="supportOverlay"
+            onclick="closeSupport(event)"
+        >
+            <div class="support-modal" onclick="event.stopPropagation()">
+                <button class="close-btn" onclick="closeSupport()"
+                    >&times;</button
+                >
+
+                <div class="icon-wrap">🧡</div>
+                <h2>Tak for din støtte!</h2>
+                <p class="subtitle">
+                    Dit bidrag varmer og hjælper med at holde ENOGTYVE uafhængigt,
+                    åbent og voksende.
+                </p>
+
+                <div class="divider"></div>
+
+                <div class="btcpay-wrap">
+                    <div class="amount-label">Vælg beløb</div>
+
+                    <form
+                        method="POST"
+                        action="https://btcpay.ideasarelikeflames.org/api/v1/invoices"
+                        class="btcpay-form btcpay-form--block"
+                    >
+                        <input
+                            type="hidden"
+                            name="storeId"
+                            value="GL4Us2RE6nDJhwXMUMgagN9efPYpMs1ebZwx9MxQG3qN"
+                        />
+                        <input
+                            type="hidden"
+                            name="browserRedirect"
+                            value="https://www.enogtyve.org"
+                        />
+                        <input
+                            type="hidden"
+                            name="notifyEmail"
+                            value="kontakt@enogtyve.org"
+                        />
+                        <div class="btcpay-custom-container">
+                            <div class="btcpay-custom">
+                                <button
+                                    class="plus-minus"
+                                    type="button"
+                                    data-type="-"
+                                    data-step="21"
+                                    data-min="21"
+                                    data-max="21000">−</button
+                                >
+                                <input
+                                    class="btcpay-input-price"
+                                    type="number"
+                                    name="price"
+                                    min="21"
+                                    max="21000"
+                                    step="21"
+                                    value="21"
+                                    data-price="21"
+                                />
+                                <button
+                                    class="plus-minus"
+                                    type="button"
+                                    data-type="+"
+                                    data-step="21"
+                                    data-min="21"
+                                    data-max="21000">+</button
+                                >
+                            </div>
+                            <select name="currency">
+                                <option value="DKK" selected>DKK</option>
+                                <option value="USD">USD</option>
+                                <option value="GBP">GBP</option>
+                                <option value="EUR">EUR</option>
+                                <option value="BTC">BTC</option>
+                            </select>
+                        </div>
+                        <button
+                            type="submit"
+                            class="submit"
+                            name="submit"
+                            title="Pay with BTCPay Server, a Self-Hosted Bitcoin Payment Processor"
+                        >
+                            <span>Bidrag med</span>
+                            <img
+                                src="https://btcpay.ideasarelikeflames.org/img/paybutton/logo.svg"
+                                alt="BTCPay"
+                            />
+                        </button>
+                    </form>
+                </div>
+
+                <span class="footnote"
+                    >Drevet af BTCPay Server</span
+                >
+            </div>
+        </div>
+        <script is:inline>
+            function openSupport() {
+                document
+                    .getElementById("supportOverlay")
+                    .classList.add("active");
+            }
+
+            function closeSupport(e) {
+                if (!e || e.target === e.currentTarget) {
+                    document
+                        .getElementById("supportOverlay")
+                        .classList.remove("active");
+                }
+            }
+
+            document.addEventListener("keydown", function (e) {
+                if (e.key === "Escape") closeSupport();
+            });
+
+            document
+                .querySelectorAll(".btcpay-form .plus-minus")
+                .forEach(function (el) {
+                    el.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        var root = event.target.closest(".btcpay-form");
+                        var el = root.querySelector(".btcpay-input-price");
+                        var step = parseInt(event.target.dataset.step) || 1;
+                        var min = parseInt(event.target.dataset.min) || 1;
+                        var max = parseInt(event.target.dataset.max);
+                        var type = event.target.dataset.type;
+                        var price = parseInt(el.value) || min;
+                        if (type === "-") {
+                            el.value = price - step < min ? min : price - step;
+                        } else if (type === "+") {
+                            el.value = price + step > max ? max : price + step;
+                        }
+                    });
+                });
+
+            document
+                .querySelectorAll(".btcpay-form .btcpay-input-price")
+                .forEach(function (el) {
+                    el.addEventListener("input", function (event) {
+                        event.preventDefault();
+                        var price = parseInt(event.target.dataset.price);
+                        if (isNaN(event.target.value))
+                            event.target.value = price;
+                        var min =
+                            parseInt(event.target.getAttribute("min")) || 1;
+                        var max = parseInt(event.target.getAttribute("max"));
+                        if (event.target.value < min) event.target.value = min;
+                        else if (event.target.value > max)
+                            event.target.value = max;
+                    });
+                });
+        </script>
     </body>
 </html>
 
 <style>
-  main {
-    min-height: 70vh;
-    padding: var(--space-sm) 0;
-  }
+    main {
+        min-height: 70vh;
+        padding: var(--space-sm) 0;
+    }
 </style>

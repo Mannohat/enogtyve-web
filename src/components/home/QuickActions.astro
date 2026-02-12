@@ -17,10 +17,10 @@ const logos = [
 ];
 
 const actions = [
-	{ icon: "📖", label: "Bogmærker", href: `/${lang}/faellesskab/bookmarks` },
-	{ icon: "💰", label: "Podcasts", href: `/${lang}/podcasts` },
-	{ icon: "🔐", label: "Rabat", href: `/${lang}/rabat` },
-	{ icon: "🎓", label: "Blokkæden", href: `/${lang}/laer-mere/bitcoin-blockchain` },
+	{ icon: "/images/icons/bookmark.png", label: "Bogmærker", href: `/${lang}/faellesskab/bookmarks` },
+	{ icon: "/images/icons/podcasts.png", label: "Podcasts", href: `/${lang}/podcasts` },
+	{ icon: "/images/icons/discount.png", label: "Rabat", href: `/${lang}/rabat` },
+	{ icon: "/images/icons/blockchain.png", label: "Blokkæden", href: `/${lang}/laer-mere/bitcoin-blockchain` },
 ];
 ---
 
@@ -51,12 +51,20 @@ const actions = [
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							<span class="card-icon">{action.icon}</span>
+							{action.icon.startsWith("/") ? (
+								<img src={action.icon} alt={action.label} class="card-icon-img" />
+							) : (
+								<span class="card-icon">{action.icon}</span>
+							)}
 							<span class="card-label">{action.label}</span>
 						</a>
 					) : (
 						<a href={action.href} class="action-card">
-							<span class="card-icon">{action.icon}</span>
+							{action.icon.startsWith("/") ? (
+								<img src={action.icon} alt={action.label} class="card-icon-img" />
+							) : (
+								<span class="card-icon">{action.icon}</span>
+							)}
 							<span class="card-label">{action.label}</span>
 						</a>
 					),
@@ -154,6 +162,12 @@ const actions = [
 	.card-icon {
 		font-size: 1.75rem;
 		line-height: 1;
+	}
+
+	.card-icon-img {
+		height: 3.5rem;
+		width: 3.5rem;
+		object-fit: contain;
 	}
 
 	.card-label {

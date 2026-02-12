@@ -61,11 +61,12 @@ const ways = [
     title: "Tip nogle sats",
     desc: "Send sats via Lightning eller on-chain.",
     icon: "🧡",
+    action: "support",
   },
   {
     number: "9",
-    title: "Udforsk danske initiativer",
-    desc: "Se en liste med danske Bitcoin-initiativer.",
+    title: "Udforsk andre danske initiativer",
+    desc: "Se en liste med danske Bitcoin-initiativer, måske kan du hjælpe nogle af disse eller få din egen idé.",
     link: {
       label: "Bitcoin-initiativer i Danmark",
       url: "/da/faellesskab/initiativer-danmark",
@@ -82,17 +83,6 @@ const ways = [
       external: true,
     },
     icon: "🛠️",
-  },
-  {
-    number: "11",
-    title: "Har du andre ideer?",
-    desc: "Send en e-mail til kontakt@enogtyve.org.",
-    link: {
-      label: "kontakt@enogtyve.org",
-      url: "mailto:kontakt@enogtyve.org",
-      external: true,
-    },
-    icon: "✉️",
   },
 ];
 ---
@@ -129,6 +119,12 @@ const ways = [
             >
               {way.link.label} →
             </a>
+          )}
+          {way.action === "support" && (
+            <button class="support-btn" onclick="openSupport()">
+              <span class="heart">♥</span>
+              <span>Støt med sats ⚡</span>
+            </button>
           )}
         </div>
       ))

@@ -2,37 +2,44 @@
 import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
 
 // Fetch terms from the GitHub repo at build time
-let termsData: { Term: string; English: string; Description: string; Links: { Title: string; Href: string }[] }[] = [];
+let termsData: {
+  Term: string;
+  English: string;
+  Description: string;
+  Links: { Title: string; Href: string }[];
+}[] = [];
 
 try {
-  const response = await fetch('https://raw.githubusercontent.com/Enogtyve/Ordliste/main/terms.json');
+  const response = await fetch(
+    "https://raw.githubusercontent.com/Enogtyve/Ordliste/main/terms.json",
+  );
   termsData = await response.json();
 } catch (e) {
-  console.error('Failed to fetch terms.json:', e);
+  console.error("Failed to fetch terms.json:", e);
 }
 
 // Sort alphabetically by Danish term
-const sorted = termsData.sort((a, b) => a.Term.localeCompare(b.Term, 'da'));
+const sorted = termsData.sort((a, b) => a.Term.localeCompare(b.Term, "da"));
 
 // Group by first letter
 const grouped: Record<string, typeof termsData> = {};
 for (const term of sorted) {
   const firstChar = term.Term.charAt(0).toUpperCase();
-  const key = /\d/.test(firstChar) ? '#' : firstChar;
+  const key = /\d/.test(firstChar) ? "#" : firstChar;
   if (!grouped[key]) grouped[key] = [];
   grouped[key].push(term);
 }
 
 const letters = Object.keys(grouped).sort((a, b) => {
-  if (a === '#') return -1;
-  if (b === '#') return 1;
-  return a.localeCompare(b, 'da');
+  if (a === "#") return -1;
+  if (b === "#") return 1;
+  return a.localeCompare(b, "da");
 });
 ---
 
 <ResourcePageLayout
   title="Begreber & ord"
-  description="Ordliste over Bitcoin-begreber og -termer på dansk"
+  description="Ordliste for Bitcoin- og økonomibegreber på dansk. Forslag til forbedringer modtages med kyshånd på GitHub.com/Enogtyve/Ordliste."
   lang="da"
 >
   <section class="nav-buttons">
@@ -53,33 +60,39 @@ const letters = Object.keys(grouped).sort((a, b) => {
   </section>
 
   <div id="glossary-container">
-    {letters.map((l) => (
-      <section class="letter-group" data-letter={l} id={`letter-${l}`}>
-        <h2 class="letter-heading">{l}</h2>
-        <div class="terms-list">
-          {grouped[l].map((item) => (
-            <details class="term-card">
-              <summary class="term-header">
-                <span class="term-name">{item.Term}</span>
-                <span class="term-english">{item.English}</span>
-              </summary>
-              <div class="term-body">
-                <p>{item.Description}</p>
-                {item.Links && item.Links.length > 0 && (
-                  <div class="term-links">
-                    {item.Links.map((link) => (
-                      <a href={link.Href} target="_blank" rel="noopener noreferrer">
-                        {link.Title} →
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </details>
-          ))}
-        </div>
-      </section>
-    ))}
+    {
+      letters.map((l) => (
+        <section class="letter-group" data-letter={l} id={`letter-${l}`}>
+          <h2 class="letter-heading">{l}</h2>
+          <div class="terms-list">
+            {grouped[l].map((item) => (
+              <details class="term-card">
+                <summary class="term-header">
+                  <span class="term-name">{item.Term}</span>
+                  <span class="term-english">{item.English}</span>
+                </summary>
+                <div class="term-body">
+                  <p>{item.Description}</p>
+                  {item.Links && item.Links.length > 0 && (
+                    <div class="term-links">
+                      {item.Links.map((link) => (
+                        <a
+                          href={link.Href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {link.Title} →
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+      ))
+    }
   </div>
 
   <p id="no-results" class="no-results" style="display:none;">
@@ -89,12 +102,19 @@ const letters = Object.keys(grouped).sort((a, b) => {
   <section class="content-section credit">
     <p>
       Denne ordliste er et initiativ af
-      <a href="https://x.com/rasmushansen?s=20" target="_blank" rel="noopener noreferrer">
-        <strong>@rasmushansen</strong></a>
+      <a
+        href="https://x.com/rasmushansen?s=20"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <strong>@rasmushansen</strong></a
+      >
     </p>
     <p class="nostr-key">
       Du kan følge @rasmushansen på Nostr:<br />
-      <code>npub1gqrvr8nnl0ju9h6x0vl96qn3qh6w9l8ul57fmzgtdr36emp7waqqjchlyv</code>
+      <code
+        >npub1gqrvr8nnl0ju9h6x0vl96qn3qh6w9l8ul57fmzgtdr36emp7waqqjchlyv</code
+      >
     </p>
   </section>
 
@@ -102,45 +122,55 @@ const letters = Object.keys(grouped).sort((a, b) => {
 </ResourcePageLayout>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const input = document.getElementById('glossary-search') as HTMLInputElement;
-    const container = document.getElementById('glossary-container')!;
-    const noResults = document.getElementById('no-results')!;
-    const resultCount = document.getElementById('result-count')!;
+  document.addEventListener("DOMContentLoaded", () => {
+    const input = document.getElementById(
+      "glossary-search",
+    ) as HTMLInputElement;
+    const container = document.getElementById("glossary-container")!;
+    const noResults = document.getElementById("no-results")!;
+    const resultCount = document.getElementById("result-count")!;
 
-    const allGroups = container.querySelectorAll<HTMLElement>('.letter-group');
-    const allCards = container.querySelectorAll<HTMLElement>('.term-card');
+    const allGroups = container.querySelectorAll<HTMLElement>(".letter-group");
+    const allCards = container.querySelectorAll<HTMLElement>(".term-card");
 
-    input.addEventListener('input', () => {
+    input.addEventListener("input", () => {
       const q = input.value.toLowerCase().trim();
 
       if (!q) {
-        allGroups.forEach(g => g.style.display = '');
-        allCards.forEach(c => c.style.display = '');
-        noResults.style.display = 'none';
-        resultCount.textContent = '';
+        allGroups.forEach((g) => (g.style.display = ""));
+        allCards.forEach((c) => (c.style.display = ""));
+        noResults.style.display = "none";
+        resultCount.textContent = "";
         return;
       }
 
       let visibleCount = 0;
 
-      allCards.forEach(card => {
-        const name = card.querySelector('.term-name')?.textContent?.toLowerCase() || '';
-        const eng = card.querySelector('.term-english')?.textContent?.toLowerCase() || '';
-        const desc = card.querySelector('.term-body p')?.textContent?.toLowerCase() || '';
+      allCards.forEach((card) => {
+        const name =
+          card.querySelector(".term-name")?.textContent?.toLowerCase() || "";
+        const eng =
+          card.querySelector(".term-english")?.textContent?.toLowerCase() || "";
+        const desc =
+          card.querySelector(".term-body p")?.textContent?.toLowerCase() || "";
         const match = name.includes(q) || eng.includes(q) || desc.includes(q);
-        card.style.display = match ? '' : 'none';
+        card.style.display = match ? "" : "none";
         if (match) visibleCount++;
       });
 
-      allGroups.forEach(group => {
-        const cardsInGroup = group.querySelectorAll<HTMLElement>('.term-card');
-        const anyVisible = Array.from(cardsInGroup).some(c => c.style.display !== 'none');
-        group.style.display = anyVisible ? '' : 'none';
+      allGroups.forEach((group) => {
+        const cardsInGroup = group.querySelectorAll<HTMLElement>(".term-card");
+        const anyVisible = Array.from(cardsInGroup).some(
+          (c) => c.style.display !== "none",
+        );
+        group.style.display = anyVisible ? "" : "none";
       });
 
-      noResults.style.display = visibleCount === 0 ? '' : 'none';
-      resultCount.textContent = visibleCount > 0 ? `${visibleCount} resultat${visibleCount !== 1 ? 'er' : ''}` : '';
+      noResults.style.display = visibleCount === 0 ? "" : "none";
+      resultCount.textContent =
+        visibleCount > 0
+          ? `${visibleCount} resultat${visibleCount !== 1 ? "er" : ""}`
+          : "";
     });
   });
 </script>

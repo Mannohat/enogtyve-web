@@ -4,211 +4,106 @@ interface Props {
 }
 
 const { lang = "da" } = Astro.props;
+// TODO: When English pages are built, remove navLang and use `lang` instead in menuItems and exclusiveMenuItem
+const navLang = "da";
 const currentPath = Astro.url.pathname;
 
 const menuItems = [
     {
         label: "Velkommen",
-        href: `/${lang}`,
+        href: `/${navLang}`,
         submenu: [
-            { label: "Lidt om penge", href: `/${lang}/blog/penges-historie` },
-            {
-                label: "Lidt om Bitcoin",
-                href: `/${lang}/blog/hvad-er-bitcoin`,
-            },
-            {
-                label: "White Paper",
-                href: `/pdf/bitcoin.pdf`,
-                target: "_blank",
-            },
-            {
-                label: "Cypherpunk's Manifesto",
-                href: `/pdf/cypherpunks-manifesto.pdf`,
-                target: "_blank",
-            },
-            { label: "FUD / Fakta", href: `/${lang}/velkommen/fud-facts` },
+            { label: "Lidt om penge", href: `/${navLang}/blog/penges-historie` },
+            { label: "Lidt om Bitcoin", href: `/${navLang}/blog/hvad-er-bitcoin` },
+            { label: "White Paper", href: `/pdf/bitcoin.pdf`, target: "_blank" },
+            { label: "Cypherpunk's Manifesto", href: `/pdf/cypherpunks-manifesto.pdf`, target: "_blank" },
+            { label: "FUD / Fakta", href: `/${navLang}/velkommen/fud-facts` },
         ],
     },
     {
         label: "Kom igang",
-        href: `/${lang}/kom-igang`,
+        href: `/${navLang}/kom-igang`,
         submenu: [
-            {
-                label: "Anskaffelse af bitcoin",
-                href: `/${lang}/kom-igang/kob-bitcoin`,
-            },
-            {
-                label: "Optjen bitcoin",
-                href: `/${lang}/kom-igang/optjen-bitcoin`,
-            },
-            {
-                label: "Opbevaring af bitcoin",
-                href: `/${lang}/kom-igang/opbevaring-af-bitcoin`,
-            },
-            {
-                label: "Hardware Wallets",
-                href: `/${lang}/kom-igang/hardware-wallets`,
-            },
-            {
-                label: "Gendannelsesord / Seed Phrase",
-                href: `/${lang}/kom-igang/seed-phrase`,
-            },
-            {
-                label: "Bitcoin Software",
-                href: `/${lang}/kom-igang/bitcoin-software`,
-            },
-            {
-                label: "Privatliv og best Practice",
-                href: `/${lang}/kom-igang/privatliv-best-practice`,
-            },
-            {
-                label: "Begreber og Ord",
-                href: `/${lang}/kom-igang/begreber-ord`,
-            },
-            {
-                label: "Bitcoin Bøger på Dansk",
-                href: `/${lang}/kom-igang/bitcoin-boeger-dansk`,
-            },
+            { label: "Anskaffelse af bitcoin", href: `/${navLang}/kom-igang/kob-bitcoin` },
+            { label: "Optjen bitcoin", href: `/${navLang}/kom-igang/optjen-bitcoin` },
+            { label: "Opbevaring af bitcoin", href: `/${navLang}/kom-igang/opbevaring-af-bitcoin` },
+            { label: "Hardware Wallets", href: `/${navLang}/kom-igang/hardware-wallets` },
+            { label: "Gendannelsesord / Seed Phrase", href: `/${navLang}/kom-igang/seed-phrase` },
+            { label: "Bitcoin Software", href: `/${navLang}/kom-igang/bitcoin-software` },
+            { label: "Privatliv og best Practice", href: `/${navLang}/kom-igang/privatliv-best-practice` },
+            { label: "Begreber og Ord", href: `/${navLang}/kom-igang/begreber-ord` },
+            { label: "Bitcoin Bøger på Dansk", href: `/${navLang}/kom-igang/bitcoin-boeger-dansk` },
         ],
     },
     {
         label: "Lær mere",
-        href: `/${lang}/laer-mere`,
+        href: `/${navLang}/laer-mere`,
         submenu: [
-            {
-                label: "Bitcoin Blokkæden",
-                href: `/${lang}/laer-mere/bitcoin-blockchain`,
-            },
-            {
-                label: "Bitcoin Lightning",
-                href: `/${lang}/laer-mere/lightning`,
-            },
-            {
-                label: "Lightning Wallets",
-                href: `/${lang}/laer-mere/lightning-wallets`,
-            },
-            { label: "Liquid", href: `/${lang}/laer-mere/liquid` },
-            { label: "eCash", href: `/${lang}/laer-mere/ecash` },
-            {
-                label: "Quotes oversat til Dansk",
-                href: `/${lang}/laer-mere/quotes-dansk`,
-            },
-            {
-                label: "Bitcoin og din forretning",
-                href: `/${lang}/laer-mere/bitcoin-og-din-forretning`,
-            },
-            {
-                label: "Lightning Produkter og Services",
-                href: `/${lang}/laer-mere/lightning-produkter-services`,
-            },
-            {
-                label: "Bitcoin Services og Produkter",
-                href: `/${lang}/laer-mere/bitcoin-services-og-produkter`,
-            },
-            {
-                label: "Value 4 Value",
-                href: `/${lang}/laer-mere/value4value`,
-            },
+            { label: "Bitcoin Blokkæden", href: `/${navLang}/laer-mere/bitcoin-blockchain` },
+            { label: "Bitcoin Lightning", href: `/${navLang}/laer-mere/lightning` },
+            { label: "Lightning Wallets", href: `/${navLang}/laer-mere/lightning-wallets` },
+            { label: "Liquid", href: `/${navLang}/laer-mere/liquid` },
+            { label: "eCash", href: `/${navLang}/laer-mere/ecash` },
+            { label: "Quotes oversat til Dansk", href: `/${navLang}/laer-mere/quotes-dansk` },
+            { label: "Bitcoin og din forretning", href: `/${navLang}/laer-mere/bitcoin-og-din-forretning` },
+            { label: "Lightning Produkter og Services", href: `/${navLang}/laer-mere/lightning-produkter-services` },
+            { label: "Bitcoin Services og Produkter", href: `/${navLang}/laer-mere/bitcoin-services-og-produkter` },
+            { label: "Value 4 Value", href: `/${navLang}/laer-mere/value4value` },
         ],
     },
-    {
-        label: "Podcasts",
-        href: `/${lang}/podcasts`,
-        submenu: [],
-    },
-    {
-        label: "Blog",
-        href: `/${lang}/blog`,
-        submenu: [],
-    },
+    { label: "Podcasts", href: `/${navLang}/podcasts`, submenu: [] },
+    { label: "Blog", href: `/${navLang}/blog`, submenu: [] },
     {
         label: "Mining",
-        href: `/${lang}/mining`,
+        href: `/${navLang}/mining`,
         submenu: [
-            { label: "Solo Mining", href: `/${lang}/mining/solo-mining` },
-            {
-                label: "Mining for opvarmning",
-                href: `/${lang}/mining/mining-for-opvarmning`,
-            },
+            { label: "Solo Mining", href: `/${navLang}/mining/solo-mining` },
+            { label: "Mining for opvarmning", href: `/${navLang}/mining/mining-for-opvarmning` },
         ],
     },
     {
         label: "Udforsk",
-        href: `/${lang}/udforsk/udforsk`,
+        href: `/${navLang}/udforsk/udforsk`,
         submenu: [
-            {
-                label: "Mød ligesindede når du rejser",
-                href: `/${lang}/udforsk/moed-andre`,
-            },
-            {
-                label: "Bitcoin Fællesskaber og Meetups i verden",
-                href: `/${lang}/udforsk/in-the-world`,
-            },
-            {
-                label: "Bitcoin Cirkulære Økonomier",
-                href: `/${lang}/udforsk/cirkulaere-okonomier`,
-            },
-            {
-                label: "Frie Byer og Samfund",
-                href: `/${lang}/udforsk/freecities`,
-            },
-            {
-                label: "Bitcoin Konferencer",
-                href: `/${lang}/udforsk/konferencer`,
-            },
-            { label: "Nyheder", href: `/${lang}/udforsk/nyheder` },
-
-            {
-                label: "Bitcoin Ressourcer",
-                href: `/${lang}/udforsk/bitcoin-ressources`,
-            },
-            {
-                label: "Twentyone.world",
-                href: `/${lang}/udforsk/twentyoneworld`,
-            },
+            { label: "Mød ligesindede når du rejser", href: `/${navLang}/udforsk/moed-andre` },
+            { label: "Bitcoin Fællesskaber og Meetups i verden", href: `/${navLang}/udforsk/in-the-world` },
+            { label: "Bitcoin Cirkulære Økonomier", href: `/${navLang}/udforsk/cirkulaere-okonomier` },
+            { label: "Frie Byer og Samfund", href: `/${navLang}/udforsk/freecities` },
+            { label: "Bitcoin Konferencer", href: `/${navLang}/udforsk/konferencer` },
+            { label: "Nyheder", href: `/${navLang}/udforsk/nyheder` },
+            { label: "Bitcoin Ressourcer", href: `/${navLang}/udforsk/bitcoin-ressources` },
+            { label: "Twentyone.world", href: `/${navLang}/udforsk/twentyoneworld` },
         ],
     },
     {
         label: "Idé Værksted",
-        href: `/${lang}/idevaerksted/buidl`,
-        submenu: [{ label: "Buidl", href: `/${lang}/idevaerksted/buidl` }],
+        href: `/${navLang}/idevaerksted/buidl`,
+        submenu: [{ label: "Buidl", href: `/${navLang}/idevaerksted/buidl` }],
     },
     {
         label: "Fællesskab",
-        href: `/${lang}/faellesskab`,
+        href: `/${navLang}/faellesskab`,
         submenu: [
-            {
-                label: "Bogmærker",
-                href: `/${lang}/faellesskab/bookmarks`,
-            },
-            {
-                label: "Bitcoin Initiativer i Danmark",
-                href: `/${lang}/faellesskab/initiativer-danmark`,
-            },
-            { label: "Support", href: `/${lang}/faellesskab/support` },
-            { label: "Medie Kit", href: `/${lang}/faellesskab/mediekit` },
-            {
-                label: "Spotify Playliste",
-                href: `/${lang}/faellesskab/playliste`,
-            },
-            { label: "Rabatter", href: `/${lang}/rabat` },
+            { label: "Bogmærker", href: `/${navLang}/faellesskab/bookmarks` },
+            { label: "Bitcoin Initiativer i Danmark", href: `/${navLang}/faellesskab/initiativer-danmark` },
+            { label: "Support", href: `/${navLang}/faellesskab/support` },
+            { label: "Medie Kit", href: `/${navLang}/faellesskab/mediekit` },
+            { label: "Spotify Playliste", href: `/${navLang}/faellesskab/playliste` },
+            { label: "Rabatter", href: `/${navLang}/rabat` },
         ],
     },
 ];
 
 const exclusiveMenuItem = {
-    label: "Rådgivning og hjælp",
-    href: `/${lang}/advisory-services`,
-    submenu: [
-        { label: "Privat", href: `/${lang}/advisory-services/private` },
-        { label: "Virksomhed", href: `/${lang}/advisory-services/business` },
-    ],
+    label: "Rådgivning & Workshops",
+    href: `/${navLang}/advisory-services/raadgivning`,
+    submenu: [],
 };
 
 // Helper function to check if a path is active
 function isActive(href: string, currentPath: string): boolean {
-    if (href === `/${lang}` || href === `/${lang}/`) {
-        return currentPath === `/${lang}` || currentPath === `/${lang}/`;
+    if (href === `/${navLang}` || href === `/${navLang}/`) {
+        return currentPath === `/${navLang}` || currentPath === `/${navLang}/`;
     }
     return currentPath.startsWith(href);
 }
@@ -223,11 +118,16 @@ function getSwitchedPath(targetLang: string): string {
 <header>
     <div class="header-top">
         <div class="container">
-            <a href={`/${lang}`} class="logo" aria-label="Home">
+            <a href={`/${navLang}`} class="logo" aria-label="Home">
                 <img src="/images/logos/enogtyve_logo.png" alt="Enogtyve" />
             </a>
 
             <div class="header-right">
+                <button class="support-btn" onclick="openSupport()">
+                    <span class="heart">♥</span>
+                    <span>Støt med sats ⚡</span>
+                </button>
+
                 <div class="language-switcher">
                     <a
                         href={getSwitchedPath("da")}
@@ -239,7 +139,7 @@ function getSwitchedPath(targetLang: string): string {
                     </a>
                     <span>/</span>
                     <a
-                        href={getSwitchedPath("en")}
+                        href="/en/"
                         class={lang === "en" ? "active" : ""}
                         aria-label="Switch to English"
                         aria-current={lang === "en" ? "true" : undefined}
@@ -330,45 +230,57 @@ function getSwitchedPath(targetLang: string): string {
             </ul>
 
             <ul class="nav-links exclusive-nav" role="menubar">
-                <li class="exclusive has-submenu" role="none">
-                    <button
-                        class={`nav-button ${isActive(exclusiveMenuItem.href, currentPath) ? "active" : ""}`}
-                        role="menuitem"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                        aria-label={`${exclusiveMenuItem.label} category`}
-                    >
-                        {exclusiveMenuItem.label}
-                    </button>
-                    <ul
-                        class="submenu"
-                        role="menu"
-                        aria-label={`${exclusiveMenuItem.label} submenu`}
-                    >
-                        {
-                            exclusiveMenuItem.submenu.map((subItem) => (
-                                <li role="none">
-                                    <a
-                                        href={subItem.href}
-                                        class={
-                                            isActive(subItem.href, currentPath)
-                                                ? "active"
-                                                : ""
-                                        }
-                                        target={subItem.target}
-                                        rel={
-                                            subItem.target === "_blank"
-                                                ? "noopener noreferrer"
-                                                : undefined
-                                        }
-                                        role="menuitem"
-                                    >
-                                        {subItem.label}
-                                    </a>
-                                </li>
-                            ))
-                        }
-                    </ul>
+                <li class={`exclusive ${exclusiveMenuItem.submenu.length > 0 ? "has-submenu" : ""}`} role="none">
+                    {exclusiveMenuItem.submenu.length > 0 ? (
+                        <button
+                            class={`nav-button ${isActive(exclusiveMenuItem.href, currentPath) ? "active" : ""}`}
+                            role="menuitem"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            aria-label={`${exclusiveMenuItem.label} category`}
+                        >
+                            {exclusiveMenuItem.label}
+                        </button>
+                    ) : (
+                        <a
+                            href={exclusiveMenuItem.href}
+                            class={isActive(exclusiveMenuItem.href, currentPath) ? "active" : ""}
+                            role="menuitem"
+                        >
+                            {exclusiveMenuItem.label}
+                        </a>
+                    )}
+                    {exclusiveMenuItem.submenu.length > 0 && (
+                        <ul
+                            class="submenu"
+                            role="menu"
+                            aria-label={`${exclusiveMenuItem.label} submenu`}
+                        >
+                            {
+                                exclusiveMenuItem.submenu.map((subItem) => (
+                                    <li role="none">
+                                        <a
+                                            href={subItem.href}
+                                            class={
+                                                isActive(subItem.href, currentPath)
+                                                    ? "active"
+                                                    : ""
+                                            }
+                                            target={subItem.target}
+                                            rel={
+                                                subItem.target === "_blank"
+                                                    ? "noopener noreferrer"
+                                                    : undefined
+                                            }
+                                            role="menuitem"
+                                        >
+                                            {subItem.label}
+                                        </a>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    )}
                 </li>
             </ul>
         </div>
@@ -536,7 +448,8 @@ function getSwitchedPath(targetLang: string): string {
         background: #3a3a3a;
         border-radius: 6px;
         padding: 0.6rem 1.2rem;
-        transition: background 0.2s ease;
+        transition: background 0.2s ease, opacity 0.2s ease;
+        opacity: 0.5;
     }
 
     .nav-links > li.exclusive:hover > a,
@@ -544,6 +457,7 @@ function getSwitchedPath(targetLang: string): string {
     .nav-links > li.exclusive:hover > .nav-button,
     .nav-links > li.exclusive > .nav-button:focus {
         background: #4a4a4a;
+        opacity: 1;
     }
 
     /* Submenu styles */

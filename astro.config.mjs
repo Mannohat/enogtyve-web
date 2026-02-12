@@ -1,7 +1,13 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import pagefind from 'astro-pagefind';
 
-// https://astro.build/config
+import node from '@astrojs/node';
+
 export default defineConfig({
-  output: 'static',
+  integrations: [pagefind()],
+
+  adapter: node({
+    mode: 'standalone',
+  }),
 });
