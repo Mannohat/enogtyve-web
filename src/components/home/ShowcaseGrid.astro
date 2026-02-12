@@ -49,24 +49,38 @@ const latestPosts = blogPosts
 			</div>
 			<div class="box-content">
 				<div class="event-list">
-					<a href="https://meetup.enogtyve.org" target="_blank" rel="noopener noreferrer" class="event-item">
+					<a
+						href="https://meetup.enogtyve.org"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="event-item"
+					>
 						<div class="event-date-block">
 							<div class="event-day">21</div>
 							<div class="event-month">HVER MD.</div>
 						</div>
 						<div class="event-details">
 							<div class="event-title">Meetup Café Kodan</div>
-							<div class="event-time">Den 21. kl. 19:00 i hver måned</div>
+							<div class="event-time">
+								Den 21. kl. 19:00 i hver måned
+							</div>
 						</div>
 					</a>
-					<a href="https://www.bitcoincopenhagen.dk" target="_blank" rel="noopener noreferrer" class="event-item">
+					<a
+						href="https://www.bitcoincopenhagen.dk"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="event-item"
+					>
 						<div class="event-date-block">
 							<div class="event-day">21</div>
 							<div class="event-month">MARTS</div>
 						</div>
 						<div class="event-details">
 							<div class="event-title">Bitcoin Copenhagen</div>
-							<div class="event-time">Heldags konference · Marskensgade 7, København Ø</div>
+							<div class="event-time">
+								Heldags konference · Marskensgade 7, København Ø
+							</div>
 						</div>
 					</a>
 				</div>
@@ -87,51 +101,67 @@ const latestPosts = blogPosts
 	</div>
 </section>
 
-<script>
+<script is:inline>
 	async function fetchStackerNews() {
-		const container = document.getElementById("stacker-news-list");
+		var container = document.getElementById("stacker-news-list");
 		if (!container) return;
-
 		try {
-			const res = await fetch("/api/stacker-news.json");
-			const posts = await res.json();
-
+			var res = await fetch("https://stacker.news/~bitcoin/rss");
+			var xml = await res.text();
+			var items = Array.from(xml.matchAll(/<item>([\s\S]*?)<\/item>/g));
+			var posts = items.slice(0, 4).map(function (match) {
+				var title =
+					(match[1].match(/<title>(.*?)<\/title>/) || [])[1] || "";
+				var link =
+					(match[1].match(/<guid>(.*?)<\/guid>/) || [])[1] || "#";
+				var pubDate =
+					(match[1].match(/<pubDate>(.*?)<\/pubDate>/) || [])[1] ||
+					"";
+				var author =
+					(match[1].match(/<atom:name>(.*?)<\/atom:name>/) ||
+						[])[1] || "";
+				return {
+					title: title,
+					link: link,
+					pubDate: pubDate,
+					author: author,
+				};
+			});
 			if (!posts.length) {
-				container.innerHTML = `
-					<div class="news-item placeholder">
-						<div class="news-title">Ingen artikler fundet</div>
-					</div>`;
+				container.innerHTML =
+					'<div class="news-item placeholder"><div class="news-title">Ingen artikler fundet</div></div>';
 				return;
 			}
-
 			container.innerHTML = posts
-				.map((post: { title: string; link: string; pubDate: string; author: string }) => {
-					const date = post.pubDate
+				.map(function (post) {
+					var date = post.pubDate
 						? new Date(post.pubDate).toLocaleDateString("da-DK", {
-							day: "2-digit",
-							month: "2-digit",
-							year: "numeric",
-						})
+								day: "2-digit",
+								month: "2-digit",
+								year: "numeric",
+							})
 						: "";
-					return `
-						<a href="${post.link}" target="_blank" rel="noopener noreferrer" class="news-item">
-							<div class="news-date">${date}</div>
-							<div class="news-title">${post.title}</div>
-							<div class="news-excerpt">af ${post.author}</div>
-						</a>`;
+					return (
+						'<a href="' +
+						post.link +
+						'" target="_blank" rel="noopener noreferrer" class="news-item"><div class="news-date">' +
+						date +
+						'</div><div class="news-title">' +
+						post.title +
+						'</div><div class="news-excerpt">af ' +
+						post.author +
+						"</div></a>"
+					);
 				})
 				.join("");
 		} catch (e) {
 			console.error("Failed to fetch Stacker News:", e);
 			if (container) {
-				container.innerHTML = `
-					<div class="news-item placeholder">
-						<div class="news-title">Kunne ikke hente artikler</div>
-					</div>`;
+				container.innerHTML =
+					'<div class="news-item placeholder"><div class="news-title">Kunne ikke hente artikler</div></div>';
 			}
 		}
 	}
-
 	fetchStackerNews();
 </script>
 
@@ -271,7 +301,11 @@ const latestPosts = blogPosts
 	a.event-item {
 		text-decoration: none;
 		color: inherit;
-		transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+		transition:
+			border-color 0.2s ease,
+			background 0.2s ease,
+			transform 0.2s ease,
+			box-shadow 0.2s ease;
 	}
 
 	a.event-item:hover {
