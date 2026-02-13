@@ -15,7 +15,7 @@ const latestPosts = blogPosts
 	<div class="showcase-grid">
 		<div class="showcase-box featured-news">
 			<div class="box-header">
-				<h3>📝 Seneste Blog Posts</h3>
+				<h3><img src="/images/icons/blog.png" alt="" class="box-icon" /> Seneste Blog Posts</h3>
 				<span class="box-badge">Blog</span>
 			</div>
 			<div class="box-content">
@@ -45,7 +45,7 @@ const latestPosts = blogPosts
 
 		<div class="showcase-box upcoming-events">
 			<div class="box-header">
-				<h3>📅 Kommende Events</h3>
+				<h3><img src="/images/icons/calendar.png" alt="" class="box-icon" /> Kommende Events</h3>
 			</div>
 			<div class="box-content">
 				<div class="event-list">
@@ -89,7 +89,7 @@ const latestPosts = blogPosts
 
 		<div class="showcase-box stacker-news">
 			<div class="box-header">
-				<h3>⚡ Seneste nyheder fra Stacker.news</h3>
+				<h3><img src="/images/icons/lightning.png" alt="" class="box-icon" /> Seneste nyheder fra Stacker.news</h3>
 				<span class="box-badge">Stacker News</span>
 			</div>
 			<div class="box-content" id="stacker-news-list">
@@ -124,7 +124,7 @@ const latestPosts = blogPosts
 	  }
 	}
 	fetchStackerNews();
-  </script>
+</script>
 
 <style>
 	.content-showcase {
@@ -179,6 +179,15 @@ const latestPosts = blogPosts
 		font-size: 1rem;
 		font-weight: 600;
 		color: var(--text);
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+	}
+
+	.box-icon {
+		height: 3rem;
+		width: 3rem;
+		object-fit: contain;
 	}
 
 	.box-badge {

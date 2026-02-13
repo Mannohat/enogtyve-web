@@ -7,7 +7,10 @@ const logos = [
 		href: "https://timechaincalendar.com",
 		logo: "/images/logos/timechaincal.png",
 	},
-	{ href: "https://bitcoin.clarkmoody.com/dashboard/", logo: "/images/logos/clarkmoody.png" },
+	{
+		href: "https://bitcoin.clarkmoody.com/dashboard/",
+		logo: "/images/logos/clarkmoody.png",
+	},
 	{ href: "https://amboss.space", logo: "/images/logos/amboss.png" },
 	{
 		href: "https://nakamotoinstitute.org",
@@ -17,10 +20,22 @@ const logos = [
 ];
 
 const actions = [
-	{ icon: "/images/icons/bookmark.png", label: "Bogmærker", href: `/${lang}/faellesskab/bookmarks` },
-	{ icon: "/images/icons/podcasts.png", label: "Podcasts", href: `/${lang}/podcasts` },
+	{
+		icon: "/images/icons/bookmark.png",
+		label: "Bogmærker",
+		href: `/${lang}/faellesskab/bookmarks`,
+	},
+	{
+		icon: "/images/icons/podcasts.png",
+		label: "Podcasts",
+		href: `/${lang}/podcasts`,
+	},
 	{ icon: "/images/icons/promo.png", label: "Rabat", href: `/${lang}/rabat` },
-	{ icon: "/images/icons/blockchain.png", label: "Blokkæden", href: `/${lang}/laer-mere/bitcoin-blockchain` },
+	{
+		icon: "/images/icons/blockchain.png",
+		label: "Blokkæden",
+		href: `/${lang}/laer-mere/bitcoin-blockchain`,
+	},
 ];
 ---
 
@@ -52,7 +67,11 @@ const actions = [
 							rel="noopener noreferrer"
 						>
 							{action.icon.startsWith("/") ? (
-								<img src={action.icon} alt={action.label} class="card-icon-img" />
+								<img
+									src={action.icon}
+									alt={action.label}
+									class="card-icon-img"
+								/>
 							) : (
 								<span class="card-icon">{action.icon}</span>
 							)}
@@ -61,7 +80,11 @@ const actions = [
 					) : (
 						<a href={action.href} class="action-card">
 							{action.icon.startsWith("/") ? (
-								<img src={action.icon} alt={action.label} class="card-icon-img" />
+								<img
+									src={action.icon}
+									alt={action.label}
+									class="card-icon-img"
+								/>
 							) : (
 								<span class="card-icon">{action.icon}</span>
 							)}
@@ -73,7 +96,11 @@ const actions = [
 		</div>
 
 		<div class="news-ticker">
-			<span class="ticker-icon">🧡</span>
+			<img
+				src="/images/icons/attention.png"
+				alt=""
+				class="ticker-icon-img"
+			/>
 			<span class="ticker-label">HUSK:</span>
 			<div class="ticker-content">
 				<a
@@ -84,7 +111,9 @@ const actions = [
 					>Bitcoin Copenhagen Konference d. 21. marts 2026</a
 				>
 				<span class="ticker-separator">|</span>
-				<a href={`/${lang}/udforsk/konferencer`} class="ticker-item ticker-link"
+				<a
+					href={`/${lang}/udforsk/konferencer`}
+					class="ticker-item ticker-link"
 					>Klik her for at se anbefalede konferencer</a
 				>
 				<span class="ticker-separator">|</span>
@@ -186,12 +215,12 @@ const actions = [
 		border: 1px solid rgba(247, 147, 26, 0.1);
 		overflow: hidden;
 	}
-
-	.ticker-icon {
-		font-size: 1.1rem;
+	.ticker-icon-img {
+		height: 3rem;
+		width: 3rem;
+		object-fit: contain;
 		flex-shrink: 0;
 	}
-
 	.ticker-label {
 		font-size: 0.85rem;
 		font-weight: 600;
