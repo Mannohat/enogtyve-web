@@ -13,10 +13,24 @@ const menuItems = [
         label: "Velkommen",
         href: `/${navLang}`,
         submenu: [
-            { label: "Lidt om penge", href: `/${navLang}/blog/penges-historie` },
-            { label: "Lidt om Bitcoin", href: `/${navLang}/blog/hvad-er-bitcoin` },
-            { label: "White Paper", href: `/pdf/bitcoin.pdf`, target: "_blank" },
-            { label: "Cypherpunk's Manifesto", href: `/pdf/cypherpunks-manifesto.pdf`, target: "_blank" },
+            {
+                label: "Lidt om penge",
+                href: `/${navLang}/blog/penges-historie`,
+            },
+            {
+                label: "Lidt om Bitcoin",
+                href: `/${navLang}/blog/hvad-er-bitcoin`,
+            },
+            {
+                label: "White Paper",
+                href: `/pdf/bitcoin.pdf`,
+                target: "_blank",
+            },
+            {
+                label: "Cypherpunk's Manifesto",
+                href: `/pdf/cypherpunks-manifesto.pdf`,
+                target: "_blank",
+            },
             { label: "FUD / Fakta", href: `/${navLang}/velkommen/fud-facts` },
         ],
     },
@@ -24,31 +38,82 @@ const menuItems = [
         label: "Kom igang",
         href: `/${navLang}/kom-igang`,
         submenu: [
-            { label: "Anskaffelse af bitcoin", href: `/${navLang}/kom-igang/kob-bitcoin` },
-            { label: "Optjen bitcoin", href: `/${navLang}/kom-igang/optjen-bitcoin` },
-            { label: "Opbevaring af bitcoin", href: `/${navLang}/kom-igang/opbevaring-af-bitcoin` },
-            { label: "Hardware Wallets", href: `/${navLang}/kom-igang/hardware-wallets` },
-            { label: "Gendannelsesord / Seed Phrase", href: `/${navLang}/kom-igang/seed-phrase` },
-            { label: "Bitcoin Software", href: `/${navLang}/kom-igang/bitcoin-software` },
-            { label: "Privatliv og best Practice", href: `/${navLang}/kom-igang/privatliv-best-practice` },
-            { label: "Begreber og Ord", href: `/${navLang}/kom-igang/begreber-ord` },
-            { label: "Bitcoin Bøger på Dansk", href: `/${navLang}/kom-igang/bitcoin-boeger-dansk` },
+            {
+                label: "Anskaffelse af bitcoin",
+                href: `/${navLang}/kom-igang/kob-bitcoin`,
+            },
+            {
+                label: "Optjen bitcoin",
+                href: `/${navLang}/kom-igang/optjen-bitcoin`,
+            },
+            {
+                label: "Opbevaring af bitcoin",
+                href: `/${navLang}/kom-igang/opbevaring-af-bitcoin`,
+            },
+            {
+                label: "Hardware Wallets",
+                href: `/${navLang}/kom-igang/hardware-wallets`,
+            },
+            {
+                label: "Gendannelsesord / Seed Phrase",
+                href: `/${navLang}/kom-igang/seed-phrase`,
+            },
+            {
+                label: "Bitcoin Software",
+                href: `/${navLang}/kom-igang/bitcoin-software`,
+            },
+            {
+                label: "Privatliv og best Practice",
+                href: `/${navLang}/kom-igang/privatliv-best-practice`,
+            },
+            {
+                label: "Begreber og Ord",
+                href: `/${navLang}/kom-igang/begreber-ord`,
+            },
+            {
+                label: "Bitcoin Bøger på Dansk",
+                href: `/${navLang}/kom-igang/bitcoin-boeger-dansk`,
+            },
         ],
     },
     {
         label: "Lær mere",
         href: `/${navLang}/laer-mere`,
         submenu: [
-            { label: "Bitcoin Blokkæden", href: `/${navLang}/laer-mere/bitcoin-blockchain` },
-            { label: "Bitcoin Lightning", href: `/${navLang}/laer-mere/lightning` },
-            { label: "Lightning Wallets", href: `/${navLang}/laer-mere/lightning-wallets` },
+            {
+                label: "Bitcoin Blokkæden",
+                href: `/${navLang}/laer-mere/bitcoin-blockchain`,
+            },
+            {
+                label: "Bitcoin Lightning",
+                href: `/${navLang}/laer-mere/lightning`,
+            },
+            {
+                label: "Lightning Wallets",
+                href: `/${navLang}/laer-mere/lightning-wallets`,
+            },
             { label: "Liquid", href: `/${navLang}/laer-mere/liquid` },
             { label: "eCash", href: `/${navLang}/laer-mere/ecash` },
-            { label: "Quotes oversat til Dansk", href: `/${navLang}/laer-mere/quotes-dansk` },
-            { label: "Bitcoin og din forretning", href: `/${navLang}/laer-mere/bitcoin-og-din-forretning` },
-            { label: "Lightning Produkter og Services", href: `/${navLang}/laer-mere/lightning-produkter-services` },
-            { label: "Bitcoin Services og Produkter", href: `/${navLang}/laer-mere/bitcoin-services-og-produkter` },
-            { label: "Value 4 Value", href: `/${navLang}/laer-mere/value4value` },
+            {
+                label: "Quotes oversat til Dansk",
+                href: `/${navLang}/laer-mere/quotes-dansk`,
+            },
+            {
+                label: "Bitcoin og din forretning",
+                href: `/${navLang}/laer-mere/bitcoin-og-din-forretning`,
+            },
+            {
+                label: "Lightning Produkter og Services",
+                href: `/${navLang}/laer-mere/lightning-produkter-services`,
+            },
+            {
+                label: "Bitcoin Services og Produkter",
+                href: `/${navLang}/laer-mere/bitcoin-services-og-produkter`,
+            },
+            {
+                label: "Value 4 Value",
+                href: `/${navLang}/laer-mere/value4value`,
+            },
         ],
     },
     { label: "Podcasts", href: `/${navLang}/podcasts`, submenu: [] },
@@ -58,21 +123,45 @@ const menuItems = [
         href: `/${navLang}/mining`,
         submenu: [
             { label: "Solo Mining", href: `/${navLang}/mining/solo-mining` },
-            { label: "Mining for opvarmning", href: `/${navLang}/mining/mining-for-opvarmning` },
+            {
+                label: "Mining for opvarmning",
+                href: `/${navLang}/mining/mining-for-opvarmning`,
+            },
         ],
     },
     {
         label: "Udforsk",
         href: `/${navLang}/udforsk/udforsk`,
         submenu: [
-            { label: "Mød ligesindede når du rejser", href: `/${navLang}/udforsk/moed-andre` },
-            { label: "Bitcoin Fællesskaber og Meetups i verden", href: `/${navLang}/udforsk/in-the-world` },
-            { label: "Bitcoin Cirkulære Økonomier", href: `/${navLang}/udforsk/cirkulaere-okonomier` },
-            { label: "Frie Byer og Samfund", href: `/${navLang}/udforsk/freecities` },
-            { label: "Bitcoin Konferencer", href: `/${navLang}/udforsk/konferencer` },
+            {
+                label: "Mød ligesindede når du rejser",
+                href: `/${navLang}/udforsk/moed-andre`,
+            },
+            {
+                label: "Bitcoin Fællesskaber og Meetups i verden",
+                href: `/${navLang}/udforsk/in-the-world`,
+            },
+            {
+                label: "Bitcoin Cirkulære Økonomier",
+                href: `/${navLang}/udforsk/cirkulaere-okonomier`,
+            },
+            {
+                label: "Frie Byer og Samfund",
+                href: `/${navLang}/udforsk/freecities`,
+            },
+            {
+                label: "Bitcoin Konferencer",
+                href: `/${navLang}/udforsk/konferencer`,
+            },
             { label: "Nyheder", href: `/${navLang}/udforsk/nyheder` },
-            { label: "Bitcoin Ressourcer", href: `/${navLang}/udforsk/bitcoin-ressources` },
-            { label: "Twentyone.world", href: `/${navLang}/udforsk/twentyoneworld` },
+            {
+                label: "Bitcoin Ressourcer",
+                href: `/${navLang}/udforsk/bitcoin-ressources`,
+            },
+            {
+                label: "Twentyone.world",
+                href: `/${navLang}/udforsk/twentyoneworld`,
+            },
         ],
     },
     {
@@ -85,10 +174,16 @@ const menuItems = [
         href: `/${navLang}/faellesskab`,
         submenu: [
             { label: "Bogmærker", href: `/${navLang}/faellesskab/bookmarks` },
-            { label: "Bitcoin Initiativer i Danmark", href: `/${navLang}/faellesskab/initiativer-danmark` },
+            {
+                label: "Bitcoin Initiativer i Danmark",
+                href: `/${navLang}/faellesskab/initiativer-danmark`,
+            },
             { label: "Support", href: `/${navLang}/faellesskab/support` },
             { label: "Medie Kit", href: `/${navLang}/faellesskab/mediekit` },
-            { label: "Spotify Playliste", href: `/${navLang}/faellesskab/playliste` },
+            {
+                label: "Spotify Playliste",
+                href: `/${navLang}/faellesskab/playliste`,
+            },
             { label: "Rabatter", href: `/${navLang}/rabat` },
         ],
     },
@@ -230,39 +325,54 @@ function getSwitchedPath(targetLang: string): string {
             </ul>
 
             <ul class="nav-links exclusive-nav" role="menubar">
-                <li class={`exclusive ${exclusiveMenuItem.submenu.length > 0 ? "has-submenu" : ""}`} role="none">
-                    {exclusiveMenuItem.submenu.length > 0 ? (
-                        <button
-                            class={`nav-button ${isActive(exclusiveMenuItem.href, currentPath) ? "active" : ""}`}
-                            role="menuitem"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                            aria-label={`${exclusiveMenuItem.label} category`}
-                        >
-                            {exclusiveMenuItem.label}
-                        </button>
-                    ) : (
-                        <a
-                            href={exclusiveMenuItem.href}
-                            class={isActive(exclusiveMenuItem.href, currentPath) ? "active" : ""}
-                            role="menuitem"
-                        >
-                            {exclusiveMenuItem.label}
-                        </a>
-                    )}
-                    {exclusiveMenuItem.submenu.length > 0 && (
-                        <ul
-                            class="submenu"
-                            role="menu"
-                            aria-label={`${exclusiveMenuItem.label} submenu`}
-                        >
-                            {
-                                exclusiveMenuItem.submenu.map((subItem) => (
+                <li
+                    class={`exclusive ${exclusiveMenuItem.submenu.length > 0 ? "has-submenu" : ""}`}
+                    role="none"
+                >
+                    {
+                        exclusiveMenuItem.submenu.length > 0 ? (
+                            <button
+                                class={`nav-button ${isActive(exclusiveMenuItem.href, currentPath) ? "active" : ""}`}
+                                role="menuitem"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                                aria-label={`${exclusiveMenuItem.label} category`}
+                            >
+                                {exclusiveMenuItem.label}
+                            </button>
+                        ) : (
+                            <a
+                                href={exclusiveMenuItem.href}
+                                class={
+                                    isActive(
+                                        exclusiveMenuItem.href,
+                                        currentPath,
+                                    )
+                                        ? "active"
+                                        : ""
+                                }
+                                role="menuitem"
+                            >
+                                {exclusiveMenuItem.label}
+                            </a>
+                        )
+                    }
+                    {
+                        exclusiveMenuItem.submenu.length > 0 && (
+                            <ul
+                                class="submenu"
+                                role="menu"
+                                aria-label={`${exclusiveMenuItem.label} submenu`}
+                            >
+                                {exclusiveMenuItem.submenu.map((subItem) => (
                                     <li role="none">
                                         <a
                                             href={subItem.href}
                                             class={
-                                                isActive(subItem.href, currentPath)
+                                                isActive(
+                                                    subItem.href,
+                                                    currentPath,
+                                                )
                                                     ? "active"
                                                     : ""
                                             }
@@ -277,10 +387,10 @@ function getSwitchedPath(targetLang: string): string {
                                             {subItem.label}
                                         </a>
                                     </li>
-                                ))
-                            }
-                        </ul>
-                    )}
+                                ))}
+                            </ul>
+                        )
+                    }
                 </li>
             </ul>
         </div>
@@ -448,7 +558,9 @@ function getSwitchedPath(targetLang: string): string {
         background: #3a3a3a;
         border-radius: 6px;
         padding: 0.6rem 1.2rem;
-        transition: background 0.2s ease, opacity 0.2s ease;
+        transition:
+            background 0.2s ease,
+            opacity 0.2s ease;
         opacity: 0.5;
     }
 
@@ -656,6 +768,19 @@ function getSwitchedPath(targetLang: string): string {
 
         .language-switcher a {
             font-size: 0.8rem;
+        }
+
+        /* Add these three: */
+        .support-btn span:last-child {
+            display: none;
+        }
+
+        .support-btn .heart {
+            font-size: 1.1rem;
+        }
+
+        .support-btn {
+            padding: 0.4rem 0.6rem;
         }
     }
 </style>
