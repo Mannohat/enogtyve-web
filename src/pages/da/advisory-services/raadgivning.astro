@@ -3,37 +3,54 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
 
 const topics = [
   {
-    icon: "🟠",
+    icon: "/images/icons/komigang.png",
     title: "Kom i gang med Bitcoin",
     desc: "Hjælp til at købe din første bitcoin, opsætte en wallet og forstå de grundlæggende begreber.",
   },
   {
-    icon: "🔐",
+    icon: "/images/icons/security.png",
     title: "Opbevaring & sikkerhed",
     desc: "Hardware wallets, seed phrases, multisig og best practices for sikker opbevaring.",
   },
   {
-    icon: "⛏️",
+    icon: "/images/icons/noderunner.png",
     title: "Mining & nodes",
     desc: "Opsætning af en Bitcoin-node, mining med BitAxe eller varmeudnyttelse fra mining.",
   },
   {
-    icon: "💳",
+    icon: "/images/icons/wallets.png",
     title: "Accepter Bitcoin som betaling",
     desc: "Kom i gang med at modtage Bitcoin i din forretning – med eller uden Lightning.",
   },
   {
-    icon: "🎓",
+    icon: "/images/icons/teacher.png",
     title: "Workshops & præsentationer",
     desc: "Oplæg og workshops for virksomheder, foreninger, grupper og organisationer – tilpasset jeres behov.",
   },
   {
-    icon: "💬",
+    icon: "/images/icons/ideas.png",
     title: "Sparring og rådgivning",
     desc: "En uformel snak om Bitcoin, strategi eller næste skridt – vi er klar til at tænke med.",
   },
 ];
 
+const process = [
+  {
+    step: "1",
+    title: "Tag kontakt",
+    desc: "Send os en mail eller en besked – fortæl hvad du eller I har brug for.",
+  },
+  {
+    step: "2",
+    title: "Vi finder ud af det sammen",
+    desc: "Vi får afklaret hvad du eller I gerne vil og aftaler næste skridt.",
+  },
+  {
+    step: "3",
+    title: "Afvikling",
+    desc: "Vi mødes – fysisk eller online.",
+  },
+];
 ---
 
 <ResourcePageLayout
@@ -41,137 +58,369 @@ const topics = [
   description="Bitcoin-rådgivning for privatpersoner, virksomheder og organisationer"
   lang="da"
 >
-  <section class="content-section">
-    <p>Vi hjælper både privatpersoner, virksomheder og foreninger – fra en personlig gennemgang til et oplæg for vinklubben, logen eller hele afdelingen.</p>
-    <p>Vi holder workshops og præsentationer om alt fra en introduktion til Bitcoin, sikkerhed og opbevaring, til hvordan Bitcoin bruges rundt om i verden. Hvad med et hyggeligt og lærerigt fredagsarrangement for medarbejderne? Det giver garanteret anledning til gode snakke, masser af spørgsmål og en helt ny forståelse af Bitcoin.</p>
-    <p>Sammen finder vi ud af at tilpasse indhold og format.</p>
-  </section>
+  <!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">Bitcoin-only rådgivning</div>
+  <h2>Få hjælp til at blive klogere på Bitcoin.<br />Se herunder</h2>
+  <p>
+    Vi hjælper privatpersoner, virksomheder og foreninger med at forstå
+    Bitcoin – fra den første samtale og introduktion til hands-on workshops. Alt
+    tilpasses jeres behov, niveau og ambitioner.
+  </p>
+  <p>
+    Bitcoin kan være utroligt sjovt og spændende at tale om og vil med sikkerhed sætte en masse tanker og ideer i gang. Hvad med et hyggeligt og lærerigt fredagsarrangement for
+    medarbejderne? Det giver garanteret anledning til gode snakke, masser
+    af spørgsmål og en helt ny forståelse af Bitcoin.
+  </p>
+</section>
 
-  <section class="category-section">
-    <h2>Ideer til hvad vi kan hjælpe med</h2>
+  <!-- Topics -->
+  <section class="topics-section">
+    <h2 class="section-title">Hvad vi kan hjælpe med</h2>
     <div class="topics-grid">
-      {topics.map((topic) => (
-        <div class="topic-card">
-          <span class="topic-icon">{topic.icon}</span>
-          <h3 class="topic-title">{topic.title}</h3>
-          <p class="topic-desc">{topic.desc}</p>
-        </div>
-      ))}
+      {
+        topics.map((topic) => (
+          <div class="topic-card">
+            <div class="topic-icon-wrap">
+              <img src={topic.icon} alt="" class="topic-icon" />
+            </div>
+            <h3 class="topic-title">{topic.title}</h3>
+            <p class="topic-desc">{topic.desc}</p>
+          </div>
+        ))
+      }
     </div>
   </section>
 
+  <!-- Process -->
+  <section class="process-section">
+    <h2 class="section-title">Sådan foregår det</h2>
+    <div class="process-grid">
+      {
+        process.map((item) => (
+          <div class="process-card">
+            <div class="process-number">{item.step}</div>
+            <h3 class="process-title">{item.title}</h3>
+            <p class="process-desc">{item.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Who -->
+  <section class="who-section">
+    <h2 class="section-title">Hvem er det for?</h2>
+    <div class="who-grid">
+      <div class="who-card">
+        <span class="who-label">Privatpersoner</span>
+        <p>En personlig gennemgang eller hjælp til hvad det måtte være.</p>
+      </div>
+      <div class="who-card">
+        <span class="who-label">Virksomheder</span>
+        <p>Oplæg, workshops og sparring for jer og jeres medarbejdere.</p>
+      </div>
+      <div class="who-card">
+        <span class="who-label">Foreninger & grupper</span>
+        <p>Bitcoin-aften for vinklubben, logen, bestyrelsen eller kollegaerne.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
   <section class="cta-section">
-    <h2>Tag kontakt</h2>
-    <p>Send os en besked – så finder vi ud af det sammen.</p>
-    <a href="mailto:kontakt@enogtyve.org" class="cta-btn">kontakt@enogtyve.org →</a>
+    <div class="cta-inner">
+      <h2>Klar til at komme i gang?</h2>
+      <p>Send os en besked – så finder vi ud af det sammen. Ingen forpligtelser.</p>
+      <a href="mailto:kontakt@enogtyve.org" class="cta-btn">kontakt@enogtyve.org →</a>
+    </div>
   </section>
 
   <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
 </ResourcePageLayout>
 
 <style>
-  .content-section {
-    margin-bottom: 2.5rem;
-    line-height: 1.8;
-    color: var(--text-light, #ccc);
+  /* Hero */
+  .hero {
+    margin-bottom: 3.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(247, 147, 26, 0.1);
   }
 
-  .content-section p {
+  .hero-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--primary);
+    background: rgba(247, 147, 26, 0.1);
+    border: 1px solid rgba(247, 147, 26, 0.2);
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h2 {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(204, 204, 204, 0.85);
     margin-bottom: 0.75rem;
   }
 
-  /* Category sections */
-  .category-section {
-    margin-bottom: 2.5rem;
-  }
-
-  .category-section h2 {
-    font-size: 1.2rem;
+  /* Section titles */
+  .section-title {
+    font-size: 1.3rem;
     font-weight: 700;
     color: var(--primary);
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid rgba(247, 147, 26, 0.2);
   }
 
-  /* CTA */
+  /* Topics */
+  .topics-section {
+    margin-bottom: 3.5rem;
+  }
+
   .topics-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 0.85rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
   }
 
   .topic-card {
-    padding: 1.15rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.6rem;
+    padding: 2rem 1.5rem;
     border: 1px solid rgba(247, 147, 26, 0.12);
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.03);
-    transition: border-color 0.3s ease, transform 0.2s ease;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.06);
+    transition:
+      border-color 0.3s ease,
+      transform 0.2s ease,
+      background 0.3s ease,
+      box-shadow 0.3s ease;
   }
 
   .topic-card:hover {
+    border-color: rgba(247, 147, 26, 0.45);
+    transform: translateY(-4px);
+    background: rgba(247, 147, 26, 0.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .topic-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 7rem;
+    height: 7rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(
+      135deg,
+      rgba(247, 147, 26, 0.08),
+      rgba(247, 147, 26, 0.02)
+    );
+    border-radius: 50%;
+    border: 1px solid rgba(247, 147, 26, 0.18);
+    box-shadow:
+      0 4px 12px rgba(247, 147, 26, 0.08),
+      inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    transition:
+      background 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .topic-card:hover .topic-icon-wrap {
+    background: linear-gradient(
+      135deg,
+      rgba(247, 147, 26, 0.15),
+      rgba(247, 147, 26, 0.05)
+    );
+    border-color: rgba(247, 147, 26, 0.35);
+    box-shadow:
+      0 6px 18px rgba(247, 147, 26, 0.15),
+      inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  }
+
+  .topic-icon {
+    height: 6rem;
+    width: 6rem;
+    object-fit: contain;
+  }
+
+  .topic-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+  }
+
+  .topic-desc {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: rgba(204, 204, 204, 0.75);
+    margin: 0;
+    max-width: 300px;
+  }
+
+  /* Process */
+  .process-section {
+    margin-bottom: 3.5rem;
+  }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .process-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 1.75rem 1.25rem;
+    border: 1px solid rgba(247, 147, 26, 0.1);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    position: relative;
+  }
+
+  .process-number {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    width: 2.75rem;
+    height: 2.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(247, 147, 26, 0.1);
+    border: 1px solid rgba(247, 147, 26, 0.2);
+    margin-bottom: 0.25rem;
+  }
+
+  .process-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+  }
+
+  .process-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(204, 204, 204, 0.7);
+    margin: 0;
+  }
+
+  /* Who section */
+  .who-section {
+    margin-bottom: 3.5rem;
+  }
+
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .who-card {
+    padding: 1.5rem 1.25rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    transition: border-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .who-card:hover {
     border-color: rgba(247, 147, 26, 0.35);
     transform: translateY(-2px);
   }
 
-  .topic-icon {
-    font-size: 1.4rem;
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-
-  .topic-title {
-    font-size: 0.95rem;
+  .who-label {
+    display: inline-block;
+    font-size: 0.78rem;
     font-weight: 700;
-    color: var(--text-light, #ccc);
-    margin: 0 0 0.35rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary);
+    background: rgba(247, 147, 26, 0.1);
+    padding: 0.2rem 0.65rem;
+    border-radius: 4px;
+    margin-bottom: 0.65rem;
   }
 
-  .topic-desc {
-    font-size: 0.83rem;
-    line-height: 1.6;
-    color: rgba(204, 204, 204, 0.6);
+  .who-card p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: rgba(204, 204, 204, 0.75);
     margin: 0;
   }
 
   /* CTA */
   .cta-section {
-    padding: 1.5rem;
-    background: rgba(247, 147, 26, 0.04);
-    border: 1px solid rgba(247, 147, 26, 0.15);
-    border-radius: 12px;
-    text-align: center;
     margin-bottom: 2rem;
   }
 
-  .cta-section h2 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 0.5rem;
+  .cta-inner {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(
+      135deg,
+      rgba(247, 147, 26, 0.06),
+      rgba(247, 147, 26, 0.02)
+    );
+    border: 1px solid rgba(247, 147, 26, 0.18);
+    border-radius: 16px;
   }
 
-  .cta-section p {
-    font-size: 0.9rem;
-    color: var(--text-light, #ccc);
-    margin-bottom: 1rem;
+  .cta-inner h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 0.6rem;
+  }
+
+  .cta-inner p {
+    font-size: 1rem;
+    color: rgba(204, 204, 204, 0.85);
+    margin-bottom: 1.5rem;
   }
 
   .cta-btn {
     display: inline-block;
-    padding: 0.6rem 1.5rem;
+    padding: 0.75rem 2rem;
     background: var(--primary);
     color: #000;
     font-weight: 700;
-    font-size: 0.9rem;
-    border-radius: 6px;
+    font-size: 1rem;
+    border-radius: 8px;
     border: 1px solid var(--primary);
     transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(247, 147, 26, 0.25);
   }
 
   .cta-btn:hover {
     background: transparent;
     color: var(--primary);
+    box-shadow: 0 4px 12px rgba(247, 147, 26, 0.1);
   }
 
   /* Back to top */
@@ -189,9 +438,20 @@ const topics = [
     opacity: 0.7;
   }
 
+  @media (max-width: 767px) {
+    .process-grid,
+    .who-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   @media (max-width: 567px) {
     .topics-grid {
       grid-template-columns: 1fr;
+    }
+
+    .topic-card {
+      padding: 1.5rem 1.25rem;
     }
   }
 </style>
