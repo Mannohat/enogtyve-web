@@ -6,32 +6,38 @@ const { lang } = Astro.props;
 	<h2>Udforsk</h2>
 	<div class="feature-grid">
 		<a href={`/${lang}/blog`} class="feature-card">
-			<h3>📝 Blog</h3>
+			<img src="/images/icons/blog.png" alt="" class="feature-icon" />
+			<h3>Blog</h3>
 			<p>Artikler og blogindlæg</p>
 		</a>
 
 		<a href={`/${lang}/podcasts`} class="feature-card">
-			<h3>🎙️ Podcasts</h3>
+			<img src="/images/icons/podcasts.png" alt="" class="feature-icon" />
+			<h3>Podcasts</h3>
 			<p>Liste over danske Bitcoin Podcasts</p>
 		</a>
 
 		<a href={`/${lang}/udforsk/udforsk`} class="feature-card">
-			<h3>🌍 Udforsk</h3>
+			<img src="/images/icons/udforsk.png" alt="" class="feature-icon" />
+			<h3>Udforsk</h3>
 			<p>Fællesskaber, meetups og konferencer</p>
 		</a>
 
 		<a href={`/${lang}/kom-igang/kob-bitcoin`} class="feature-card">
-			<h3>🚀 Kom igang</h3>
+			<img src="/images/icons/komigang.png" alt="" class="feature-icon" />
+			<h3>Kom igang</h3>
 			<p>Lær at anskaffe og opbevare bitcoin</p>
 		</a>
 
 		<a href={`/${lang}/rabat`} class="feature-card">
-			<h3>💰 Rabat med enogtyve</h3>
+			<img src="/images/icons/promo.png" alt="" class="feature-icon" />
+			<h3>Rabat med enogtyve</h3>
 			<p>Spar penge med vores partnere</p>
 		</a>
 
 		<a href={`/${lang}/faellesskab/support`} class="feature-card">
-			<h3>❤️ Støt os</h3>
+			<img src="/images/icons/support.png" alt="" class="feature-icon" />
+			<h3>Støt os</h3>
 			<p>Hjælp fællesskabet med at vokse</p>
 		</a>
 	</div>
@@ -70,6 +76,7 @@ const { lang } = Astro.props;
 		overflow: hidden;
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 		justify-content: center;
 		min-height: 140px;
 		text-decoration: none;
@@ -118,6 +125,12 @@ const { lang } = Astro.props;
 		font-size: clamp(0.88rem, 2vw, 0.95rem);
 		line-height: 1.5;
 		position: relative;
+	}
+	.feature-icon {
+		height: 3.5rem;
+		width: 3.5rem;
+		object-fit: contain;
+		margin-bottom: 0.5rem;
 	}
 
 	@media (max-width: 767px) {

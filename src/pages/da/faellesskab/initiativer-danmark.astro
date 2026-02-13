@@ -4,61 +4,170 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
 const categories = [
   {
     title: "Podcasts",
-    icon: "🎙️",
+    icon: "/images/icons/podcasts.png",
     items: [
-      { name: "Lad os snakke om Bitcoin", url: "https://fountain.fm/show/wQjidAJSuF52TCAcpBY2", info: "Enogtyve-podcastserie tilgængelig på de fleste podcasttjenester", support: "barekev@walletofsatoshi.com", logo: "/images/content/losob.png" },
-      { name: "Den Orange Tråd", url: "https://www.youtube.com/watch?v=v1TFbUbQeD8", info: "Dansk Bitcoin-podcast", support: "barekev@walletofsatoshi.com", logo: "/images/content/denorangetraad.jpg" },
-      { name: "Shop21", url: "https://shop21.dk/podcast-start/", info: "SHOP21.dk – Bitcoin, samfund & frihed", support: "www.shop21.dk", logo: "/images/content/shop21_1.png" },
-    ]
+      {
+        name: "Lad os snakke om Bitcoin",
+        url: "https://fountain.fm/show/wQjidAJSuF52TCAcpBY2",
+        info: "Enogtyve-podcastserie tilgængelig på de fleste podcasttjenester",
+        support: "barekev@walletofsatoshi.com",
+        logo: "/images/content/losob.png",
+      },
+      {
+        name: "Den Orange Tråd",
+        url: "https://www.youtube.com/watch?v=v1TFbUbQeD8",
+        info: "Dansk Bitcoin-podcast",
+        support: "barekev@walletofsatoshi.com",
+        logo: "/images/content/denorangetraad.jpg",
+      },
+      {
+        name: "Shop21",
+        url: "https://shop21.dk/podcast-start/",
+        info: "SHOP21.dk – Bitcoin, samfund & frihed",
+        support: "www.shop21.dk",
+        logo: "/images/content/shop21_1.png",
+      },
+    ],
   },
   {
     title: "Online læring",
-    icon: "📚",
+    icon: "/images/icons/teacher.png",
     items: [
-      { name: "YouTube-kanalen \"Barekev\"", url: "https://www.youtube.com/@barekev", info: "Dansk Bitcoin-only YouTube-kanal", support: "barekev@walletofsatoshi.com", logo: "/images/logos/barekev.png" },
-      { name: "Barekev.dk", url: "https://www.barekev.dk", info: "Dansk hjemmeside med forskelligt Bitcoin-relateret indhold", support: "barekev@walletofsatoshi.com", logo: "/images/logos/barekev.png" },
-      { name: "Bitcoinskolen.net", url: "https://www.bitcoinskolen.net", info: "Bitcoinskolens mission er at informere om og undervise dig i Bitcoin, så du selv kan træffe dine egne valg på et oplyst grundlag", support: "", logo: "/images/logos/bitcoinskolen.png" },
-      { name: "Instagramprofilen \"BitcoinDK\"", url: "https://www.instagram.com/bitcoindk", info: "Berører forskellige emner ved Bitcoin på dansk gennem slideshows og visualisering", support: "barekev@walletofsatoshi.com", logo: "/images/logos/bitcoindk.png" },
-    ]
+      {
+        name: 'YouTube-kanalen "Barekev"',
+        url: "https://www.youtube.com/@barekev",
+        info: "Dansk Bitcoin-only YouTube-kanal",
+        support: "barekev@walletofsatoshi.com",
+        logo: "/images/logos/barekev.png",
+      },
+
+      {
+        name: "Bitcoinskolen.net",
+        url: "https://www.bitcoinskolen.net",
+        info: "Bitcoinskolens mission er at informere om og undervise dig i Bitcoin, så du selv kan træffe dine egne valg på et oplyst grundlag",
+        support: "",
+        logo: "/images/logos/bitcoinskolen.png",
+      },
+    ],
   },
   {
     title: "Oversættelser",
-    icon: "🌐",
+    icon: "/images/icons/translate.png",
     items: [
-      { name: "Bitcoin Standarden på dansk", url: "https://www.bitcoinstandarden.dk", info: "Saifedeans \"The Bitcoin Standard\" oversat til dansk", support: "", logo: "/images/logos/bitcoinstandarden.png" },
-      { name: "21 Lessons på dansk", url: "https://www.shop21.dk", info: "Gigis \"21 Lessons\" oversat til dansk", support: "", logo: "/images/logos/21lessons.png" },
-      { name: "Mempool.space på dansk", url: "https://www.mempool.space", info: "Den nok mest brugte Bitcoin-blokkædeudforsker oversat til dansk", support: "", logo: "/images/logos/mempool.png" },
-      { name: "Blink Wallet på dansk", url: "https://www.blink.sv", info: "En utrolig nem og brugervenlig Bitcoin-lommebog med et stort udvalg af funktioner, oversat til dansk", support: "slybtc@getalby.com", logo: "/images/logos/blink.png" },
-      { name: "Gigis \"Kære familie, kære venner\"", url: "https://archive.ph/P6uNk", info: "Gigis \"Dear family, dear friends\" oversat til dansk", support: "", logo: "/images/logos/gigi.png" },
-    ]
+      {
+        name: "Bitcoin Standarden på dansk",
+        url: "https://www.bitcoinstandarden.dk",
+        info: 'Saifedeans "The Bitcoin Standard" oversat til dansk',
+        support: "",
+        logo: "/images/icons/books.png",
+      },
+
+      {
+        name: "Mempool.space på dansk",
+        url: "https://www.mempool.space",
+        info: "Den nok mest brugte Bitcoin-blokkædeudforsker oversat til dansk",
+        support: "",
+        logo: "/images/logos/mempool.png",
+      },
+      {
+        name: "Blink Wallet på dansk",
+        url: "https://www.blink.sv",
+        info: "En utrolig nem og brugervenlig Bitcoin-lommebog med et stort udvalg af funktioner, oversat til dansk",
+        support: "slybtc@getalby.com",
+        logo: "/images/logos/blink.png",
+      },
+      {
+        name: 'Gigis "Kære familie, kære venner"',
+        url: "https://archive.ph/P6uNk",
+        info: 'Gigis "Dear family, dear friends" oversat til dansk',
+        support: "",
+        logo: "/images/icons/article.png",
+      },
+      {
+        name: "Shop21.dk",
+        url: "https://www.shop21.dk/?ref=enogtyve.org",
+        info: "Danske bøger om Bitcoin og frihed mv.",
+        support: "",
+        logo: "/images/logos/shop21.png",
+      },
+    ],
   },
   {
     title: "Bøger & materiale",
-    icon: "📖",
+    icon: "/images/icons/books.png",
     items: [
-      { name: "Hvorfor Bitcoin?", url: "https://drive.google.com/file/d/1APSqzg21MjnejallrKeRf16BB1OqLZwz/view", info: "En lille dansk håndbog om, hvordan Bitcoin som ny teknologi kan hjælpe verden, klimaet, samfundet og dig og din families fremtid", support: "", logo: "/images/logos/hvorforbitcoin.png" },
-      { name: "Bitcoin-folder", url: "https://www.enogtyve.org/wp-content/uploads/2024/04/21-HURTIGE.pdf", info: "En folder med 21 hurtige forklaringer og svar vedrørende Bitcoin", support: "barekev@walletofsatoshi.com", logo: "/images/logos/bitcoinfolder.png" },
-      { name: "En verden med faldende priser", url: "https://www.enogtyve.org/2023/10/04/en-verden-med-faldende-priser/", info: "Blogindlæg, der kommer omkring en række udfordringer sammen med en introduktion til, hvorledes Bitcoin kan være løsningen", support: "barekev@walletofsatoshi.com", logo: "/images/logos/faldendepriser.png" },
-    ]
+      {
+        name: "Shop21.dk",
+        url: "https://www.shop21.dk/?ref=enogtyve.org",
+        info: "Danske bøger om Bitcoin og frihed mv.",
+        support: "",
+        logo: "/images/logos/shop21.png",
+      },
+      {
+        name: "Hvorfor Bitcoin?",
+        url: "https://drive.google.com/file/d/1APSqzg21MjnejallrKeRf16BB1OqLZwz/view",
+        info: "En lille dansk håndbog om, hvordan Bitcoin som ny teknologi kan hjælpe verden, klimaet, samfundet og dig og din families fremtid",
+        support: "",
+        logo: "/images/logos/bitcoinskolen.png",
+      },
+      {
+        name: "Bitcoin-folder",
+        url: "/pdf/21-HURTIGE.pdf",
+        info: "En folder med 21 hurtige forklaringer og svar vedrørende Bitcoin",
+        support: "barekev@walletofsatoshi.com",
+        logo: "/images/logos/barekev.png",
+      },
+      {
+        name: "En verden med faldende priser",
+        url: "/da/blog/en-verden-med-faldende-priser",
+        info: "Blogindlæg, der kommer omkring en række udfordringer sammen med en introduktion til, hvorledes Bitcoin kan være løsningen",
+        support: "barekev@walletofsatoshi.com",
+        logo: "/images/logos/barekev.png",
+      },
+    ],
   },
   {
     title: "Opslagsværker",
-    icon: "🔍",
+    icon: "/images/icons/lookup.png",
     items: [
-      { name: "Ord & Begreber", url: "/da/ressourcer/begreber-ord/", info: "Ordliste for Bitcoin- og økonomibegreber på dansk", support: "", logo: "/images/logos/ordogbegreber.png" },
-    ]
+      {
+        name: "Ord & Begreber",
+        url: "/da/kom-igang/begreber-ord",
+        info: "Ordliste for Bitcoin- og økonomibegreber på dansk",
+        support: "",
+        logo: "/images/icons/lookup.png",
+      },
+    ],
   },
   {
     title: "Webshops",
-    icon: "🛒",
+    icon: "/images/icons/merch.png",
     items: [
-      { name: "Shop21.dk", url: "https://www.shop21.dk/?ref=enogtyve.org", info: "Danske bøger om Bitcoin og frihed mv.", support: "", logo: "/images/logos/shop21.png" },
-    ]
+      {
+        name: "Barekev.dk",
+        url: "https://www.barekev.dk",
+        info: "Bitcoin Merch",
+        support: "barekev@walletofsatoshi.com",
+        logo: "/images/logos/barekev.png",
+      },
+      {
+        name: "Shop21.dk",
+        url: "https://www.shop21.dk/?ref=enogtyve.org",
+        info: "Danske bøger om Bitcoin og frihed mv.",
+        support: "",
+        logo: "/images/logos/shop21.png",
+      },
+    ],
   },
 ];
 
 const upcoming = [
-  { name: "Shelling Out", type: "Oversættelse", info: "Nick Szabo-artikel omhandlende pengehistorie", support: "slybtc@getalby.com" },
+  {
+    name: "Shelling Out",
+    type: "Oversættelse",
+    info: "Nick Szabo-artikel omhandlende pengehistorie",
+    support: "slybtc@getalby.com",
+  },
 ];
 ---
 
@@ -71,38 +180,109 @@ const upcoming = [
     <div class="intro-grid">
       <div>
         <h2>Proof of Work</h2>
-        <p>Her på siden finder du Bitcoin-only-initiativer, som alle bidrager til en bedre og bredere forståelse af, hvad Bitcoin er.</p>
-        <p>Hvis du sætter pris på nogle af disse initiativer, kan du vælge at sende lidt sats til de personer, som står bag. Du finder en Lightning-adresse ud for hvert af disse initiativer.</p>
-        <p>Har du selv ideer og forudsætninger for at tage initiativ, så overvej det. Bitcoin er Proof of Work.</p>
+        <p>
+          Her på siden finder du Bitcoin-only-initiativer, som alle bidrager til
+          en bedre og bredere forståelse af, hvad Bitcoin er.
+        </p>
+        <p>
+          Hvis du sætter pris på nogle af disse initiativer, kan du overveje at
+          sende lidt sats til de personer, som står bag eller måske høre om du kan hjælpe dem. Du finder en
+          Lightning-adresse ud for flere af disse initiativer.
+        </p>
+        <p>
+          Har du selv ideer og forudsætninger for at tage initiativ, så overvej
+          det. Bitcoin er Proof of Work.
+        </p>
       </div>
       <div class="intro-image">
-        <img src="/images/content/eotpow.png" alt="Enogtyve logo" />
+        <img src="/images/icons/pow.png" alt="Enogtyve logo" />
       </div>
     </div>
   </section>
 
   <section class="content-section">
-    <p>Kender du et Bitcoin-only-initiativ på dansk, som du mener mangler på listen, så send en mail på <a href="mailto:kontakt@enogtyve.org"><strong>kontakt@enogtyve.org</strong></a> eller hop ind i "Proof of Work"-tråden på Telegram: <a href="https://t.me/enogtyvedk/7560" target="_blank" rel="noopener noreferrer"><strong>Enogtyve Proof of Work</strong></a>.</p>
+    <p>
+      Kender du et Bitcoin-only-initiativ på dansk, som du mener mangler på
+      listen, så send en mail på <a href="mailto:kontakt@enogtyve.org"
+        ><strong>kontakt@enogtyve.org</strong></a
+      > eller hop ind i "Proof of Work"-tråden på Telegram: <a
+        href="https://t.me/enogtyvedk/7560"
+        target="_blank"
+        rel="noopener noreferrer"><strong>Enogtyve Proof of Work</strong></a
+      >.
+    </p>
   </section>
 
-  {categories.map((cat) => (
-    <section class="category-section">
-      <h2>{cat.icon} {cat.title}</h2>
-      <div class="initiatives-grid">
-        {cat.items.map((item) => (
-          <div class="initiative-card">
-            {item.logo && (
+  {
+    categories.map((cat) => (
+      <section class="category-section">
+        <h2>
+          <img src={cat.icon} alt="" class="cat-icon" /> {cat.title}
+        </h2>
+        <div class="initiatives-grid">
+          {cat.items.map((item) => (
+            <div class="initiative-card">
               <div class="card-logo">
-                <img src={item.logo} alt="" />
+                {item.logo ? (
+                  <img src={item.logo} alt="" />
+                ) : (
+                  <img src="/images/icons/strong.png" alt="" />
+                )}
               </div>
-            )}
-            {item.url.startsWith("/") ? (
-              <a href={item.url} class="card-name">{item.name}</a>
-            ) : item.url ? (
-              <a href={item.url} target="_blank" rel="noopener noreferrer" class="card-name">{item.name}</a>
-            ) : (
+              {item.url.startsWith("/") ? (
+                <a href={item.url} class="card-name">
+                  {item.name}
+                </a>
+              ) : item.url ? (
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="card-name"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <span class="card-name">{item.name}</span>
+              )}
+              <p class="card-info">{item.info}</p>
+              {item.support && (
+                <div class="card-support">
+                  <span class="support-label">⚡</span>
+                  <code>{item.support}</code>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+    ))
+  }
+
+  <section class="category-section upcoming-section">
+    <h2>
+      <img src="/images/icons/underconstruction.png" alt="" class="cat-icon" /> Under
+      udarbejdelse
+    </h2>
+    <p class="upcoming-note">
+      Herunder er initiativer, der arbejdes på. Denne liste kan meget vel være
+      forældet – hør ad i <a
+        href="https://t.me/enogtyvedk/7560"
+        target="_blank"
+        rel="noopener noreferrer"><strong>"Proof of Work"-tråden</strong></a
+      > på Telegram.
+    </p>
+    <div class="initiatives-grid">
+      {
+        upcoming.map((item) => (
+          <div class="initiative-card upcoming">
+            <div class="card-logo">
+              <img src="/images/icons/timeglas.png" alt="" />
+            </div>
+            <div class="card-top-row">
               <span class="card-name">{item.name}</span>
-            )}
+              <span class="upcoming-badge">{item.type}</span>
+            </div>
             <p class="card-info">{item.info}</p>
             {item.support && (
               <div class="card-support">
@@ -111,50 +291,67 @@ const upcoming = [
               </div>
             )}
           </div>
-        ))}
-      </div>
-    </section>
-  ))}
-
-  <section class="category-section upcoming-section">
-    <h2>🚧 Under udarbejdelse</h2>
-    <p class="upcoming-note">Herunder er initiativer, der arbejdes på. Denne liste kan meget vel være forældet – hør ad i <a href="https://t.me/enogtyvedk/7560" target="_blank" rel="noopener noreferrer"><strong>"Proof of Work"-tråden</strong></a> på Telegram.</p>
-    <div class="initiatives-grid">
-      {upcoming.map((item) => (
-        <div class="initiative-card upcoming">
-          <div class="card-top-row">
-            <span class="card-name">{item.name}</span>
-            <span class="upcoming-badge">{item.type}</span>
-          </div>
-          <p class="card-info">{item.info}</p>
-          {item.support && (
-            <div class="card-support">
-              <span class="support-label">⚡</span>
-              <code>{item.support}</code>
-            </div>
-          )}
-        </div>
-      ))}
+        ))
+      }
     </div>
   </section>
 
   <section class="content-section">
     <h2>Hjælp med oversættelser</h2>
-    <p>Hvis du ønsker at bidrage med oversættelse af læringsmateriale, er der rig mulighed for det, og i nogle tilfælde kan du optjene sats for din indsats. Det skal dog være lysten, der driver værket, da det oftest er mindre symbolske beløb.</p>
-    <p>Der udvikles hele tiden bedre værktøjer til f.eks. oversættelser, ligesom der er flere initiativer, hvor du kan få sparring omkring, hvordan du mest effektivt løser en oversættelsesopgave:</p>
+    <p>
+      Hvis du ønsker at bidrage med oversættelse af læringsmateriale, er der rig
+      mulighed for det, og i nogle tilfælde kan du optjene sats for din indsats.
+      Det skal dog være lysten, der driver værket, da det oftest er mindre
+      symbolske beløb.
+    </p>
+    <p>
+      Der udvikles hele tiden bedre værktøjer til f.eks. oversættelser, ligesom
+      der er flere initiativer, hvor du kan få sparring omkring, hvordan du mest
+      effektivt løser en oversættelsesopgave:
+    </p>
     <div class="resource-links">
-      <a href="https://planb.network/" target="_blank" rel="noopener noreferrer" class="resource-link">Planb.network →</a>
-      <a href="https://www.blink.sv/en/blog/adoption" target="_blank" rel="noopener noreferrer" class="resource-link">Blink Blog →</a>
+      <a
+        href="https://t.me/enogtyvedk/7560"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="resource-link">ENOGTYVE Proof of work</a
+      >
+      <a
+        href="https://planb.network/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="resource-link">Planb.network →</a
+      >
+      <a
+        href="https://www.blink.sv/en/blog/adoption"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="resource-link">Blink Blog →</a
+      >
     </div>
-    <p style="margin-top: 1rem;">Du kan også bidrage direkte til denne hjemmeside via GitHub – f.eks. med blogposts, rettelser eller fejlrapporter:</p>
+    <p style="margin-top: 1rem;">
+      Du kan også bidrage direkte til denne hjemmeside via GitHub – f.eks. med
+      blogposts, rettelser eller fejlrapporter:
+    </p>
     <div class="resource-links">
-      <a href="https://github.com/Mannohat/enogtyve-web" target="_blank" rel="noopener noreferrer" class="resource-link">GitHub – enogtyve-web →</a>
+      <a
+        href="https://github.com/Mannohat/enogtyve-web"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="resource-link">GitHub – enogtyve-web →</a
+      >
     </div>
   </section>
 
   <section class="content-section cta-section">
-    <a href="https://t.me/enogtyvedk/7560" target="_blank" rel="noopener noreferrer" class="cta-link">
-      Tøv ikke med at skrive eller stille spørgsmål i Enogtyve Proof of Work-gruppen →
+    <a
+      href="https://t.me/enogtyvedk/7560"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="cta-link"
+    >
+      Tøv ikke med at skrive eller stille spørgsmål i Enogtyve Proof of
+      Work-gruppen →
     </a>
   </section>
 
@@ -196,7 +393,7 @@ const upcoming = [
 
   .intro-image img {
     width: 100%;
-    max-width: 200px;
+    max-width: 250px;
     margin-left: auto;
     display: block;
     opacity: 0.85;
@@ -216,6 +413,14 @@ const upcoming = [
     border-bottom: 1px solid rgba(247, 147, 26, 0.2);
   }
 
+  .cat-icon {
+    height: 3rem;
+    width: 3rem;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 0.35rem;
+  }
+
   /* Initiative cards */
   .initiatives-grid {
     display: grid;
@@ -224,19 +429,25 @@ const upcoming = [
   }
 
   .initiative-card {
-    border: 1px solid rgba(247, 147, 26, 0.12);
+    border: 1px solid rgba(247, 147, 26, 0.15);
     border-radius: 10px;
     padding: 1.1rem 1.2rem;
-    background: rgba(255, 255, 255, 0.03);
-    transition: border-color 0.3s ease, transform 0.2s ease;
+    background: rgba(255, 255, 255, 0.12);
+    transition:
+      border-color 0.3s ease,
+      transform 0.2s ease,
+      background 0.3s ease,
+      box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
   }
 
   .initiative-card:hover {
-    border-color: rgba(247, 147, 26, 0.4);
+    border-color: rgba(247, 147, 26, 0.45);
     transform: translateY(-2px);
+    background: rgba(247, 147, 26, 0.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   }
 
   .initiative-card.upcoming {
@@ -260,9 +471,9 @@ const upcoming = [
   }
 
   .card-name {
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: var(--text-light, #ccc);
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
     transition: color 0.2s ease;
   }
 

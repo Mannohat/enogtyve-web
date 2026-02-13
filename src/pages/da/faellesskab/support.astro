@@ -2,87 +2,84 @@
 import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
 
 const ways = [
-  {
-    number: "1",
-    title: "Bidrag med oversættelser",
-    desc: "Oversæt relevant Bitcoin-relateret materiale til dansk.",
-    icon: "🌐",
+{
+    title: "Start et Bitcoin-meetup",
+    desc: "Tag initiativ til at afholde et Bitcoin-meetup i dit lokalområde. Fællesskab og tillid vokser oftest gennem personlige møder.",
+    icon: "/images/icons/meetup.png",
   },
+
   {
-    number: "2",
-    title: "Afhold en Bitcoin-meetup",
-    desc: "Tag initiativ til at afholde en Bitcoin-meetup i dit lokalområde.",
-    icon: "🤝",
-  },
-  {
-    number: "3",
     title: "Deltag i debatten",
-    desc: "Tag del i debatten i de forskellige grupper samt podcasts mv.",
+    desc: "Tag del i samtalen i de forskellige grupper og podcasts. Din stemme og dine erfaringer inspirerer andre.",
     link: { label: "Se podcasts", url: "/da/podcasts" },
-    icon: "💬",
+    icon: "/images/icons/debate.png",
   },
+
+{
+    title: "Bidrag med oversættelser",
+    desc: "Oversæt relevant Bitcoin-relateret materiale til dansk. Hver oversættelse gør Bitcoin tilgængeligt for flere danskere.",
+    icon: "/images/icons/translate.png",
+  },
+  
   {
-    number: "4",
     title: "Fortæl andre om ENOGTYVE",
-    desc: "Fortæl dine venner, familie og kollegaer om ENOGTYVE og hjælp dem med at blive klogere på Bitcoin.",
-    icon: "📣",
+    desc: "Del ENOGTYVE med venner, familie og kollegaer. Du kan være den, der åbner døren til Bitcoin for nogen.",
+    icon: "/images/icons/community.png",
   },
   {
-    number: "5",
     title: "Brug rabatkoder",
-    desc: 'Benyt referral links eller rabatkoden "ENOGTYVE", som nogle steder også vil give dig rabat.',
+    desc: 'Benyt referral links eller rabatkoden "ENOGTYVE" – det bakker op om ENOGTYVE fællesskabet, og du sparer penge.',
     link: { label: "Se rabatter", url: "/da/rabat/" },
-    icon: "🎟️",
+    icon: "/images/icons/promo.png",
   },
+
   {
-    number: "6",
+    title: "Tip nogle sats",
+    desc: "Selv små bidrag gør en stor forskel. Send sats via Lightning eller on-chain det varmer og hjælper altsammen",
+    icon: "/images/icons/support.png",
+    action: "support",
+  },
+
+  {
     title: "Betal med Bitcoin",
-    desc: "Spørg om du kan betale med Bitcoin hos frisøren, kaffebaren eller på restauranten – og brug BTCMap.org til at finde og tilføje steder.",
+    desc: "Spørg om du kan betale med Bitcoin hos frisøren, kaffebaren eller restauranten. Brug BTCMap.org til at finde og tilføje steder.",
     link: {
       label: "BTCMap.org",
       url: "https://www.btcmap.org",
       external: true,
     },
-    icon: "💳",
+    icon: "/images/icons/wallets.png",
   },
+
   {
-    number: "7",
     title: "Bliv noderunner",
-    desc: "Noderunners kan slutte sig til Enogtyve-fællesskabet på Amboss.space.",
+    desc: "Kør din egen Bitcoin-node. Noderunners kan slutte sig til Enogtyve-fællesskabet på Amboss.space.",
     link: {
       label: "Amboss.space",
       url: "http://amboss.enogtyve.org",
       external: true,
     },
-    icon: "⚡",
+    icon: "/images/icons/noderunner.png",
   },
+  
   {
-    number: "8",
-    title: "Tip nogle sats",
-    desc: "Send sats via Lightning eller on-chain.",
-    icon: "🧡",
-    action: "support",
-  },
-  {
-    number: "9",
-    title: "Udforsk andre danske initiativer",
-    desc: "Se en liste med danske Bitcoin-initiativer, måske kan du hjælpe nogle af disse eller få din egen idé.",
+    title: "Udforsk danske initiativer",
+    desc: "Se listen over danske Bitcoin-initiativer. Måske kan du hjælpe et eksisterende projekt – eller starte dit eget.",
     link: {
       label: "Bitcoin-initiativer i Danmark",
       url: "/da/faellesskab/initiativer-danmark",
     },
-    icon: "🇩🇰",
+    icon: "/images/icons/udforsk.png",
   },
   {
-    number: "10",
     title: "Bidrag på GitHub",
-    desc: "Hjemmesiden er open source. Du kan lave en pull request, hvis du vil bidrage med blogposts, rettelser, nye funktioner eller rapportere fejl.",
+    desc: "Enogtyve.org er open source. Lav en pull request med blogposts, rettelser, nye funktioner eller rapportér fejl.",
     link: {
       label: "GitHub",
       url: "https://github.com/Mannohat/enogtyve-web",
       external: true,
     },
-    icon: "🛠️",
+    icon: "/images/icons/github.png",
   },
 ];
 ---
@@ -92,11 +89,15 @@ const ways = [
   description="Hjælp andre med at lære om Bitcoin – her er 10 måder du kan støtte op"
   lang="da"
 >
-  <section class="content-section">
+  <section class="hero-section">
+    <h2>Hver indsats tæller</h2>
     <p>
-      Hvis du ønsker at støtte op om ENOGTYVE samt hjælpe andre med at lære om
-      Bitcoin, så finder du herunder ideer til forskellige måder, hvorpå du kan
-      gøre dette.
+      ENOGTYVE er bygget af frivillige, der brænder for Bitcoin. Alt hvad du ser
+      her – oversættelser, meetups, podcasts, guides – er skabt af mennesker,
+      der valgte at handle. Du kan gøre det samme.
+    </p>
+    <p class="hero-highlight">
+      Herunder finder du 10 konkrete måder at gøre en forskel på.
     </p>
   </section>
 
@@ -104,9 +105,8 @@ const ways = [
     {
       ways.map((way) => (
         <div class="way-card">
-          <div class="way-header">
-            <span class="way-icon">{way.icon}</span>
-            <span class="way-number">{way.number}</span>
+          <div class="way-icon-wrap">
+            <img src={way.icon} alt="" class="way-icon" />
           </div>
           <h3 class="way-title">{way.title}</h3>
           <p class="way-desc">{way.desc}</p>
@@ -131,95 +131,223 @@ const ways = [
     }
   </section>
 
+  <section class="closing-section">
+    <div class="closing-inner">
+      <p class="closing-quote">
+        Bitcoin er Proof of Work.<br />
+        <strong>Dit bidrag er dit proof of work.</strong>
+      </p>
+      <div class="closing-links">
+        <a
+          href="https://t.me/enogtyvedk"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="closing-link"
+        >
+          Telegram-fællesskabet →
+        </a>
+        <a href="/da/faellesskab/initiativer-danmark" class="closing-link">
+          Se danske initiativer →
+        </a>
+      </div>
+    </div>
+  </section>
+
   <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
 </ResourcePageLayout>
 
 <style>
-  .content-section {
-    margin-bottom: 2.5rem;
-    line-height: 1.8;
-    color: var(--text-light, #ccc);
+  /* Hero section */
+  .hero-section {
+    margin-bottom: 3rem;
+    text-align: left;
   }
 
-  .content-section p {
+  .hero-section h2 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  .hero-section p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(204, 204, 204, 0.85);
     margin-bottom: 0.75rem;
+  }
+
+  .hero-highlight {
+    font-weight: 600;
+    color: var(--primary) !important;
+    font-size: 1.1rem !important;
+    margin-top: 1rem !important;
   }
 
   /* Ways grid */
   .ways-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 0.85rem;
-    margin-bottom: 2.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 3rem;
   }
 
   .way-card {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
-    padding: 1.15rem 1.25rem;
-    border: 1px solid rgba(247, 147, 26, 0.12);
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.03);
+    align-items: center;
+    text-align: center;
+    gap: 0.6rem;
+    padding: 2rem 1.5rem;
+    border: 1px solid rgba(247, 147, 26, 0.15);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.1);
     transition:
       border-color 0.3s ease,
-      transform 0.2s ease;
+      transform 0.2s ease,
+      background 0.3s ease,
+      box-shadow 0.3s ease;
   }
 
   .way-card:hover {
-    border-color: rgba(247, 147, 26, 0.35);
-    transform: translateY(-2px);
+    border-color: rgba(247, 147, 26, 0.5);
+    transform: translateY(-4px);
+    background: rgba(247, 147, 26, 0.07);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
   }
 
-  .way-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .way-icon {
-    font-size: 1.3rem;
-  }
-
-  .way-number {
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--primary);
-    background: rgba(247, 147, 26, 0.1);
-    width: 1.6rem;
-    height: 1.6rem;
+  .way-icon-wrap {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    margin-bottom: 0.5rem;
+    background: rgba(247, 147, 26, 0.06);
     border-radius: 50%;
+    border: 1px solid rgba(247, 147, 26, 0.1);
+    transition:
+      background 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  .way-card:hover .way-icon-wrap {
+    background: rgba(247, 147, 26, 0.1);
+    border-color: rgba(247, 147, 26, 0.25);
+  }
+
+  .way-icon {
+    height: 3rem;
+    width: 3rem;
+    object-fit: contain;
   }
 
   .way-title {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    color: var(--text-light, #ccc);
-    margin: 0.15rem 0 0 0;
+    color: #fff;
+    margin: 0;
   }
 
   .way-desc {
-    font-size: 0.83rem;
-    line-height: 1.6;
-    color: rgba(204, 204, 204, 0.6);
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: rgba(204, 204, 204, 0.75);
     margin: 0;
     flex-grow: 1;
+    max-width: 340px;
   }
 
   .way-link {
     display: inline-block;
-    margin-top: 0.4rem;
-    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.82rem;
     font-weight: 600;
     color: var(--primary);
-    transition: opacity 0.2s ease;
+    background: rgba(247, 147, 26, 0.08);
+    border-radius: 6px;
+    transition: background 0.2s ease;
   }
 
   .way-link:hover {
-    opacity: 0.75;
+    background: rgba(247, 147, 26, 0.18);
+  }
+
+  .support-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    padding: 0.55rem 1.2rem;
+    background: rgba(247, 147, 26, 0.15);
+    border: 1px solid rgba(247, 147, 26, 0.35);
+    border-radius: 8px;
+    color: var(--primary);
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .support-btn:hover {
+    background: rgba(247, 147, 26, 0.25);
+    transform: scale(1.03);
+  }
+
+  .support-btn .heart {
+    color: #e25555;
+    font-size: 1rem;
+  }
+
+  /* Closing section */
+  .closing-section {
+    margin-bottom: 2rem;
+  }
+
+  .closing-inner {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    background: rgba(247, 147, 26, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.15);
+    border-radius: 16px;
+  }
+
+  .closing-quote {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: rgba(204, 204, 204, 0.85);
+    margin: 0 0 1.5rem 0;
+  }
+
+  .closing-quote strong {
+    color: var(--primary);
+    font-size: 1.2rem;
+  }
+
+  .closing-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .closing-link {
+    display: inline-block;
+    padding: 0.6rem 1.25rem;
+    background: rgba(247, 147, 26, 0.1);
+    color: var(--primary) !important;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none !important;
+    transition: background 0.2s ease;
+  }
+
+  .closing-link:hover {
+    background: rgba(247, 147, 26, 0.22);
   }
 
   /* Back to top */
@@ -240,6 +368,10 @@ const ways = [
   @media (max-width: 567px) {
     .ways-grid {
       grid-template-columns: 1fr;
+    }
+
+    .way-card {
+      padding: 1.5rem 1.25rem;
     }
   }
 </style>
