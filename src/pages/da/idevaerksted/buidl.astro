@@ -143,7 +143,7 @@ const projects = [
 
   <section class="category-section">
     <h3 class="category-heading">
-      <span class="category-icon">🔧</span> Værktøjer & ressourcer
+      <img src="/images/icons/tools.png" alt="" class="cat-icon" /> Værktøjer & ressourcer
     </h3>
     <div class="tools-grid">
       {
@@ -180,7 +180,7 @@ const projects = [
 
   <section class="category-section">
     <h3 class="category-heading">
-      <span class="category-icon">📸</span> Billeder af Bitcoin gør-det-selv-projekter
+      <img src="/images/icons/camera.png" alt="" class="cat-icon" /> Billeder af Bitcoin gør-det-selv-projekter
     </h3>
     <p class="gallery-note">
       Klik på billedet for at åbne et link, hvor du kan se, hvordan du kommer i
@@ -207,7 +207,7 @@ const projects = [
 
   <section class="category-section">
     <h3 class="category-heading">
-      <span class="category-icon">🎥</span> Video
+      <img src="/images/icons/video.png" alt="" class="cat-icon" /> Video
     </h3>
     <div class="video-container">
       <video controls preload="metadata">
@@ -307,8 +307,10 @@ const projects = [
     gap: 0.5rem;
   }
 
-  .category-icon {
-    font-size: 1.1rem;
+  .cat-icon {
+    height: 3rem;
+    width: 3rem;
+    object-fit: contain;
   }
 
   /* Tool cards */
@@ -464,6 +466,7 @@ const projects = [
   .video-caption a:hover {
     opacity: 0.8;
   }
+
   /* Manifesto quote */
   .quote-section {
     margin-bottom: 2rem;
@@ -515,6 +518,7 @@ const projects = [
       padding: 1.5rem 1.25rem;
     }
   }
+
   /* Back to top */
   .back-to-top {
     display: block;
