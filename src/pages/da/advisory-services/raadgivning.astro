@@ -20,35 +20,17 @@ const topics = [
   {
     icon: "/images/icons/wallets.png",
     title: "Acceptér Bitcoin som betaling",
-    desc: "Kom i gang med at modtage Bitcoin i din forretning – med eller uden Lightning.",
+    desc: "Kom i gang med at modtage Bitcoin i din forretning.",
   },
   {
     icon: "/images/icons/teacher.png",
     title: "Workshops & præsentationer",
-    desc: "Oplæg og workshops for virksomheder, foreninger og organisationer – tilpasset jeres niveau og behov.",
+    desc: "Oplæg og workshops for virksomheder, foreninger og organisationer.",
   },
   {
     icon: "/images/icons/ideas.png",
     title: "Sparring og rådgivning",
-    desc: "En uformel snak om Bitcoin, strategi eller næste skridt – vi tænker gerne med.",
-  },
-];
-
-const process = [
-  {
-    step: "1",
-    title: "Tag kontakt",
-    desc: "Send os en mail eller en besked – fortæl kort, hvad I har brug for.",
-  },
-  {
-    step: "2",
-    title: "Vi finder ud af det sammen",
-    desc: "Vi tager en snak, afklarer jeres behov og aftaler næste skridt.",
-  },
-  {
-    step: "3",
-    title: "Vi mødes",
-    desc: "Vi mødes – fysisk eller online – og går i gang.",
+    desc: "Har du noget andet på hjerte? Vi tager gerne en uforpligtende snak – skriv til os.",
   },
 ];
 ---
@@ -60,7 +42,6 @@ const process = [
 >
   <!-- Hero -->
 <section class="hero">
-  <div class="hero-badge">Bitcoin-only rådgivning</div>
   <h2>Få hjælp til at blive klogere på Bitcoin.</h2>
   <p>
     Vi hjælper privatpersoner, virksomheder og foreninger med at forstå
@@ -70,9 +51,10 @@ const process = [
   <p>
     Bitcoin kan være sjovt og spændende at tale om, og det sætter næsten
     altid en masse tanker og idéer i gang. Hvad med et hyggeligt og
-    lærerigt fredagsarrangement for medarbejderne? Det giver anledning
-    til gode snakke, masser af spørgsmål og en helt ny forståelse af
-    Bitcoin.
+    lærerigt fredagsarrangement for medarbejderne, eller et indslag til
+    næste aften i vinklubben? Det giver anledning til gode snakke,
+    masser af spørgsmål – og en garanteret ny forståelse af, hvad
+    Bitcoin er.
   </p>
 </section>
 
@@ -88,22 +70,6 @@ const process = [
             </div>
             <h3 class="topic-title">{topic.title}</h3>
             <p class="topic-desc">{topic.desc}</p>
-          </div>
-        ))
-      }
-    </div>
-  </section>
-
-  <!-- Process -->
-  <section class="process-section">
-    <h2 class="section-title">Sådan foregår det</h2>
-    <div class="process-grid">
-      {
-        process.map((item) => (
-          <div class="process-card">
-            <div class="process-number">{item.step}</div>
-            <h3 class="process-title">{item.title}</h3>
-            <p class="process-desc">{item.desc}</p>
           </div>
         ))
       }
@@ -133,7 +99,7 @@ const process = [
   <section class="cta-section">
     <div class="cta-inner">
       <h2>Klar til at komme i gang?</h2>
-      <p>Send os en besked – så finder vi ud af det sammen. Ingen forpligtelser.</p>
+      <p>Send os en besked med lidt om, hvad du har i tankerne, så finder vi ud af det sammen. Ingen forpligtelser.</p>
       <a href="mailto:kontakt@enogtyve.org" class="cta-btn">kontakt@enogtyve.org →</a>
     </div>
   </section>
@@ -147,20 +113,6 @@ const process = [
     margin-bottom: 3.5rem;
     padding-bottom: 2.5rem;
     border-bottom: 1px solid rgba(247, 147, 26, 0.1);
-  }
-
-  .hero-badge {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--primary);
-    background: rgba(247, 147, 26, 0.1);
-    border: 1px solid rgba(247, 147, 26, 0.2);
-    padding: 0.3rem 0.9rem;
-    border-radius: 20px;
-    margin-bottom: 1.25rem;
   }
 
   .hero h2 {
@@ -279,59 +231,6 @@ const process = [
     max-width: 300px;
   }
 
-  /* Process */
-  .process-section {
-    margin-bottom: 3.5rem;
-  }
-
-  .process-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-  }
-
-  .process-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0.5rem;
-    padding: 1.75rem 1.25rem;
-    border: 1px solid rgba(247, 147, 26, 0.1);
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.04);
-    position: relative;
-  }
-
-  .process-number {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--primary);
-    width: 2.75rem;
-    height: 2.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: rgba(247, 147, 26, 0.1);
-    border: 1px solid rgba(247, 147, 26, 0.2);
-    margin-bottom: 0.25rem;
-  }
-
-  .process-title {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #fff;
-    margin: 0;
-  }
-
-  .process-desc {
-    font-size: 0.85rem;
-    line-height: 1.6;
-    color: rgba(204, 204, 204, 0.7);
-    margin: 0;
-  }
-
   /* Who section */
   .who-section {
     margin-bottom: 3.5rem;
@@ -441,7 +340,6 @@ const process = [
   }
 
   @media (max-width: 767px) {
-    .process-grid,
     .who-grid {
       grid-template-columns: 1fr;
     }
