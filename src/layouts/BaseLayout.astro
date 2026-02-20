@@ -24,6 +24,15 @@ const daPath =
     "https://enogtyve.org/da" + Astro.url.pathname.replace(/^\/(da|en)/, "");
 const enPath =
     "https://enogtyve.org/en" + Astro.url.pathname.replace(/^\/(da|en)/, "");
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Enogtyve",
+    "url": "https://enogtyve.org",
+    "description": description,
+    "inLanguage": lang === "da" ? "da-DK" : "en-US"
+};
 ---
 
 <!doctype html>
@@ -32,9 +41,12 @@ const enPath =
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content={description} />
+        <meta name="theme-color" content="#F7931A" />
         <title>{title} | Enogtyve</title>
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="canonical" href={canonicalURL} />
+        <link rel="preconnect" href="https://cloud.umami.is" />
+        <link rel="preconnect" href="https://btcpay.ideasarelikeflames.org" />
 
         <!-- hreflang -->
         <link rel="alternate" hreflang="da" href={daPath} />
@@ -60,6 +72,11 @@ const enPath =
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={`${title} | Enogtyve`} />
         <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content="https://enogtyve.org/images/logos/enogtyve_logo.png" />
+
+        <!-- JSON-LD -->
+        <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
         <!-- Umami Analytics -->
         <script
             defer
@@ -67,9 +84,11 @@ const enPath =
             data-website-id="ab69f237-947e-44f2-972f-ccdba2c4cd19"></script>
     </head>
     <body>
+        <a href="#main" class="skip-link">Spring til indhold</a>
+
         <Header lang={lang} />
 
-        <main>
+        <main id="main">
             <slot />
         </main>
 
@@ -79,15 +98,17 @@ const enPath =
         <div
             class="support-overlay"
             id="supportOverlay"
-            onclick="closeSupport(event)"
         >
-            <div class="support-modal" onclick="event.stopPropagation()">
-                <button class="close-btn" onclick="closeSupport()"
-                    >&times;</button
-                >
+            <div
+                class="support-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="supportModalTitle"
+            >
+                <button class="close-btn" id="supportCloseBtn">&times;</button>
 
                 <div class="icon-wrap">🧡</div>
-                <h2>Proof of Heart</h2>
+                <h2 id="supportModalTitle">Proof of Heart</h2>
                 <p class="subtitle">Tak for din opbakning!</p>
 
                 <div class="divider"></div>
@@ -167,18 +188,48 @@ const enPath =
         </div>
         <script is:inline>
             function openSupport() {
-                document
-                    .getElementById("supportOverlay")
-                    .classList.add("active");
+                const overlay = document.getElementById("supportOverlay");
+                overlay.classList.add("active");
+                // Store previously focused element and move focus into modal
+                overlay._previousFocus = document.activeElement;
+                document.getElementById("supportCloseBtn").focus();
+                // Trap focus inside modal
+                overlay.addEventListener("keydown", trapFocus);
             }
 
             function closeSupport(e) {
                 if (!e || e.target === e.currentTarget) {
-                    document
-                        .getElementById("supportOverlay")
-                        .classList.remove("active");
+                    const overlay = document.getElementById("supportOverlay");
+                    overlay.classList.remove("active");
+                    overlay.removeEventListener("keydown", trapFocus);
+                    // Restore focus
+                    if (overlay._previousFocus) overlay._previousFocus.focus();
                 }
             }
+
+            function trapFocus(e) {
+                if (e.key !== "Tab") return;
+                const modal = document.querySelector(".support-modal");
+                const focusable = modal.querySelectorAll(
+                    'button, input, select, [tabindex]:not([tabindex="-1"])'
+                );
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                if (e.shiftKey) {
+                    if (document.activeElement === first) {
+                        e.preventDefault();
+                        last.focus();
+                    }
+                } else {
+                    if (document.activeElement === last) {
+                        e.preventDefault();
+                        first.focus();
+                    }
+                }
+            }
+
+            document.getElementById("supportOverlay").addEventListener("click", closeSupport);
+            document.getElementById("supportCloseBtn").addEventListener("click", () => closeSupport());
 
             document.addEventListener("keydown", function (e) {
                 if (e.key === "Escape") closeSupport();
@@ -189,17 +240,17 @@ const enPath =
                 .forEach(function (el) {
                     el.addEventListener("click", function (event) {
                         event.preventDefault();
-                        var root = event.target.closest(".btcpay-form");
-                        var el = root.querySelector(".btcpay-input-price");
-                        var step = parseInt(event.target.dataset.step) || 1;
-                        var min = parseInt(event.target.dataset.min) || 1;
-                        var max = parseInt(event.target.dataset.max);
-                        var type = event.target.dataset.type;
-                        var price = parseInt(el.value) || min;
+                        const root = event.target.closest(".btcpay-form");
+                        const input = root.querySelector(".btcpay-input-price");
+                        const step = parseInt(event.target.dataset.step) || 1;
+                        const min = parseInt(event.target.dataset.min) || 1;
+                        const max = parseInt(event.target.dataset.max);
+                        const type = event.target.dataset.type;
+                        const price = parseInt(input.value) || min;
                         if (type === "-") {
-                            el.value = price - step < min ? min : price - step;
+                            input.value = price - step < min ? min : price - step;
                         } else if (type === "+") {
-                            el.value = price + step > max ? max : price + step;
+                            input.value = price + step > max ? max : price + step;
                         }
                     });
                 });
@@ -209,15 +260,12 @@ const enPath =
                 .forEach(function (el) {
                     el.addEventListener("input", function (event) {
                         event.preventDefault();
-                        var price = parseInt(event.target.dataset.price);
-                        if (isNaN(event.target.value))
-                            event.target.value = price;
-                        var min =
-                            parseInt(event.target.getAttribute("min")) || 1;
-                        var max = parseInt(event.target.getAttribute("max"));
+                        const price = parseInt(event.target.dataset.price);
+                        if (isNaN(event.target.value)) event.target.value = price;
+                        const min = parseInt(event.target.getAttribute("min")) || 1;
+                        const max = parseInt(event.target.getAttribute("max"));
                         if (event.target.value < min) event.target.value = min;
-                        else if (event.target.value > max)
-                            event.target.value = max;
+                        else if (event.target.value > max) event.target.value = max;
                     });
                 });
         </script>
@@ -228,5 +276,22 @@ const enPath =
     main {
         min-height: 70vh;
         padding: var(--space-sm) 0;
+    }
+
+    .skip-link {
+        position: absolute;
+        top: -100%;
+        left: 1rem;
+        background: var(--primary);
+        color: #000;
+        font-weight: 700;
+        padding: 0.5rem 1rem;
+        border-radius: 0 0 8px 8px;
+        z-index: 9999;
+        transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+        top: 0;
     }
 </style>

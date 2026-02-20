@@ -37,18 +37,6 @@ const podcasts = defineCollection({
   }),
 });
 
-const resources = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    url: z.string().optional(),
-    category: z.string(),
-    tags: z.array(z.string()).optional(),
-    language: z.enum(['da', 'en']),
-  }),
-});
-
 const deals = defineCollection({
   type: 'content',
   schema: z.object({
@@ -71,4 +59,4 @@ const support = defineCollection({
   }),
 });
 
-export const collections = { blog, videos, podcasts, resources, deals, support };
+export const collections = { blog, videos, podcasts, deals, support };

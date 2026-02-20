@@ -150,6 +150,7 @@ pre code {
 .search-box button:hover {
   background: var(--primary-dark);
 }
+
 /* Search Results Dropdown */
 .search-results-dropdown {
   position: absolute;
@@ -238,4 +239,29 @@ pre code {
 
 .search-results-dropdown::-webkit-scrollbar-thumb:hover {
   background: var(--primary-dark);
+}
+
+/* Shared page utilities */
+.back-to-top {
+  display: block;
+  width: fit-content;
+  margin: 3rem auto 0 auto;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(247, 147, 26, 0.9);
+  transition: opacity 0.3s ease;
+}
+
+.back-to-top:hover {
+  opacity: 0.7;
+  color: rgba(247, 147, 26, 0.9);
+}
+
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(247, 147, 26, 0.2);
 }
