@@ -12,7 +12,11 @@ import IntroBanner from "../../components/home/IntroBanner.astro";
 const lang = "da";
 ---
 
-<BaseLayout title="Hjem" lang={lang}>
+<BaseLayout
+	title="Dansk Bitcoin Fællesskab"
+	description="Enogtyve er Danmarks Bitcoin-fællesskab. Lær om Bitcoin, Lightning Network, opbevaring, mining og meget mere. For nysgerrige på alle niveauer."
+	lang={lang}
+>
 	<StatsBar />
 	<IntroBanner lang={lang} />
 	<QuickActions lang={lang} />
@@ -67,12 +71,16 @@ const lang = "da";
 	// Fade out scroll hint after user scrolls
 	const scrollHint = document.querySelector(".scroll-hint");
 	if (scrollHint) {
-		window.addEventListener("scroll", () => {
-			if (window.scrollY > 100) {
-				scrollHint.classList.add("hidden");
-			} else {
-				scrollHint.classList.remove("hidden");
-			}
-		}, { passive: true });
+		window.addEventListener(
+			"scroll",
+			() => {
+				if (window.scrollY > 100) {
+					scrollHint.classList.add("hidden");
+				} else {
+					scrollHint.classList.remove("hidden");
+				}
+			},
+			{ passive: true },
+		);
 	}
 </script>
