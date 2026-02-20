@@ -16,9 +16,14 @@ const {
     lang = "da",
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, 'https://enogtyve.org').toString();
-const daPath = 'https://enogtyve.org/da' + Astro.url.pathname.replace(/^\/(da|en)/, '');
-const enPath = 'https://enogtyve.org/en' + Astro.url.pathname.replace(/^\/(da|en)/, '');
+const canonicalURL = new URL(
+    Astro.url.pathname,
+    "https://enogtyve.org",
+).toString();
+const daPath =
+    "https://enogtyve.org/da" + Astro.url.pathname.replace(/^\/(da|en)/, "");
+const enPath =
+    "https://enogtyve.org/en" + Astro.url.pathname.replace(/^\/(da|en)/, "");
 ---
 
 <!doctype html>
@@ -41,14 +46,25 @@ const enPath = 'https://enogtyve.org/en' + Astro.url.pathname.replace(/^\/(da|en
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalURL} />
-        <meta property="og:image" content="https://enogtyve.org/images/logos/enogtyve_logo.png" />
-        <meta property="og:locale" content={lang === 'da' ? 'da_DK' : 'en_US'} />
+        <meta
+            property="og:image"
+            content="https://enogtyve.org/images/logos/enogtyve_logo.png"
+        />
+        <meta
+            property="og:locale"
+            content={lang === "da" ? "da_DK" : "en_US"}
+        />
         <meta property="og:site_name" content="Enogtyve" />
 
         <!-- Twitter/X -->
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={`${title} | Enogtyve`} />
         <meta name="twitter:description" content={description} />
+        <!-- Umami Analytics -->
+        <script
+            defer
+            src="https://cloud.umami.is/script.js"
+            data-website-id="ab69f237-947e-44f2-972f-ccdba2c4cd19"></script>
     </head>
     <body>
         <Header lang={lang} />
