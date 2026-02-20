@@ -2,21 +2,36 @@
 const { lang } = Astro.props;
 
 const logos = [
-	{ href: "https://mempool.space/da", logo: "/images/logos/mempool.png" },
+	{
+		href: "https://mempool.space/da",
+		logo: "/images/logos/mempool.png",
+		alt: "Mempool.space - Bitcoin block explorer",
+	},
 	{
 		href: "https://timechaincalendar.com",
 		logo: "/images/logos/timechaincal.png",
+		alt: "Timechain Calendar - Bitcoin halving kalender",
 	},
 	{
 		href: "https://bitcoin.clarkmoody.com/dashboard/",
 		logo: "/images/logos/clarkmoody.png",
+		alt: "Clark Moody Bitcoin Dashboard",
 	},
-	{ href: "https://amboss.space", logo: "/images/logos/amboss.png" },
+	{
+		href: "https://amboss.space",
+		logo: "/images/logos/amboss.png",
+		alt: "Amboss - Lightning Network explorer",
+	},
 	{
 		href: "https://nakamotoinstitute.org",
 		logo: "/images/logos/nakamotoinstitute.png",
+		alt: "Nakamoto Institute - Bitcoin litteratur og ressourcer",
 	},
-	{ href: "https://bitbo.io", logo: "/images/logos/bitbo.png" },
+	{
+		href: "https://bitbo.io",
+		logo: "/images/logos/bitbo.png",
+		alt: "Bitbo - Bitcoin dashboard",
+	},
 ];
 
 const actions = [
@@ -50,7 +65,7 @@ const actions = [
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						<img src={item.logo} alt="" class="logo-img" />
+						<img src={item.logo} alt={item.alt} class="logo-img" />
 					</a>
 				))
 			}
@@ -108,7 +123,8 @@ const actions = [
 					class="event-logo"
 				/>
 				<div class="event-info">
-					<span class="event-name">Bitcoin Copenhagen Konference</span>
+					<span class="event-name">Bitcoin Copenhagen Konference</span
+					>
 					<span class="event-date">21. marts 2026</span>
 				</div>
 			</a>
