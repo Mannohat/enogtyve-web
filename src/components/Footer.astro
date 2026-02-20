@@ -124,7 +124,10 @@ const { lang = "da" } = Astro.props;
 					<li><a href={`/${lang}/blog`}>Blog</a></li>
 					<li><a href={`/${lang}/podcasts`}>Podcasts</a></li>
 					<li><a href={`/${lang}/udforsk/udforsk`}>Udforsk</a></li>
-					<li><a href={`/${lang}/mining/mining-for-opvarmning`}>Mining</a></li>
+					<li>
+						<a href={`/${lang}/mining/mining-for-opvarmning`}
+							>Mining</a>
+					</li>
 				</ul>
 			</div>
 
@@ -158,6 +161,7 @@ const { lang = "da" } = Astro.props;
 			<p>
 				&copy; ENOGTYVE 🧡 | 2026. Alle rettigheder forbeholdes | No
 				financial advice | Do your own research | Beware of scammers ❗️
+				| <a href={`/${lang}/privatlivspolitik`}>Privatlivspolitik</a>
 			</p>
 		</div>
 	</div>
@@ -248,9 +252,11 @@ const { lang = "da" } = Astro.props;
 	.footer-section ul li a:hover {
 		color: var(--primary);
 	}
+
 	.support-btn {
 		margin-top: 0.25rem;
 	}
+
 	.social-links {
 		display: flex;
 		gap: 1rem;
@@ -293,6 +299,15 @@ const { lang = "da" } = Astro.props;
 
 	.footer-bottom p {
 		margin: 0;
+	}
+
+	.footer-bottom a {
+		color: var(--text-light);
+		transition: color 0.2s ease;
+	}
+
+	.footer-bottom a:hover {
+		color: var(--primary);
 	}
 
 	@media (max-width: 1024px) {

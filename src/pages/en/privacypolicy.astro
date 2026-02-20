@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+    title="Privacy Policy"
+    description="Privacy policy for enogtyve.org - read about how we handle your data."
+    lang="en"
+>
+    <div class="container policy-content">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last updated: February 2026</p>
+
+        <section>
+            <h2>1. About this site</h2>
+            <p>
+                Enogtyve.org is a voluntarily run Danish Bitcoin community and information site. We do not collect personal data.
+            </p>
+        </section>
+
+        <section>
+            <h2>2. Cookies and tracking</h2>
+            <p>
+                This site uses no cookies and collects no personally identifiable information. We use Umami Analytics for anonymised visit counts — it is not possible to identify individual users.
+            </p>
+        </section>
+
+        <section>
+            <h2>3. Your rights</h2>
+            <p>
+                Under GDPR you have the right to access, rectification, erasure, and objection. You may also lodge a complaint with the <a href="https://www.datatilsynet.dk" target="_blank" rel="noopener noreferrer">Danish Data Protection Agency</a>.
+            </p>
+        </section>
+
+        <section>
+            <h2>4. Changes</h2>
+            <p>
+                This policy may be updated. The date at the top indicates the latest version.
+            </p>
+        </section>
+
+        <section>
+            <h2>5. Contact</h2>
+            <p>
+                <strong>enogtyve.org</strong><br />
+                Denmark<br />
+                Email: <a href="mailto:kontakt@enogtyve.org">kontakt@enogtyve.org</a>
+            </p>
+        </section>
+    </div>
+</BaseLayout>
+
+<style>
+    .policy-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+    }
+
+    .policy-content h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        color: var(--primary);
+    }
+
+    .last-updated {
+        color: var(--text-light);
+        font-size: 0.9rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .policy-content section {
+        margin-bottom: 2.5rem;
+    }
+
+    .policy-content h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        color: var(--text);
+        border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+        padding-bottom: 0.5rem;
+    }
+
+    .policy-content p {
+        color: var(--text-light);
+        line-height: 1.7;
+        margin-bottom: 1rem;
+    }
+
+    .policy-content a {
+        color: var(--primary);
+        text-decoration: underline;
+    }
+
+    .policy-content a:hover {
+        opacity: 0.8;
+    }
+</style>
