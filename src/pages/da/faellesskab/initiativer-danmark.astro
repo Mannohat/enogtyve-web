@@ -34,13 +34,19 @@ const categories = [
     icon: "/images/icons/teacher.png",
     items: [
       {
+        name: "ENOGTYVE",
+        url: "https://www.enogtyve.org",
+        info: "Det bedste sted at komme i gang — find ressourcer, og mød andre bitcoinere",
+        support: "",
+        logo: "/images/logos/enogtyve_logo.png",
+      },
+      {
         name: 'YouTube-kanalen "Barekev"',
         url: "https://www.youtube.com/@barekev",
         info: "Dansk Bitcoin-only YouTube-kanal",
         support: "barekev@walletofsatoshi.com",
         logo: "/images/logos/barekev.png",
       },
-
       {
         name: "Bitcoinskolen.net",
         url: "https://www.bitcoinskolen.net",
@@ -61,7 +67,6 @@ const categories = [
         support: "",
         logo: "/images/icons/books.png",
       },
-
       {
         name: "Mempool.space på dansk",
         url: "https://www.mempool.space",
@@ -156,6 +161,19 @@ const categories = [
         info: "Danske bøger om Bitcoin og frihed mv.",
         support: "",
         logo: "/images/logos/shop21.png",
+      },
+    ],
+  },
+  {
+    title: "Helbred og Velvære",
+    icon: "/images/icons/love.png",
+    items: [
+      {
+        name: "SAUNA.",
+        url: "https://sauna.lyn.page?ref=enogtyve",
+        info: "Dansk sauna-koncept bygget på modulært design — seven modules. one sauna.",
+        support: "",
+        logo: "/images/logos/lynsauna.png",
       },
     ],
   },
@@ -397,7 +415,6 @@ const upcoming = [
     padding-bottom: 0;
   }
 
-  /* Intro grid */
   .intro-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -413,7 +430,6 @@ const upcoming = [
     opacity: 0.85;
   }
 
-  /* Category sections */
   .category-section {
     margin-bottom: 2.5rem;
   }
@@ -435,7 +451,6 @@ const upcoming = [
     margin-right: 0.35rem;
   }
 
-  /* Initiative cards */
   .initiatives-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -469,7 +484,6 @@ const upcoming = [
     opacity: 0.75;
   }
 
-  /* Card logo */
   .card-logo {
     display: flex;
     align-items: center;
@@ -525,7 +539,6 @@ const upcoming = [
     word-break: break-all;
   }
 
-  /* Upcoming section */
   .upcoming-section .upcoming-note {
     font-size: 0.9rem;
     color: rgba(204, 204, 204, 0.7);
@@ -552,7 +565,6 @@ const upcoming = [
     white-space: nowrap;
   }
 
-  /* Resource links */
   .resource-links {
     display: flex;
     gap: 1rem;
@@ -576,7 +588,6 @@ const upcoming = [
     background: rgba(247, 147, 26, 0.2);
   }
 
-  /* CTA */
   .cta-section {
     padding: 1.5rem;
     background: rgba(247, 147, 26, 0.06);
