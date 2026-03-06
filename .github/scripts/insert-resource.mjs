@@ -5,17 +5,6 @@ import { readFileSync, writeFileSync } from "fs";
 
 const BOOKMARKS_FILE = "src/pages/da/faellesskab/bookmarks.astro";
 
-// --- Parse issue body ---
-// GitHub issue forms produce a body like:
-//
-// ### Navn på ressourcen
-//
-// Mempool.space
-//
-// ### URL
-//
-// https://mempool.space
-
 function parseIssueBody(body) {
   const fields = {};
   const sections = body.split(/^### /m).filter(Boolean);
@@ -39,7 +28,6 @@ function parseIssueBody(body) {
   };
 }
 
-// --- Build the favicon URL ---
 function faviconUrl(url) {
   try {
     const domain = new URL(url).hostname;
@@ -49,45 +37,46 @@ function faviconUrl(url) {
   }
 }
 
-// --- Build the HTML card ---
 function buildCard({ navn, url, beskrivelse }) {
   const favicon = faviconUrl(url);
   const safeName = navn.replace(/</g, "&lt;").replace(/>/g, "&gt;");
   const safeDesc = beskrivelse.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  // Add ?ref=enogtyve if no ref/affiliate param already present
+  const finalUrl = (url.includes("ref=") || url.includes("aff") || url.includes("affiliate") || url.includes("coupon") || url.includes("/enogtyve"))
+    ? url
+    : (url.includes("?") ? url + "&ref=enogtyve" : url.replace(/\/$/, "") + "?ref=enogtyve");
 
-  return `            <a
-                href="${url}"
-                class="resource-card"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
+  return `            <a href="${finalUrl}" class="resource-card" target="_blank" rel="noopener noreferrer">
                 <div class="resource-logo-wrap">
-                <img
-                    src="${favicon}"
-                    alt="${safeName}"
-                    class="resource-logo"
-                    onerror="this.remove()"
-                />
+                <img src="${favicon}" alt="${safeName}" class="resource-logo" onerror="this.remove()"/>
                 </div>
                 <span class="resource-name">${safeName}</span>
                 <span class="resource-desc">${safeDesc}</span>
             </a>`;
 }
 
-// --- Find the right category section and insert the card ---
 function insertCard(fileContent, kategori, card) {
-  // Match the category section heading
-  // We look for <h2>Kategori</h2> and then find the closing </div> of .resources-grid
   const escapedKategori = kategori.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+  // Find the category section, then find the closing </div> of resources-grid
+  // by looking for the pattern: last </a> before </div>\n        </section>
   const sectionRegex = new RegExp(
-    `(<h2>${escapedKategori}<\\/h2>[\\s\\S]*?<div class="resources-grid">)([\\s\\S]*?)(\\s*<\\/div>)`,
+    `(<h2>${escapedKategori}<\\/h2>[\\s\\S]*?<div class="resources-grid">)([\\s\\S]*?)(\\n        <\\/div>\\n    <\\/section>)`,
     "m"
   );
 
   if (!sectionRegex.test(fileContent)) {
-    throw new Error(
-      `Kunne ikke finde kategorien "${kategori}" i bookmarks.astro`
+    // Fallback: try with different whitespace
+    const fallbackRegex = new RegExp(
+      `(<h2>${escapedKategori}<\\/h2>[\\s\\S]*?<div class="resources-grid">)([\\s\\S]*?)(\\s*<\\/div>\\s*<\\/section>)`,
+      "m"
     );
+    if (!fallbackRegex.test(fileContent)) {
+      throw new Error(`Kunne ikke finde kategorien "${kategori}" i bookmarks.astro`);
+    }
+    return fileContent.replace(fallbackRegex, (_, before, cards, closing) => {
+      return `${before}${cards}\n${card}\n        ${closing.trim()}`;
+    });
   }
 
   return fileContent.replace(sectionRegex, (_, before, cards, closing) => {

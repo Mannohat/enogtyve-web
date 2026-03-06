@@ -87,6 +87,10 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
                     <button class="btn-send" id="suggest-send">Send forslag</button>
                 </div>
                 <p class="modal-status" id="modal-status"></p>
+                <div class="modal-post-actions" id="modal-post-actions" style="display:none">
+                    <button class="btn-luk" id="suggest-luk">Luk</button>
+                    <button class="btn-en-mere" id="suggest-en-mere">Foreslå en mere?</button>
+                </div>
             </div>
         </div>
     </div>
@@ -206,6 +210,13 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
                 </div>
                 <span class="resource-name">Bitcoin.org</span>
                 <span class="resource-desc">Den officielle Bitcoin-hjemmeside og introduktion</span>
+            </a>
+            <a href="https://lightningpiggy.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/lightningpiggy.com.ico" alt="Lightning Piggy" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Lightning Piggy</span>
+                <span class="resource-desc">Projekt med formål at lære børn at spare op i bitcoin</span>
             </a>
             <a href="https://www.saylor.org?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
                 <div class="resource-logo-wrap">
@@ -1352,6 +1363,47 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
     .modal-status.success { color: #4caf7d; }
     .modal-status.error   { color: #e05252; }
 
+    .modal-post-actions {
+        display: flex;
+        gap: 0.75rem;
+    }
+
+    .btn-luk {
+        width: 100%;
+        padding: 0.65rem;
+        background: none;
+        border: 1px solid rgba(247, 147, 26, 0.4);
+        border-radius: 8px;
+        color: var(--primary);
+        font-size: 0.9rem;
+        font-family: var(--font-body);
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .btn-luk:hover {
+        background: rgba(247, 147, 26, 0.08);
+        border-color: var(--primary);
+    }
+
+    .btn-en-mere {
+        flex: 1;
+        padding: 0.65rem;
+        background: rgba(247, 147, 26, 0.12);
+        border: 1px solid rgba(247, 147, 26, 0.4);
+        border-radius: 8px;
+        color: var(--primary);
+        font-size: 0.9rem;
+        font-family: var(--font-body);
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .btn-en-mere:hover {
+        background: rgba(247, 147, 26, 0.2);
+        border-color: var(--primary);
+    }
+
     .search-icon {
         position: absolute;
         left: 0.9rem;
@@ -1485,15 +1537,27 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
             document.getElementById("f-navn").focus();
         }
 
+        var lukBtn    = document.getElementById("suggest-luk");
+        var enMereBtn = document.getElementById("suggest-en-mere");
+        var postActions = document.getElementById("modal-post-actions");
+
         function closeModal() {
             modal.classList.remove("open");
             modal.setAttribute("aria-hidden", "true");
             status.textContent = "";
             status.className = "modal-status";
+            postActions.style.display = "none";
         }
 
         openBtn.addEventListener("click", openModal);
         closeBtn.addEventListener("click", closeModal);
+        lukBtn.addEventListener("click", closeModal);
+        enMereBtn.addEventListener("click", function() {
+            postActions.style.display = "none";
+            sendBtn.style.display = "block";
+            status.textContent = "";
+            status.className = "modal-status";
+        });
 
         modal.addEventListener("click", function (e) {
             if (e.target === modal) closeModal();
@@ -1545,6 +1609,8 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
                     document.getElementById("f-kategori").value = "";
                     document.getElementById("f-beskrivelse").value = "";
                     sendBtn.disabled = false;
+                    postActions.style.display = "flex";
+                    sendBtn.style.display = "none";
                 } else {
                     throw new Error("HTTP " + res.status);
                 }
