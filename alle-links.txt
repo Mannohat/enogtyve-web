@@ -1,0 +1,508 @@
+/da/blog/index.astro:56:        <p>Se også: <a href="https://europeanbitcoiners.com/tag/dan/" target="_blank" rel="noopener noreferrer">European Bitcoiners Danske side</a></p>
+/da/faellesskab/bookmarks.astro:103:            <a href="https://www.youtube.com/watch?v=ONvg9SbauMg" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:105:                <img src="https://icons.duckduckgo.com/ip3/youtube.com.ico" alt="The Stories We Tell About Money" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:110:            <a href="https://www.youtube.com/watch?v=Z9HbQsTgrtk" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:112:                <img src="https://icons.duckduckgo.com/ip3/youtube.com.ico" alt="Speech about Money – Atlas Shrugged" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:117:            <a href="https://www.youtube.com/playlist?list=PLE88E9ICdiphYjJkeeLL2O09eJoC8r7Dc" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:119:                <img src="https://icons.duckduckgo.com/ip3/youtube.com.ico" alt="Hidden Secrets of Money" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:1222:                    "https://api.github.com/repos/" + GITHUB_REPO + "/issues",
+/da/faellesskab/bookmarks.astro:130:            <a href="https://www.nobsbitcoin.com/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:137:            <a href="https://www.stacker.news" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:144:            <a href="https://bitcoinnews.com/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:151:            <a href="https://bitcoinmagazine.com/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:158:            <a href="https://lightning.news/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:165:            <a href="https://bitcoinops.org/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:167:                <img src="https://icons.duckduckgo.com/ip3/bitcoinops.org.ico" alt="Bitcoin Optech" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:178:            <a href="https://bitcoin.org/en/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:185:            <a href="https://www.saylor.org/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:192:            <a href="https://nakamotoinstitute.org/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:199:            <a href="https://www.hope.com" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:201:                <img src="https://icons.duckduckgo.com/ip3/hope.com.ico" alt="Hope.com" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:206:            <a href="https://bitcoin.rocks/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:208:                <img src="https://icons.duckduckgo.com/ip3/bitcoin.rocks.ico" alt="Bitcoin.rocks" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:213:            <a href="https://learnmeabitcoin.com/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:215:                <img src="https://icons.duckduckgo.com/ip3/learnmeabitcoin.com.ico" alt="Learnmeabitcoin" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:220:            <a href="https://yzer.io/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:233:            <a href="https://www.enogtyve.org/stillearly.html" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:240:            <a href="https://mempool.space/da/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:247:            <a href="https://timechaincalendar.com/en" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:254:            <a href="https://bitcoin.clarkmoody.com/dashboard/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:261:            <a href="https://www.lookintobitcoin.com/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:263:                <img src="https://icons.duckduckgo.com/ip3/lookintobitcoin.com.ico" alt="Lookintobitcoin" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:268:            <a href="https://www.pricedinbitcoin21.com/landing" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:270:                <img src="https://icons.duckduckgo.com/ip3/pricedinbitcoin21.com.ico" alt="Priced in Bitcoin" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:275:            <a href="https://timechainstats.com/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:277:                <img src="https://icons.duckduckgo.com/ip3/timechainstats.com.ico" alt="Timechainstats" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:282:            <a href="https://miningpool.observer/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:284:                <img src="https://icons.duckduckgo.com/ip3/miningpool.observer.ico" alt="Miningpool Observer" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:289:            <a href="https://www.utxo.live" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:291:                <img src="https://icons.duckduckgo.com/ip3/utxo.live.ico" alt="UTXO.live" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:296:            <a href="https://iancoleman.io/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:298:                <img src="https://icons.duckduckgo.com/ip3/iancoleman.io.ico" alt="Iancoleman" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:309:            <a href="https://bitbo.io/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:316:            <a href="https://bitcointicker.co/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:329:            <a href="https://www.amboss.space" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:336:            <a href="https://www.1ml.com" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:343:            <a href="https://lightningnetwork.plus" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:356:            <a href="https://www.blink.sv" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:363:            <a href="https://coinos.io/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:365:                <img src="https://icons.duckduckgo.com/ip3/coinos.io.ico" alt="Coinos" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:370:            <a href="https://bitari2100.vercel.app/t" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:372:                <img src="https://icons.duckduckgo.com/ip3/bitari2100.vercel.app.ico" alt="Bitari 2100" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:390:            <a href="https://open.spotify.com/show/7nfP1BCWhGzGkGJd8wzV8h?si=eja1j8ULSHqLAtEt1ACZeA" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:397:            <a href="https://open.spotify.com/show/0mWUJuONiilW5JSBBFZ0s7?si=gkzemn2QSlCp6AwnbE8waQ&nd=1&dlsi=aac6edec63f24d4b" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:404:            <a href="https://open.spotify.com/show/4wWzXFEyAJtM6aOLA6c4Q2?si=_EK1qep4QjOaQ9bRCyzmhw" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:411:            <a href="https://www.noderunners.network" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:418:            <a href="https://youtube.com/playlist?list=PL2jAZ0x9H0bQFY6wIbQfnrnIlqMcSHd6X" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:420:                <img src="https://icons.duckduckgo.com/ip3/youtube.com.ico" alt="The What is Money Show" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:425:            <a href="https://youtube.com/playlist?list=PLutwRFLXGQz0CxnvWaT0yVKxVvpleRk_p" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:427:                <img src="https://icons.duckduckgo.com/ip3/youtube.com.ico" alt="What Bitcoin Did" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:432:            <a href="https://bitcoinpodcasts.com/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:434:                <img src="https://icons.duckduckgo.com/ip3/bitcoinpodcasts.com.ico" alt="Bitcoinpodcasts" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:445:            <a href="https://www.youtube.com/@BTCSessions/videos" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:452:            <a href="https://www.lopp.net" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:454:                <img src="https://icons.duckduckgo.com/ip3/lopp.net.ico" alt="Jameson Lopp" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:459:            <a href="https://bitcoiner.guide/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:461:                <img src="https://icons.duckduckgo.com/ip3/bitcoiner.guide.ico" alt="Bitcoiner Guide" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:472:            <a href="https://www.shop21.dk" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:479:            <a href="https://www.bitcoinerbooks.com/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:481:                <img src="https://icons.duckduckgo.com/ip3/bitcoinerbooks.com.ico" alt="Bitcoinerbooks" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:492:            <a href="https://wavelake.com/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:499:            <a href="https://radio.noderunners.org" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:519:            <a href="https://satpile.com/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:521:                <img src="https://icons.duckduckgo.com/ip3/satpile.com.ico" alt="Satpile" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:526:            <a href="https://www.borderwallets.com/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:528:                <img src="https://icons.duckduckgo.com/ip3/borderwallets.com.ico" alt="Borderwallets" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:533:            <a href="https://opentip.io/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:535:                <img src="https://icons.duckduckgo.com/ip3/opentip.io.ico" alt="Opentip" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:540:            <a href="https://bcrypt-generator.com/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:542:                <img src="https://icons.duckduckgo.com/ip3/bcrypt-generator.com.ico" alt="Bcrypt Generator" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:553:            <a href="https://youtu.be/jzwVNHJxgHE?feature=shared" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:555:                <img src="https://icons.duckduckgo.com/ip3/youtube.com.ico" alt="The Great Reset and the Rise of Bitcoin" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:55:                    <input type="url" id="f-url" placeholder="https://..." />
+/da/faellesskab/bookmarks.astro:560:            <a href="https://www.hardmoneyfilm.com/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:562:                <img src="https://icons.duckduckgo.com/ip3/hardmoneyfilm.com.ico" alt="Hard Money Film" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:567:            <a href="https://www.petrodollarsfilm.com/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:569:                <img src="https://icons.duckduckgo.com/ip3/petrodollarsfilm.com.ico" alt="Petrodollars Film" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:574:            <a href="https://www.anatomystatefilm.com/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:576:                <img src="https://icons.duckduckgo.com/ip3/anatomystatefilm.com.ico" alt="Anatomy of the State Film" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:587:            <a href="https://wtfhappenedin1971.com/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:589:                <img src="https://icons.duckduckgo.com/ip3/wtfhappenedin1971.com.ico" alt="WTF Happened in 1971" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:594:            <a href="https://endthefud.org/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:596:                <img src="https://icons.duckduckgo.com/ip3/endthefud.org.ico" alt="End the FUD" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:601:            <a href="https://mises.org/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:603:                <img src="https://icons.duckduckgo.com/ip3/mises.org.ico" alt="Mises Institute" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:608:            <a href="https://bitcoindeaths.com/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:610:                <img src="https://icons.duckduckgo.com/ip3/bitcoindeaths.com.ico" alt="Bitcoin Deaths" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:621:            <a href="https://www.madex.art/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:628:            <a href="https://21ism.com/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:635:            <a href="https://www.citadel21.com/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:642:            <a href="https://btcpins.com/?aff=fUg2UWK3p5o1VYn4Wx_UQuwJhpOGaAYDChJ4KlRhfsErWsCqa69PYohMWcCOGK9tK1rAqmuvT2KITFnAjhivbfOajnP3D8A8O09Hi-OY4K8" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:649:            <a href="https://www.cypherpunknow.com/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:656:            <a href="https://thepriceinsats.com/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:658:                <img src="https://icons.duckduckgo.com/ip3/thepriceinsats.com.ico" alt="The Price in Sats" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:669:            <a href="https://www.shop21.dk" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:676:            <a href="https://www.barekev.dk" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:683:            <a href="https://www.storeofvalue.eu/discount/enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:690:            <a href="https://www.bitrefill.com/dk/en/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:697:            <a href="https://copiaro.de/en/" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:699:                <img src="https://icons.duckduckgo.com/ip3/copiaro.de.ico" alt="Copiaro" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:704:            <a href="https://www.satoshistore.io" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:706:                <img src="https://icons.duckduckgo.com/ip3/satoshistore.io.ico" alt="Satoshistore" class="resource-logo" onerror="this.remove()"/>
+/da/faellesskab/bookmarks.astro:730:            <a href="https://www.nostr.dk" class="resource-card nostr-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:737:            <a href="https://primal.net/home" class="resource-card nostr-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:744:            <a href="https://damus.io/" class="resource-card nostr-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/bookmarks.astro:96:            <a href="https://bitcoin.org/bitcoin.pdf" class="resource-card" target="_blank" rel="noopener noreferrer">
+/da/faellesskab/initiativer-danmark.astro:101:        url: "https://www.shop21.dk/?ref=enogtyve.org",
+/da/faellesskab/initiativer-danmark.astro:108:        url: "https://drive.google.com/file/d/1APSqzg21MjnejallrKeRf16BB1OqLZwz/view",
+/da/faellesskab/initiativer-danmark.astro:11:        url: "https://fountain.fm/show/wQjidAJSuF52TCAcpBY2",
+/da/faellesskab/initiativer-danmark.astro:148:        url: "https://www.barekev.dk",
+/da/faellesskab/initiativer-danmark.astro:155:        url: "https://www.shop21.dk/?ref=enogtyve.org",
+/da/faellesskab/initiativer-danmark.astro:168:        url: "https://dbpi.dk",
+/da/faellesskab/initiativer-danmark.astro:18:        url: "https://www.youtube.com/watch?v=v1TFbUbQeD8",
+/da/faellesskab/initiativer-danmark.astro:223:        href="https://t.me/enogtyvedk/7560"
+/da/faellesskab/initiativer-danmark.astro:25:        url: "https://shop21.dk/podcast-start/",
+/da/faellesskab/initiativer-danmark.astro:284:        href="https://t.me/enogtyvedk/7560"
+/da/faellesskab/initiativer-danmark.astro:328:        href="https://t.me/enogtyvedk/7560"
+/da/faellesskab/initiativer-danmark.astro:334:        href="https://planb.network/"
+/da/faellesskab/initiativer-danmark.astro:340:        href="https://www.blink.sv/en/blog/adoption"
+/da/faellesskab/initiativer-danmark.astro:352:        href="https://github.com/Mannohat/enogtyve-web"
+/da/faellesskab/initiativer-danmark.astro:362:      href="https://t.me/enogtyvedk/7560"
+/da/faellesskab/initiativer-danmark.astro:38:        url: "https://www.youtube.com/@barekev",
+/da/faellesskab/initiativer-danmark.astro:46:        url: "https://www.bitcoinskolen.net",
+/da/faellesskab/initiativer-danmark.astro:59:        url: "https://www.bitcoinstandarden.dk",
+/da/faellesskab/initiativer-danmark.astro:67:        url: "https://www.mempool.space",
+/da/faellesskab/initiativer-danmark.astro:74:        url: "https://www.blink.sv",
+/da/faellesskab/initiativer-danmark.astro:81:        url: "https://archive.ph/P6uNk",
+/da/faellesskab/initiativer-danmark.astro:88:        url: "https://www.shop21.dk/?ref=enogtyve.org",
+/da/faellesskab/playliste.astro:17:      src="https://open.spotify.com/embed/playlist/1sVO1ZBH0lGegNPH8hbS0D?utm_source=generator&theme=0"
+/da/faellesskab/support.astro:142:          href="https://t.me/enogtyvedk"
+/da/faellesskab/support.astro:48:      url: "https://www.btcmap.org",
+/da/faellesskab/support.astro:59:      url: "http://amboss.enogtyve.org",
+/da/faellesskab/support.astro:79:      url: "https://github.com/Mannohat/enogtyve-web",
+/da/idevaerksted/buidl.astro:100:    url: "https://www.getumbrel.com",
+/da/idevaerksted/buidl.astro:105:    url: "https://www.lightningpiggy.com",
+/da/idevaerksted/buidl.astro:110:    url: "https://github.com/arcbtc/Hal-Finney-Price-Checker",
+/da/idevaerksted/buidl.astro:115:    url: "https://btclock.store/",
+/da/idevaerksted/buidl.astro:12:    url: "https://www.lightningpiggy.com",
+/da/idevaerksted/buidl.astro:17:    url: "https://www.getumbrel.com",
+/da/idevaerksted/buidl.astro:226:          href="https://bitcoinswitch.lnbits.com/"
+/da/idevaerksted/buidl.astro:22:    url: "https://www.cryptocloaks.com",
+/da/idevaerksted/buidl.astro:25:      { label: "21energy.io", url: "https://21energy.com/enogtyve" },
+/da/idevaerksted/buidl.astro:26:      { label: "Miningwholesale.eu", url: "https://miningwholesale.eu/" },
+/da/idevaerksted/buidl.astro:31:    url: "https://github.com/BitMaker-hub/NerdMiner_v2",
+/da/idevaerksted/buidl.astro:40:    url: "https://lnpos.lnbits.com/",
+/da/idevaerksted/buidl.astro:45:    url: "https://lnpos.lnbits.com/",
+/da/idevaerksted/buidl.astro:50:    url: "https://lnbits.github.io/hardware-wallet/installer/",
+/da/idevaerksted/buidl.astro:55:    url: "https://nostr-zap-lamp.lnbits.com/",
+/da/idevaerksted/buidl.astro:60:    url: "https://lnbits.github.io/bitcoinswitch",
+/da/idevaerksted/buidl.astro:65:    url: "https://lnbits.github.io/bitcoinswitch",
+/da/idevaerksted/buidl.astro:70:    url: "https://www.lightningpiggy.com/",
+/da/idevaerksted/buidl.astro:75:    url: "https://lnpos.lnbits.com/",
+/da/idevaerksted/buidl.astro:7:    url: "https://lnbits.com/",
+/da/kom-igang/begreber-ord.astro:106:        href="https://x.com/rasmushansen?s=20"
+/da/kom-igang/begreber-ord.astro:14:    "https://raw.githubusercontent.com/Enogtyve/Ordliste/main/terms.json",
+/da/kom-igang/bitcoin-boeger-dansk.astro:20:        <a href="https://www.shop21.dk" target="_blank" rel="noopener noreferrer">
+/da/kom-igang/bitcoin-boeger-dansk.astro:29:      <a href="https://www.bitcoinerbooks.com/" target="_blank" rel="noopener noreferrer">
+/da/kom-igang/bitcoin-boeger-dansk.astro:55:        <a href="https://github.com/Shop21DK/21-Lektioner/raw/master/21%20Lektioner%20-%20latest%20version.pdf" target="_blank" rel="noopener noreferrer">
+/da/kom-igang/bitcoin-boeger-dansk.astro:58:        <a href="https://shop21.dk/vare/21-lektioner/?apply_coupon=ENOGTYVE" target="_blank" rel="noopener noreferrer">
+/da/kom-igang/bitcoin-boeger-dansk.astro:91:        <a href="https://shop21.dk/vare/bitcoinstandarden/?apply_coupon=ENOGTYVE" target="_blank" rel="noopener noreferrer">
+/da/kom-igang/bitcoin-software.astro:29:        <h3><a href="https://sparrowwallet.com/" target="_blank" rel="noopener noreferrer">Sparrow Wallet</a></h3>
+/da/kom-igang/bitcoin-software.astro:31:        <a href="https://sparrowwallet.com/" class="software-link" target="_blank" rel="noopener noreferrer">
+/da/kom-igang/bitcoin-software.astro:38:        <h3><a href="https://wasabiwallet.io/" target="_blank" rel="noopener noreferrer">Wasabi Wallet</a></h3>
+/da/kom-igang/bitcoin-software.astro:40:        <a href="https://wasabiwallet.io/" class="software-link" target="_blank" rel="noopener noreferrer">
+/da/kom-igang/bitcoin-software.astro:47:        <h3><a href="https://specter.solutions/desktop/" target="_blank" rel="noopener noreferrer">Specter</a></h3>
+/da/kom-igang/bitcoin-software.astro:49:        <a href="https://specter.solutions/desktop/" class="software-link" target="_blank" rel="noopener noreferrer">
+/da/kom-igang/hardware-wallets.astro:31:        <h3><a href="https://store.blockstream.com/?code=enogtyve" target="_blank" rel="noopener noreferrer">Jade & Jade Plus</a></h3>
+/da/kom-igang/hardware-wallets.astro:32:        <p><a href="https://store.blockstream.com/?code=enogtyve" target="_blank" rel="noopener noreferrer">Blockstream</a> har lavet en super fin hardware wallet nu i 2 størrelser, begge med et kamera som bl.a. giver mulighed for at signere transaktioner vha. QR-koder. De kan altså bruges "air-gapped", som betyder at den ikke behøver at blive tilsluttet computeren, men kan kommunikere vha. QR-koder. Det kan der være forskellige grunde til at man gerne vil. Den kan også tilsluttes med et kabel hvis man måtte ønske det. Begge versioner kan desuden benyttes i forbindelse med <a href="/da/laer-mere/liquid">Liquid netværket</a>. For mere information om <a href="/da/laer-mere/liquid">Liquid, se her</a>.</p>
+/da/kom-igang/hardware-wallets.astro:33:        <a href="https://store.blockstream.com/?code=enogtyve" class="wallet-link" target="_blank" rel="noopener noreferrer">
+/da/kom-igang/hardware-wallets.astro:44:        <h3><a href="https://shop.bitbox.swiss/?ref=Seum0AJVdk" target="_blank" rel="noopener noreferrer">BitBox02 Nova</a></h3>
+/da/kom-igang/hardware-wallets.astro:45:        <p>BitBox02 Nova er en hardware wallet fra <a href="https://shiftcrypto.ch/bitbox02/?ref=Seum0AJVdk" target="_blank" rel="noopener noreferrer">Shiftcrypto</a> i Schweiz. Deres seneste version virker også med iPhone og iPads. Det er en super hardware wallet som er nem at betjene, og der medfølger alt du skal bruge. Husk at vælge Bitcoin-only versionen.</p>
+/da/kom-igang/hardware-wallets.astro:47:        <a href="https://shop.bitbox.swiss/?ref=Seum0AJVdk" class="wallet-link" target="_blank" rel="noopener noreferrer">
+/da/kom-igang/hardware-wallets.astro:58:        <h3><a href="https://www.seedsigner.com" target="_blank" rel="noopener noreferrer">SeedSigner</a></h3>
+/da/kom-igang/hardware-wallets.astro:59:        <p>SeedSigner er et fantastisk værktøj når det kommer til sikring af dine sats og en klar anbefaling herfra. Projektet er open source og du kan bygge din egen eller købe den på <a href="https://www.gobrrr.me/?coupon=enogtyve" target="_blank" rel="noopener noreferrer"><strong>GoBrrr.me</strong></a> som er en østrigsk Bitcoin-only webshop med en masse gode produkter. <strong>Du får 5% rabat med rabatkoden "enogtyve"</strong>. Læs mere om <a href="https://www.seedsigner.com" target="_blank" rel="noopener noreferrer">SeedSigner på projektets hjemmeside</a>.</p>
+/da/kom-igang/hardware-wallets.astro:61:        <a href="https://www.gobrrr.me/?coupon=enogtyve" class="wallet-link" target="_blank" rel="noopener noreferrer">
+/da/kom-igang/hardware-wallets.astro:72:        <h3><a href="https://store.coinkite.com/promo/F5E096EEF1AEDDAC4255" target="_blank" rel="noopener noreferrer">Coldcard MK4</a></h3>
+/da/kom-igang/hardware-wallets.astro:73:        <p><a href="https://store.coinkite.com/promo/F5E096EEF1AEDDAC4255" target="_blank" rel="noopener noreferrer">Coinkite</a> laver en række rigtig gode produkter og mest kendt er deres Coldcard hardware wallet. Den er ikke svær at bruge og samtidig gemmer den på en lang række super fede funktioner. Coldcard MK4 kan bruges både tilsluttet til computeren, vha. NFC eller air-gapped med MicroSD-kort.</p>
+/da/kom-igang/hardware-wallets.astro:74:        <a href="https://store.coinkite.com/promo/F5E096EEF1AEDDAC4255" class="wallet-link" target="_blank" rel="noopener noreferrer">
+/da/kom-igang/hardware-wallets.astro:85:        <h3><a href="https://affil.trezor.io/aff_c?offer_id=352&aff_id=36562" target="_blank" rel="noopener noreferrer">Trezor Safe 7</a></h3>
+/da/kom-igang/hardware-wallets.astro:87:        <a href="https://affil.trezor.io/aff_c?offer_id=352&aff_id=36562" class="wallet-link" target="_blank" rel="noopener noreferrer">
+/da/kom-igang/kob-bitcoin.astro:104:        <h3><a href="https://peachbitcoin.com/" target="_blank" rel="noopener noreferrer">Peach Bitcoin</a></h3>
+/da/kom-igang/kob-bitcoin.astro:112:        <a href="https://peachbitcoin.com/" class="service-link" target="_blank" rel="noopener noreferrer">
+/da/kom-igang/kob-bitcoin.astro:119:        <h3><a href="https://bisq.network/" target="_blank" rel="noopener noreferrer">Bisq</a></h3>
+/da/kom-igang/kob-bitcoin.astro:122:        <a href="https://bisq.network/" class="service-link" target="_blank" rel="noopener noreferrer">
+/da/kom-igang/kob-bitcoin.astro:129:        <h3><a href="https://hodlhodl.com/join/PJ2Y" target="_blank" rel="noopener noreferrer">HodlHodl</a></h3>
+/da/kom-igang/kob-bitcoin.astro:132:        <a href="https://hodlhodl.com/join/PJ2Y" class="service-link" target="_blank" rel="noopener noreferrer">
+/da/kom-igang/kob-bitcoin.astro:49:        <h3><a href="https://app.bullbitcoin.com/registration/enogtyve" target="_blank" rel="noopener noreferrer">BullBitcoin</a></h3>
+/da/kom-igang/kob-bitcoin.astro:58:        <a href="https://app.bullbitcoin.com/registration/enogtyve" class="service-link" target="_blank" rel="noopener noreferrer">
+/da/kom-igang/kob-bitcoin.astro:65:        <h3><a href="https://relai.app/" target="_blank" rel="noopener noreferrer">Relai</a></h3>
+/da/kom-igang/kob-bitcoin.astro:74:        <a href="https://relai.app/" class="service-link" target="_blank" rel="noopener noreferrer">
+/da/kom-igang/kob-bitcoin.astro:81:        <h3><a href="https://spend.bringin.xyz/signup?affiliate=ID1T71MG5S" target="_blank" rel="noopener noreferrer">Bringin</a></h3>
+/da/kom-igang/kob-bitcoin.astro:90:        <a href="https://spend.bringin.xyz/signup?affiliate=ID1T71MG5S" class="service-link" target="_blank" rel="noopener noreferrer">
+/da/kom-igang/optjen-bitcoin.astro:20:        <h3><a href="https://satsback.com/register/6zj3laKvOmPVyKE5" target="_blank" rel="noopener noreferrer">Satsback.com</a></h3>
+/da/kom-igang/optjen-bitcoin.astro:22:        <a href="https://satsback.com/register/6zj3laKvOmPVyKE5" class="service-link" target="_blank" rel="noopener noreferrer">
+/da/kom-igang/optjen-bitcoin.astro:29:        <h3><a href="https://addslice.com/?crew=f5DzF" target="_blank" rel="noopener noreferrer">AddSlice.com</a></h3>
+/da/kom-igang/optjen-bitcoin.astro:31:        <a href="https://addslice.com/?crew=f5DzF" class="service-link" target="_blank" rel="noopener noreferrer">
+/da/kom-igang/optjen-bitcoin.astro:39:    <p>Kender du andre services? Send endelig en mail til <a href="mailto:kontakt@enogtyve.org">kontakt@enogtyve.org</a> eller skriv i <a href="http://chat.enogtyve.org" target="_blank" rel="noopener noreferrer">Telegramgruppen</a>.</p>
+/da/kom-igang/privatliv-best-practice.astro:44:      <a href="https://www.mempool.space/da" target="_blank" rel="noopener noreferrer">
+/da/kom-igang/privatliv-best-practice.astro:45:        https://www.mempool.space
+/da/kom-igang/seed-phrase.astro:11:    <p><strong>Gendannelsesord eller "Seed Phrase"</strong> er en række ord, der genererer en privat nøgle og bruges typisk som en backup. <a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki" target="_blank" rel="noopener noreferrer">BIP39</a> er en standard for generering af disse gendannelsesord og bruges til at generere og sikkerhedskopiere kryptografiske nøgler. Standarden definerer en metode til at konvertere en tilfældig sekvens af bytes til en liste med let huskbare ord, også kaldet mnemonic seed phrase. En typisk BIP39 mnemonic sætning består af 12, 15, 18, 21 eller 24 ord, hvor 12 eller 24 ord er det mest anvendte.</p>
+/da/kom-igang/seed-phrase.astro:20:      <li><strong>Ordliste:</strong> Disse tal bruges som indekser til at slå op i en foruddefineret <a href="https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt" target="_blank" rel="noopener noreferrer">ordliste på 2048 ord</a>.</li>
+/da/kom-igang/seed-phrase.astro:24:    <p>Mnemonic sætningen kan derefter bruges til at generere en <a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki" target="_blank" rel="noopener noreferrer">BIP32</a> master-nøgle og tilhørende nøgler og adresser. Denne standard giver en sikker og mere brugervenlig måde at sikkerhedskopiere og gendanne en bitcoin-tegnebog, da det er væsentligt nemmere at håndtere f.eks. 12 ord i en korrekt rækkefølge end det er at håndtere en BIP32 master-nøgle.</p>
+/da/kom-igang/seed-phrase.astro:66:      <p>En super god løsning er <a href="https://tinyseed.io/enogtyve" target="_blank" rel="noopener noreferrer">Tinyseed</a> som er en lille titaniumsplade der kan modstå de fleste tænkelige scenarier for ødelæggelse. Du kan læse en test af Tinyseed her: <a href="https://jlopp.github.io/metal-bitcoin-storage-reviews/reviews/tinyseed/" target="_blank" rel="noopener noreferrer">Tinyseed review af Jameson Lopp</a></p>
+/da/kom-igang/seed-phrase.astro:74:      <a href="https://tinyseed.io/enogtyve" class="cta-link" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/bitcoin-blockchain.astro:102:        href="https://timechainstats.com/"
+/da/laer-mere/bitcoin-blockchain.astro:110:        href="https://bitcoin.clarkmoody.com/dashboard/"
+/da/laer-mere/bitcoin-blockchain.astro:119:        href="https://miningpool.observer/"
+/da/laer-mere/bitcoin-blockchain.astro:127:        href="https://bitfeed.live/"
+/da/laer-mere/bitcoin-blockchain.astro:135:        href="https://www.utxo.live"
+/da/laer-mere/bitcoin-blockchain.astro:143:        href="https://bit.ly/luke-nodecount"
+/da/laer-mere/bitcoin-blockchain.astro:60:          <a href="https://mempool.space" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/bitcoin-blockchain.astro:65:      <a href="https://mempool.space" target="_blank" rel="noopener noreferrer" class="feature-image">
+/da/laer-mere/bitcoin-blockchain.astro:77:      <a href="https://timechaincalendar.com/en" target="_blank" rel="noopener noreferrer" class="feature-image feature-image--logo">
+/da/laer-mere/bitcoin-blockchain.astro:89:          <a href="https://timechaincalendar.com/en" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/bitcoin-og-din-forretning.astro:101:      På <a href="https://www.btcmap.org" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/bitcoin-og-din-forretning.astro:129:      <a href="https://swiss-bitcoin-pay.ch/?refCode=ENOGTYVE" target="_blank" rel="noopener noreferrer" class="solution-image">
+/da/laer-mere/bitcoin-og-din-forretning.astro:148:            <a href="https://swiss-bitcoin-pay.ch/?refCode=ENOGTYVE" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/bitcoin-og-din-forretning.astro:157:      <a href="https://app.paywithflash.com/signup?ref=837fa65af323b9b01dcbfccdb7d9f4e64d7a598daac25bbdf0fdc06e9d89bdd0" target="_blank" rel="noopener noreferrer" class="solution-image">
+/da/laer-mere/bitcoin-og-din-forretning.astro:173:            <a href="https://app.paywithflash.com/signup?ref=837fa65af323b9b01dcbfccdb7d9f4e64d7a598daac25bbdf0fdc06e9d89bdd0" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/bitcoin-og-din-forretning.astro:182:      <a href="https://www.bitcoinize.com" target="_blank" rel="noopener noreferrer" class="solution-image">
+/da/laer-mere/bitcoin-og-din-forretning.astro:204:        <a href="https://www.btcmap.org" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/bitcoin-og-din-forretning.astro:214:        <a href="http://telegram.enogtyve.org" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/bitcoin-og-din-forretning.astro:68:            src="https://www.youtube.com/embed/PO2EsDytwjY"
+/da/laer-mere/bitcoin-og-din-forretning.astro:83:            src="https://www.youtube.com/embed/s2vrtAGlG1Y"
+/da/laer-mere/bitcoin-services-og-produkter.astro:103:                url: "https://d-central.tech/",
+/da/laer-mere/bitcoin-services-og-produkter.astro:108:                url: "https://www.thesolomining.co/",
+/da/laer-mere/bitcoin-services-og-produkter.astro:113:                url: "https://bitcoinbrabant.com/",
+/da/laer-mere/bitcoin-services-og-produkter.astro:118:                url: "https://btclock.store/",
+/da/laer-mere/bitcoin-services-og-produkter.astro:128:                url: "https://www.storeofvalue.eu/discount/enogtyve",
+/da/laer-mere/bitcoin-services-og-produkter.astro:134:                url: "https://shop21.dk/",
+/da/laer-mere/bitcoin-services-og-produkter.astro:140:                url: "https://shop.freemadeira.org/discount/enogtyve",
+/da/laer-mere/bitcoin-services-og-produkter.astro:146:                url: "https://www.satoshistore.io",
+/da/laer-mere/bitcoin-services-og-produkter.astro:151:                url: "https://www.cryptocloaks.com",
+/da/laer-mere/bitcoin-services-og-produkter.astro:156:                url: "https://www.bitcoinstickers.co.uk",
+/da/laer-mere/bitcoin-services-og-produkter.astro:166:                url: "https://airbtc.online/",
+/da/laer-mere/bitcoin-services-og-produkter.astro:171:                url: "https://www.travala.com/",
+/da/laer-mere/bitcoin-services-og-produkter.astro:21:                url: "https://21energy.com/enogtyve",
+/da/laer-mere/bitcoin-services-og-produkter.astro:225:            <a href="https://www.bitlist.com/" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/bitcoin-services-og-produkter.astro:27:                url: "https://heatbit.com/?ref=ENOGTYVE",
+/da/laer-mere/bitcoin-services-og-produkter.astro:33:                url: "https://miningwholesale.eu/",
+/da/laer-mere/bitcoin-services-og-produkter.astro:43:                url: "https://braiins.com/",
+/da/laer-mere/bitcoin-services-og-produkter.astro:53:                url: "https://www.mim.farm",
+/da/laer-mere/bitcoin-services-og-produkter.astro:63:                url: "https://store.coinkite.com/promo/F5E096EEF1AEDDAC4255",
+/da/laer-mere/bitcoin-services-og-produkter.astro:69:                url: "https://www.gobrrr.me/?coupon=enogtyve",
+/da/laer-mere/bitcoin-services-og-produkter.astro:75:                url: "https://bitronics.store/?ref=1089",
+/da/laer-mere/bitcoin-services-og-produkter.astro:81:                url: "https://tinyseed.io/enogtyve",
+/da/laer-mere/bitcoin-services-og-produkter.astro:87:                url: "https://pleb.style/",
+/da/laer-mere/bitcoin-services-og-produkter.astro:93:                url: "https://shop.lnbits.com/",
+/da/laer-mere/bitcoin-services-og-produkter.astro:98:                url: "https://www.solosatoshi.com/",
+/da/laer-mere/ecash.astro:117:      <a href="https://cashu.space/" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/ecash.astro:122:      <a href="https://docs.cashu.space/projects" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/ecash.astro:127:      <a href="https://bitcoin.design/guide/how-it-works/ecash/cashu/" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/ecash.astro:26:      <a href="https://www.enuts.cash/" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/ecash.astro:31:      <a href="https://wallet.cashu.me/" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/ecash.astro:36:      <a href="https://nutstash.app/" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/ecash.astro:41:      <a href="https://www.minibits.cash/" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/ecash.astro:53:      <a href="https://cashumints.space/" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/ecash.astro:58:      <a href="https://bitcoinmints.com/?tab=mints" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/ecash.astro:63:      <a href="https://proxnut.com/" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/lightning-produkter-services.astro:104:        href="https://www.getumbrel.com"
+/da/laer-mere/lightning-produkter-services.astro:113:        href="https://start9.com/"
+/da/laer-mere/lightning-produkter-services.astro:122:        href="https://raspiblitz.org/"
+/da/laer-mere/lightning-produkter-services.astro:131:        href="https://bolt.observer/"
+/da/laer-mere/lightning-produkter-services.astro:140:        href="https://lightningnetwork.plus"
+/da/laer-mere/lightning-produkter-services.astro:149:        href="https://amboss.space/"
+/da/laer-mere/lightning-produkter-services.astro:165:        href="https://btcpayserver.org/"
+/da/laer-mere/lightning-produkter-services.astro:174:        href="https://www.lnbits.com"
+/da/laer-mere/lightning-produkter-services.astro:183:        href="https://coinos.io/"
+/da/laer-mere/lightning-produkter-services.astro:192:        href="https://www.elenpay.tech/"
+/da/laer-mere/lightning-produkter-services.astro:201:        href="https://lipa.swiss/"
+/da/laer-mere/lightning-produkter-services.astro:210:        href="https://nodeless.io/"
+/da/laer-mere/lightning-produkter-services.astro:219:        href="http://lnlink.org/"
+/da/laer-mere/lightning-produkter-services.astro:228:        href="https://lncal.com?ref=enogtyve"
+/da/laer-mere/lightning-produkter-services.astro:243:        href="https://zaprite.com/"
+/da/laer-mere/lightning-produkter-services.astro:258:        href="https://mempool.space/lightning"
+/da/laer-mere/lightning-produkter-services.astro:268:        href="https://www.amboss.space/"
+/da/laer-mere/lightning-produkter-services.astro:278:        href="https://1ml.com"
+/da/laer-mere/lightning-produkter-services.astro:293:        href="https://lightningnetworkstores.com/"
+/da/laer-mere/lightning-produkter-services.astro:302:        href="https://www.btcmap.org"
+/da/laer-mere/lightning-produkter-services.astro:30:        href="https://phoenix.acinq.co/"
+/da/laer-mere/lightning-produkter-services.astro:312:        href="https://emeralize.app/"
+/da/laer-mere/lightning-produkter-services.astro:327:        href="https://cointastical.medium.com/exchanges-with-support-for-bitcoin-lightning-network-payments-739829bcb7bc"
+/da/laer-mere/lightning-produkter-services.astro:336:        href="https://lightningnetworkstores.com/?tags=exchange"
+/da/laer-mere/lightning-produkter-services.astro:351:        href="https://zap.stream/"
+/da/laer-mere/lightning-produkter-services.astro:360:        href="https://radio.noderunners.org"
+/da/laer-mere/lightning-produkter-services.astro:369:        href="https://lightsats.com/"
+/da/laer-mere/lightning-produkter-services.astro:378:        href="https://tipcards.io/"
+/da/laer-mere/lightning-produkter-services.astro:393:        href="https://lightningdecoder.com/"
+/da/laer-mere/lightning-produkter-services.astro:39:        href="https://zeusln.app/"
+/da/laer-mere/lightning-produkter-services.astro:402:        href="https://bitcoin-connect.com/"
+/da/laer-mere/lightning-produkter-services.astro:48:        href="https://www.blink.sv/"
+/da/laer-mere/lightning-produkter-services.astro:57:        href="https://walletofsatoshi.com/"
+/da/laer-mere/lightning-produkter-services.astro:66:        href="https://breez.technology/"
+/da/laer-mere/lightning-produkter-services.astro:75:        href="https://bluewallet.io/"
+/da/laer-mere/lightning-produkter-services.astro:95:        href="https://www.voltage.cloud"
+/da/laer-mere/lightning-wallets.astro:23:      <h3><a href="https://www.blink.sv/" target="_blank" rel="noopener noreferrer">Blink</a></h3>
+/da/laer-mere/lightning-wallets.astro:25:      <a href="https://www.blink.sv/" class="wallet-link" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/lightning-wallets.astro:32:      <h3><a href="https://phoenix.acinq.co/" target="_blank" rel="noopener noreferrer">Phoenix Wallet</a></h3>
+/da/laer-mere/lightning-wallets.astro:34:      <a href="https://phoenix.acinq.co/" class="wallet-link" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/lightning-wallets.astro:41:      <h3><a href="https://www.walletofsatoshi.com/" target="_blank" rel="noopener noreferrer">Wallet of Satoshi</a></h3>
+/da/laer-mere/lightning-wallets.astro:44:      <a href="https://www.walletofsatoshi.com/" class="wallet-link" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/liquid.astro:106:      <a href="https://store.blockstream.com/products/blockstream-jade-hardware-wallet?bg_ref=buvFujUbkv" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/liquid.astro:110:      <a href="https://blockstream.com/liquid/" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/liquid.astro:114:      <a href="https://liquid.network/" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/liquid.astro:118:      <a href="https://blockstream.info/liquid/" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/liquid.astro:122:      <a href="https://blockstream.com/green/" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/liquid.astro:126:      <a href="https://sideshift.ai/btc/liquid" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/liquid.astro:130:      <a href="https://boltz.exchange/" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/liquid.astro:134:      <a href="https://www.sideswap.io" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/liquid.astro:144:      <a href="https://blog.liquid.net/the-truth-about-liquid/" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/liquid.astro:73:      <a href="https://store.blockstream.com/products/blockstream-jade-hardware-wallet?bg_ref=buvFujUbkv" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/liquid.astro:92:          <a href="https://sideshift.ai/btc/liquid" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/value4value.astro:119:          <a href="https://www.nostr.dk" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/value4value.astro:46:          <a href="https://fountain.fm" target="_blank" rel="noopener noreferrer">fountain.fm</a>
+/da/laer-mere/value4value.astro:52:          <a href="https://stacker.news/" target="_blank" rel="noopener noreferrer">stacker.news</a>
+/da/laer-mere/value4value.astro:58:          <a href="https://wavlake.com/" target="_blank" rel="noopener noreferrer">wavlake.com</a>
+/da/laer-mere/value4value.astro:64:          <a href="https://zap.stream" target="_blank" rel="noopener noreferrer">zap.stream</a>
+/da/laer-mere/value4value.astro:70:          <a href="https://tunestr.io" target="_blank" rel="noopener noreferrer">tunestr.io</a>
+/da/laer-mere/value4value.astro:76:          <a href="https://www.thehigherlow.com/" target="_blank" rel="noopener noreferrer">thehigherlow.com</a>
+/da/laer-mere/value4value.astro:85:      <a href="https://youtu.be/PgihPtnBSek?si=YFoHQeI0JH-Ro0ik" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/value4value.astro:89:      <a href="https://serve.podhome.fm/episodepage/djvalerieblove/the-future-of-music-bitcoin-value-for-value-and-the-higher-lows-vision" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/laer-mere/value4value.astro:96:      <a href="https://value4value.info/" target="_blank" rel="noopener noreferrer">
+/da/mining/mining-for-opvarmning.astro:129:      <a href="http://telegram.enogtyve.org" target="_blank" rel="noopener noreferrer">
+/da/mining/mining-for-opvarmning.astro:134:      <a href="https://youtu.be/csmHvuzUECU?si=NUh2xAix98gsPacR" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/mining/mining-for-opvarmning.astro:138:      <a href="https://youtu.be/jqvJWl3LMUo?si=BGCw2mCnwIHr1S9m" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/mining/mining-for-opvarmning.astro:142:      <a href="https://www.youtube.com/watch?v=aDykJkswyK0" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/mining/mining-for-opvarmning.astro:60:      <a href="https://21energy.com/enogtyve" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/mining/mining-for-opvarmning.astro:64:      <a href="https://heatbit.com/?ref=ENOGTYVE" class="link-card" target="_blank" rel="noopener noreferrer">
+/da/mining/mining-for-opvarmning.astro:81:          <a href="https://21energy.com/enogtyve" target="_blank" rel="noopener noreferrer">
+/da/mining/mining-for-opvarmning.astro:88:            <a href="https://www.cryptocloaks.com" target="_blank" rel="noopener noreferrer">
+/da/mining/mining-for-opvarmning.astro:91:          <a href="https://www.cryptocloaks.com/the-future-of-space-heaters-s9-bitcoin-asic" target="_blank" rel="noopener noreferrer">
+/da/mining/mining-for-opvarmning.astro:97:          <a href="https://www.thingiverse.com/thing:5877154" target="_blank" rel="noopener noreferrer">
+/da/mining/solo-mining.astro:102:          <a href="https://noderunners.network/en/pool" target="_blank" rel="noopener noreferrer">
+/da/mining/solo-mining.astro:114:          <a href="https://pool.enogtyve.org/api/v1/users/bitcoinaddresse" target="_blank" rel="noopener noreferrer">
+/da/mining/solo-mining.astro:122:          <a href="https://pool.enogtyve.org/api/v1/pool" target="_blank" rel="noopener noreferrer">
+/da/mining/solo-mining.astro:13:      <a href="https://www.noderunners.network" target="_blank" rel="noopener noreferrer">
+/da/mining/solo-mining.astro:140:          <a href="https://bitronics.store/?ref=1089" target="_blank" rel="noopener noreferrer">
+/da/mining/solo-mining.astro:148:          <a href="https://heatbit.com/?ref=ENOGTYVE" target="_blank" rel="noopener noreferrer">
+/da/mining/solo-mining.astro:156:          <a href="https://21energy.com/enogtyve" target="_blank" rel="noopener noreferrer">
+/da/mining/solo-mining.astro:174:          <a href="https://www.sololuck.com/?ref=enogtyve.org" target="_blank" rel="noopener noreferrer">
+/da/mining/solo-mining.astro:182:          <a href="https://www.mempool.space/?ref=enogtyve.org" target="_blank" rel="noopener noreferrer">
+/da/mining/solo-mining.astro:190:          <a href="https://miningpool.observer/?ref=enogtyve.org" target="_blank" rel="noopener noreferrer">
+/da/mining/solo-mining.astro:24:        <a href="https://t.me/enogtyvedk/6489" target="_blank" rel="noopener noreferrer">
+/da/podcasts/index.astro:13:                url: "https://youtube.com/playlist?list=PLQ2XoOhzIdN03OmpJSG0wGkkUOZ0n_kTV&si=9WxSyLS6Yp4C2I7v",
+/da/podcasts/index.astro:25:                url: "https://fountain.fm/episode/I3O7CPokuNJGdRGVo417",
+/da/podcasts/index.astro:29:                url: "https://open.spotify.com/show/271Jadnu7wxjOP31GHhgJM?si=70c02c245c364383",
+/da/podcasts/index.astro:33:                url: "https://www.youtube.com/watch?v=cn9_AHb7vmw",
+/da/podcasts/index.astro:45:                url: "https://fountain.fm/show/wQjidAJSuF52TCAcpBY2",
+/da/podcasts/index.astro:49:                url: "https://open.spotify.com/show/06DHUs9YX0QRNgKXMaWvtx?si=2dc81d75b1724ec7",
+/da/podcasts/index.astro:53:                url: "https://youtube.com/playlist?list=PLqGASsLR82YNBBXeTqM3I9Zt44lYc-yT8&si=IMQYTlJMH1zdi9EO",
+/da/podcasts/index.astro:82:                href="http://telegram.enogtyve.org"
+/da/privatlivspolitik.astro:31:                Under GDPR har du ret til indsigt, berigtigelse, sletning og indsigelse. Du kan også indgive klage til <a href="https://www.datatilsynet.dk" target="_blank" rel="noopener noreferrer">Datatilsynet</a>.
+/da/rabat.astro:100:        href="https://www.relai.app/"
+/da/rabat.astro:113:        href="https://spend.bringin.xyz/signup?affiliate=ID1T71MG5S"
+/da/rabat.astro:126:        href="https://app.paywithflash.com/signup?ref=837fa65af323b9b01dcbfccdb7d9f4e64d7a598daac25bbdf0fdc06e9d89bdd0"
+/da/rabat.astro:135:        href="https://swiss-bitcoin-pay.ch/?refCode=ENOGTYVE"
+/da/rabat.astro:148:        href="https://app.wave.space/auth/sign-up/?affiliate=enogtyve"
+/da/rabat.astro:166:        href="https://21energy.com/enogtyve"
+/da/rabat.astro:179:        href="https://heatbit.com/?ref=ENOGTYVE"
+/da/rabat.astro:192:        href="https://www.gobrrr.me/?coupon=enogtyve"
+/da/rabat.astro:201:        href="https://bitronics.store/?ref=1089"
+/da/rabat.astro:214:        href="https://pleb.style/"
+/da/rabat.astro:21:        href="https://shiftcrypto.ch/bitbox02/?ref=Seum0AJVdk"
+/da/rabat.astro:227:        href="https://store.coinkite.com/promo/F5E096EEF1AEDDAC4255"
+/da/rabat.astro:245:        href="https://btcprg.me/ENOGTYVE"
+/da/rabat.astro:258:        href="https://btchel.com/"
+/da/rabat.astro:272:        href="https://store.coinkite.com/promo/F5E096EEF1AEDDAC4255"
+/da/rabat.astro:285:        href="https://tinyseed.io/enogtyve"
+/da/rabat.astro:303:        href="https://shop21.dk/"
+/da/rabat.astro:312:        href="https://www.storeofvalue.eu/discount/enogtyve"
+/da/rabat.astro:325:        href="https://shop.freemadeira.org/discount/enogtyve"
+/da/rabat.astro:343:        href="https://buy.daylightcomputer.com/enogtyve"
+/da/rabat.astro:34:        href="https://store.blockstream.com/?code=enogtyve"
+/da/rabat.astro:356:        href="http://www.mitochondriak.com/?a_box=gepydbhk"
+/da/rabat.astro:369:        href="https://drinksote.com/ENOGTYVE"
+/da/rabat.astro:43:        href="https://store.coinkite.com/promo/F5E096EEF1AEDDAC4255"
+/da/rabat.astro:56:        href="https://affil.trezor.io/aff_c?offer_id=352&aff_id=36562"
+/da/rabat.astro:69:        href="https://www.gobrrr.me/?coupon=enogtyve"
+/da/rabat.astro:87:        href="https://app.bullbitcoin.com/registration/enogtyve"
+/da/udforsk/bitcoin-ressources.astro:108:        url: "https://mempool.space/",
+/da/udforsk/bitcoin-ressources.astro:114:        url: "https://www.lookintobitcoin.com/",
+/da/udforsk/bitcoin-ressources.astro:119:        url: "https://www.pricedinbitcoin21.com/landing",
+/da/udforsk/bitcoin-ressources.astro:11:        url: "https://bitcoin.org/bitcoin.pdf",
+/da/udforsk/bitcoin-ressources.astro:124:        url: "https://timechaincalendar.com/en",
+/da/udforsk/bitcoin-ressources.astro:130:        url: "https://timechainstats.com/",
+/da/udforsk/bitcoin-ressources.astro:135:        url: "https://www.bitbo.io",
+/da/udforsk/bitcoin-ressources.astro:141:        url: "https://bitcointicker.co",
+/da/udforsk/bitcoin-ressources.astro:146:        url: "https://bitcoin.clarkmoody.com/dashboard/",
+/da/udforsk/bitcoin-ressources.astro:152:        url: "https://miningpool.observer/",
+/da/udforsk/bitcoin-ressources.astro:157:        url: "https://www.utxo.live",
+/da/udforsk/bitcoin-ressources.astro:162:        url: "https://iancoleman.io/",
+/da/udforsk/bitcoin-ressources.astro:16:        url: "https://www.youtube.com/watch?v=ONvg9SbauMg",
+/da/udforsk/bitcoin-ressources.astro:173:        url: "https://www.youtube.com/@BTCSessions",
+/da/udforsk/bitcoin-ressources.astro:179:        url: "https://www.lopp.net",
+/da/udforsk/bitcoin-ressources.astro:184:        url: "https://bitcoiner.guide/",
+/da/udforsk/bitcoin-ressources.astro:195:        url: "https://www.blink.sv",
+/da/udforsk/bitcoin-ressources.astro:201:        url: "https://bitari2100.vercel.app/t",
+/da/udforsk/bitcoin-ressources.astro:206:        url: "https://coinos.io/",
+/da/udforsk/bitcoin-ressources.astro:217:        url: "https://satpile.com/",
+/da/udforsk/bitcoin-ressources.astro:21:        url: "https://www.youtube.com/watch?v=Z9HbQsTgrtk",
+/da/udforsk/bitcoin-ressources.astro:222:        url: "https://www.borderwallets.com/",
+/da/udforsk/bitcoin-ressources.astro:227:        url: "https://opentip.io/",
+/da/udforsk/bitcoin-ressources.astro:232:        url: "https://bcrypt-generator.com/",
+/da/udforsk/bitcoin-ressources.astro:243:        url: "https://www.nobsbitcoin.com/",
+/da/udforsk/bitcoin-ressources.astro:249:        url: "https://kyc3.life/",
+/da/udforsk/bitcoin-ressources.astro:254:        url: "https://bitcoinops.org/",
+/da/udforsk/bitcoin-ressources.astro:265:        url: "https://youtu.be/jzwVNHJxgHE?feature=shared",
+/da/udforsk/bitcoin-ressources.astro:26:        url: "https://www.youtube.com/playlist?list=PLE88E9ICdiphYjJkeeLL2O09eJoC8r7Dc",
+/da/udforsk/bitcoin-ressources.astro:270:        url: "https://www.hardmoneyfilm.com/",
+/da/udforsk/bitcoin-ressources.astro:275:        url: "https://www.petrodollarsfilm.com/",
+/da/udforsk/bitcoin-ressources.astro:280:        url: "https://www.anatomystatefilm.com/",
+/da/udforsk/bitcoin-ressources.astro:285:        url: "https://www.thegreatresetfilm.com/",
+/da/udforsk/bitcoin-ressources.astro:296:        url: "https://wtfhappenedin1971.com/",
+/da/udforsk/bitcoin-ressources.astro:301:        url: "https://endthefud.org/",
+/da/udforsk/bitcoin-ressources.astro:306:        url: "https://mises.org/",
+/da/udforsk/bitcoin-ressources.astro:311:        url: "https://bitcoindeaths.com/",
+/da/udforsk/bitcoin-ressources.astro:322:        url: "https://www.madex.art/",
+/da/udforsk/bitcoin-ressources.astro:328:        url: "https://21ism.com/",
+/da/udforsk/bitcoin-ressources.astro:334:        url: "https://www.citadel21.com/",
+/da/udforsk/bitcoin-ressources.astro:340:        url: "https://btcpins.com/?aff=fUg2UWK3p5o1VYn4Wx_UQuwJhpOGaAYDChJ4KlRhfsErWsCqa69PYohMWcCOGK9tK1rAqmuvT2KITFnAjhivbfOajnP3D8A8O09Hi-OY4K8",
+/da/udforsk/bitcoin-ressources.astro:346:        url: "https://www.cypherpunknow.com/",
+/da/udforsk/bitcoin-ressources.astro:352:        url: "https://thepriceinsats.com/",
+/da/udforsk/bitcoin-ressources.astro:363:        url: "https://www.shop21.dk",
+/da/udforsk/bitcoin-ressources.astro:369:        url: "https://www.barekev.dk",
+/da/udforsk/bitcoin-ressources.astro:375:        url: "https://www.storeofvalue.eu/discount/enogtyve",
+/da/udforsk/bitcoin-ressources.astro:37:        url: "https://youtube.com/playlist?list=PL2jAZ0x9H0bQFY6wIbQfnrnIlqMcSHd6X",
+/da/udforsk/bitcoin-ressources.astro:381:        url: "https://www.bitrefill.com/dk/en/",
+/da/udforsk/bitcoin-ressources.astro:387:        url: "https://copiaro.de/en/",
+/da/udforsk/bitcoin-ressources.astro:392:        url: "https://www.satoshistore.io",
+/da/udforsk/bitcoin-ressources.astro:42:        url: "https://youtube.com/playlist?list=PLutwRFLXGQz0CxnvWaT0yVKxVvpleRk_p",
+/da/udforsk/bitcoin-ressources.astro:453:        href="https://bitcoin-resources.com/"
+/da/udforsk/bitcoin-ressources.astro:47:        url: "https://bitcoinpodcasts.com/",
+/da/udforsk/bitcoin-ressources.astro:58:        url: "https://www.bitcoinerbooks.com/",
+/da/udforsk/bitcoin-ressources.astro:69:        url: "https://bitcoin.org/en/",
+/da/udforsk/bitcoin-ressources.astro:75:        url: "https://nakamotoinstitute.org/",
+/da/udforsk/bitcoin-ressources.astro:81:        url: "https://www.hope.com",
+/da/udforsk/bitcoin-ressources.astro:86:        url: "https://bitcoin.rocks/",
+/da/udforsk/bitcoin-ressources.astro:91:        url: "https://learnmeabitcoin.com/",
+/da/udforsk/bitcoin-ressources.astro:96:        url: "https://yzer.io/",
+/da/udforsk/cirkulaere-okonomier.astro:10:  { name: "Bitcoin Lake", location: "Guatemala", url: "https://twitter.com/LakeBitcoin" },
+/da/udforsk/cirkulaere-okonomier.astro:11:  { name: "Praia Bitcoin", location: "Brasilien", url: "https://praiabitcoin.org/?lang=en" },
+/da/udforsk/cirkulaere-okonomier.astro:12:  { name: "Montanha Bitcoin", location: "Brasilien", url: "https://twitter.com/montanhabitcoin" },
+/da/udforsk/cirkulaere-okonomier.astro:13:  { name: "Harlem Bitcoin", location: "New York, USA", url: "https://harlembitcoin.com/" },
+/da/udforsk/cirkulaere-okonomier.astro:18:  { name: "El Salvador, proof of reserves", url: "https://bitcoin.gob.sv/" },
+/da/udforsk/cirkulaere-okonomier.astro:28:    <p>Siden <a href="https://www.coindesk.com/markets/2020/05/22/10-years-after-laszlo-hanyecz-bought-pizza-with-10k-bitcoin-he-has-no-regrets/" target="_blank" rel="noopener noreferrer">Laszlo Hanyecz</a> købte 2 pizzaer for 10.000 bitcoin hos Papa John's den 22. maj 2010 – og altså foretog det første rigtige kendte køb, hvor betaling skete med Bitcoin – er Bitcoin i stigende grad blevet benyttet som betalingsmiddel.</p>
+/da/udforsk/cirkulaere-okonomier.astro:30:    <p>I Berlin var der en bar, der hed <a href="https://room77.berlin/history/" target="_blank" rel="noopener noreferrer">Room 77</a>, som blev kendt for at være den første fysiske forretning, der modtog Bitcoin som betaling, tilbage i 2011. En af stamgæsterne udviklede dengang den første Bitcoin-wallet for Android, ligesom de besøgende Bitcoin-entusiaster forsøgte at få de omkringliggende butikker til at acceptere Bitcoin som betaling.</p>
+/da/udforsk/cirkulaere-okonomier.astro:32:    <p>I dag er der større cirkulære økonomier, som f.eks. <a href="https://www.arnhembitcoinstad.nl/" target="_blank" rel="noopener noreferrer">Arnhem</a> – også kendt som "Bitcoin City" – i Holland, hvor du kan betale med Bitcoin hos mange af de lokale forretninger. I Italien er der en by ved navn Rovereto, som er blevet kendt som <a href="https://www.bitcoinvalley.eu/" target="_blank" rel="noopener noreferrer">Bitcoin Valley</a>. Her er en stor del af de forretningsdrivende villige til at acceptere Bitcoin, ligesom man angiveligt i en periode havde mulighed for at betale sin skat med Bitcoin.</p>
+/da/udforsk/cirkulaere-okonomier.astro:34:    <p>Du kan også se et kort med alle de forretninger, hvor du kan betale med Bitcoin, på <a href="https://www.btcmap.org" target="_blank" rel="noopener noreferrer"><strong>BTCMap.org</strong></a>.</p>
+/da/udforsk/cirkulaere-okonomier.astro:5:  { name: "Bitcoin Beach", location: "El Salvador", url: "https://www.bitcoinbeach.com/" },
+/da/udforsk/cirkulaere-okonomier.astro:6:  { name: "Plan B Lugano", location: "Schweiz", url: "https://planb.lugano.ch/" },
+/da/udforsk/cirkulaere-okonomier.astro:74:          <a href="https://daretodream-film.com/" target="_blank" rel="noopener noreferrer" class="film-cta">Dare to Dream →</a>
+/da/udforsk/cirkulaere-okonomier.astro:75:          <a href="https://twitter.com/bitcoinbeachdoc" target="_blank" rel="noopener noreferrer" class="film-extra">Følg projektet på X →</a>
+/da/udforsk/cirkulaere-okonomier.astro:7:  { name: "Bitcoin Ekasi", location: "Sydafrika", url: "https://bitcoinekasi.com/" },
+/da/udforsk/cirkulaere-okonomier.astro:8:  { name: "Bitcoin Witsand", location: "Sydafrika", url: "https://x.com/BitcoinWitsand" },
+/da/udforsk/cirkulaere-okonomier.astro:9:  { name: "Bitcoin Jungle", location: "Costa Rica", url: "https://www.bitcoinjungle.app/" },
+/da/udforsk/freecities.astro:103:  { name: "Free Cities Foundation", url: "https://free-cities.org", desc: "Organisationen bag Free Communities Directory" },
+/da/udforsk/freecities.astro:104:  { name: "Free Communities Directory", url: "https://free-communities.org/", desc: "Kort og oversigt over alle projekter" },
+/da/udforsk/freecities.astro:105:  { name: "Free Communities – Kort", url: "https://free-communities.org/#exploremap", desc: "Interaktivt kort over frie fællesskaber" },
+/da/udforsk/freecities.astro:10:    url: "https://free-communities.org/project/ciudad-morazan/",
+/da/udforsk/freecities.astro:116:    <p>Oplysningerne herunder er samlet fra <a href="https://free-communities.org/" target="_blank" rel="noopener noreferrer"><strong>Free Communities Directory</strong></a>, som vedligeholdes af <a href="https://free-cities.org" target="_blank" rel="noopener noreferrer">Free Cities Foundation</a>.</p>
+/da/udforsk/freecities.astro:17:    url: "https://free-communities.org/project/prospera/",
+/da/udforsk/freecities.astro:24:    url: "https://free-communities.org/project/free-state-project/",
+/da/udforsk/freecities.astro:31:    url: "https://free-communities.org/project/liberstad/",
+/da/udforsk/freecities.astro:38:    url: "https://free-communities.org/project/montelibero/",
+/da/udforsk/freecities.astro:45:    url: "https://free-communities.org/project/penadexo/",
+/da/udforsk/freecities.astro:52:    url: "https://free-communities.org/project/sark/",
+/da/udforsk/freecities.astro:59:    url: "https://free-communities.org/project/small-farm-cities/",
+/da/udforsk/freecities.astro:68:    url: "https://free-communities.org/project/liberland/",
+/da/udforsk/freecities.astro:74:    url: "https://free-communities.org/project/atlas-island/",
+/da/udforsk/freecities.astro:80:    url: "https://free-communities.org/project/cryptocity/",
+/da/udforsk/freecities.astro:86:    url: "https://free-communities.org/project/freethm/",
+/da/udforsk/freecities.astro:92:    url: "https://free-communities.org/project/los-propietarios/",
+/da/udforsk/freecities.astro:98:    url: "https://free-communities.org/project/coronado/",
+/da/udforsk/in-the-world.astro:12:        url: "https://bitcoin-only.com/meetups",
+/da/udforsk/in-the-world.astro:146:            href="https://www.bitcoinrunners.org"
+/da/udforsk/in-the-world.astro:17:        url: "https://www.btcmap.org/communities",
+/da/udforsk/in-the-world.astro:41:                url: "https://europeanbitcoiners.com/",
+/da/udforsk/in-the-world.astro:46:                url: "https://noderunners.network/en/",
+/da/udforsk/in-the-world.astro:57:                url: "https://timechain.no/",
+/da/udforsk/in-the-world.astro:68:                url: "https://einundzwanzig.space/",
+/da/udforsk/in-the-world.astro:7:        url: "https://www.bitcoinerevents.com/",
+/da/udforsk/konferencer.astro:11:    url: "https://www.bitcoincopenhagen.dk",
+/da/udforsk/konferencer.astro:21:    url: "https://btchel.com/",
+/da/udforsk/konferencer.astro:31:    url: "https://btcprg.me/ENOGTYVE",
+/da/udforsk/konferencer.astro:76:    <a href="https://oslofreedomforum.com/" target="_blank" rel="noopener noreferrer" class="mention-card">
+/da/udforsk/konferencer.astro:86:    <p>Oversigt over flere Bitcoin-konferencer: <a href="https://bitcoin.review/bitcoin-events/" target="_blank" rel="noopener noreferrer"><strong>Bitcoin.review – Events →</strong></a></p>
+/da/udforsk/moed-andre.astro:10:    url: "https://signup.theorangepillapp.com/opa/Jake",
+/da/udforsk/moed-andre.astro:18:    url: "https://www.btcmap.org",
+/da/udforsk/moed-andre.astro:26:    url: "https://www.satlantis.io",
+/da/udforsk/moed-andre.astro:29:      { label: "Lær om Nostr →", url: "https://www.nostr.dk" },
+/da/udforsk/nyheder.astro:5:  { name: "No Bullshit Bitcoin", url: "https://www.nobsbitcoin.com", desc: "Nyheder uden støj – kun Bitcoin" },
+/da/udforsk/nyheder.astro:6:  { name: "Stacker News", url: "https://stacker.news/", desc: "Fællesskabsdrevet nyhedsplatform med Lightning-integration" },
+/da/udforsk/nyheder.astro:7:  { name: "Bitcoinnews.com", url: "https://bitcoinnews.com/", desc: "Daglige Bitcoin-nyheder" },
+/da/udforsk/nyheder.astro:8:  { name: "Bitcoin Magazine", url: "https://bitcoinmagazine.com/", desc: "En af de ældste og mest etablerede Bitcoin-nyhedskilder" },
+/da/udforsk/nyheder.astro:9:  { name: "Lightning News", url: "https://lightning.news/", desc: "Nyheder med fokus på Lightning Network" },
+/da/udforsk/twentyoneworld.astro:19:    <p>Projektet er udsprunget af <a href="https://einundzwanzig.space/" target="_blank" rel="noopener noreferrer">EINUNDZWANZIG</a>, som er ENOGTYVE i Tyskland m.m. Twentyone.world er et af mange initiativer af Gigi – se <a href="https://www.dergigi.com" target="_blank" rel="noopener noreferrer">dergigi.com</a>.</p>
+/da/udforsk/twentyoneworld.astro:23:    <a href="https://www.twentyone.world" target="_blank" rel="noopener noreferrer" class="cta-card">
+/da/velkommen/fud-facts.astro:493:      <a href="https://endthefud.org/" target="_blank" rel="noopener noreferrer">
+/en/privacypolicy.astro:31:                Under GDPR you have the right to access, rectification, erasure, and objection. You may also lodge a complaint with the <a href="https://www.datatilsynet.dk" target="_blank" rel="noopener noreferrer">Danish Data Protection Agency</a>.

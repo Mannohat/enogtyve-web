@@ -1,0 +1,64 @@
+name: Foreslå ny ressource
+description: Foreslå en ny ressource til bogmærkesiden på enogtyve.org
+title: "[Ressource]: "
+labels: ["ny-ressource"]
+body:
+  - type: input
+    id: navn
+    attributes:
+      label: Navn på ressourcen
+      placeholder: fx "Mempool.space"
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      placeholder: https://...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kategori
+    attributes:
+      label: Kategori
+      options:
+        - Essentielt
+        - Nyheder
+        - Lær om Bitcoin
+        - Blockchain
+        - Price tickers
+        - Lightning
+        - Wallets
+        - Podcasts
+        - Tutorials
+        - Bøger
+        - Musik
+        - Værktøjer
+        - Film & dokumentarer
+        - Andre ressourcer
+        - Kunst & kultur
+        - Merch & shops
+        - NOSTR
+    validations:
+      required: true
+
+  - type: textarea
+    id: beskrivelse
+    attributes:
+      label: Kort beskrivelse (på dansk)
+      description: Én kort sætning der forklarer hvad ressourcen er
+      placeholder: fx "Blokkæde-udforsker og live mempool-visualisering"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: bekraeftelse
+    attributes:
+      label: Bekræftelse
+      options:
+        - label: Ressourcen handler om Bitcoin (ikke altcoins)
+          required: true
+        - label: Linket virker og er ikke et dødt link
+          required: true
