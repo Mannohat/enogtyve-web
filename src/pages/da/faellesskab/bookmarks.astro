@@ -1,6 +1,5 @@
 ---
 import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
-const ghToken = import.meta.env.PUBLIC_GH_ISSUES_TOKEN ?? "";
 ---
 
 <ResourcePageLayout
@@ -37,7 +36,7 @@ const ghToken = import.meta.env.PUBLIC_GH_ISSUES_TOKEN ?? "";
     </section>
 
     <!-- Modal -->
-    <div class="modal-backdrop" id="suggest-modal" aria-hidden="true" data-token={ghToken}>
+    <div class="modal-backdrop" id="suggest-modal" aria-hidden="true">
         <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
             <div class="modal-header">
                 <h3 id="modal-title">Foreslå en ressource</h3>
@@ -1511,23 +1510,15 @@ const ghToken = import.meta.env.PUBLIC_GH_ISSUES_TOKEN ?? "";
             ].join("\n");
 
             try {
-                var token = document.getElementById("suggest-modal").dataset.token;
-                var res = await fetch(
-                    "https://api.github.com/repos/" + GITHUB_REPO + "/issues",
-                    {
-                        method: "POST",
-                        headers: {
-                            "Authorization": "Bearer " + token,
-                            "Content-Type": "application/json",
-                            "Accept": "application/vnd.github+json",
-                        },
-                        body: JSON.stringify({
-                            title: "[Ressource]: " + navn,
-                            body: body,
-                            labels: [GITHUB_LABEL],
-                        }),
-                    }
-                );
+                var res = await fetch("/.netlify/functions/create-issue", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        title: "[Ressource]: " + navn,
+                        body: body,
+                        labels: [GITHUB_LABEL],
+                    }),
+                });
 
                 if (res.ok) {
                     status.textContent = "✓ Tak! Dit forslag er sendt til gennemgang.";
