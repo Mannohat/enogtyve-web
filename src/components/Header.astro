@@ -153,11 +153,12 @@ const menuItems = [
                 label: "Bitcoin Konferencer",
                 href: `/${navLang}/udforsk/konferencer`,
             },
-            { label: "Nyheder", href: `/${navLang}/udforsk/nyheder` },
             {
-                label: "Bitcoin Ressourcer",
-                href: `/${navLang}/udforsk/bitcoin-ressources`,
+                label: "Bitcoin Bogmærker",
+                href: `/${navLang}/faellesskab/bookmarks`,
             },
+            { label: "Nyheder", href: `/${navLang}/udforsk/nyheder` },
+
             {
                 label: "Twentyone.world",
                 href: `/${navLang}/udforsk/twentyoneworld`,
@@ -566,20 +567,22 @@ function getSwitchedPath(targetLang: string): string {
 
     .nav-links > li.exclusive > a,
     .nav-links > li.exclusive > .nav-button {
-        background: #3a3a3a;
-        border-radius: 6px;
-        padding: 0.6rem 1.2rem;
-        transition:
-            background 0.2s ease,
-            opacity 0.2s ease;
-        opacity: 0.5;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 4px;
+        padding: 0.35rem 0.7rem;
+        font-size: 0.85rem;
+        color: #888;
+        opacity: 0.8;
+        white-space: nowrap;
+        transition: color 0.2s ease, opacity 0.2s ease, background 0.2s ease;
     }
 
     .nav-links > li.exclusive:hover > a,
     .nav-links > li.exclusive > a:focus,
     .nav-links > li.exclusive:hover > .nav-button,
     .nav-links > li.exclusive > .nav-button:focus {
-        background: #4a4a4a;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--primary);
         opacity: 1;
     }
 
@@ -680,7 +683,7 @@ function getSwitchedPath(targetLang: string): string {
     }
 
     /* Mobile styles */
-    @media (max-width: 1024px) {
+    @media (max-width: 1280px) {
         .mobile-menu-toggle {
             display: block;
         }
@@ -753,8 +756,14 @@ function getSwitchedPath(targetLang: string): string {
 
         .nav-links > li.exclusive > a,
         .nav-links > li.exclusive > .nav-button {
-            background: transparent;
-            border: 2px solid #3a3a3a;
+            background: rgba(255, 255, 255, 0.05);
+            border: none;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: #888;
+            opacity: 0.8;
+            white-space: nowrap;
+            padding: 0.75rem 0.7rem;
         }
 
         .nav-links > li:nth-last-child(-n + 2) .submenu,
