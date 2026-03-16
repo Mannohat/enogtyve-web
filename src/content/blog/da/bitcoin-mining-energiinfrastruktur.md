@@ -1,6 +1,6 @@
 ---
 title: "Sådan spiller Bitcoin-mining en væsentlig rolle i energiinfrastruktur"
-description: "Bitcoin-mining er ikke energispild — det er infrastruktur med mange samtidige formål. Fra varmeudnyttelse og flaregas til netstabilisering og udviklingsinfrastruktur i Afrika. Her er et overblik over hvad der allerede sker — og hvorfor Danmark er et naturligt testmarked."
+description: "Bitcoin-mining er ikke energispild — det er infrastruktur med mange samtidige formål. Fra varmeudnyttelse og udnyttelse af flaregas til netstabilisering og udviklingsinfrastruktur i Afrika og sikkert mange flere lande som i fremtiden. Her er et forsøg på et overblik over hvad der allerede sker — og hvorfor Danmark er et naturligt testmarked."
 pubDate: 2026-03-16T00:00:00.000Z
 author: "Enogtyve Team"
 tags: ["bitcoin", "mining", "energi", "infrastruktur", "danmark", "fjernvarme", "curtailment"]
