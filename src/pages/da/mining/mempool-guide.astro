@@ -1,0 +1,780 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+---
+
+<ResourcePageLayout
+  title="mempool.space — Vejledning"
+  description="Forstå elementerne som vises på mempool.space — Bitcoins blokkæde-udforsker. Lær om blokke, gebyrer, mempool-statistikker og meget mere."
+  lang="da"
+>
+  <section class="nav-buttons">
+    <a href="/da/mining/mining-for-opvarmning" class="nav-btn"
+      >Mining for opvarmning</a
+    >
+    <a href="/da/mining/solo-mining" class="nav-btn">Solo Mining</a>
+    <a href="/da/laer-mere/bitcoin-blockchain" class="nav-btn"
+      >Bitcoin Blokkæden</a
+    >
+  </section>
+
+  <section class="content-section">
+    <p>
+      <a href="https://mempool.space/da" target="_blank" rel="noopener noreferrer">
+        <img src="/images/logos/mempool.png" alt="mempool.space" class="section-logo" />
+      </a>
+      <strong>
+        .space er Bitcoins mest brugte open source blockchain-udforsker.
+        Denne side forklarer alle de elementer du ser, når du åbner
+        mempool.space.
+      </strong>
+    </p>
+    <p>
+      <a href="https://mempool.space/da" target="_blank" rel="noopener noreferrer">
+        Åbn mempool.space →
+      </a>
+    </p>
+  </section>
+
+  <!-- BLOKVISUALISERING -->
+  <section class="content-section">
+    <h2>Blokvisualisering</h2>
+    <p>
+      Den vandrette række af blokke øverst på siden er hjertestykket af
+      mempool.space. Blokkene er opdelt i to typer med hver sin farve:
+    </p>
+    <div class="block-legend">
+      <div class="block-item block-green">
+        <div class="block-preview green"></div>
+        <div class="block-info">
+          <strong>Grønne blokke — Kommende</strong>
+          <p>
+            Projekterede blokke der endnu ikke er minet. Indholdet opdateres
+            løbende i realtid, efterhånden som miners prioriterer transaktioner.
+          </p>
+        </div>
+      </div>
+      <div class="block-item block-purple">
+        <div class="block-preview purple"></div>
+        <div class="block-info">
+          <strong>Lilla blokke — Bekræftede</strong>
+          <p>
+            Blokke der allerede er minet og tilføjet til blockchainen. Viser
+            gebyrrate (sat/vB), tidspunkt og antal transaktioner.
+          </p>
+        </div>
+      </div>
+    </div>
+    <p class="hint">
+      💡 Hver blok viser: antal transaktioner, median gebyr (sat/vB), størrelse
+      (MB) og tidspunkt.
+    </p>
+  </section>
+
+  <!-- GEBYRESTIMATER -->
+  <section class="content-section">
+    <h2>Gebyresti­mater</h2>
+    <p>
+      Under blokvisualiseringen vises anbefalede gebyrniveauer i
+      <strong>satoshis per virtuel byte (sat/vB)</strong>. Jo højere gebyr, jo
+      hurtigere bekræftelse.
+    </p>
+    <div class="fee-table">
+      <div class="fee-row">
+        <div class="fee-badge high">
+          <img src="/images/icons/run.png" alt="" class="fee-icon" />
+          Høj prioritet
+        </div>
+        <div class="fee-desc">
+          <strong>Næste blok (~10 min)</strong> — Brug ved tidskritiske transaktioner.
+          Det dyreste valg.
+        </div>
+      </div>
+      <div class="fee-row">
+        <div class="fee-badge medium">
+          <img src="/images/icons/star.png" alt="" class="fee-icon" />
+          Medium
+        </div>
+        <div class="fee-desc">
+          <strong>1–3 blokke (~10–30 min)</strong> — Godt til de fleste normale overførsler.
+        </div>
+      </div>
+      <div class="fee-row">
+        <div class="fee-badge low">
+          <img src="/images/icons/timeglas.png" alt="" class="fee-icon" />
+          Lav prioritet
+        </div>
+        <div class="fee-desc">
+          <strong>Kan tage timer eller dage</strong> — Billig mulighed, hvis du ikke
+          har travlt.
+        </div>
+      </div>
+      <div class="fee-row">
+        <div class="fee-badge none">
+          <img src="/images/icons/calendar.png" alt="" class="fee-icon" />
+          Ingen hast
+        </div>
+        <div class="fee-desc">
+          <strong>Venter til netværket er stille</strong> — Lavest mulige gebyr.
+          Uforudsigelig ventetid.
+        </div>
+      </div>
+    </div>
+    <p class="hint">
+      ⚠️ Estimaterne er vejledende — i travle perioder kan mediangebyret stige
+      hurtigt. Tjek altid den aktuelle blokvisualisering for de præcise tal.
+    </p>
+  </section>
+
+  <!-- MEMPOOL STATISTIKKER -->
+  <section class="content-section">
+    <h2>Mempool statistikker</h2>
+    <p>Nøgletal om netværkets aktuelle tilstand:</p>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-title">Ubekræftede transaktioner</div>
+        <p>
+          Samlet antal transaktioner der venter på at blive minet. Højt tal
+          betyder netværket er travlt og gebyrer stiger.
+        </p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-title">Memory Usage</div>
+        <p>
+          Hvor meget hukommelse de ventende transaktioner fylder. Maks. ~300 MB
+          pr. node. Ved overskridelse droppes billige transaktioner.
+        </p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-title">Purging</div>
+        <p>
+          Når mempoolens er fuld, droppes transaktioner med for lave gebyrer
+          automatisk for at frigøre plads.
+        </p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-title">Difficulty Adjustment</div>
+        <p>
+          Prognose for ændring i minesværhedsgraden. <strong>+%</strong> = blocks
+          mines hurtigere end 10 min (sværhed stiger). <strong>−%</strong> = blocks
+          mines langsommere (sværhed falder).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SØGEFUNKTIONEN -->
+  <section class="content-section">
+    <h2>Søgefunktionen</h2>
+    <p>Øverst på siden kan du søge efter tre typer data:</p>
+    <div class="search-items">
+      <div class="search-item">
+        <img src="/images/icons/search.png" alt="" class="search-icon-img" />
+        <div>
+          <strong>Transaktions-ID (TXID)</strong>
+          <p>
+            Find en specifik transaktion og se dens status — om den venter i
+            mempoolens eller er bekræftet.
+          </p>
+        </div>
+      </div>
+      <div class="search-item">
+        <img src="/images/icons/lookup.png" alt="" class="search-icon-img" />
+        <div>
+          <strong>Bitcoin-adresse</strong>
+          <p>Se historik og saldo for enhver Bitcoin-adresse.</p>
+        </div>
+      </div>
+      <div class="search-item">
+        <img
+          src="/images/icons/blockchain.png"
+          alt=""
+          class="search-icon-img"
+        />
+        <div>
+          <strong>Blok-hash eller blok-nummer</strong>
+          <p>
+            Udforsk indholdet af en specifik blok og se alle transaktioner i
+            den.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NETVÆRK -->
+  <section class="content-section">
+    <h2>Netværk og navigering</h2>
+    <p>
+      Via dropdown-menuen øverst til venstre (Bitcoin-logoet) kan du skifte
+      mellem fire netværk:
+    </p>
+    <div class="network-list">
+      <div class="network-item">
+        <span class="network-dot" style="background:#f7931a;"></span>
+        <div>
+          <strong>Mainnet</strong>
+          <p>
+            Det rigtige Bitcoin-netværk. Her foregår alle rigtige transaktioner
+            med reel værdi.
+          </p>
+        </div>
+      </div>
+      <div class="network-item">
+        <span class="network-dot" style="background:#a855f7;"></span>
+        <div>
+          <strong>Signet</strong>
+          <p>
+            Et kontrolleret testnetværk med centralt styrede blokke. Mere
+            stabilt end Testnet — bruges af udviklere til at teste software.
+          </p>
+        </div>
+      </div>
+      <div class="network-item">
+        <span class="network-dot" style="background:#22c55e;"></span>
+        <div>
+          <strong>Testnet3</strong>
+          <p>
+            Det ældre offentlige testnetværk. Coins har ingen reel værdi. Bruges
+            til at afprøve transaktioner uden risiko.
+          </p>
+        </div>
+      </div>
+      <div class="network-item">
+        <span class="network-dot" style="background:#22c55e;"></span>
+        <div>
+          <strong>Testnet4</strong>
+          <p>
+            Den nyeste generation af Bitcoins offentlige testnetværk. Afløser
+            gradvist Testnet3 for udviklere.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDSTILLINGSBJÆLKE -->
+  <section class="content-section">
+    <h2>Indstillinger (footer)</h2>
+    <p>
+      Øverst i footeren finder du en række dropdown-menuer til at tilpasse
+      visningen:
+    </p>
+    <div class="settings-grid">
+      <div class="setting-item">
+        <span class="setting-label">Sprog</span>
+        <p>Skift sproget på hele siden. Dansk er tilgængeligt.</p>
+      </div>
+      <div class="setting-item">
+        <span class="setting-label">Valuta</span>
+        <p>
+          Vælg hvilken fiatvaluta beløb og gebyrer vises i — f.eks. USD, EUR
+          eller DKK.
+        </p>
+      </div>
+      <div class="setting-item">
+        <span class="setting-label">Tidszone</span>
+        <p>Juster tidszonen så bloktidsstempler matcher din lokale tid.</p>
+      </div>
+      <div class="setting-item">
+        <span class="setting-label">Enhed</span>
+        <p>Vælg om beløb vises i BTC eller sats (satoshis).</p>
+      </div>
+      <div class="setting-item">
+        <span class="setting-label">Tema</span>
+        <p>
+          Skift visuelt tema. "wiz" er et populært community-tema med ekstra
+          detaljer.
+        </p>
+      </div>
+      <div class="setting-item">
+        <span class="setting-label">Log ind</span>
+        <p>
+          Opret konto for at gemme indstillinger, bruge Accelerator og få adgang
+          til ekstra funktioner.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCELERATOR -->
+  <section class="content-section">
+    <h2>Mempool Accelerator</h2>
+    <p>
+      Har du sendt en transaktion med for lavt gebyr, der sidder fast?
+      <strong>Mempool Accelerator</strong> lader dig betale en merpris for at skubbe
+      transaktionen frem i køen og få den bekræftet hurtigere. Find funktionen direkte
+      på forsiden eller under den specifikke transaktion.
+    </p>
+    <p>
+      <a
+        href="https://mempool.space/accelerator"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Åbn Mempool Accelerator →
+      </a>
+    </p>
+  </section>
+
+  <!-- ORDBOG -->
+  <section class="content-section">
+    <h2>Ordbog — vigtige begreber</h2>
+    <div class="glossary">
+      <div class="glossary-item">
+        <dt>sat/vB</dt>
+        <dd>
+          Satoshis per virtuel byte — enheden for Bitcoin-transaktionsgebyrer.
+          Bruges til at angive, hvor meget du betaler miners for at behandle din
+          transaktion.
+        </dd>
+      </div>
+      <div class="glossary-item">
+        <dt>TXID</dt>
+        <dd>
+          Transaction ID — en unik 64-tegns identifikator for enhver
+          Bitcoin-transaktion.
+        </dd>
+      </div>
+      <div class="glossary-item">
+        <dt>Confirmation</dt>
+        <dd>
+          Antal blokke minet oven på den blok, der indeholder din transaktion.
+          Flere confirmations = større sikkerhed.
+        </dd>
+      </div>
+      <div class="glossary-item">
+        <dt>UTXO</dt>
+        <dd>
+          Unspent Transaction Output — det "vekselpenge"-system Bitcoin bruger.
+          Din "saldo" er summen af alle dine UTXOs.
+        </dd>
+      </div>
+      <div class="glossary-item">
+        <dt>RBF</dt>
+        <dd>
+          Replace-By-Fee — mulighed for at erstatte en ventende transaktion med
+          en ny med højere gebyr for at fremskynde bekræftelsen.
+        </dd>
+      </div>
+      <div class="glossary-item">
+        <dt>Sats / Satoshis</dt>
+        <dd>Den mindste enhed af Bitcoin. 1 BTC = 100.000.000 satoshis.</dd>
+      </div>
+      <div class="glossary-item">
+        <dt>vByte</dt>
+        <dd>
+          Virtuel byte — måleenhed for transaktionsstørrelse, der tager
+          SegWit-rabat med i beregningen.
+        </dd>
+      </div>
+      <div class="glossary-item">
+        <dt>SegWit</dt>
+        <dd>
+          Segregated Witness — en Bitcoin-opgradering der adskiller signaturdata
+          fra transaktionsdata. Introducerede vBytes som måleenhed, hvor
+          signaturdata vægtes lavere — hvilket reducerer gebyrer for
+          SegWit-transaktioner.
+        </dd>
+      </div>
+    </div>
+  </section>
+
+  <a href="#" class="back-to-top">↑ Tilbage til toppen</a>
+</ResourcePageLayout>
+
+<style>
+  /* ── Navigation buttons ── */
+  .nav-buttons {
+    display: flex;
+    gap: var(--space-md, 1rem);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-btn {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease;
+  }
+
+  .nav-btn:hover {
+    background-color: transparent;
+    color: var(--primary);
+  }
+
+  /* ── Section logo ── */
+  .section-logo {
+    height: 26px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+  }
+
+  /* ── Content sections ── */
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section h2 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-md, 1rem);
+    padding-bottom: var(--space-sm, 0.5rem);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .content-section p {
+    margin-bottom: 1rem;
+  }
+
+  /* ── Block legend ── */
+  .block-legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.25rem 0;
+  }
+
+  .block-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.12);
+  }
+
+  .block-preview {
+    width: 44px;
+    height: 56px;
+    border-radius: 5px;
+    flex-shrink: 0;
+  }
+
+  .block-preview.green {
+    background: linear-gradient(160deg, #22c55e, #16a34a);
+    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.35);
+  }
+
+  .block-preview.purple {
+    background: linear-gradient(160deg, #a855f7, #7c3aed);
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.35);
+  }
+
+  .block-info strong {
+    display: block;
+    color: var(--text-light, #ccc);
+    margin-bottom: 0.35rem;
+    font-size: 0.95rem;
+  }
+
+  .block-info p {
+    font-size: 0.88rem;
+    margin: 0;
+    color: rgba(204, 204, 204, 0.75);
+    line-height: 1.5;
+  }
+
+  /* ── Fee table ── */
+  .fee-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 1.25rem 0;
+  }
+
+  .fee-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    border: 1px solid rgba(247, 147, 26, 0.1);
+  }
+
+  .fee-badge {
+    flex-shrink: 0;
+    width: 180px;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .fee-icon {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    flex-shrink: 0;
+    opacity: 0.9;
+  }
+
+  .fee-badge.high   { background: #dc2626; }
+  .fee-badge.medium { background: #d97706; }
+  .fee-badge.low    { background: #2563eb; }
+  .fee-badge.none   { background: #4b5563; }
+
+  .fee-desc {
+    font-size: 0.9rem;
+    color: var(--text-light, #ccc);
+    line-height: 1.5;
+  }
+
+  .fee-desc strong {
+    color: #fff;
+  }
+
+  /* ── Hint box ── */
+  .hint {
+    background: rgba(247, 147, 26, 0.08);
+    border-left: 3px solid var(--primary);
+    border-radius: 0 6px 6px 0;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    color: rgba(204, 204, 204, 0.9);
+    margin-top: 0.5rem;
+  }
+
+  /* ── Stats grid ── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .stat-card {
+    padding: 1rem 1.25rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.15);
+    border-radius: 8px;
+    line-height: 1.6;
+  }
+
+  .stat-title {
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+  }
+
+  .stat-card p {
+    font-size: 0.88rem;
+    color: rgba(204, 204, 204, 0.8);
+    margin: 0;
+  }
+
+  /* ── Search items ── */
+  .search-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .search-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 0.9rem 1.1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 8px;
+  }
+
+  .search-icon-img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    opacity: 0.85;
+  }
+
+  .search-item strong {
+    display: block;
+    color: var(--text-light, #ccc);
+    margin-bottom: 0.2rem;
+  }
+
+  .search-item p {
+    font-size: 0.88rem;
+    color: rgba(204, 204, 204, 0.75);
+    margin: 0;
+  }
+
+  /* ── Network list ── */
+  .network-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1rem;
+  }
+
+  .network-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 0.85rem 1.1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 8px;
+  }
+
+  .network-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 0.35rem;
+    box-shadow: 0 0 6px currentColor;
+  }
+
+  .network-item strong {
+    display: block;
+    color: var(--text-light, #ccc);
+    margin-bottom: 0.15rem;
+  }
+
+  .network-item p {
+    font-size: 0.88rem;
+    color: rgba(204, 204, 204, 0.75);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* ── Settings grid ── */
+  .settings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    margin-top: 1rem;
+  }
+
+  .setting-item {
+    padding: 0.85rem 1.1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 8px;
+  }
+
+  .setting-label {
+    display: inline-block;
+    background: rgba(247, 147, 26, 0.15);
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: 4px;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .setting-item p {
+    font-size: 0.88rem;
+    color: rgba(204, 204, 204, 0.75);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* ── Glossary ── */
+  .glossary {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 0.5rem;
+    border: 1px solid rgba(247, 147, 26, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .glossary-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    border-bottom: 1px solid rgba(247, 147, 26, 0.1);
+  }
+
+  .glossary-item:last-child {
+    border-bottom: none;
+  }
+
+  .glossary-item dt {
+    padding: 0.75rem 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 0.95rem;
+    background: rgba(247, 147, 26, 0.06);
+    border-right: 1px solid rgba(247, 147, 26, 0.12);
+    display: flex;
+    align-items: center;
+  }
+
+  .glossary-item dd {
+    padding: 0.75rem 1rem;
+    font-size: 0.88rem;
+    color: rgba(204, 204, 204, 0.85);
+    margin: 0;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+  }
+
+  /* ── Back to top ── */
+  .back-to-top {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--primary);
+    font-size: 0.9rem;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 567px) {
+    .nav-buttons {
+      flex-direction: column;
+    }
+
+    .settings-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .block-legend,
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .fee-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .fee-badge {
+      width: auto;
+    }
+
+    .glossary-item {
+      grid-template-columns: 1fr;
+    }
+
+    .glossary-item dt {
+      border-right: none;
+      border-bottom: 1px solid rgba(247, 147, 26, 0.1);
+    }
+  }
+</style>

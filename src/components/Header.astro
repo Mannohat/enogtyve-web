@@ -95,6 +95,10 @@ const menuItems = [
             { label: "Liquid", href: `/${navLang}/laer-mere/liquid` },
             { label: "eCash", href: `/${navLang}/laer-mere/ecash` },
             {
+                label: "Buidl",
+                href: `/${navLang}/idevaerksted/buidl`,
+            },
+            {
                 label: "Quotes oversat til Dansk",
                 href: `/${navLang}/laer-mere/quotes-dansk`,
             },
@@ -122,10 +126,14 @@ const menuItems = [
         label: "Mining",
         href: `/${navLang}/mining`,
         submenu: [
-            { label: "Solo Mining", href: `/${navLang}/mining/solo-mining` },
             {
                 label: "Mining for opvarmning",
                 href: `/${navLang}/mining/mining-for-opvarmning`,
+            },
+            { label: "Solo Mining", href: `/${navLang}/mining/solo-mining` },
+            {
+                label: "mempool.space guide",
+                href: `/${navLang}/mining/mempool-guide`,
             },
         ],
     },
@@ -140,6 +148,10 @@ const menuItems = [
             {
                 label: "Bitcoin Fællesskaber og Meetups i verden",
                 href: `/${navLang}/udforsk/in-the-world`,
+            },
+            {
+                label: "Buidl",
+                href: `/${navLang}/idevaerksted/buidl`,
             },
             {
                 label: "Bitcoin Cirkulære Økonomier",
@@ -164,11 +176,6 @@ const menuItems = [
                 href: `/${navLang}/udforsk/twentyoneworld`,
             },
         ],
-    },
-    {
-        label: "Idé Værksted",
-        href: `/${navLang}/idevaerksted/buidl`,
-        submenu: [{ label: "Buidl", href: `/${navLang}/idevaerksted/buidl` }],
     },
     {
         label: "Fællesskab",
@@ -574,7 +581,10 @@ function getSwitchedPath(targetLang: string): string {
         color: #888;
         opacity: 0.8;
         white-space: nowrap;
-        transition: color 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+        transition:
+            color 0.2s ease,
+            opacity 0.2s ease,
+            background 0.2s ease;
     }
 
     .nav-links > li.exclusive:hover > a,
@@ -683,7 +693,7 @@ function getSwitchedPath(targetLang: string): string {
     }
 
     /* Mobile styles */
-    @media (max-width: 1280px) {
+    @media (max-width: 980px) {
         .mobile-menu-toggle {
             display: block;
         }
