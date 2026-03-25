@@ -431,12 +431,19 @@ function getSwitchedPath(targetLang: string): string {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
     }
 
     .header-right {
         display: flex;
         align-items: center;
         gap: 1.5rem;
+        min-width: 0;
+    }
+
+    .logo {
+        min-width: 0;
     }
 
     .logo img {
@@ -453,6 +460,7 @@ function getSwitchedPath(targetLang: string): string {
         cursor: pointer;
         padding: 0.5rem;
         z-index: 1001;
+        flex-shrink: 0;
     }
 
     .hamburger {
@@ -818,6 +826,25 @@ function getSwitchedPath(targetLang: string): string {
         .support-btn .heart {
             font-size: 1.2rem;
             color: var(--primary);
+        }
+    }
+
+    @media (max-width: 420px) {
+        .header-right {
+            gap: 0.5rem;
+        }
+
+        .support-btn {
+            margin-left: 0;
+        }
+
+        .language-switcher {
+            display: none;
+        }
+
+        .logo img {
+            max-height: 46px;
+            max-width: 180px;
         }
     }
 </style>
