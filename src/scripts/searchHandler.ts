@@ -11,6 +11,32 @@ export function initializeSearch() {
   
 	const searchWrapper = searchInput.closest('.search-wrapper');
 	searchWrapper?.appendChild(resultsDropdown);
+
+	function clearResults() {
+		while (resultsDropdown.firstChild) {
+			resultsDropdown.removeChild(resultsDropdown.firstChild);
+		}
+	}
+
+	function renderNoResults(message: string) {
+		clearResults();
+		const el = document.createElement("div");
+		el.className = "search-no-results";
+		el.textContent = message;
+		resultsDropdown.appendChild(el);
+		resultsDropdown.style.display = "block";
+	}
+
+	function safeHref(raw: unknown): string | null {
+		if (typeof raw !== "string") return null;
+		try {
+			const u = new URL(raw, window.location.origin);
+			if (u.protocol !== "http:" && u.protocol !== "https:") return null;
+			return u.toString();
+		} catch {
+			return null;
+		}
+	}
   
 	async function loadPagefind() {
 		if (pagefindInstance) return pagefindInstance;
@@ -36,9 +62,7 @@ export function initializeSearch() {
   
 	  const pf = await loadPagefind();
 	  if (!pf) {
-		resultsDropdown.innerHTML =
-		  '<div class="search-no-results">Søgning ikke tilgængelig</div>';
-		resultsDropdown.style.display = "block";
+		renderNoResults("Søgning ikke tilgængelig");
 		return;
 	  }
   
@@ -49,26 +73,34 @@ export function initializeSearch() {
 		);
   
 		if (results.length === 0) {
-		  resultsDropdown.innerHTML =
-			'<div class="search-no-results">Ingen resultater fundet</div>';
-		  resultsDropdown.style.display = "block";
+		  renderNoResults("Ingen resultater fundet");
 		  return;
 		}
-  
-		const resultsHTML = results
-		  .map(
-			(result: any) => `
-			<a href="${result.url}" class="search-result-item">
-			  <div class="result-content">
-				<div class="result-title">${result.meta?.title || 'Untitled'}</div>
-				<div class="result-description">${result.excerpt || ''}</div>
-			  </div>
-			</a>
-		  `
-		  )
-		  .join("");
-  
-		resultsDropdown.innerHTML = resultsHTML;
+
+		clearResults();
+		const frag = document.createDocumentFragment();
+		for (const result of results) {
+			const a = document.createElement("a");
+			a.className = "search-result-item";
+			a.href = safeHref(result?.url) || "#";
+
+			const content = document.createElement("div");
+			content.className = "result-content";
+
+			const title = document.createElement("div");
+			title.className = "result-title";
+			title.textContent = result?.meta?.title ? String(result.meta.title) : "Untitled";
+
+			const desc = document.createElement("div");
+			desc.className = "result-description";
+			desc.textContent = result?.excerpt ? String(result.excerpt) : "";
+
+			content.appendChild(title);
+			content.appendChild(desc);
+			a.appendChild(content);
+			frag.appendChild(a);
+		}
+		resultsDropdown.appendChild(frag);
 		resultsDropdown.style.display = "block";
 	  } catch (error) {
 		console.error("Search error:", error);

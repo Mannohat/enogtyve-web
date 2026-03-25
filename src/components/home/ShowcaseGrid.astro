@@ -13,6 +13,85 @@ const latestPosts = blogPosts
 
 <section class="content-showcase">
 	<div class="showcase-grid">
+		<div class="showcase-box upcoming-events">
+			<div class="box-header">
+				<h3><img src="/images/icons/calendar.png" alt="" class="box-icon" /> Kommende Events</h3>
+			</div>
+			<div class="box-content">
+				<div class="event-list">
+					<a
+						href="https://meetup.enogtyve.org"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="event-item"
+					>
+						<div class="event-date-block">
+							<div class="event-day">21</div>
+							<div class="event-month">HVER MD.</div>
+						</div>
+						<div class="event-details">
+							<div class="event-title">Meetup på Lau's (Tidligere Café Kodan)</div>
+							<div class="event-time">
+								Den 21. kl. 19:00 i hver måned · Falkoner Alle 24a, 2000 Frederiksberg
+							</div>
+						</div>
+					</a>
+					<a
+						href="https://btcprg.me/ENOGTYVE"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="event-item"
+					>
+						<div class="event-date-block">
+							<div class="event-day">11</div>
+							<div class="event-month">JUNI</div>
+						</div>
+						<div class="event-details">
+							<div class="event-title">BTCPrague</div>
+							<div class="event-time">
+								11.–13. juni 2026 · Prag, Tjekkiet
+							</div>
+							<div class="event-discount">
+								Spar 10% med rabatkoden “enogtyve”
+							</div>
+						</div>
+					</a>
+					<a
+						href="https://btchel.com/"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="event-item"
+					>
+						<div class="event-date-block">
+							<div class="event-day">25</div>
+							<div class="event-month">SEP.</div>
+						</div>
+						<div class="event-details">
+							<div class="event-title">BTCHEL</div>
+							<div class="event-time">
+								25.–26. september 2026 · Helsinki, Finland
+							</div>
+							<div class="event-discount">
+								Spar 10% med rabatkoden “enogtyve”
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="showcase-box stacker-news">
+			<div class="box-header">
+				<h3><img src="/images/icons/lightning.png" alt="" class="box-icon" /> Seneste nyheder fra Stacker.news</h3>
+				<span class="box-badge">Stacker News</span>
+			</div>
+			<div class="box-content" id="stacker-news-list">
+				<a href="#" class="news-item placeholder">
+					<div class="news-title">Henter artikler...</div>
+				</a>
+			</div>
+		</div>
+
 		<div class="showcase-box featured-news">
 			<div class="box-header">
 				<h3><img src="/images/icons/blog.png" alt="" class="box-icon" /> Seneste Blog Posts</h3>
@@ -42,62 +121,6 @@ const latestPosts = blogPosts
 				}
 			</div>
 		</div>
-
-		<div class="showcase-box upcoming-events">
-			<div class="box-header">
-				<h3><img src="/images/icons/calendar.png" alt="" class="box-icon" /> Kommende Events</h3>
-			</div>
-			<div class="box-content">
-				<div class="event-list">
-					<a
-						href="https://meetup.enogtyve.org"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="event-item"
-					>
-						<div class="event-date-block">
-							<div class="event-day">21</div>
-							<div class="event-month">HVER MD.</div>
-						</div>
-						<div class="event-details">
-							<div class="event-title">Meetup på Lau's (Tidligere Café Kodan)</div>
-							<div class="event-time">
-								Den 21. kl. 19:00 i hver måned · Falkoner Alle 24a, 2000 Frederiksberg
-							</div>
-						</div>
-					</a>
-					<a
-						href="https://www.bitcoincopenhagen.dk"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="event-item"
-					>
-						<div class="event-date-block">
-							<div class="event-day">21</div>
-							<div class="event-month">MARTS</div>
-						</div>
-						<div class="event-details">
-							<div class="event-title">Bitcoin Copenhagen</div>
-							<div class="event-time">
-								Heldags konference · Marskensgade 7, København Ø
-							</div>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
-
-		<div class="showcase-box stacker-news">
-			<div class="box-header">
-				<h3><img src="/images/icons/lightning.png" alt="" class="box-icon" /> Seneste nyheder fra Stacker.news</h3>
-				<span class="box-badge">Stacker News</span>
-			</div>
-			<div class="box-content" id="stacker-news-list">
-				<a href="#" class="news-item placeholder">
-					<div class="news-title">Henter artikler...</div>
-				</a>
-			</div>
-		</div>
 	</div>
 </section>
 
@@ -105,21 +128,64 @@ const latestPosts = blogPosts
 	async function fetchStackerNews() {
 	  var container = document.getElementById("stacker-news-list");
 	  if (!container) return;
+	  function clearContainer() {
+		while (container.firstChild) container.removeChild(container.firstChild);
+	  }
+	  function safeUrl(raw) {
+		if (typeof raw !== "string") return null;
+		try {
+		  var u = new URL(raw, window.location.origin);
+		  if (u.protocol !== "http:" && u.protocol !== "https:") return null;
+		  return u.toString();
+		} catch {
+		  return null;
+		}
+	  }
+	  function renderPlaceholder(message) {
+		clearContainer();
+		var wrap = document.createElement("div");
+		wrap.className = "news-item placeholder";
+		var title = document.createElement("div");
+		title.className = "news-title";
+		title.textContent = message;
+		wrap.appendChild(title);
+		container.appendChild(wrap);
+	  }
 	  try {
 		var res = await fetch("/.netlify/functions/stacker-news");
 		var posts = await res.json();
 		if (!posts.length) {
-		  container.innerHTML = '<div class="news-item placeholder"><div class="news-title">Ingen artikler fundet</div></div>';
+		  renderPlaceholder("Ingen artikler fundet");
 		  return;
 		}
-		container.innerHTML = posts.map(function(post) {
-		  var date = post.pubDate ? new Date(post.pubDate).toLocaleDateString("da-DK", { day: "2-digit", month: "2-digit", year: "numeric" }) : "";
-		  return '<a href="' + post.link + '" target="_blank" rel="noopener noreferrer" class="news-item"><div class="news-date">' + date + '</div><div class="news-title">' + post.title + '</div><div class="news-excerpt">af ' + post.author + '</div></a>';
-		}).join("");
+		clearContainer();
+		posts.forEach(function(post) {
+		  var date = post && post.pubDate ? new Date(post.pubDate).toLocaleDateString("da-DK", { day: "2-digit", month: "2-digit", year: "numeric" }) : "";
+		  var link = safeUrl(post && post.link);
+		  var a = document.createElement("a");
+		  a.className = "news-item";
+		  a.target = "_blank";
+		  a.rel = "noopener noreferrer";
+		  a.href = link || "#";
+		  var dateEl = document.createElement("div");
+		  dateEl.className = "news-date";
+		  dateEl.textContent = date;
+		  var titleEl = document.createElement("div");
+		  titleEl.className = "news-title";
+		  titleEl.textContent = (post && post.title) ? String(post.title) : "";
+		  var excerptEl = document.createElement("div");
+		  excerptEl.className = "news-excerpt";
+		  var author = (post && post.author) ? String(post.author) : "";
+		  excerptEl.textContent = author ? ("af " + author) : "";
+		  a.appendChild(dateEl);
+		  a.appendChild(titleEl);
+		  a.appendChild(excerptEl);
+		  container.appendChild(a);
+		});
 	  } catch (e) {
 		console.error("Failed to fetch Stacker News:", e);
 		if (container) {
-		  container.innerHTML = '<div class="news-item placeholder"><div class="news-title">Kunne ikke hente artikler</div></div>';
+		  renderPlaceholder("Kunne ikke hente artikler");
 		}
 	  }
 	}
@@ -320,6 +386,14 @@ const latestPosts = blogPosts
 	.event-time {
 		font-size: 0.8rem;
 		color: var(--text-light);
+	}
+
+	.event-discount {
+		margin-top: 0.25rem;
+		font-size: 0.8rem;
+		font-weight: 600;
+		color: var(--primary);
+		opacity: 0.9;
 	}
 
 	.placeholder {
