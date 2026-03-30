@@ -1,26 +1,51 @@
-<section class="stats-bar">
+---
+interface Props {
+	lang?: "da" | "en";
+}
+const { lang = "da" } = Astro.props;
+const isEn = lang === "en";
+const L = isEn
+	? {
+			blockHeight: "Block height:",
+			epoch: "Epoch:",
+			blocksToNext: "Blocks to next epoch:",
+			blockReward: "Block reward:",
+			satVB: "sat/vB:",
+			satsPerDkk: "Sats per DKK:",
+		}
+	: {
+			blockHeight: "Blokhøjde:",
+			epoch: "Epoke:",
+			blocksToNext: "Blokke til næste epoke:",
+			blockReward: "Blokbelønning:",
+			satVB: "sat/vB:",
+			satsPerDkk: "Sats pr. DKK:",
+		};
+---
+
+<section class="stats-bar" data-lang={lang}>
 	<div class="container">
 		<div class="stats-track">
 			<!-- First set of stats -->
 			<div class="stats-items">
 				<div class="stat-item">
-					<span class="stat-label">Blokhøjde:</span>
+					<span class="stat-label">{L.blockHeight}</span>
 					<span class="stat-value" id="block-height">—</span>
 				</div>
 				<div class="stat-item">
-					<span class="stat-label">Epoke:</span>
+					<span class="stat-label">{L.epoch}</span>
 					<span class="stat-value" id="epoch">—</span>
 				</div>
 				<div class="stat-item">
-					<span class="stat-label">Blokke til næste epoke:</span>
+					<span class="stat-label">{L.blocksToNext}</span>
 					<span class="stat-value" id="blocks-remaining">—</span>
 				</div>
 				<div class="stat-item">
-					<span class="stat-label">Blokbelønning:</span>
+					<span class="stat-label">{L.blockReward}</span>
 					<span class="stat-value" id="block-reward">—</span>
 				</div>
 				<div class="stat-item">
-					<span class="stat-label">sat/vB:</span>
+					<span class="stat-label">{L.satVB}</span>
 					<span class="stat-value fee-values">
 						<span class="fee-item">
 							<span class="fee-label">L:</span>
@@ -39,32 +64,32 @@
 					</span>
 				</div>
 				<div class="stat-item">
-					<span class="stat-label">Sats pr. DKK:</span>
+					<span class="stat-label">{L.satsPerDkk}</span>
 					<span class="stat-value" id="sats-per-dkk">—</span>
 				</div>
 			</div>
 			<!-- Duplicate set for seamless loop on mobile -->
 			<div class="stats-items stats-duplicate" aria-hidden="true">
 				<div class="stat-item">
-					<span class="stat-label">Blokhøjde:</span>
+					<span class="stat-label">{L.blockHeight}</span>
 					<span class="stat-value" data-mirror="block-height">—</span>
 				</div>
 				<div class="stat-item">
-					<span class="stat-label">Epoke:</span>
+					<span class="stat-label">{L.epoch}</span>
 					<span class="stat-value" data-mirror="epoch">—</span>
 				</div>
 				<div class="stat-item">
-					<span class="stat-label">Blokke til næste epoke:</span>
+					<span class="stat-label">{L.blocksToNext}</span>
 					<span class="stat-value" data-mirror="blocks-remaining"
 						>—</span
 					>
 				</div>
 				<div class="stat-item">
-					<span class="stat-label">Blokbelønning:</span>
+					<span class="stat-label">{L.blockReward}</span>
 					<span class="stat-value" data-mirror="block-reward">—</span>
 				</div>
 				<div class="stat-item">
-					<span class="stat-label">sat/vB:</span>
+					<span class="stat-label">{L.satVB}</span>
 					<span class="stat-value fee-values">
 						<span class="fee-item">
 							<span class="fee-label">L:</span>
@@ -83,7 +108,7 @@
 					</span>
 				</div>
 				<div class="stat-item">
-					<span class="stat-label">Sats pr. DKK:</span>
+					<span class="stat-label">{L.satsPerDkk}</span>
 					<span class="stat-value" data-mirror="sats-per-dkk">—</span>
 				</div>
 			</div>
@@ -214,6 +239,10 @@
 </style>
 
 <script>
+	// Read locale from DOM (no define:vars) — same pattern as ShowcaseGrid; avoids bundling edge cases.
+	const root = document.querySelector(".stats-bar[data-lang]");
+	const pageLang = (root && root.getAttribute("data-lang")) || "da";
+	const locale = pageLang === "en" ? "en-US" : "da-DK";
 	let previousBlockHeight: number | null = null;
 
 	function getBlockReward(blockHeight: number): string {
@@ -238,6 +267,7 @@
 			const blockResponse = await fetch(
 				"https://mempool.space/api/blocks/tip/height",
 			);
+			if (!blockResponse.ok) throw new Error("block height fetch failed");
 			const blockHeight = await blockResponse.json();
 
 			const epoch = Math.floor(blockHeight / 210000) + 1;
@@ -246,14 +276,8 @@
 			const feesResponse = await fetch(
 				"https://mempool.space/api/v1/fees/recommended",
 			);
+			if (!feesResponse.ok) throw new Error("fees fetch failed");
 			const feesData = await feesResponse.json();
-
-			const priceResponse = await fetch(
-				"https://api.coinbase.com/v2/prices/BTC-DKK/spot",
-			);
-			const priceData = await priceResponse.json();
-			const btcPriceDKK = parseFloat(priceData.data.amount);
-			const satsPerDKK = Math.floor(100000000 / btcPriceDKK);
 
 			const blockHeightElement = document.getElementById("block-height")!;
 			if (
@@ -267,7 +291,7 @@
 			}
 			previousBlockHeight = blockHeight;
 
-			const formattedBlockHeight = blockHeight.toLocaleString("da-DK");
+			const formattedBlockHeight = blockHeight.toLocaleString(locale);
 			blockHeightElement.textContent = formattedBlockHeight;
 
 			const footerBlock = document.getElementById("footer-block-height");
@@ -275,7 +299,7 @@
 
 			document.getElementById("epoch")!.textContent = epoch.toString();
 			document.getElementById("blocks-remaining")!.textContent =
-				blocksRemaining.toLocaleString("da-DK");
+				blocksRemaining.toLocaleString(locale);
 			document.getElementById("block-reward")!.textContent =
 				getBlockReward(blockHeight);
 			document.getElementById("fee-low")!.textContent =
@@ -284,8 +308,26 @@
 				feesData.halfHourFee.toString();
 			document.getElementById("fee-high")!.textContent =
 				feesData.fastestFee.toString();
-			document.getElementById("sats-per-dkk")!.textContent =
-				satsPerDKK.toLocaleString("da-DK");
+
+			// BTC price (DKK) can fail due to CORS/provider limits; don't wipe other stats.
+			try {
+				const priceResponse = await fetch(
+					"https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=dkk",
+				);
+				if (!priceResponse.ok) throw new Error("price fetch failed");
+				const priceData = await priceResponse.json();
+				const btcPriceDKK = Number(priceData?.bitcoin?.dkk);
+				if (!Number.isFinite(btcPriceDKK) || btcPriceDKK <= 0) {
+					throw new Error("invalid price payload");
+				}
+				const satsPerDKK = Math.floor(100000000 / btcPriceDKK);
+				document.getElementById("sats-per-dkk")!.textContent =
+					satsPerDKK.toLocaleString(locale);
+			} catch (priceError) {
+				console.warn("Price fetch error:", priceError);
+				const el = document.getElementById("sats-per-dkk");
+				if (el) el.textContent = "N/A";
+			}
 
 			// Sync the duplicate set
 			syncMirrors();

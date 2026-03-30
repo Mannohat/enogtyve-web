@@ -1,6 +1,13 @@
 ---
 import { getCollection } from "astro:content";
 
+interface Props {
+	lang?: "da" | "en";
+}
+const { lang = "da" } = Astro.props;
+const isEn = lang === "en";
+const dateLocale = isEn ? "en-US" : "da-DK";
+
 const blogPosts = await getCollection("blog", ({ id }) => id.startsWith("da/"));
 const latestPosts = blogPosts
 	.sort(
@@ -11,11 +18,14 @@ const latestPosts = blogPosts
 	.slice(0, 3);
 ---
 
-<section class="content-showcase">
+<section class="content-showcase" data-lang={lang}>
 	<div class="showcase-grid">
 		<div class="showcase-box upcoming-events">
 			<div class="box-header">
-				<h3><img src="/images/icons/calendar.png" alt="" class="box-icon" /> Kommende Events</h3>
+				<h3>
+					<img src="/images/icons/calendar.png" alt="" class="box-icon" />
+					{isEn ? "Upcoming events" : "Kommende Events"}
+				</h3>
 			</div>
 			<div class="box-content">
 				<div class="event-list">
@@ -27,12 +37,18 @@ const latestPosts = blogPosts
 					>
 						<div class="event-date-block">
 							<div class="event-day">21</div>
-							<div class="event-month">HVER MD.</div>
+							<div class="event-month">{isEn ? "MONTHLY" : "HVER MD."}</div>
 						</div>
 						<div class="event-details">
-							<div class="event-title">Meetup på Lau's (Tidligere Café Kodan)</div>
+							<div class="event-title">
+								{isEn
+									? "Meetup at Lau’s (formerly Café Kodan)"
+									: "Meetup på Lau's (Tidligere Café Kodan)"}
+							</div>
 							<div class="event-time">
-								Den 21. kl. 19:00 i hver måned · Falkoner Alle 24a, 2000 Frederiksberg
+								{isEn
+									? "21st, 7:00 p.m. every month · Falkoner Alle 24a, 2000 Frederiksberg"
+									: "Den 21. kl. 19:00 i hver måned · Falkoner Alle 24a, 2000 Frederiksberg"}
 							</div>
 						</div>
 					</a>
@@ -44,15 +60,19 @@ const latestPosts = blogPosts
 					>
 						<div class="event-date-block">
 							<div class="event-day">11</div>
-							<div class="event-month">JUNI</div>
+							<div class="event-month">{isEn ? "JUNE" : "JUNI"}</div>
 						</div>
 						<div class="event-details">
 							<div class="event-title">BTCPrague</div>
 							<div class="event-time">
-								11.–13. juni 2026 · Prag, Tjekkiet
+								{isEn
+									? "11–13 June 2026 · Prague, Czech Republic"
+									: "11.–13. juni 2026 · Prag, Tjekkiet"}
 							</div>
 							<div class="event-discount">
-								Spar 10% med rabatkoden “enogtyve”
+								{isEn
+									? 'Save 10% with code “enogtyve”'
+									: 'Spar 10% med rabatkoden “enogtyve”'}
 							</div>
 						</div>
 					</a>
@@ -64,15 +84,19 @@ const latestPosts = blogPosts
 					>
 						<div class="event-date-block">
 							<div class="event-day">25</div>
-							<div class="event-month">SEP.</div>
+							<div class="event-month">{isEn ? "SEP" : "SEP."}</div>
 						</div>
 						<div class="event-details">
 							<div class="event-title">BTCHEL</div>
 							<div class="event-time">
-								25.–26. september 2026 · Helsinki, Finland
+								{isEn
+									? "25–26 September 2026 · Helsinki, Finland"
+									: "25.–26. september 2026 · Helsinki, Finland"}
 							</div>
 							<div class="event-discount">
-								Spar 10% med rabatkoden “enogtyve”
+								{isEn
+									? 'Save 10% with code “enogtyve”'
+									: 'Spar 10% med rabatkoden “enogtyve”'}
 							</div>
 						</div>
 					</a>
@@ -82,20 +106,30 @@ const latestPosts = blogPosts
 
 		<div class="showcase-box stacker-news">
 			<div class="box-header">
-				<h3><img src="/images/icons/lightning.png" alt="" class="box-icon" /> Seneste nyheder fra Stacker.news</h3>
+				<h3>
+					<img src="/images/icons/lightning.png" alt="" class="box-icon" />
+					{isEn
+						? "Latest from Stacker News"
+						: "Seneste nyheder fra Stacker.news"}
+				</h3>
 				<span class="box-badge">Stacker News</span>
 			</div>
 			<div class="box-content" id="stacker-news-list">
 				<a href="#" class="news-item placeholder">
-					<div class="news-title">Henter artikler...</div>
+					<div class="news-title">
+						{isEn ? "Loading articles…" : "Henter artikler..."}
+					</div>
 				</a>
 			</div>
 		</div>
 
 		<div class="showcase-box featured-news">
 			<div class="box-header">
-				<h3><img src="/images/icons/blog.png" alt="" class="box-icon" /> Seneste Blog Posts</h3>
-				<span class="box-badge">Blog</span>
+				<h3>
+					<img src="/images/icons/blog.png" alt="" class="box-icon" />
+					{isEn ? "Latest blog posts" : "Seneste Blog Posts"}
+				</h3>
+				<span class="box-badge">{isEn ? "Danish" : "Blog"}</span>
 			</div>
 			<div class="box-content">
 				{
@@ -103,7 +137,7 @@ const latestPosts = blogPosts
 						const slug = post.slug.replace("da/", "");
 						const date = new Date(
 							post.data.pubDate,
-						).toLocaleDateString("da-DK", {
+						).toLocaleDateString(dateLocale, {
 							day: "2-digit",
 							month: "2-digit",
 							year: "numeric",
@@ -128,6 +162,12 @@ const latestPosts = blogPosts
 	async function fetchStackerNews() {
 	  var container = document.getElementById("stacker-news-list");
 	  if (!container) return;
+	  var root = container.closest(".content-showcase[data-lang]");
+	  var pageLang = (root && root.getAttribute("data-lang")) || "da";
+	  var isEn = pageLang === "en";
+	  var locale = isEn ? "en-US" : "da-DK";
+	  var msgEmpty = isEn ? "No articles found" : "Ingen artikler fundet";
+	  var msgError = isEn ? "Could not load articles" : "Kunne ikke hente artikler";
 	  function clearContainer() {
 		while (container.firstChild) container.removeChild(container.firstChild);
 	  }
@@ -155,12 +195,12 @@ const latestPosts = blogPosts
 		var res = await fetch("/.netlify/functions/stacker-news");
 		var posts = await res.json();
 		if (!posts.length) {
-		  renderPlaceholder("Ingen artikler fundet");
+		  renderPlaceholder(msgEmpty);
 		  return;
 		}
 		clearContainer();
 		posts.forEach(function(post) {
-		  var date = post && post.pubDate ? new Date(post.pubDate).toLocaleDateString("da-DK", { day: "2-digit", month: "2-digit", year: "numeric" }) : "";
+		  var date = post && post.pubDate ? new Date(post.pubDate).toLocaleDateString(locale, { day: "2-digit", month: "2-digit", year: "numeric" }) : "";
 		  var link = safeUrl(post && post.link);
 		  var a = document.createElement("a");
 		  a.className = "news-item";
@@ -176,7 +216,7 @@ const latestPosts = blogPosts
 		  var excerptEl = document.createElement("div");
 		  excerptEl.className = "news-excerpt";
 		  var author = (post && post.author) ? String(post.author) : "";
-		  excerptEl.textContent = author ? ("af " + author) : "";
+		  excerptEl.textContent = author ? ((isEn ? "by " : "af ") + author) : "";
 		  a.appendChild(dateEl);
 		  a.appendChild(titleEl);
 		  a.appendChild(excerptEl);
@@ -185,7 +225,7 @@ const latestPosts = blogPosts
 	  } catch (e) {
 		console.error("Failed to fetch Stacker News:", e);
 		if (container) {
-		  renderPlaceholder("Kunne ikke hente artikler");
+		  renderPlaceholder(msgError);
 		}
 	  }
 	}

@@ -20,10 +20,37 @@ const canonicalURL = new URL(
     Astro.url.pathname,
     "https://enogtyve.org",
 ).toString();
-const daPath =
-    "https://enogtyve.org/da" + Astro.url.pathname.replace(/^\/(da|en)/, "");
-const enPath =
-    "https://enogtyve.org/en" + Astro.url.pathname.replace(/^\/(da|en)/, "");
+
+/** Strip .html only; keep "/" so root is not mistaken for "". */
+const pathnameNormalized = Astro.url.pathname.replace(/\.html$/, "");
+const hasLocalePrefix = /^\/(da|en)(\/|$)/.test(pathnameNormalized);
+const remainderAfterLocale = hasLocalePrefix
+    ? pathnameNormalized.replace(/^\/(da|en)/, "") || "/"
+    : pathnameNormalized || "/";
+const remainderNorm =
+    remainderAfterLocale.replace(/\/$/, "") || "/";
+
+function hreflangTail(remainder: string, targetLang: "da" | "en"): string {
+    const norm = remainder.replace(/\/$/, "") || "/";
+    if (norm === "/privacypolicy" || norm === "/privatlivspolitik") {
+        return targetLang === "da" ? "/privatlivspolitik" : "/privacypolicy";
+    }
+    if (norm === "/") {
+        return "";
+    }
+    return remainder.startsWith("/") ? remainder : `/${remainder}`;
+}
+
+/** Global routes (no /da|/en in URL) should not invent /da/404 etc. */
+const isUnprefixedSpecial =
+    !hasLocalePrefix && remainderNorm === "/404";
+
+const daPath = isUnprefixedSpecial
+    ? "https://enogtyve.org/da"
+    : `https://enogtyve.org/da${hreflangTail(remainderAfterLocale, "da")}`;
+const enPath = isUnprefixedSpecial
+    ? "https://enogtyve.org/en"
+    : `https://enogtyve.org/en${hreflangTail(remainderAfterLocale, "en")}`;
 
 const structuredData = {
     "@context": "https://schema.org",

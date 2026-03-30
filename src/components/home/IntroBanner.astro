@@ -1,33 +1,47 @@
 ---
 interface Props {
-    lang: string;
+    lang: "da" | "en";
 }
 const { lang } = Astro.props;
+const isEn = lang === "en";
+const contentLang = isEn ? "da" : lang;
 ---
 
 <section class="intro-banner">
     <div class="container">
         <div class="banner-content">
             <div class="text-column">
-                <h1 class="banner-title">VELKOMMEN TIL ENOGTYVE</h1>
+                <h1 class="banner-title">
+                    {isEn ? "WELCOME TO ENOGTYVE" : "VELKOMMEN TIL ENOGTYVE"}
+                </h1>
                 <p class="banner-text">
-                    For nysgerrige med interesse for Bitcoin. [ No financial advice! ]<br>Alle
-                    er velkomne til at bidrage, dele viden og lære. Velkommen til. <br><strong>ENOGTYVE er Bitcoin only!</strong>
+                    {isEn ? (
+                        <>
+                            For anyone curious about Bitcoin. [ Not financial advice! ]<br />
+                            Everyone is welcome to contribute, share knowledge, and learn. <br />
+                            <strong>Enogtyve is Bitcoin only!</strong>
+                        </>
+                    ) : (
+                        <>
+                            For nysgerrige med interesse for Bitcoin. [ No financial advice! ]<br />Alle
+                            er velkomne til at bidrage, dele viden og lære. Velkommen til. <br /><strong>ENOGTYVE er Bitcoin only!</strong>
+                        </>
+                    )}
                 </p>
             </div>
             <div class="actions-column">
                 <div class="button-group">
-                    <a href={`/${lang}/blog/penges-historie`} class="action-btn"
-                        >Hvad er penge?</a
+                    <a href={`/${contentLang}/blog/penges-historie`} class="action-btn"
+                        >{isEn ? "What is money?" : "Hvad er penge?"}</a
                     >
-                    <a href={`/${lang}/blog/hvad-er-bitcoin`} class="action-btn"
-                        >Hvad er Bitcoin?</a
+                    <a href={`/${contentLang}/blog/hvad-er-bitcoin`} class="action-btn"
+                        >{isEn ? "What is Bitcoin?" : "Hvad er Bitcoin?"}</a
                     >
                 </div>
                 <div class="search-wrapper">
                     <input
                         type="search"
-                        placeholder="Søg efter indhold..."
+                        placeholder={isEn ? "Search content…" : "Søg efter indhold..."}
                         id="search-input"
                         autocomplete="off"
                     />

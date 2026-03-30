@@ -1,59 +1,85 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import IntroAccordion from "../../components/home/IntroAccordion.astro";
+import PromoSection from "../../components/home/PromoSection.astro";
+import ShowcaseGrid from "../../components/home/ShowcaseGrid.astro";
+import FeatureGrid from "../../components/home/FeatureGrid.astro";
+import CTASection from "../../components/home/CTASection.astro";
+import StatsBar from "../../components/home/StatsBar.astro";
+import QuickActions from "../../components/home/QuickActions.astro";
+import IntroBanner from "../../components/home/IntroBanner.astro";
+
+const lang = "en";
 ---
 
-<BaseLayout title="Coming Soon" lang="en">
-	<div class="coming-soon">
-		<div class="content">
-			<h1>🇬🇧 English Version Coming Soon</h1>
-			<p>The English version of Enogtyve.org is currently under development.</p>
-			<p>For now, please visit our Danish site:</p>
-			<a href="/da" class="btn-primary">Go to Danish Site (Dansk)</a>
-		</div>
+<BaseLayout
+	title="Danish Bitcoin community — Enogtyve"
+	description="Enogtyve is Denmark’s Bitcoin community. Learn about Bitcoin, Lightning, self-custody, mining, and more. Curious minds welcome."
+	lang={lang}
+>
+	<StatsBar lang={lang} />
+	<IntroBanner lang={lang} />
+	<QuickActions lang={lang} />
+	<IntroAccordion lang={lang} />
+	<div class="page-content">
+		<PromoSection lang={lang} />
+		<CTASection lang={lang} />
+		<ShowcaseGrid lang={lang} />
+		<FeatureGrid lang={lang} />
 	</div>
+	<div class="scroll-hint" aria-hidden="true"></div>
 </BaseLayout>
 
 <style>
-	.coming-soon {
-		min-height: 60vh;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 2rem;
+	.scroll-hint {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 80px;
+		background: linear-gradient(
+			to top,
+			var(--background) 0%,
+			transparent 100%
+		);
+		pointer-events: none;
+		z-index: 90;
+		opacity: 1;
+		transition: opacity 0.4s ease;
 	}
 
-	.content {
-		text-align: center;
-		max-width: 600px;
+	.scroll-hint.hidden {
+		opacity: 0;
 	}
 
-	h1 {
-		font-size: clamp(1.75rem, 4vw, 2.5rem);
-		color: var(--primary);
-		margin-bottom: 1.5rem;
-	}
-
-	p {
-		font-size: 1.1rem;
-		color: var(--text-light);
-		margin-bottom: 1rem;
-		line-height: 1.6;
-	}
-
-	.btn-primary {
-		display: inline-block;
-		margin-top: 1.5rem;
-		padding: 0.85rem 1.85rem;
-		background: var(--primary);
-		color: #000;
-		border-radius: 8px;
-		font-weight: 600;
-		text-decoration: none;
-		transition: all 0.3s ease;
-	}
-
-	.btn-primary:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 8px 20px rgba(247, 147, 26, 0.4);
+	@media (prefers-reduced-motion: no-preference) {
+		@media (min-width: 768px) {
+			.page-content {
+				scroll-snap-type: y proximity;
+			}
+			:global(section) {
+				scroll-snap-align: start;
+			}
+		}
 	}
 </style>
+
+<script>
+	import { initializeSearch } from "../../scripts/searchHandler";
+	initializeSearch();
+
+	const scrollHint = document.querySelector(".scroll-hint");
+	if (scrollHint) {
+		window.addEventListener(
+			"scroll",
+			() => {
+				if (window.scrollY > 100) {
+					scrollHint.classList.add("hidden");
+				} else {
+					scrollHint.classList.remove("hidden");
+				}
+			},
+			{ passive: true },
+		);
+	}
+</script>

@@ -1,44 +1,73 @@
 ---
+interface Props {
+	lang: "da" | "en";
+}
 const { lang } = Astro.props;
+const isEn = lang === "en";
+const contentLang = isEn ? "da" : lang;
 ---
 
 <section class="featured">
-	<h2>Udforsk</h2>
+	<h2>{isEn ? "Explore" : "Udforsk"}</h2>
 	<div class="feature-grid">
-		<a href={`/${lang}/blog`} class="feature-card">
+		<a href={`/${contentLang}/blog`} class="feature-card">
 			<img src="/images/icons/blog.png" alt="" class="feature-icon" />
 			<h3>Blog</h3>
-			<p>Artikler og blogindlæg</p>
+			<p>
+				{isEn
+					? "Articles and blog posts (mostly Danish)"
+					: "Artikler og blogindlæg"}
+			</p>
 		</a>
 
-		<a href={`/${lang}/podcasts`} class="feature-card">
+		<a href={`/${contentLang}/podcasts`} class="feature-card">
 			<img src="/images/icons/podcasts.png" alt="" class="feature-icon" />
 			<h3>Podcasts</h3>
-			<p>Liste over danske Bitcoin Podcasts</p>
+			<p>
+				{isEn
+					? "Danish Bitcoin podcasts"
+					: "Liste over danske Bitcoin Podcasts"}
+			</p>
 		</a>
 
-		<a href={`/${lang}/udforsk/udforsk`} class="feature-card">
+		<a href={`/${contentLang}/udforsk/udforsk`} class="feature-card">
 			<img src="/images/icons/udforsk.png" alt="" class="feature-icon" />
-			<h3>Udforsk</h3>
-			<p>Fællesskaber, meetups og konferencer</p>
+			<h3>{isEn ? "Explore" : "Udforsk"}</h3>
+			<p>
+				{isEn
+					? "Communities, meetups, and conferences"
+					: "Fællesskaber, meetups og konferencer"}
+			</p>
 		</a>
 
-		<a href={`/${lang}/kom-igang/kob-bitcoin`} class="feature-card">
+		<a href={`/${contentLang}/kom-igang/kob-bitcoin`} class="feature-card">
 			<img src="/images/icons/komigang.png" alt="" class="feature-icon" />
-			<h3>Kom igang</h3>
-			<p>Lær at anskaffe og opbevare bitcoin</p>
+			<h3>{isEn ? "Get started" : "Kom igang"}</h3>
+			<p>
+				{isEn
+					? "Learn how to acquire and store bitcoin"
+					: "Lær at anskaffe og opbevare bitcoin"}
+			</p>
 		</a>
 
-		<a href={`/${lang}/rabat`} class="feature-card">
+		<a href={`/${contentLang}/rabat`} class="feature-card">
 			<img src="/images/icons/promo.png" alt="" class="feature-icon" />
-			<h3>Rabat med enogtyve</h3>
-			<p>Spar penge med vores partnere</p>
+			<h3>{isEn ? "Discounts with enogtyve" : "Rabat med enogtyve"}</h3>
+			<p>
+				{isEn
+					? "Save money with our partners"
+					: "Spar penge med vores partnere"}
+			</p>
 		</a>
 
-		<a href={`/${lang}/faellesskab/support`} class="feature-card">
+		<a href={`/${contentLang}/faellesskab/support`} class="feature-card">
 			<img src="/images/icons/support.png" alt="" class="feature-icon" />
-			<h3>Støt os</h3>
-			<p>Hjælp fællesskabet med at vokse</p>
+			<h3>{isEn ? "Support us" : "Støt os"}</h3>
+			<p>
+				{isEn
+					? "Help the community grow"
+					: "Hjælp fællesskabet med at vokse"}
+			</p>
 		</a>
 	</div>
 </section>

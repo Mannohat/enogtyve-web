@@ -4,219 +4,204 @@ interface Props {
 }
 
 const { lang = "da" } = Astro.props;
-// TODO: When English pages are built, remove navLang and use `lang` instead in menuItems and exclusiveMenuItem
-const navLang = "da";
 const currentPath = Astro.url.pathname;
 
-const menuItems = [
-    {
-        label: "Velkommen",
-        href: `/${navLang}`,
-        submenu: [
-            {
-                label: "Lidt om penge",
-                href: `/${navLang}/blog/penges-historie`,
-            },
-            {
-                label: "Lidt om Bitcoin",
-                href: `/${navLang}/blog/hvad-er-bitcoin`,
-            },
-            {
-                label: "White Paper",
-                href: `/pdf/bitcoin.pdf`,
-                target: "_blank",
-            },
-            {
-                label: "Cypherpunk's Manifesto",
-                href: `/pdf/cypherpunks-manifesto.pdf`,
-                target: "_blank",
-            },
-            { label: "FUD / Fakta", href: `/${navLang}/velkommen/fud-facts` },
-        ],
-    },
-    {
-        label: "Kom igang",
-        href: `/${navLang}/kom-igang`,
-        submenu: [
-            {
-                label: "Anskaffelse af bitcoin",
-                href: `/${navLang}/kom-igang/kob-bitcoin`,
-            },
-            {
-                label: "Optjen bitcoin",
-                href: `/${navLang}/kom-igang/optjen-bitcoin`,
-            },
-            {
-                label: "Opbevaring af bitcoin",
-                href: `/${navLang}/kom-igang/opbevaring-af-bitcoin`,
-            },
-            {
-                label: "Hardware Wallets",
-                href: `/${navLang}/kom-igang/hardware-wallets`,
-            },
-            {
-                label: "Gendannelsesord / Seed Phrase",
-                href: `/${navLang}/kom-igang/seed-phrase`,
-            },
-            {
-                label: "Bitcoin Software",
-                href: `/${navLang}/kom-igang/bitcoin-software`,
-            },
-            {
-                label: "Privatliv og best Practice",
-                href: `/${navLang}/kom-igang/privatliv-best-practice`,
-            },
-            {
-                label: "Begreber og Ord",
-                href: `/${navLang}/kom-igang/begreber-ord`,
-            },
-            {
-                label: "Bitcoin Bøger på Dansk",
-                href: `/${navLang}/kom-igang/bitcoin-boeger-dansk`,
-            },
-        ],
-    },
-    {
-        label: "Lær mere",
-        href: `/${navLang}/laer-mere`,
-        submenu: [
-            {
-                label: "Bitcoin Blokkæden",
-                href: `/${navLang}/laer-mere/bitcoin-blockchain`,
-            },
-            {
-                label: "Bitcoin Lightning",
-                href: `/${navLang}/laer-mere/lightning`,
-            },
-            {
-                label: "Lightning Wallets",
-                href: `/${navLang}/laer-mere/lightning-wallets`,
-            },
-            { label: "Liquid", href: `/${navLang}/laer-mere/liquid` },
-            { label: "eCash", href: `/${navLang}/laer-mere/ecash` },
-            {
-                label: "Buidl",
-                href: `/${navLang}/idevaerksted/buidl`,
-            },
-            {
-                label: "Quotes oversat til Dansk",
-                href: `/${navLang}/laer-mere/quotes-dansk`,
-            },
-            {
-                label: "Bitcoin og din forretning",
-                href: `/${navLang}/laer-mere/bitcoin-og-din-forretning`,
-            },
-            {
-                label: "Lightning Produkter og Services",
-                href: `/${navLang}/laer-mere/lightning-produkter-services`,
-            },
-            {
-                label: "Bitcoin Services og Produkter",
-                href: `/${navLang}/laer-mere/bitcoin-services-og-produkter`,
-            },
-            {
-                label: "Value 4 Value",
-                href: `/${navLang}/laer-mere/value4value`,
-            },
-        ],
-    },
-    { label: "Podcasts", href: `/${navLang}/podcasts`, submenu: [] },
-    { label: "Blog", href: `/${navLang}/blog`, submenu: [] },
-    {
-        label: "Mining",
-        href: `/${navLang}/mining`,
-        submenu: [
-            {
-                label: "Mining for opvarmning",
-                href: `/${navLang}/mining/mining-for-opvarmning`,
-            },
-            { label: "Solo Mining", href: `/${navLang}/mining/solo-mining` },
-            {
-                label: "mempool.space guide",
-                href: `/${navLang}/mining/mempool-guide`,
-            },
-        ],
-    },
-    {
-        label: "Udforsk",
-        href: `/${navLang}/udforsk/udforsk`,
-        submenu: [
-            {
-                label: "Mød ligesindede når du rejser",
-                href: `/${navLang}/udforsk/moed-andre`,
-            },
-            {
-                label: "Bitcoin Fællesskaber og Meetups i verden",
-                href: `/${navLang}/udforsk/in-the-world`,
-            },
-            {
-                label: "Buidl",
-                href: `/${navLang}/idevaerksted/buidl`,
-            },
-            {
-                label: "Bitcoin Cirkulære Økonomier",
-                href: `/${navLang}/udforsk/cirkulaere-okonomier`,
-            },
-            {
-                label: "Frie Byer og Samfund",
-                href: `/${navLang}/udforsk/freecities`,
-            },
-            {
-                label: "Bitcoin Konferencer",
-                href: `/${navLang}/udforsk/konferencer`,
-            },
-            {
-                label: "Bitcoin Bogmærker",
-                href: `/${navLang}/faellesskab/bookmarks`,
-            },
-            { label: "Nyheder", href: `/${navLang}/udforsk/nyheder` },
+type NavLang = "da" | "en";
 
-            {
-                label: "Twentyone.world",
-                href: `/${navLang}/udforsk/twentyoneworld`,
-            },
-        ],
-    },
-    {
-        label: "Fællesskab",
-        href: `/${navLang}/faellesskab`,
-        submenu: [
-            { label: "Bogmærker", href: `/${navLang}/faellesskab/bookmarks` },
-            {
-                label: "Bitcoin Initiativer i Danmark",
-                href: `/${navLang}/faellesskab/initiativer-danmark`,
-            },
-            { label: "Rabatter", href: `/${navLang}/rabat` },
-            { label: "Support", href: `/${navLang}/faellesskab/support` },
-            {
-                label: "Spotify Playliste",
-                href: `/${navLang}/faellesskab/playliste`,
-            },
-            { label: "Mediekit", href: `/${navLang}/faellesskab/mediekit` },
-            {
-                label: "Chat om Bitcoin",
-                href: `https://chat.enogtyve.org`,
-                target: "_blank",
-            },
-            {
-                label: "Snak om Bitcoin",
-                href: `https://talk.enogtyve.org`,
-                target: "_blank",
-            },
-        ],
-    },
-];
+function t(navLang: NavLang) {
+    return navLang === "da"
+        ? {
+              welcome: "Velkommen",
+              gettingStarted: "Kom igang",
+              learnMore: "Lær mere",
+              explore: "Udforsk",
+              community: "Fællesskab",
+              discounts: "Rabatter",
+              support: "Support",
+              mediaKit: "Mediekit",
+              playlist: "Spotify Playliste",
+              news: "Nyheder",
+              conferences: "Bitcoin Konferencer",
+              bookmarks: "Bogmærker",
+              initiatives: "Bitcoin Initiativer i Danmark",
+              meetOthers: "Mød ligesindede når du rejser",
+              worldwide: "Bitcoin Fællesskaber og Meetups i verden",
+              circularEcon: "Bitcoin Cirkulære Økonomier",
+              freeCities: "Frie Byer og Samfund",
+              podcasts: "Podcasts",
+              blog: "Blog",
+              mining: "Mining",
+              advisory: "Rådgivning & Workshops",
+              money: "Lidt om penge",
+              bitcoin: "Lidt om Bitcoin",
+              privacyBestPractice: "Privatliv og best Practice",
+              termsWords: "Begreber og Ord",
+              danishBooks: "Bitcoin Bøger på Dansk",
+              acquisition: "Anskaffelse af bitcoin",
+              earn: "Optjen bitcoin",
+              storage: "Opbevaring af bitcoin",
+              recovery: "Gendannelsesord / Seed Phrase",
+              blockchain: "Bitcoin Blokkæden",
+              lightning: "Bitcoin Lightning",
+              lightningWallets: "Lightning Wallets",
+              business: "Bitcoin og din forretning",
+              productsServices: "Bitcoin Services og Produkter",
+              lnProductsServices: "Lightning Produkter og Services",
+              quotes: "Quotes oversat til Dansk",
+              soloMining: "Solo Mining",
+              miningHeating: "Mining for opvarmning",
+              mempoolGuide: "mempool.space guide",
+              chat: "Chat om Bitcoin",
+              talk: "Snak om Bitcoin",
+          }
+        : {
+              welcome: "Welcome",
+              gettingStarted: "Get started",
+              learnMore: "Learn",
+              explore: "Explore",
+              community: "Community",
+              discounts: "Discounts",
+              support: "Support",
+              mediaKit: "Media kit",
+              playlist: "Spotify playlist",
+              news: "News",
+              conferences: "Bitcoin conferences",
+              bookmarks: "Bookmarks",
+              initiatives: "Bitcoin initiatives in Denmark",
+              meetOthers: "Meet people while travelling",
+              worldwide: "Bitcoin communities & meetups worldwide",
+              circularEcon: "Circular Bitcoin economies",
+              freeCities: "Free cities & communities",
+              podcasts: "Podcasts",
+              blog: "Blog",
+              mining: "Mining",
+              advisory: "Advisory & workshops",
+              money: "About money",
+              bitcoin: "About Bitcoin",
+              privacyBestPractice: "Privacy best practices",
+              termsWords: "Terms & words",
+              danishBooks: "Bitcoin books (Danish)",
+              acquisition: "Buy bitcoin",
+              earn: "Earn bitcoin",
+              storage: "Bitcoin storage",
+              recovery: "Seed phrase & recovery",
+              blockchain: "Bitcoin blockchain",
+              lightning: "Lightning",
+              lightningWallets: "Lightning wallets",
+              business: "Bitcoin for your business",
+              productsServices: "Bitcoin products & services",
+              lnProductsServices: "Lightning products & services",
+              quotes: "Quotes (Danish)",
+              soloMining: "Solo mining",
+              miningHeating: "Mining for heating",
+              mempoolGuide: "mempool.space guide",
+              chat: "Chat about Bitcoin",
+              talk: "Talk about Bitcoin",
+          };
+}
+
+function buildMenuItems(navLang: NavLang) {
+    const labels = t(navLang);
+    const hrefLang: NavLang = navLang === "en" ? "da" : navLang;
+    return [
+        {
+            label: labels.welcome,
+            href: `/${navLang}`,
+            submenu: [
+                { label: labels.money, href: `/${hrefLang}/blog/penges-historie` },
+                { label: labels.bitcoin, href: `/${hrefLang}/blog/hvad-er-bitcoin` },
+                { label: "White Paper", href: `/pdf/bitcoin.pdf`, target: "_blank" },
+                { label: "Cypherpunk's Manifesto", href: `/pdf/cypherpunks-manifesto.pdf`, target: "_blank" },
+                { label: "FUD / Facts", href: `/${hrefLang}/velkommen/fud-facts` },
+            ],
+        },
+        {
+            label: labels.gettingStarted,
+            href: `/${navLang}/kom-igang`,
+            submenu: [
+                { label: labels.acquisition, href: `/${hrefLang}/kom-igang/kob-bitcoin` },
+                { label: labels.earn, href: `/${hrefLang}/kom-igang/optjen-bitcoin` },
+                { label: labels.storage, href: `/${hrefLang}/kom-igang/opbevaring-af-bitcoin` },
+                { label: "Hardware Wallets", href: `/${hrefLang}/kom-igang/hardware-wallets` },
+                { label: labels.recovery, href: `/${hrefLang}/kom-igang/seed-phrase` },
+                { label: "Bitcoin Software", href: `/${hrefLang}/kom-igang/bitcoin-software` },
+                { label: labels.privacyBestPractice, href: `/${hrefLang}/kom-igang/privatliv-best-practice` },
+                { label: labels.termsWords, href: `/${hrefLang}/kom-igang/begreber-ord` },
+                { label: labels.danishBooks, href: `/${hrefLang}/kom-igang/bitcoin-boeger-dansk` },
+            ],
+        },
+        {
+            label: labels.learnMore,
+            href: `/${navLang}/laer-mere`,
+            submenu: [
+                { label: labels.blockchain, href: `/${hrefLang}/laer-mere/bitcoin-blockchain` },
+                { label: labels.lightning, href: `/${hrefLang}/laer-mere/lightning` },
+                { label: labels.lightningWallets, href: `/${hrefLang}/laer-mere/lightning-wallets` },
+                { label: "Liquid", href: `/${hrefLang}/laer-mere/liquid` },
+                { label: "eCash", href: `/${hrefLang}/laer-mere/ecash` },
+                { label: "Buidl", href: `/${hrefLang}/idevaerksted/buidl` },
+                { label: labels.quotes, href: `/${hrefLang}/laer-mere/quotes-dansk` },
+                { label: labels.business, href: `/${hrefLang}/laer-mere/bitcoin-og-din-forretning` },
+                { label: labels.lnProductsServices, href: `/${hrefLang}/laer-mere/lightning-produkter-services` },
+                { label: labels.productsServices, href: `/${hrefLang}/laer-mere/bitcoin-services-og-produkter` },
+                { label: "Value 4 Value", href: `/${hrefLang}/laer-mere/value4value` },
+            ],
+        },
+        { label: labels.podcasts, href: `/${hrefLang}/podcasts`, submenu: [] },
+        { label: labels.blog, href: `/${hrefLang}/blog`, submenu: [] },
+        {
+            label: labels.mining,
+            href: `/${navLang}/mining`,
+            submenu: [
+                { label: labels.miningHeating, href: `/${hrefLang}/mining/mining-for-opvarmning` },
+                { label: labels.soloMining, href: `/${hrefLang}/mining/solo-mining` },
+                { label: labels.mempoolGuide, href: `/${hrefLang}/mining/mempool-guide` },
+            ],
+        },
+        {
+            label: labels.explore,
+            href: `/${hrefLang}/udforsk/udforsk`,
+            submenu: [
+                { label: labels.meetOthers, href: `/${hrefLang}/udforsk/moed-andre` },
+                { label: labels.worldwide, href: `/${hrefLang}/udforsk/in-the-world` },
+                { label: "Buidl", href: `/${hrefLang}/idevaerksted/buidl` },
+                { label: labels.circularEcon, href: `/${hrefLang}/udforsk/cirkulaere-okonomier` },
+                { label: labels.freeCities, href: `/${hrefLang}/udforsk/freecities` },
+                { label: labels.conferences, href: `/${hrefLang}/udforsk/konferencer` },
+                { label: labels.bookmarks, href: `/${hrefLang}/faellesskab/bookmarks` },
+                { label: labels.news, href: `/${hrefLang}/udforsk/nyheder` },
+                { label: "Twentyone.world", href: `/${hrefLang}/udforsk/twentyoneworld` },
+            ],
+        },
+        {
+            label: labels.community,
+            href: `/${navLang}/faellesskab`,
+            submenu: [
+                { label: labels.bookmarks, href: `/${hrefLang}/faellesskab/bookmarks` },
+                { label: labels.initiatives, href: `/${hrefLang}/faellesskab/initiativer-danmark` },
+                { label: labels.discounts, href: `/${hrefLang}/rabat` },
+                { label: labels.support, href: `/${hrefLang}/faellesskab/support` },
+                { label: labels.playlist, href: `/${hrefLang}/faellesskab/playliste` },
+                { label: labels.mediaKit, href: `/${hrefLang}/faellesskab/mediekit` },
+                { label: labels.chat, href: `https://chat.enogtyve.org`, target: "_blank" },
+                { label: labels.talk, href: `https://talk.enogtyve.org`, target: "_blank" },
+            ],
+        },
+    ];
+}
+
+const menuItems = buildMenuItems(lang);
 
 const exclusiveMenuItem = {
-    label: "Rådgivning & Workshops",
-    href: `/${navLang}/advisory-services/raadgivning`,
+    label: t(lang).advisory,
+    href: `/${lang === "en" ? "da" : lang}/advisory-services/raadgivning`,
     submenu: [],
 };
 
 // Helper function to check if a path is active
 function isActive(href: string, currentPath: string): boolean {
-    if (href === `/${navLang}` || href === `/${navLang}/`) {
-        return currentPath === `/${navLang}` || currentPath === `/${navLang}/`;
+    if (href === `/${lang}` || href === `/${lang}/`) {
+        return currentPath === `/${lang}` || currentPath === `/${lang}/`;
     }
     return currentPath.startsWith(href);
 }
@@ -224,6 +209,7 @@ function isActive(href: string, currentPath: string): boolean {
 // Helper function to get language-switched path
 function getSwitchedPath(targetLang: string): string {
     const pathWithoutLang = currentPath.replace(/^\/(da|en)/, "");
+    if (targetLang === "en") return "/en";
     return `/${targetLang}${pathWithoutLang || ""}`;
 }
 ---
@@ -231,7 +217,7 @@ function getSwitchedPath(targetLang: string): string {
 <header>
     <div class="header-top">
         <div class="container">
-            <a href={`/${navLang}`} class="logo" aria-label="Home">
+            <a href={`/${lang}`} class="logo" aria-label="Home">
                 <img src="/images/logos/enogtyve_logo.png" alt="Enogtyve" />
             </a>
 
@@ -252,7 +238,7 @@ function getSwitchedPath(targetLang: string): string {
                     </a>
                     <span>/</span>
                     <a
-                        href="/en/"
+                        href={getSwitchedPath("en")}
                         class={lang === "en" ? "active" : ""}
                         aria-label="Switch to English"
                         aria-current={lang === "en" ? "true" : undefined}

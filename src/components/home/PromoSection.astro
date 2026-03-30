@@ -1,13 +1,29 @@
+---
+interface Props {
+	lang?: "da" | "en";
+}
+const { lang = "da" } = Astro.props;
+const isEn = lang === "en";
+const rabatHref = `/${isEn ? "da" : lang}/rabat`;
+---
+
 <section class="collaborators-section">
 	<div class="container">
 		<h2 class="section-title">
-			Få rabat med koden <span class="highlight"
-				>"ENOGTYVE"</span
-			>
+			{isEn ? (
+				<>
+					Get a discount with code <span class="highlight">"ENOGTYVE"</span>
+				</>
+			) : (
+				<>
+					Få rabat med koden <span class="highlight">"ENOGTYVE"</span>
+				</>
+			)}
 		</h2>
 		<p class="section-subtitle">
-			Med rabatkoden "ENOGTYVE" kan du mange steder opnå besparelser på
-			udvalgte konferencer, produkter og services.
+			{isEn
+				? 'With the code "ENOGTYVE" you can save on selected conferences, products, and services at many partners.'
+				: 'Med rabatkoden "ENOGTYVE" kan du mange steder opnå besparelser på udvalgte konferencer, produkter og services.'}
 		</p>
 		<div class="collaborators-grid">
 			<a
@@ -131,8 +147,8 @@
 				/>
 			</a>
 		</div>
-		<a href="/da/rabat" class="collaborators-cta">
-			Se alle samarbejdspartnere →
+		<a href={rabatHref} class="collaborators-cta">
+			{isEn ? "See all partners →" : "Se alle samarbejdspartnere →"}
 		</a>
 	</div>
 </section>

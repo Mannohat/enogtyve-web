@@ -1,13 +1,99 @@
+---
+interface Props {
+	lang?: "da" | "en";
+}
+const { lang = "da" } = Astro.props;
+const isEn = lang === "en";
+---
+
 <section class="introduction-unified">
 	<div class="container">
 		<h2>
 			<img
 				src="/images/logos/bitcoin.png"
-				alt="Bitcoin - hvad er Bitcoin og hvordan fungerer det?"
+				alt={isEn
+					? "Bitcoin — what is Bitcoin and how does it work?"
+					: "Bitcoin - hvad er Bitcoin og hvordan fungerer det?"}
 				class="bitcoin-logo"
 			/>
 		</h2>
 
+		{isEn ? (
+		<div class="intro-accordion">
+			<div class="accordion-item special-intro">
+				<button
+					class="accordion-header"
+					data-target="intro-1"
+					aria-expanded="false"
+					aria-controls="intro-1"
+				>
+					<span class="accordion-title pulse">Introduction</span>
+					<span class="accordion-icon" aria-hidden="true">▼</span>
+				</button>
+				<div class="accordion-content" id="intro-1" role="region">
+					<div class="accordion-inner">
+						<p>
+							Bitcoin is a network that has grown into the world’s most secure decentralized computer network. The network has a built-in asset called bitcoin. One bitcoin (BTC) consists of 100,000,000 satoshis (sats) — similar to cents to a dollar. You can therefore own a fraction of a bitcoin, down to 1/100,000,000 of 1 BTC.
+						</p>
+						<p>
+							Bitcoin is not a company, and Bitcoin has no CEO. Like physical gold, you do not need to trust anyone if you hold satoshis and store them correctly in self-custody. Under “Get started” you can read more about how to store bitcoin.
+						</p>
+						<p>
+							Bitcoin has never been hacked. When people have lost bitcoin, it is not because Bitcoin failed, but because the user made a mistake, or a third party — for example an exchange — had a vulnerability or perhaps did not actually hold the bitcoin they sold. It can be compared to selling gold to your neighbor but handing over a paper IOU instead of the gold. That often ends in fractional reserve, where the amount of gold or bitcoin backing claims shrinks over time — in other words, a scam.
+						</p>
+						<p>
+							Bitcoin can be complex to understand. One thing is how it works technically; another is what led to Bitcoin, which problems it solves, and what impact it may have on the world — now and in the future. It is often recommended to first understand what money actually is, as a good angle for understanding Bitcoin.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="accordion-item">
+				<button
+					class="accordion-header"
+					data-target="intro-2"
+					aria-expanded="false"
+					aria-controls="intro-2"
+				>
+					<span class="accordion-title">Bitcoin, not “crypto”</span>
+					<span class="accordion-icon" aria-hidden="true">▼</span>
+				</button>
+				<div class="accordion-content" id="intro-2" role="region">
+					<div class="accordion-inner">
+						<p>
+							You may have heard people and media talk about “crypto” and bitcoin as if they were the same. They are not. There is Bitcoin, and then there is a long list of crypto projects, many of which are scams. Bitcoin is a cryptocurrency, but no other cryptocurrency is bitcoin.
+						</p>
+						<p>
+							Bitcoin differs in several crucial ways. Without going deep into detail here, Bitcoin is the only one whose Proof of Work (PoW) consensus ties the digital world to the physical one. If you have heard of bitcoin mining, that is related to this — and part of why bitcoin is often called digital gold.
+						</p>
+						<p>
+							There will never be more than 21 million bitcoin — hence the name of this site, “Enogtyve” (twenty-one in Danish). Roughly 19 million are in circulation today, and an estimated 4–6 million are believed lost due to carelessness, early low value, or lost keys.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="accordion-item">
+				<button
+					class="accordion-header"
+					data-target="intro-3"
+					aria-expanded="false"
+					aria-controls="intro-3"
+				>
+					<span class="accordion-title">Bitcoin is still new technology</span>
+					<span class="accordion-icon" aria-hidden="true">▼</span>
+				</button>
+				<div class="accordion-content" id="intro-3" role="region">
+					<div class="accordion-inner">
+						<p>
+							The Bitcoin network has only existed for a relatively short time and is still new technology. In a broader perspective, Bitcoin has only just begun. In recent years technologies built on Bitcoin have developed rapidly, enabling many new features and uses. There is no reason to expect that development to slow down.
+						</p>
+						<p>
+							People, societies, companies, and governments are gradually recognizing that Bitcoin is a significant discovery that cannot be equated with anything else we know. That is why it can be hard both to explain and to understand what Bitcoin really is. As Satoshi Nakamoto wrote, Bitcoin is hard to explain because there is nothing obvious to compare it to.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		) : (
 		<div class="intro-accordion">
 			<div class="accordion-item special-intro">
 				<button
@@ -159,6 +245,7 @@
 				</div>
 			</div>
 		</div>
+		)}
 	</div>
 </section>
 

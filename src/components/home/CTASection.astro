@@ -1,17 +1,30 @@
 ---
+interface Props {
+	lang: "da" | "en";
+}
 const { lang } = Astro.props;
+const isEn = lang === "en";
+const contentLang = isEn ? "da" : lang;
 ---
 
 <section class="cta-section">
 	<div class="container">
 		<div class="cta-content">
-			<h2>💬 Fællesskab & Meetups</h2>
+			<h2>
+				{isEn ? "💬 Community & meetups" : "💬 Fællesskab & Meetups"}
+			</h2>
 			<p class="cta-text">
-				Uanset om du er ny eller har været med længe, har du helt sikkert noget at byde ind med. Hop med i snakken i vores Telegram-gruppe (link herunder), og kig dig endelig lidt omkring på siden, hvor du finder idéer til videre udforskning af Bitcoin.
+				{isEn
+					? "Whether you’re new or have been around a while, you have something to contribute. Join the conversation in our Telegram group (link below), and browse the site for ideas on what to explore next."
+					: "Uanset om du er ny eller har været med længe, har du helt sikkert noget at byde ind med. Hop med i snakken i vores Telegram-gruppe (link herunder), og kig dig endelig lidt omkring på siden, hvor du finder idéer til videre udforskning af Bitcoin."}
 			</p>
 			<div class="cta-buttons">
-				<a href="https://chat.enogtyve.org" target="_blank" rel="noopener noreferrer" class="btn-primary">Telegramgruppe</a>
-				<a href={`/${lang}/faellesskab/support`} class="btn-secondary">Bidrag til fællesskabet</a>
+				<a href="https://chat.enogtyve.org" target="_blank" rel="noopener noreferrer" class="btn-primary">
+					{isEn ? "Telegram group" : "Telegramgruppe"}
+				</a>
+				<a href={`/${contentLang}/faellesskab/support`} class="btn-secondary">
+					{isEn ? "Support the community" : "Bidrag til fællesskabet"}
+				</a>
 			</div>
 		</div>
 	</div>

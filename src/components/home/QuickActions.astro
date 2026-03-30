@@ -1,16 +1,25 @@
 ---
+interface Props {
+	lang: "da" | "en";
+}
 const { lang } = Astro.props;
+const isEn = lang === "en";
+const contentLang = isEn ? "da" : lang;
 
 const logos = [
 	{
-		href: "https://mempool.space/da",
+		href: isEn ? "https://mempool.space" : "https://mempool.space/da",
 		logo: "/images/logos/mempool.png",
-		alt: "Mempool.space - Bitcoin block explorer",
+		alt: isEn
+			? "Mempool.space — Bitcoin block explorer"
+			: "Mempool.space - Bitcoin block explorer",
 	},
 	{
 		href: "https://timechaincalendar.com",
 		logo: "/images/logos/timechaincal.png",
-		alt: "Timechain Calendar - Bitcoin halving kalender",
+		alt: isEn
+			? "Timechain Calendar — Bitcoin halving calendar"
+			: "Timechain Calendar - Bitcoin halving kalender",
 	},
 	{
 		href: "https://bitcoin.clarkmoody.com/dashboard/",
@@ -25,7 +34,9 @@ const logos = [
 	{
 		href: "https://nakamotoinstitute.org",
 		logo: "/images/logos/nakamotoinstitute.png",
-		alt: "Nakamoto Institute - Bitcoin litteratur og ressourcer",
+		alt: isEn
+			? "Nakamoto Institute — Bitcoin literature and resources"
+			: "Nakamoto Institute - Bitcoin litteratur og ressourcer",
 	},
 	{
 		href: "https://bitbo.io",
@@ -37,19 +48,23 @@ const logos = [
 const actions = [
 	{
 		icon: "/images/icons/bookmark.png",
-		label: "Bogmærker",
-		href: `/${lang}/faellesskab/bookmarks`,
+		label: isEn ? "Bookmarks" : "Bogmærker",
+		href: `/${contentLang}/faellesskab/bookmarks`,
 	},
 	{
 		icon: "/images/icons/podcasts.png",
 		label: "Podcasts",
-		href: `/${lang}/podcasts`,
+		href: `/${contentLang}/podcasts`,
 	},
-	{ icon: "/images/icons/promo.png", label: "Rabat", href: `/${lang}/rabat` },
+	{
+		icon: "/images/icons/promo.png",
+		label: isEn ? "Discounts" : "Rabat",
+		href: `/${contentLang}/rabat`,
+	},
 	{
 		icon: "/images/icons/blockchain.png",
-		label: "Blokkæden",
-		href: `/${lang}/laer-mere/bitcoin-blockchain`,
+		label: isEn ? "Blockchain" : "Blokkæden",
+		href: `/${contentLang}/laer-mere/bitcoin-blockchain`,
 	},
 ];
 ---
@@ -125,11 +140,15 @@ const actions = [
 				<div class="event-info">
 					<span class="event-name">BTCPrague</span>
 					<span class="event-date">11.–13. juni 2026</span>
-					<span class="event-discount">Spar 10% med rabatkoden “enogtyve”</span>
+					<span class="event-discount">
+						{isEn
+							? 'Save 10% with code “enogtyve”'
+							: 'Spar 10% med rabatkoden “enogtyve”'}
+					</span>
 				</div>
 			</a>
-			<a href={`/${lang}/udforsk/konferencer`} class="event-more">
-				Se flere konferencer →
+			<a href={`/${contentLang}/udforsk/konferencer`} class="event-more">
+				{isEn ? "More conferences →" : "Se flere konferencer →"}
 			</a>
 		</div>
 	</div>

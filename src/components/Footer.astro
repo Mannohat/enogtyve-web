@@ -4,6 +4,9 @@ interface Props {
 }
 
 const { lang = "da" } = Astro.props;
+const isEn = lang === "en";
+const contentLang = isEn ? "da" : lang;
+const privacyHref = isEn ? `/${lang}/privacypolicy` : `/${lang}/privatlivspolitik`;
 ---
 
 <footer>
@@ -11,14 +14,31 @@ const { lang = "da" } = Astro.props;
 		<div class="footer-content">
 			<div class="footer-section">
 				<div class="footer-section-logo">
-					<a href="/" aria-label="Gå til forsiden">
+					<a
+						href={`/${lang}`}
+						aria-label={isEn ? "Go to home page" : "Gå til forsiden"}
+					>
 						<img
 							src="/images/logos/enogtyve_logo.png"
 							alt="Enogtyve Logo"
 						/>
 					</a>
 				</div>
-				<p>Dansk Bitcoin Fællesskab<br />Est. Blokhøjde 802.050</p>
+				<p>
+					{isEn ? (
+						<>
+							Danish Bitcoin community
+							<br />
+							Est. block height 802,050
+						</>
+					) : (
+						<>
+							Dansk Bitcoin Fællesskab
+							<br />
+							Est. Blokhøjde 802.050
+						</>
+					)}
+				</p>
 				<div class="social-links">
 					<a
 						href="https://primal.net/p/nprofile1qqst6yvd9dm3wmzlpzjza3fuzev8x83unenzus9c697jk6mzxfq9jugtpeyeh"
@@ -93,65 +113,74 @@ const { lang = "da" } = Astro.props;
 			</div>
 
 			<div class="footer-section">
-				<h4>Kom igang</h4>
+				<h4>{isEn ? "Get started" : "Kom igang"}</h4>
 				<ul>
 					<li>
-						<a href={`/${lang}/kom-igang/kob-bitcoin`}
-							>Anskaffelse af bitcoin</a
+						<a href={`/${contentLang}/kom-igang/kob-bitcoin`}
+							>{isEn ? "Acquiring bitcoin" : "Anskaffelse af bitcoin"}</a
 						>
 					</li>
 					<li>
-						<a href={`/${lang}/kom-igang/opbevaring-af-bitcoin`}
-							>Opbevaring</a
+						<a href={`/${contentLang}/kom-igang/opbevaring-af-bitcoin`}
+							>{isEn ? "Storage" : "Opbevaring"}</a
 						>
 					</li>
 					<li>
-						<a href={`/${lang}/kom-igang/hardware-wallets`}
+						<a href={`/${contentLang}/kom-igang/hardware-wallets`}
 							>Hardware Wallets</a
 						>
 					</li>
 					<li>
-						<a href={`/${lang}/kom-igang/begreber-ord`}
-							>Begreber og Ord</a
+						<a href={`/${contentLang}/kom-igang/begreber-ord`}
+							>{isEn ? "Terms and concepts" : "Begreber og Ord"}</a
 						>
 					</li>
 				</ul>
 			</div>
 
 			<div class="footer-section">
-				<h4>Indhold</h4>
+				<h4>{isEn ? "Content" : "Indhold"}</h4>
 				<ul>
-					<li><a href={`/${lang}/blog`}>Blog</a></li>
-					<li><a href={`/${lang}/podcasts`}>Podcasts</a></li>
-					<li><a href={`/${lang}/udforsk/udforsk`}>Udforsk</a></li>
+					<li><a href={`/${contentLang}/blog`}>Blog</a></li>
+					<li><a href={`/${contentLang}/podcasts`}>Podcasts</a></li>
 					<li>
-						<a href={`/${lang}/mining/mining-for-opvarmning`}
+						<a href={`/${contentLang}/udforsk/udforsk`}
+							>{isEn ? "Explore" : "Udforsk"}</a
+						>
+					</li>
+					<li>
+						<a href={`/${contentLang}/mining/mining-for-opvarmning`}
 							>Mining</a>
 					</li>
 				</ul>
 			</div>
 
 			<div class="footer-section">
-				<h4>Fællesskab</h4>
+				<h4>{isEn ? "Community" : "Fællesskab"}</h4>
 				<ul>
 					<li>
 						<button class="support-btn" onclick="openSupport()">
 							<span class="heart">♥</span>
-							<span>Støt med sats ⚡</span>
+							<span>{isEn ? "Support with sats ⚡" : "Støt med sats ⚡"}</span>
 						</button>
 					</li>
 					<li>
-						<a href={`/${lang}/rabat`}>Rabat med enogtyve</a>
+						<a href={`/${contentLang}/rabat`}
+							>{isEn ? "Discounts with enogtyve" : "Rabat med enogtyve"}</a
+						>
 					</li>
 					<li>
 						<a
 							href="https://github.com/Mannohat/enogtyve-web"
 							target="_blank"
-							rel="noopener noreferrer">Bidrag på GitHub</a
+							rel="noopener noreferrer"
+							>{isEn ? "Contribute on GitHub" : "Bidrag på GitHub"}</a
 						>
 					</li>
 					<li>
-						<a href={`/${lang}/faellesskab/mediekit`}>Mediekit</a>
+						<a href={`/${contentLang}/faellesskab/mediekit`}
+							>{isEn ? "Media kit" : "Mediekit"}</a
+						>
 					</li>
 				</ul>
 			</div>
@@ -159,9 +188,19 @@ const { lang = "da" } = Astro.props;
 
 		<div class="footer-bottom">
 			<p>
-				&copy; ENOGTYVE 🧡 | 2026. Alle rettigheder forbeholdes | No
-				financial advice | Do your own research | Beware of scammers ❗️
-				| <a href={`/${lang}/privatlivspolitik`}>Privatlivspolitik</a>
+				{isEn ? (
+					<>
+						&copy; ENOGTYVE 🧡 | 2026. All rights reserved | No financial
+						advice | Do your own research | Beware of scammers ❗️ |{" "}
+						<a href={privacyHref}>Privacy policy</a>
+					</>
+				) : (
+					<>
+						&copy; ENOGTYVE 🧡 | 2026. Alle rettigheder forbeholdes | No
+						financial advice | Do your own research | Beware of scammers ❗️
+						| <a href={privacyHref}>Privatlivspolitik</a>
+					</>
+				)}
 			</p>
 		</div>
 	</div>
