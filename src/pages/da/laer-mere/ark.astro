@@ -1,0 +1,371 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+---
+
+<ResourcePageLayout
+  title="Ark"
+  description="Ark er en transaktionsbatchings-protokol for Bitcoin med VTXOs og ASP — selvforvaring, batching og sammenligning med Lightning og Liquid."
+  lang="da"
+>
+  <section class="nav-buttons">
+    <a href="/da/laer-mere/lightning" class="nav-btn">Lightning-netværket</a>
+    <a href="/da/laer-mere/liquid" class="nav-btn">Liquid</a>
+    <a href="/da/laer-mere/ecash" class="nav-btn">eCash</a>
+  </section>
+
+  <section class="content-section">
+    <h2>Hvad er Ark?</h2>
+    <p>
+      Ark er en transaktionsbatchings-protokol for Bitcoin, udviklet af Ark Labs. Protokollen gør det muligt at udføre off-chain transaktioner, mens brugerne bevarer fuld selvforvaring over deres midler. Kernen i Ark er <strong>Virtual UTXOs (VTXOs)</strong> — off-chain repræsentationer af bitcoin
+      <a href="/da/laer-mere/bitcoin-blockchain">UTXOs</a> — som koordineres af en operatør kaldet en <strong>Ark Service Provider (ASP)</strong>.
+    </p>
+    <p>
+      ASP&apos;en samler brugernes off-chain aktivitet og samler den i periodiske on-chain <strong>commitment transactions</strong>. Hver commitment transaction indeholder en eller flere <strong>batches</strong>, der specificerer et træ af VTXOs (et Virtual Transaction Tree, VTXT). Resultatet er et system med minimalt on-chain aftryk: uanset hvor mange off-chain transaktioner der finder sted, er on-chain omkostningen O(1) per runde.
+    </p>
+    <p>
+      Brugerne kan til enhver tid forlade Ark og hente deres midler on-chain — enten i <strong>samarbejde</strong> med operatøren (én on-chain transaktion) eller <strong>ensidigt</strong> ved at udsende de relevante virtuelle transaktioner i træet (O(log <em>t</em>) transaktioner, hvor <em>t</em> er antallet af VTXOs i batchen).
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Hvordan Ark fungerer</h2>
+
+    <p>
+      <strong>Boarding.</strong> En bruger opretter en boarding-transaktion, der låser midler i et output som enten kan bruges af brugeren og operatøren sammen, eller af brugeren alene efter en tidslås. Operatøren inkluderer dette output i den næste commitment transaction og giver brugeren en VTXO.
+    </p>
+    <p>
+      <strong>Transaktioner.</strong> Ark-transaktioner fungerer som Bitcoin-transaktioner, men off-chain. Alice kan sende en VTXO til Bob ved at oprette en Ark-transaktion der bruger hendes VTXO og opretter en ny til Bob. Operatøren medsignerer transaktionen. Bob bytter derefter sin nye VTXO for en bekræftet VTXO i en ny on-chain batch.
+    </p>
+    <p>
+      <strong>Batch swap.</strong> Atomiciteten i et batch swap sikres via <strong>connectors</strong> — anchor outputs der binder forfeit transactions til commitment transactions via SIGHASH_ALL. Bob afgiver sin gamle VTXO til operatøren (via en forfeit transaction), og operatøren giver Bob en frisk VTXO i en ny batch. Begge sider sker atomisk: enten gennemføres begge, eller ingen.
+    </p>
+    <p>
+      <strong>Batch expiry.</strong> Hver batch har en udløbstid (T<sub>e</sub>). Efter T<sub>e</sub> kan operatøren inddrage hele batchen via en sweep path. Det betyder, at brugeren skal komme online og forny sine VTXOs inden T<sub>e</sub> — ellers mister brugeren sine midler. Dette er nødvendigt for at operatøren kan frigøre sin kapital.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Ark sammenlignet med <a href="/da/laer-mere/lightning">Lightning Network</a></h2>
+    <p>
+      <a href="/da/laer-mere/lightning">Lightning Network</a>, beskrevet af Poon og Dryja i 2016, er et netværk af bilaterale betalingskanaler. To parter låser midler i en 2-of-2 multisig Funding Transaction og opretter Commitment Transactions off-chain, der repræsenterer den aktuelle saldo. Betalinger til tredjeparter sendes gennem netværket via Hashed Timelock Contracts (HTLCs) med aftagende tidslåse.
+    </p>
+
+    <h3>Arkitektur</h3>
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th scope="col">Lightning</th>
+            <th scope="col">Ark</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Grundstruktur</th>
+            <td>Bilaterale kanaler mellem to parter</td>
+            <td>Hub-and-spoke med en central operatør (ASP)</td>
+          </tr>
+          <tr>
+            <th scope="row">Off-chain enhed</th>
+            <td>Kanalsaldo (Commitment Transaction)</td>
+            <td>VTXO (Virtual UTXO)</td>
+          </tr>
+          <tr>
+            <th scope="row">Netværk</th>
+            <td>Peer-to-peer med routing</td>
+            <td>Direkte koordination med operatøren</td>
+          </tr>
+          <tr>
+            <th scope="row">On-chain aftryk</th>
+            <td>Kanalåbning + kanallukning (minimum 2 transaktioner)</td>
+            <td>O(1) per batch uanset antal transaktioner</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Afskrækkelse fra brug af gamle tilstande</h3>
+    <p>
+      I Lightning forhindres brug af gamle Commitment Transactions via <strong>Breach Remedy Transactions</strong>. Gamle Commitment Transactions er stadig gyldige Bitcoin-transaktioner, men der er en økonomisk strafmekanisme der gør det til finansielt selvmord at udsende dem. Når kanalens saldo opdateres, udveksler parterne revocation keys. Hvis en part herefter udsender en gammel Commitment Transaction, kan modparten bruge sin Breach Remedy Transaction til at tage <strong>alle</strong> midler i kanalen som straf.
+    </p>
+    <p>
+      I Ark sker overgangen via <strong>forfeit transactions og batch expiry</strong>. Når en bruger bytter en VTXO, signerer de en forfeit transaction der giver operatøren ret til den gamle VTXO, betinget af at den nye commitment transaction er on-chain. Der er ingen strafmekanisme i Lightnings forstand — atomiciteten sikres af connectors.
+    </p>
+
+    <h3>Tilslutning og modtagelse</h3>
+    <p>
+      I Lightning kræver modtagelse af betalinger en eksisterende kanal med <strong>indgående likviditet</strong>. Kanalåbning koster en on-chain transaktion, og begge parter skal koordinere. Det er en af Lightnings mest kendte brugerbarrierer.
+    </p>
+    <p>
+      I Ark behøver modtageren ingen forudgående opsætning. En VTXO kan oprettes til hvem som helst via en Ark-transaktion. Modtageren bytter den derefter for en bekræftet VTXO. Tilslutning til Ark er væsentligt simplere.
+    </p>
+
+    <h3>Overvågning</h3>
+    <p>
+      Lightning kræver konstant overvågning af blockchain (eller delegation til en watchtower) for at beskytte mod snyd. Hvis modparten udsender en gammel Commitment Transaction og man ikke reagerer inden for strafperioden, kan midler gå tabt.
+    </p>
+    <p>
+      Ark kræver kun periodisk tilstedeværelse online (med periode T<sub>o</sub> &lt; T<sub>e</sub>). Brugeren behøver ikke overvåge for snyd, men skal forny sine VTXOs inden batch expiry. Konsekvensen af at forpasse fristen er dog alvorlig: midlerne tilfalder operatøren.
+    </p>
+
+    <h3>Udløb</h3>
+    <p>
+      Lightning-kanaler har <strong>ingen udløbsdato</strong>. En kanal kan eksistere i årevis, så længe begge parter er samarbejdsvillige.
+    </p>
+    <p>
+      Ark VTXOs har <strong>altid en udløbsdato</strong> (batch expiry T<sub>e</sub>). Brugeren skal aktivt forny sine VTXOs inden denne frist. Dette er en grundlæggende forskel der ofte overses i markedsføring af Ark-baserede wallets.
+    </p>
+
+    <h3>Styrker og svagheder</h3>
+    <p>
+      <strong>Lightnings styrke</strong> er multi-hop routing — evnen til at betale hvem som helst i netværket via mellemmænd, uden at stole på en central part. Lightnings svaghed er kompleksiteten: likviditetsstyring, kanalåbninger, krav om indgående kapacitet, og kravet om konstant overvågning.
+    </p>
+    <p>
+      <strong>Arks styrke</strong> er simpel tilslutning og brugervenlighed — ingen kanaler, ingen likviditetsstyring, simpel selvforvaringsmodel. Arks svaghed er afhængigheden af en central operatør, krav om periodisk fornyelse af VTXOs, og operatørens kapitalkrav.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Ark sammenlignet med <a href="/da/laer-mere/liquid">Liquid</a></h2>
+    <p>
+      <a href="/da/laer-mere/liquid">Liquid</a> er en <strong>sidechain</strong> udviklet af Blockstream. Det er et separat blockchain-netværk med sin egen konsensusmekanisme, forbundet til Bitcoin via en two-way peg administreret af en <strong>føderation</strong> af funktionærer.
+    </p>
+
+    <h3>Forvaringsmodel</h3>
+    <p>
+      Liquid bruger en føderation af ca. 15 funktionærer der holder de bundne bitcoin i en multisig. Brugerne stoler på at et flertal af føderationen handler ærligt. Hvis føderationen samarbejder om svindel, kan de stjæle midlerne. Brugerne har <strong>ingen mulighed for ensidig udtræden</strong> — de er afhængige af føderationens samarbejde for at flytte midler tilbage til Bitcoin.
+    </p>
+    <p>
+      Ark giver brugerne <strong>garanti for ensidig udtræden</strong>. Hver VTXO kan altid udsendes on-chain via det virtuelle transaktionstræ. ASP&apos;en kan censurere eller nægte at samarbejde, men kan aldrig stjæle midler. Det er en grundlæggende stærkere selvforvaringsmodel.
+    </p>
+
+    <h3>On-chain vs. sidechain</h3>
+    <p>
+      Liquid er en separat blockchain med egne blokke, egen konsensus, og egne transaktioner. L-BTC (Liquid Bitcoin) er en separat token der repræsenterer pegged bitcoin. Transaktioner på Liquid berører ikke Bitcoin-blockchainen overhovedet (udover peg-in/peg-out).
+    </p>
+    <p>
+      Ark opererer direkte oven på Bitcoin. VTXOs er ægte Bitcoin-transaktioner der blot holdes off-chain. Commitment transactions er Bitcoin-transaktioner. Der er ingen separat blockchain, ingen separat token, og ingen separat konsensusmekanisme.
+    </p>
+
+    <h3>Tillid</h3>
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th scope="col">Liquid</th>
+            <th scope="col">Ark</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Tillidsmodel</th>
+            <td>Føderation (ca. 15 funktionærer)</td>
+            <td>Enkelt operatør (ASP), men ikke-forvarende</td>
+          </tr>
+          <tr>
+            <th scope="row">Ensidig udtræden</th>
+            <td>Nej — kræver føderationens samarbejde</td>
+            <td>Ja — altid mulig via VTXT</td>
+          </tr>
+          <tr>
+            <th scope="row">Kan operatør/føderation stjæle?</th>
+            <td>Ja, ved sammensværgelse blandt flertal</td>
+            <td>Nej — kan kun censurere, ikke stjæle</td>
+          </tr>
+          <tr>
+            <th scope="row">Separat blockchain</th>
+            <td>Ja</td>
+            <td>Nej — bruger Bitcoin direkte</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Funktionalitet</h3>
+    <p>
+      Liquid understøtter Confidential Transactions (skjulte beløb), udstedelse af aktiver (tokens), og mere avanceret scripting end Bitcoin. Det er designet til handlende, børser og institutionelle brugere der har brug for hurtig afvikling med fortrolighed.
+    </p>
+    <p>
+      Ark er designet som en skaleringsprotokol for betalinger med fokus på simpel tilslutning og samspil med Lightning. Ark understøtter ikke fortrolighedsfunktioner som Confidential Transactions, men arver bitcoin scripting-kapacitet for VTXOs.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Interoperabilitet: Hvordan de tre spiller sammen</h2>
+    <p>
+      De tre protokoller er ikke konkurrenter men komplementære lag i Bitcoin-økosystemet:
+    </p>
+    <p>
+      <strong><a href="/da/laer-mere/bitcoin-blockchain">Bitcoin L1</a></strong> er afviklingslaget — det sikre, decentraliserede fundament. Alle tre protokoller afvikler i sidste ende til L1.
+    </p>
+    <p>
+      <strong><a href="/da/laer-mere/lightning">Lightning</a></strong> er routinglaget — optimeret til hurtige betalinger på tværs af et stort netværk via HTLCs og multi-hop kanaler. Lightnings netværkseffekt (forretninger, wallets, børser) er den største styrke.
+    </p>
+    <p>
+      <strong>Ark</strong> er tilslutnings- og saldolaget — optimeret til simpel brugeroplevelse uden kanalstyring. Ark kan samarbejde med Lightning via vekslingstjenester som <a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a>, der konverterer mellem VTXOs og Lightning-betalinger.
+    </p>
+    <p>
+      <strong><a href="/da/laer-mere/liquid">Liquid</a></strong> er det institutionelle afviklingslag — optimeret til handlende og børser der har brug for hurtig, fortrolig afvikling med Confidential Transactions.
+    </p>
+    <p>
+      I praksis kan en bruger holde sin saldo i Ark (simpel selvforvaring, ingen kanalstyring), betale via <a href="/da/laer-mere/lightning">Lightning</a> (universel kompatibilitet med forretninger), og bruge <a href="/da/laer-mere/liquid">Liquid</a> til større handler med fortrolighed. Wallets som BlueWallet integrerer Ark under overfladen, mens brugeren ser standard Lightning-invoices (lnbc) — kompatibilitetslaget forbliver det samme, men selvforvaringsmodellen forbedres.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Vigtige forbehold</h2>
+    <p>
+      <strong>Ark er stadig tidligt.</strong> Arkade lancerede som offentlig beta i slutningen af 2025. Protokollen er under aktiv udvikling, og der er kendte begrænsninger: operatørens kapitalkrav, risikoen for udløb af VTXOs, og centraliseringen omkring en enkelt ASP. Fremtidigt arbejde omfatter flere operatører, bedre forhåndsbekræftelsesmekanismer, og løsninger til scenarier med masseudtræden.
+    </p>
+    <p>
+      <strong>Udløb af VTXOs er en reel risiko.</strong> Brugere der holder Ark-saldi skal forstå at deres VTXOs udløber. Wallets bør kommunikere dette tydeligt og helst håndtere fornyelse automatisk. Passiv langtidsopbevaring er ikke Arks anvendelsesformål — til det bør man bruge
+      <a href="/da/kom-igang/opbevaring-af-bitcoin">cold storage on-chain</a>.
+    </p>
+    <p>
+      <strong>Navngivning er vigtig.</strong> At kalde en Ark-baseret wallet for en &quot;Lightning wallet&quot; er teknisk upræcis og kan skabe falske forventninger hos brugeren — især omkring udløb af midler.
+    </p>
+  </section>
+
+  <section class="content-section links-section">
+    <p>
+      <a href="/da/laer-mere/lightning"><strong>Lightning-netværket →</strong></a>
+    </p>
+    <p>
+      <a href="/da/laer-mere/liquid"><strong>Liquid-netværket →</strong></a>
+    </p>
+    <p>
+      <a href="/da/laer-mere/ecash"><strong>eCash →</strong></a>
+    </p>
+    <p>
+      <a href="/da/laer-mere/bitcoin-blockchain"><strong>Bitcoin-blokkæden →</strong></a>
+    </p>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Tilbage til toppen </a>
+</ResourcePageLayout>
+
+<style>
+  .nav-buttons {
+    display: flex;
+    gap: var(--space-md, 1rem);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-btn {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease;
+  }
+
+  .nav-btn:hover {
+    background-color: transparent;
+    color: var(--primary);
+  }
+
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section h2 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-md, 1rem);
+    padding-bottom: var(--space-sm, 0.5rem);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .content-section h2 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .content-section h2 a:hover {
+    text-decoration: underline;
+  }
+
+  .content-section h3 {
+    color: var(--text);
+    font-size: 1.1rem;
+    margin: 1.35rem 0 0.65rem;
+    font-weight: 600;
+  }
+
+  .content-section p {
+    margin-bottom: 1rem;
+  }
+
+  .content-section a:not(.nav-btn) {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .content-section a:not(.nav-btn):hover {
+    opacity: 0.9;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    margin: 1rem 0 1.25rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .compare-table {
+    width: 100%;
+    min-width: 280px;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .compare-table th,
+  .compare-table td {
+    border: 1px solid rgba(247, 147, 26, 0.22);
+    padding: 0.55rem 0.65rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .compare-table thead th {
+    background: rgba(247, 147, 26, 0.08);
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  .compare-table tbody th[scope="row"] {
+    color: var(--text);
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.03);
+    white-space: nowrap;
+  }
+
+  .links-section {
+    padding: 1.25rem 1.5rem;
+    background: rgba(247, 147, 26, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 10px;
+  }
+
+  .links-section p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 567px) {
+    .nav-buttons {
+      flex-direction: column;
+    }
+  }
+</style>

@@ -7,7 +7,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "check:links": "npm run build && npx linkinator dist --recurse --retry-errors --timeout 15000 --concurrency 50 --skip \"^(mailto:|tel:|#)\""
+    "check:links": "npm run build && npx linkinator dist --recurse --retry-errors --timeout 15000 --concurrency 50 --skip \"^(mailto:|tel:|#)\"",
+    "netlify": "netlify dev"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",
@@ -17,6 +18,7 @@
     "rss-parser": "^3.13.0"
   },
   "devDependencies": {
-    "linkinator": "^7.6.1"
+    "linkinator": "^7.6.1",
+    "netlify-cli": "^23.9.5"
   }
 }
