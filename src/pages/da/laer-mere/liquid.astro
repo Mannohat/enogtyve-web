@@ -13,6 +13,14 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
     <a href="/da/kom-igang/hardware-wallets" class="nav-btn">Hardware-tegnebøger</a>
   </section>
 
+  <section class="content-section links-section">
+    <p>
+      <strong>Whitepaper (PDF, engelsk):</strong>
+      <a href="/pdf/liquid-whitepaper.pdf" target="_blank" rel="noopener noreferrer">Strong Federations</a>
+      (Back et al.) — teknisk grundlag for Liquid-sidechain.
+    </p>
+  </section>
+
   <section class="content-section">
     <div class="feature-block">
       <div class="feature-text">
@@ -196,6 +204,24 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
 
   .content-section p {
     margin-bottom: 1rem;
+  }
+
+  .links-section {
+    padding: 1.25rem 1.5rem;
+    background: rgba(247, 147, 26, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 10px;
+    margin-bottom: 2.5rem;
+  }
+
+  .links-section p {
+    margin-bottom: 0;
+  }
+
+  .links-section a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   /* Feature block */
