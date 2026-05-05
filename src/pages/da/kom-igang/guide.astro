@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
 ---
 
@@ -25,7 +26,7 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     <p><strong>Bull Bitcoin er en Bitcoin-only platform hvor du sikkert og nemt kan anskaffe bitcoin.</strong></p>
     <p>Som altid husk at bruge rabatkoden <code>enogtyve</code> for at sikre dig rabat på gebyrer.</p>
     <div class="service-card">
-      <img src="/images/logos/bullbitcoin.webp" alt="Bull Bitcoin" class="service-logo" />
+      <Image src="/images/logos/bullbitcoin.webp" alt="Bull Bitcoin" width={500} height={117} class="service-logo" />
       <div class="promo-code">
         <span class="promo-label">Referencekode:</span>
         <code>enogtyve</code>
@@ -68,7 +69,7 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     <p><strong>Vil du sikre dine 24 ord endnu bedre?</strong> Tinyseed er en lille titaniumplade, der modstår de fleste ødelæggelsesscenarier som f.eks. brand og oversvømmelse.</p>
     <p>Husk rabatkoden <code>enogtyve</code> for rabat.</p>
     <div class="service-card">
-      <img src="/images/logos/tinyseed.png" alt="Tinyseed Titanium Backup" class="service-logo-wide" />
+      <Image src="/images/logos/tinyseed.png" alt="Tinyseed Titanium Backup" width={375} height={71} class="service-logo-wide" />
       <a href="https://tinyseed.io/enogtyve" class="service-link" target="_blank" rel="noopener noreferrer">
         Læs mere om Tinyseed →
       </a>
@@ -81,7 +82,7 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
     <p>Vil du gerne tage del i de mange gode snakke om Bitcoin eller har du brug for hjælp? Så kig ind i vores chat på Telegram hvor vi hjælper hinanden og ellers snakker om alverdens ting i forbindelse med Bitcoin. Du finder link til gruppen herunder.</p>
     <p>God fornøjelse! 🧡</p>
     <div class="service-card">
-      <img src="/images/mediekit/en-og-tyve-dkflag.png" alt="Enogtyve Danmark Telegram-gruppe" class="service-logo-wide" />
+      <Image src="/images/mediekit/en-og-tyve-dkflag.png" alt="Enogtyve Danmark Telegram-gruppe" width={265} height={265} class="service-logo-wide" />
       <a href="https://telegram.enogtyve.org" class="service-link" target="_blank" rel="noopener noreferrer">
         Enogtyve Danmarks Telegram-gruppe →
       </a>

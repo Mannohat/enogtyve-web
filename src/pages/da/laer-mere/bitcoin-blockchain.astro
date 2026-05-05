@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
 ---
 
@@ -48,7 +49,7 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
   </section>
 
   <section class="content-section">
-    <h2><img src="/images/logos/mempool.png" alt="Mempool.space" class="section-logo" /></h2>
+    <h2><Image src="/images/logos/mempool.png" alt="Mempool.space" width={500} height={125} class="section-logo" /></h2>
     <div class="feature-block reverse">
       <div class="feature-text">
         <p>
@@ -117,7 +118,7 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img src="/images/logos/clarkmoody.png" alt="Clark Moody" class="tool-logo" />
+        <Image src="/images/logos/clarkmoody.png" alt="Clark Moody" width={64} height={64} class="tool-logo" />
         <span class="tool-name">Clark Moody</span>
       </a>
       <a

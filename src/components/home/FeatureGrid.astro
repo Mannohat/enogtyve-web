@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 interface Props {
 	lang: "da" | "en";
 }
@@ -11,7 +12,7 @@ const contentLang = isEn ? "da" : lang;
 	<h2>{isEn ? "Explore" : "Udforsk"}</h2>
 	<div class="feature-grid">
 		<a href={`/${contentLang}/blog`} class="feature-card">
-			<img src="/images/icons/blog.png" alt="" class="feature-icon" />
+			<Image src="/images/icons/blog.png" alt="" width={1024} height={1024} class="feature-icon" />
 			<h3>Blog</h3>
 			<p>
 				{isEn
@@ -21,7 +22,7 @@ const contentLang = isEn ? "da" : lang;
 		</a>
 
 		<a href={`/${contentLang}/podcasts`} class="feature-card">
-			<img src="/images/icons/podcasts.png" alt="" class="feature-icon" />
+			<Image src="/images/icons/podcasts.png" alt="" width={1024} height={1024} class="feature-icon" />
 			<h3>Podcasts</h3>
 			<p>
 				{isEn
@@ -31,7 +32,7 @@ const contentLang = isEn ? "da" : lang;
 		</a>
 
 		<a href={`/${contentLang}/udforsk/udforsk`} class="feature-card">
-			<img src="/images/icons/udforsk.png" alt="" class="feature-icon" />
+			<Image src="/images/icons/udforsk.png" alt="" width={1024} height={1024} class="feature-icon" />
 			<h3>{isEn ? "Explore" : "Udforsk"}</h3>
 			<p>
 				{isEn
@@ -41,7 +42,7 @@ const contentLang = isEn ? "da" : lang;
 		</a>
 
 		<a href={`/${contentLang}/kom-igang/kob-bitcoin`} class="feature-card">
-			<img src="/images/icons/komigang.png" alt="" class="feature-icon" />
+			<Image src="/images/icons/komigang.png" alt="" width={1024} height={1024} class="feature-icon" />
 			<h3>{isEn ? "Get started" : "Kom igang"}</h3>
 			<p>
 				{isEn
@@ -51,7 +52,7 @@ const contentLang = isEn ? "da" : lang;
 		</a>
 
 		<a href={`/${contentLang}/rabat`} class="feature-card">
-			<img src="/images/icons/promo.png" alt="" class="feature-icon" />
+			<Image src="/images/icons/promo.png" alt="" width={1024} height={1024} class="feature-icon" />
 			<h3>{isEn ? "Discounts with enogtyve" : "Rabat med enogtyve"}</h3>
 			<p>
 				{isEn
@@ -61,7 +62,7 @@ const contentLang = isEn ? "da" : lang;
 		</a>
 
 		<a href={`/${contentLang}/faellesskab/support`} class="feature-card">
-			<img src="/images/icons/support.png" alt="" class="feature-icon" />
+			<Image src="/images/icons/support.png" alt="" width={1024} height={1024} class="feature-icon" />
 			<h3>{isEn ? "Support us" : "Støt os"}</h3>
 			<p>
 				{isEn

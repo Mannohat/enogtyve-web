@@ -1,0 +1,106 @@
+---
+interface Props {
+	url: string;
+	dayLabel: string;
+	monthLabel: string;
+	title: string;
+	timeLocation: string;
+	discount?: string;
+}
+
+const { url, dayLabel, monthLabel, title, timeLocation, discount } = Astro.props;
+---
+
+<a href={url} target="_blank" rel="noopener noreferrer" class="event-item">
+	<div class="event-date-block">
+		<div class="event-day">{dayLabel}</div>
+		<div class="event-month">{monthLabel}</div>
+	</div>
+	<div class="event-details">
+		<div class="event-title">{title}</div>
+		<div class="event-time">{timeLocation}</div>
+		{discount && <div class="event-discount">{discount}</div>}
+	</div>
+</a>
+
+<style>
+	a.event-item {
+		display: flex;
+		align-items: center;
+		gap: 0.9rem;
+		padding: 0.7rem 0.85rem;
+		text-decoration: none;
+		color: inherit;
+		border: 1px solid var(--border);
+		border-radius: 8px;
+		background: rgba(255, 255, 255, 0.02);
+		transition:
+			border-color 0.2s ease,
+			background 0.2s ease,
+			transform 0.15s ease,
+			box-shadow 0.2s ease;
+	}
+
+	a.event-item:hover {
+		border-color: rgba(247, 147, 26, 0.5);
+		background: rgba(247, 147, 26, 0.04);
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(247, 147, 26, 0.1);
+	}
+
+	.event-date-block {
+		flex-shrink: 0;
+		width: 46px;
+		text-align: center;
+		border: 1px solid rgba(247, 147, 26, 0.25);
+		border-top: 3px solid var(--primary);
+		border-radius: 5px;
+		padding: 0.3rem 0.35rem 0.35rem;
+		background: rgba(247, 147, 26, 0.05);
+	}
+
+	.event-day {
+		font-size: 1.45rem;
+		font-weight: 800;
+		line-height: 1;
+		color: var(--text);
+	}
+
+	.event-month {
+		font-size: 0.58rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: var(--primary);
+		margin-top: 0.15rem;
+	}
+
+	.event-details {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.event-title {
+		font-weight: 600;
+		font-size: 0.88rem;
+		color: var(--text);
+		margin-bottom: 0.15rem;
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+	}
+
+	.event-time {
+		font-size: 0.74rem;
+		color: var(--text-light);
+		line-height: 1.4;
+	}
+
+	.event-discount {
+		margin-top: 0.2rem;
+		font-size: 0.72rem;
+		font-weight: 600;
+		color: var(--primary);
+	}
+</style>

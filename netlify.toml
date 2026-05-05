@@ -8,5 +8,5 @@
 [[redirects]]
   from = "/"
   to = "/da"
-  status = 302
+  status = 301
   force = true

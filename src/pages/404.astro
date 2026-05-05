@@ -1,17 +1,16 @@
 ---
-// src/pages/404.astro
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="404 - Side ikke fundet | Enogtyve">
+<BaseLayout title="404 | Enogtyve">
 	<div class="container">
 		<div class="error-content">
 			<div class="error-code">404</div>
-			<h1>Siden blev ikke fundet</h1>
-			<p class="error-message">
+			<h1 id="404-heading">Siden blev ikke fundet</h1>
+			<p class="error-message" id="404-message">
 				Den side du leder efter eksisterer ikke, eller er blevet flyttet.
 			</p>
-			
+
 			<div class="bitcoin-quote">
 				<svg class="bitcoin-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
 					<path d="M11.767 19.089c4.924.868 6.14-6.025 1.216-6.894m-1.216 6.894L5.86 18.047m5.908 1.042-.347 1.97m1.563-8.864c4.924.869 6.14-6.025 1.215-6.893m-1.215 6.893-3.94-.694m5.155-6.2L8.29 4.26m5.908 1.042.348-1.97M7.48 20.364l3.126-17.727"/>
@@ -23,11 +22,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			</div>
 
 			<div class="actions">
-				<a href="/" class="btn btn-primary">Gå til forsiden</a>
+				<a href="/" class="btn btn-primary" id="404-home-btn">Gå til forsiden</a>
 			</div>
 		</div>
 	</div>
 </BaseLayout>
+
+<script is:inline>
+	if (window.location.pathname.startsWith('/en')) {
+		var h = document.getElementById('404-heading');
+		var m = document.getElementById('404-message');
+		var b = document.getElementById('404-home-btn');
+		if (h) h.textContent = 'Page not found';
+		if (m) m.textContent = "The page you're looking for doesn't exist or has been moved.";
+		if (b) { b.textContent = 'Go to homepage'; b.href = '/en'; }
+	}
+</script>
 
 <style>
 	.error-content {

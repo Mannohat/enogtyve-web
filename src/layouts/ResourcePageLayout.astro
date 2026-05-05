@@ -4,13 +4,14 @@ import BaseLayout from './BaseLayout.astro';
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
   lang?: 'da' | 'en';
 }
 
-const { title, description, lang = 'da' } = Astro.props;
+const { title, description, ogImage, lang = 'da' } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description} lang={lang}>
+<BaseLayout title={title} description={description} ogImage={ogImage} lang={lang}>
   <div class="resource-page">
     <div class="resource-container">
       <header class="page-header">

@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
 
 const categories = [
@@ -227,7 +228,7 @@ const upcoming = [
         </p>
       </div>
       <div class="intro-image">
-        <img src="/images/icons/pow.png" alt="Enogtyve logo" />
+        <Image src="/images/icons/pow.png" alt="Enogtyve logo" width={1024} height={1024} />
       </div>
     </div>
   </section>
@@ -258,7 +259,7 @@ const upcoming = [
                 {item.logo ? (
                   <img src={item.logo} alt="" />
                 ) : (
-                  <img src="/images/icons/strong.png" alt="" />
+                  <Image src="/images/icons/strong.png" alt="" width={1024} height={1024} />
                 )}
               </div>
               {item.url.startsWith("/") ? (
@@ -293,7 +294,7 @@ const upcoming = [
 
   <section class="category-section upcoming-section">
     <h2>
-      <img src="/images/icons/underconstruction.png" alt="" class="cat-icon" /> Under
+      <Image src="/images/icons/underconstruction.png" alt="" width={1024} height={1024} class="cat-icon" /> Under
       udarbejdelse
     </h2>
     <p class="upcoming-note">
@@ -309,7 +310,7 @@ const upcoming = [
         upcoming.map((item) => (
           <div class="initiative-card upcoming">
             <div class="card-logo">
-              <img src="/images/icons/timeglas.png" alt="" />
+              <Image src="/images/icons/timeglas.png" alt="" width={1024} height={1024} />
             </div>
             <div class="card-top-row">
               <span class="card-name">{item.name}</span>

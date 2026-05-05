@@ -32,3 +32,4 @@ pnpm-debug.log*
 
 # Deno lockfile (not used in this project)
 deno.lock
+.claude/

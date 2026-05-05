@@ -7,6 +7,7 @@ const blog = defineCollection({
     description: z.string(),
     pubDate: z.date(),
     author: z.string(),
+    ogImage: z.string().optional(),
     tags: z.array(z.string()).optional(),
     language: z.enum(['da', 'en']),
   }),
@@ -30,7 +31,8 @@ const podcasts = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    embedUrl: z.string(),
+    image: z.string(),
+    links: z.array(z.object({ label: z.string(), url: z.string() })),
     pubDate: z.date(),
     tags: z.array(z.string()).optional(),
     language: z.enum(['da', 'en']),

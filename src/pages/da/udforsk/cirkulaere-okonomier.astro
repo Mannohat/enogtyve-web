@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
 
 const economies = [
@@ -66,7 +67,7 @@ const elSalvador = [
   <section class="category-section">
     <h2>🎬 Film</h2>
     <div class="film-card">
-      <img src="/images/content/dtd.jpeg" alt="Dare to Dream" class="film-image" />
+      <Image src="/images/content/dtd.jpeg" alt="Dare to Dream" width={1280} height={960} class="film-image" />
       <div class="film-content">
         <h3 class="film-title">Dare to Dream</h3>
         <p class="film-desc">En film om Bitcoin, El Salvador og Bitcoin Beach, El Zonte. Filmen fortæller historien om, hvordan et lokalsamfund blev forandret af Bitcoin.</p>

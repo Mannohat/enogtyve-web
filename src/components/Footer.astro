@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
 	lang?: "da" | "en";
 }
@@ -18,9 +20,11 @@ const privacyHref = isEn ? `/${lang}/privacypolicy` : `/${lang}/privatlivspoliti
 						href={`/${lang}`}
 						aria-label={isEn ? "Go to home page" : "Gå til forsiden"}
 					>
-						<img
+						<Image
 							src="/images/logos/enogtyve_logo.png"
 							alt="Enogtyve Logo"
+							width={420}
+							height={98}
 						/>
 					</a>
 				</div>

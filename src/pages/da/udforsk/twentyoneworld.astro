@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
 ---
 
@@ -8,7 +9,7 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
   lang="da"
 >
   <section class="hero-image">
-    <img src="/images/content/twentyoneworld.png" alt="Twentyone.world – oversigt over forks" />
+    <Image src="/images/content/twentyoneworld.png" alt="Twentyone.world – oversigt over forks" width={2048} height={1251} />
   </section>
 
   <section class="content-section">

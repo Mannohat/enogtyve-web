@@ -1,5 +1,8 @@
 ---
 import { getCollection } from "astro:content";
+import { Image } from 'astro:assets';
+import { conferences, meetup, type ShowcaseEvent } from "../../data/events";
+import EventCard from "./EventCard.astro";
 
 interface Props {
 	lang?: "da" | "en";
@@ -16,6 +19,24 @@ const latestPosts = blogPosts
 			new Date(a.data.pubDate).getTime(),
 	)
 	.slice(0, 3);
+
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+const allEvents: ShowcaseEvent[] = [
+	meetup,
+	...conferences
+		.filter((c) => new Date(c.endISO) >= today)
+		.map((c) => ({
+			id: c.id,
+			title: { da: c.name, en: c.name },
+			url: c.url,
+			dayLabel: c.dayLabel,
+			monthLabel: c.monthLabel,
+			timeLocation: c.timeLocation,
+			discount: c.discount,
+			endISO: c.endISO,
+		})),
+];
 ---
 
 <section class="content-showcase" data-lang={lang}>
@@ -23,83 +44,22 @@ const latestPosts = blogPosts
 		<div class="showcase-box upcoming-events">
 			<div class="box-header">
 				<h3>
-					<img src="/images/icons/calendar.png" alt="" class="box-icon" />
+					<Image src="/images/icons/calendar.png" alt="" width={96} height={96} class="box-icon" />
 					{isEn ? "Upcoming events" : "Kommende Events"}
 				</h3>
 			</div>
 			<div class="box-content">
 				<div class="event-list">
-					<a
-						href="https://meetup.enogtyve.org"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="event-item"
-					>
-						<div class="event-date-block">
-							<div class="event-day">21</div>
-							<div class="event-month">{isEn ? "MONTHLY" : "HVER MD."}</div>
-						</div>
-						<div class="event-details">
-							<div class="event-title">
-								{isEn
-									? "Meetup at Lau’s (formerly Café Kodan)"
-									: "Meetup på Lau's (Tidligere Café Kodan)"}
-							</div>
-							<div class="event-time">
-								{isEn
-									? "21st, 7:00 p.m. every month · Falkoner Alle 24a, 2000 Frederiksberg"
-									: "Den 21. kl. 19:00 i hver måned · Falkoner Alle 24a, 2000 Frederiksberg"}
-							</div>
-						</div>
-					</a>
-					<a
-						href="https://btcprg.me/ENOGTYVE"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="event-item"
-					>
-						<div class="event-date-block">
-							<div class="event-day">11</div>
-							<div class="event-month">{isEn ? "JUNE" : "JUNI"}</div>
-						</div>
-						<div class="event-details">
-							<div class="event-title">BTCPrague</div>
-							<div class="event-time">
-								{isEn
-									? "11–13 June 2026 · Prague, Czech Republic"
-									: "11.–13. juni 2026 · Prag, Tjekkiet"}
-							</div>
-							<div class="event-discount">
-								{isEn
-									? 'Save 10% with code “enogtyve”'
-									: 'Spar 10% med rabatkoden “enogtyve”'}
-							</div>
-						</div>
-					</a>
-					<a
-						href="https://btchel.com/"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="event-item"
-					>
-						<div class="event-date-block">
-							<div class="event-day">25</div>
-							<div class="event-month">{isEn ? "SEP" : "SEP."}</div>
-						</div>
-						<div class="event-details">
-							<div class="event-title">BTCHEL</div>
-							<div class="event-time">
-								{isEn
-									? "25–26 September 2026 · Helsinki, Finland"
-									: "25.–26. september 2026 · Helsinki, Finland"}
-							</div>
-							<div class="event-discount">
-								{isEn
-									? 'Save 10% with code “enogtyve”'
-									: 'Spar 10% med rabatkoden “enogtyve”'}
-							</div>
-						</div>
-					</a>
+					{allEvents.map((event) => (
+						<EventCard
+							url={event.url}
+							dayLabel={event.dayLabel}
+							monthLabel={isEn ? event.monthLabel.en : event.monthLabel.da}
+							title={isEn ? event.title.en : event.title.da}
+							timeLocation={isEn ? event.timeLocation.en : event.timeLocation.da}
+							discount={event.discount ? (isEn ? event.discount.en : event.discount.da) : undefined}
+						/>
+					))}
 				</div>
 			</div>
 		</div>
@@ -107,7 +67,7 @@ const latestPosts = blogPosts
 		<div class="showcase-box stacker-news">
 			<div class="box-header">
 				<h3>
-					<img src="/images/icons/lightning.png" alt="" class="box-icon" />
+					<Image src="/images/icons/lightning.png" alt="" width={96} height={96} class="box-icon" />
 					{isEn
 						? "Latest from Stacker News"
 						: "Seneste nyheder fra Stacker.news"}
@@ -126,7 +86,7 @@ const latestPosts = blogPosts
 		<div class="showcase-box featured-news">
 			<div class="box-header">
 				<h3>
-					<img src="/images/icons/blog.png" alt="" class="box-icon" />
+					<Image src="/images/icons/blog.png" alt="" width={96} height={96} class="box-icon" />
 					{isEn ? "Latest blog posts" : "Seneste Blog Posts"}
 				</h3>
 				<span class="box-badge">{isEn ? "Danish" : "Blog"}</span>
@@ -363,77 +323,6 @@ const latestPosts = blogPosts
 		display: flex;
 		flex-direction: column;
 		gap: 0.85rem;
-	}
-
-	.event-item {
-		display: flex;
-		gap: 0.85rem;
-		padding: 0.85rem;
-		background: rgba(247, 147, 26, 0.03);
-		border-radius: 10px;
-		border: 1px solid rgba(247, 147, 26, 0.1);
-	}
-
-	a.event-item {
-		text-decoration: none;
-		color: inherit;
-		transition:
-			border-color 0.2s ease,
-			background 0.2s ease,
-			transform 0.2s ease,
-			box-shadow 0.2s ease;
-	}
-
-	a.event-item:hover {
-		border-color: rgba(247, 147, 26, 0.35);
-		background: rgba(247, 147, 26, 0.06);
-		transform: translateY(-3px);
-		box-shadow: 0 6px 16px rgba(247, 147, 26, 0.15);
-	}
-
-	.event-date-block {
-		text-align: center;
-		min-width: 55px;
-		padding: 0.5rem;
-		background: var(--primary);
-		color: #000;
-		border-radius: 8px;
-		font-weight: 700;
-	}
-
-	.event-day {
-		font-size: 1.35rem;
-		line-height: 1;
-	}
-
-	.event-month {
-		font-size: 0.7rem;
-		text-transform: uppercase;
-		margin-top: 0.25rem;
-	}
-
-	.event-details {
-		flex: 1;
-	}
-
-	.event-title {
-		font-weight: 600;
-		font-size: 0.95rem;
-		color: var(--text);
-		margin-bottom: 0.25rem;
-	}
-
-	.event-time {
-		font-size: 0.8rem;
-		color: var(--text-light);
-	}
-
-	.event-discount {
-		margin-top: 0.25rem;
-		font-size: 0.8rem;
-		font-weight: 600;
-		color: var(--primary);
-		opacity: 0.9;
 	}
 
 	.placeholder {

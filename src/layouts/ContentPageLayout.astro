@@ -4,13 +4,17 @@ import BaseLayout from './BaseLayout.astro';
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  pubDate?: Date;
+  author?: string;
   lang?: 'da' | 'en';
 }
 
-const { title, description, lang = 'da' } = Astro.props;
+const { title, description, ogImage, ogType, pubDate, author, lang = 'da' } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description} lang={lang}>
+<BaseLayout title={title} description={description} ogImage={ogImage} ogType={ogType} pubDate={pubDate} author={author} lang={lang}>
   <div class="content-page">
     <div class="content-container">
       <slot />

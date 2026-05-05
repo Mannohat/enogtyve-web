@@ -1,7 +1,22 @@
+interface PagefindResultData {
+	url: string;
+	excerpt: string;
+	meta: Record<string, string | undefined>;
+}
+
+interface PagefindResult {
+	data(): Promise<PagefindResultData>;
+}
+
+interface PagefindModule {
+	init(): Promise<void>;
+	search(query: string): Promise<{ results: PagefindResult[] }>;
+}
+
 export function initializeSearch() {
 	const searchInput = document.getElementById("search-input") as HTMLInputElement;
 	let searchTimeout: number;
-	let pagefindInstance: any = null;
+	let pagefindInstance: PagefindModule | null = null;
   
 	if (!searchInput) return;
   
@@ -69,7 +84,7 @@ export function initializeSearch() {
 	  try {
 		const search = await pf.search(query);
 		const results = await Promise.all(
-		  search.results.slice(0, 6).map((r: any) => r.data())
+		  search.results.slice(0, 6).map((r) => r.data())
 		);
   
 		if (results.length === 0) {
@@ -120,11 +135,64 @@ export function initializeSearch() {
 		resultsDropdown.style.display = "none";
 	  }
 	});
-  
-	searchInput.addEventListener("keydown", (e) => {
-	  if (e.key === "Escape") {
+
+	function getResultLinks(): HTMLAnchorElement[] {
+		return Array.from(resultsDropdown.querySelectorAll<HTMLAnchorElement>(".search-result-item"));
+	}
+
+	function closeDropdown() {
 		resultsDropdown.style.display = "none";
 		searchInput.value = "";
-	  }
+	}
+
+	searchInput.addEventListener("keydown", (e) => {
+		switch (e.key) {
+			case "Escape":
+				closeDropdown();
+				break;
+			case "ArrowDown": {
+				const links = getResultLinks();
+				if (links.length > 0) {
+					e.preventDefault();
+					links[0].focus();
+				}
+				break;
+			}
+			case "ArrowUp": {
+				const links = getResultLinks();
+				if (links.length > 0) {
+					e.preventDefault();
+					links[links.length - 1].focus();
+				}
+				break;
+			}
+		}
+	});
+
+	resultsDropdown.addEventListener("keydown", (e) => {
+		const target = e.target as HTMLElement;
+		if (!target.classList.contains("search-result-item")) return;
+
+		const links = getResultLinks();
+		const index = links.indexOf(target as HTMLAnchorElement);
+
+		switch (e.key) {
+			case "ArrowDown":
+				e.preventDefault();
+				(links[index + 1] ?? links[0]).focus();
+				break;
+			case "ArrowUp":
+				e.preventDefault();
+				if (index === 0) {
+					searchInput.focus();
+				} else {
+					links[index - 1].focus();
+				}
+				break;
+			case "Escape":
+				closeDropdown();
+				searchInput.focus();
+				break;
+		}
 	});
   }

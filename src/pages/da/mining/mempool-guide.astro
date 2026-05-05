@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
 ---
 
@@ -20,7 +21,7 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
   <section class="content-section">
     <p>
       <a href="https://mempool.space/da" target="_blank" rel="noopener noreferrer">
-        <img src="/images/logos/mempool.png" alt="mempool.space" class="section-logo" />
+        <Image src="/images/logos/mempool.png" alt="mempool.space" width={500} height={125} class="section-logo" />
       </a>
       <strong>
         .space er Bitcoins mest brugte open source blockchain-udforsker.
@@ -81,7 +82,7 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
     <div class="fee-table">
       <div class="fee-row">
         <div class="fee-badge high">
-          <img src="/images/icons/run.png" alt="" class="fee-icon" />
+          <Image src="/images/icons/run.png" alt="" width={1024} height={1024} class="fee-icon" />
           Høj prioritet
         </div>
         <div class="fee-desc">
@@ -91,7 +92,7 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
       </div>
       <div class="fee-row">
         <div class="fee-badge medium">
-          <img src="/images/icons/star.png" alt="" class="fee-icon" />
+          <Image src="/images/icons/star.png" alt="" width={1024} height={1024} class="fee-icon" />
           Medium
         </div>
         <div class="fee-desc">
@@ -100,7 +101,7 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
       </div>
       <div class="fee-row">
         <div class="fee-badge low">
-          <img src="/images/icons/timeglas.png" alt="" class="fee-icon" />
+          <Image src="/images/icons/timeglas.png" alt="" width={1024} height={1024} class="fee-icon" />
           Lav prioritet
         </div>
         <div class="fee-desc">
@@ -110,7 +111,7 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
       </div>
       <div class="fee-row">
         <div class="fee-badge none">
-          <img src="/images/icons/calendar.png" alt="" class="fee-icon" />
+          <Image src="/images/icons/calendar.png" alt="" width={1024} height={1024} class="fee-icon" />
           Ingen hast
         </div>
         <div class="fee-desc">
@@ -168,7 +169,7 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
     <p>Øverst på siden kan du søge efter tre typer data:</p>
     <div class="search-items">
       <div class="search-item">
-        <img src="/images/icons/search.png" alt="" class="search-icon-img" />
+        <Image src="/images/icons/search.png" alt="" width={1024} height={1024} class="search-icon-img" />
         <div>
           <strong>Transaktions-ID (TXID)</strong>
           <p>
@@ -178,7 +179,7 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
         </div>
       </div>
       <div class="search-item">
-        <img src="/images/icons/lookup.png" alt="" class="search-icon-img" />
+        <Image src="/images/icons/lookup.png" alt="" width={1024} height={1024} class="search-icon-img" />
         <div>
           <strong>Bitcoin-adresse</strong>
           <p>Se historik og saldo for enhver Bitcoin-adresse.</p>
@@ -734,14 +735,6 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
     line-height: 1.6;
     display: flex;
     align-items: center;
-  }
-
-  /* ── Back to top ── */
-  .back-to-top {
-    display: inline-block;
-    margin-top: 1rem;
-    color: var(--primary);
-    font-size: 0.9rem;
   }
 
   /* ── Responsive ── */

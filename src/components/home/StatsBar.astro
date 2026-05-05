@@ -309,14 +309,12 @@ const L = isEn
 			document.getElementById("fee-high")!.textContent =
 				feesData.fastestFee.toString();
 
-			// BTC price (DKK) can fail due to CORS/provider limits; don't wipe other stats.
+			// BTC price (DKK) via server-side proxy to avoid CORS and rate limits.
 			try {
-				const priceResponse = await fetch(
-					"https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=dkk",
-				);
+				const priceResponse = await fetch("/.netlify/functions/btc-price");
 				if (!priceResponse.ok) throw new Error("price fetch failed");
 				const priceData = await priceResponse.json();
-				const btcPriceDKK = Number(priceData?.bitcoin?.dkk);
+				const btcPriceDKK = Number(priceData?.dkk);
 				if (!Number.isFinite(btcPriceDKK) || btcPriceDKK <= 0) {
 					throw new Error("invalid price payload");
 				}

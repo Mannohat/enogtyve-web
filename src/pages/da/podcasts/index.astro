@@ -1,60 +1,12 @@
 ---
 import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 
-const podcasts = [
-    {
-        name: "SHOP21.dk – Bitcoin, samfund & frihed",
-        image: "/images/content/shop21_1.png",
-        description:
-            "En podcast om Bitcoin, samfund og frihed. Vi dykker ned i, hvordan Bitcoin kan være med til at forme et friere og rigere samfund til gavn for alle.",
-        links: [
-            {
-                label: "Fountain",
-                url: "https://fountain.fm/show/xcUNIu7nsEhsSwOtQOpU",
-            },
-            {
-                label: "Spotify",
-                url: "https://open.spotify.com/show/271Jadnu7wxjOP31GHhgJM?si=70c02c245c364383",
-            },
-            {
-                label: "YouTube",
-                url: "https://www.youtube.com/watch?v=cn9_AHb7vmw",
-            },
-        ],
-    },
-    {
-        name: "Den Orange Tråd",
-        image: "/images/content/denorangetraad.jpg",
-        description:
-            "Målet med podcasten Den Orange Tråd er at skabe fokus på forskellige emner, hvor fiatpengesystemet skaber perverse incitamenter, der som en virus infiltrerer alt for mange aspekter af vores liv – og derfra skabe fokus på, hvordan Bitcoin er løsningen på det.",
-        links: [
-            {
-                label: "YouTube",
-                url: "https://youtube.com/playlist?list=PLQ2XoOhzIdN03OmpJSG0wGkkUOZ0n_kTV&si=9WxSyLS6Yp4C2I7v",
-            },
-        ],
-    },
-    {
-        name: "Lad os snakke om Bitcoin",
-        image: "/images/content/losob.png",
-        description:
-            "Denne serie af Enogtyve-podcast er tænkt som en uformel platform for hyggesnak om Bitcoin og alt muligt andet i periferien heraf. Du har her mulighed for at være fluen på væggen, når forskellige Bitcoin-entusiaster udveksler deres tanker, historier, ideer mm.",
-        links: [
-            {
-                label: "Fountain",
-                url: "https://fountain.fm/show/wQjidAJSuF52TCAcpBY2",
-            },
-            {
-                label: "Spotify",
-                url: "https://open.spotify.com/show/06DHUs9YX0QRNgKXMaWvtx?si=2dc81d75b1724ec7",
-            },
-            {
-                label: "YouTube",
-                url: "https://youtube.com/playlist?list=PLqGASsLR82YNBBXeTqM3I9Zt44lYc-yT8&si=IMQYTlJMH1zdi9EO",
-            },
-        ],
-    },
-];
+const allPodcasts = await getCollection("podcasts", ({ id }) => id.startsWith("da/"));
+const podcasts = allPodcasts.sort(
+    (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
 ---
 
 <ResourcePageLayout
@@ -93,13 +45,13 @@ const podcasts = [
             podcasts.map((pod) => (
                 <div class="podcast-card">
                     <div class="podcast-image">
-                        <img src={pod.image} alt={pod.name} />
+                        <Image src={pod.data.image} alt={pod.data.title} width={280} height={280} />
                     </div>
                     <div class="podcast-content">
-                        <h3 class="podcast-name">{pod.name}</h3>
-                        <p class="podcast-desc">{pod.description}</p>
+                        <h3 class="podcast-name">{pod.data.title}</h3>
+                        <p class="podcast-desc">{pod.data.description}</p>
                         <div class="podcast-links">
-                            {pod.links.map((link) => (
+                            {pod.data.links.map((link) => (
                                 <a
                                     href={link.url}
                                     target="_blank"
@@ -246,21 +198,6 @@ const podcasts = [
 
     .podcast-link:hover {
         background: rgba(247, 147, 26, 0.2);
-    }
-
-    /* Back to top */
-    .back-to-top {
-        display: block;
-        width: fit-content;
-        margin: 3rem auto 0 auto;
-        font-size: 0.9rem;
-        font-weight: 500;
-        color: rgba(247, 147, 26, 0.9);
-        transition: opacity 0.3s ease;
-    }
-
-    .back-to-top:hover {
-        opacity: 0.7;
     }
 
     @media (max-width: 567px) {

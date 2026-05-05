@@ -15,9 +15,10 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<ArticleLayout 
+<ArticleLayout
   title={post.data.title}
   description={post.data.description}
+  ogImage={post.data.ogImage}
   author={post.data.author}
   pubDate={post.data.pubDate}
   tags={post.data.tags}

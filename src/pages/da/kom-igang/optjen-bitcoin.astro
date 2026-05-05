@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
 ---
 
@@ -16,7 +17,7 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
   <section class="services-section">
     <div class="service-grid">
       <div class="service-card">
-        <img src="/images/logos/satsback.png" alt="Satsback" class="service-logo" />
+        <Image src="/images/logos/satsback.png" alt="Satsback" width={180} height={180} class="service-logo" />
         <h3><a href="https://satsback.com/register/6zj3laKvOmPVyKE5" target="_blank" rel="noopener noreferrer">Satsback.com</a></h3>
         <p>Satsback har lavet en browserudvidelse som giver dig mulighed for at optjene cashback ved køb på mange tusinde hjemmesider.</p>
         <a href="https://satsback.com/register/6zj3laKvOmPVyKE5" class="service-link" target="_blank" rel="noopener noreferrer">
@@ -25,7 +26,7 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
       </div>
 
       <div class="service-card">
-        <img src="/images/logos/addslice.jpeg" alt="AddSlice" class="service-logo" />
+        <Image src="/images/logos/addslice.jpeg" alt="AddSlice" width={291} height={291} class="service-logo" />
         <h3><a href="https://addslice.com/?crew=f5DzF" target="_blank" rel="noopener noreferrer">AddSlice.com</a></h3>
         <p>Slice er en browserudvidelse som giver dig satoshis for at vise reklamer. Du optjener altså sats bare ved at browse internettet.</p>
         <a href="https://addslice.com/?crew=f5DzF" class="service-link" target="_blank" rel="noopener noreferrer">

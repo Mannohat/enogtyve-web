@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
 ---
 
@@ -25,7 +26,7 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
   <section class="software-section">
     <div class="software-grid">
       <div class="software-card">
-        <img src="/images/logos/sparrow.png" alt="Sparrow Wallet" class="software-logo" />
+        <Image src="/images/logos/sparrow.png" alt="Sparrow Wallet" width={1650} height={1650} class="software-logo" />
         <h3><a href="https://sparrowwallet.com/" target="_blank" rel="noopener noreferrer">Sparrow Wallet</a></h3>
         <p>Sparrow Wallet er en fantastisk wallet software til din computer. Du finder et bredt udvalg af funktioner som du vil finde mere og mere brugbare jo mere du lærer om Bitcoin. Hertil kan det siges at måden Sparrow viser transaktioner og overblik på endda kan bidrage til forståelsen af hvordan Bitcoin fungerer.</p>
         <a href="https://sparrowwallet.com/" class="software-link" target="_blank" rel="noopener noreferrer">
@@ -34,7 +35,7 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
       </div>
 
       <div class="software-card">
-        <img src="/images/logos/wasabi.svg" alt="Wasabi Wallet" class="software-logo" />
+        <Image src="/images/logos/wasabi.svg" alt="Wasabi Wallet" width={100} height={30} class="software-logo" />
         <h3><a href="https://wasabiwallet.io/" target="_blank" rel="noopener noreferrer">Wasabi Wallet</a></h3>
         <p>Wasabi Wallet er også en super god software wallet til din computer. Wasabi har stort fokus på privatliv og har en række muligheder som du måske vil finde interessant at benytte.</p>
         <a href="https://wasabiwallet.io/" class="software-link" target="_blank" rel="noopener noreferrer">
@@ -43,7 +44,7 @@ import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
       </div>
 
       <div class="software-card">
-        <img src="/images/logos/specter.png" alt="Specter" class="software-logo" />
+        <Image src="/images/logos/specter.png" alt="Specter" width={207} height={207} class="software-logo" />
         <h3><a href="https://specter.solutions/desktop/" target="_blank" rel="noopener noreferrer">Specter</a></h3>
         <p>Specter Wallet er ligesom Sparrow og Wasabi free and open source (FOSS*). Specter har særligt fokus på multisig-opsætninger og gør det nemt at administrere flere hardware wallets sammen for ekstra sikkerhed.</p>
         <a href="https://specter.solutions/desktop/" class="software-link" target="_blank" rel="noopener noreferrer">

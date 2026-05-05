@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
 
 const tools = [
@@ -148,7 +149,7 @@ const projects = [
 
   <section class="category-section">
     <h3 class="category-heading">
-      <img src="/images/icons/tools.png" alt="" class="cat-icon" /> Værktøjer & ressourcer
+      <Image src="/images/icons/tools.png" alt="" width={1024} height={1024} class="cat-icon" /> Værktøjer & ressourcer
     </h3>
     <div class="tools-grid">
       {
@@ -185,7 +186,7 @@ const projects = [
 
   <section class="category-section">
     <h3 class="category-heading">
-      <img src="/images/icons/camera.png" alt="" class="cat-icon" /> Billeder af Bitcoin gør-det-selv-projekter
+      <Image src="/images/icons/camera.png" alt="" width={1024} height={1024} class="cat-icon" /> Billeder af Bitcoin gør-det-selv-projekter
     </h3>
     <p class="gallery-note">
       Klik på billedet for at åbne et link, hvor du kan se, hvordan du kommer i
@@ -212,7 +213,7 @@ const projects = [
 
   <section class="category-section">
     <h3 class="category-heading">
-      <img src="/images/icons/video.png" alt="" class="cat-icon" /> Video
+      <Image src="/images/icons/video.png" alt="" width={1024} height={1024} class="cat-icon" /> Video
     </h3>
     <div class="video-container">
       <video controls preload="metadata">

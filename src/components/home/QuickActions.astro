@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
 	lang: "da" | "en";
 }
@@ -13,6 +15,8 @@ const logos = [
 		alt: isEn
 			? "Mempool.space — Bitcoin block explorer"
 			: "Mempool.space - Bitcoin block explorer",
+		width: 224,
+		height: 56,
 	},
 	{
 		href: "https://timechaincalendar.com",
@@ -20,16 +24,22 @@ const logos = [
 		alt: isEn
 			? "Timechain Calendar — Bitcoin halving calendar"
 			: "Timechain Calendar - Bitcoin halving kalender",
+		width: 56,
+		height: 56,
 	},
 	{
 		href: "https://bitcoin.clarkmoody.com/dashboard/",
 		logo: "/images/logos/clarkmoody.png",
 		alt: "Clark Moody Bitcoin Dashboard",
+		width: 56,
+		height: 56,
 	},
 	{
 		href: "https://amboss.space",
 		logo: "/images/logos/amboss.png",
 		alt: "Amboss - Lightning Network explorer",
+		width: 422,
+		height: 56,
 	},
 	{
 		href: "https://nakamotoinstitute.org",
@@ -37,11 +47,15 @@ const logos = [
 		alt: isEn
 			? "Nakamoto Institute — Bitcoin literature and resources"
 			: "Nakamoto Institute - Bitcoin litteratur og ressourcer",
+		width: 144,
+		height: 56,
 	},
 	{
 		href: "https://bitbo.io",
 		logo: "/images/logos/bitbo.png",
 		alt: "Bitbo - Bitcoin dashboard",
+		width: 232,
+		height: 56,
 	},
 ];
 
@@ -80,7 +94,7 @@ const actions = [
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						<img src={item.logo} alt={item.alt} class="logo-img" />
+						<Image src={item.logo} alt={item.alt} width={item.width} height={item.height} class="logo-img" />
 					</a>
 				))
 			}
@@ -97,9 +111,11 @@ const actions = [
 							rel="noopener noreferrer"
 						>
 							{action.icon.startsWith("/") ? (
-								<img
+								<Image
 									src={action.icon}
 									alt={action.label}
+									width={112}
+									height={112}
 									class="card-icon-img"
 								/>
 							) : (
@@ -110,9 +126,11 @@ const actions = [
 					) : (
 						<a href={action.href} class="action-card">
 							{action.icon.startsWith("/") ? (
-								<img
+								<Image
 									src={action.icon}
 									alt={action.label}
+									width={112}
+									height={112}
 									class="card-icon-img"
 								/>
 							) : (
@@ -132,9 +150,11 @@ const actions = [
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				<img
+				<Image
 					src="/images/logos/btcprague_w.png"
 					alt="BTCPrague"
+					width={126}
+					height={44}
 					class="event-logo"
 				/>
 				<div class="event-info">
