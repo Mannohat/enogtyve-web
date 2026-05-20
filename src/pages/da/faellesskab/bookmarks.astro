@@ -2022,20 +2022,15 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
             status.textContent = "Sender…";
             status.className = "modal-status";
 
-            var body = [
-                "### Navn på ressourcen", "", navn, "",
-                "### URL", "", url, "",
-                "### Kategori", "", kategori, "",
-                "### Kort beskrivelse (på dansk)", "", beskrivelse,
-            ].join("\n");
-
             try {
                 var res = await fetch("/.netlify/functions/create-issue", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
-                        title: "[Ressource]: " + navn,
-                        body: body,
+                        navn: navn,
+                        url: url,
+                        kategori: kategori,
+                        beskrivelse: beskrivelse,
                         labels: [GITHUB_LABEL],
                     }),
                 });
