@@ -1,10 +1,34 @@
 ---
 import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Er Bitcoin en boble?", "acceptedAnswer": { "@type": "Answer", "text": "Trods gentagne prisfald har Bitcoins overordnede tendens været konsekvent opadgående. Kritikere, der har erklæret bitcoin for død efter hver markedscyklus, har taget grueligt fejl." } },
+    { "@type": "Question", "name": "Er Bitcoin for volatil?", "acceptedAnswer": { "@type": "Answer", "text": "Bitcoins volatilitet afspejler et frit marked uden handelspause, redningspakker eller statslig indblanding. I takt med adoptionen øges, falder volatiliteten." } },
+    { "@type": "Question", "name": "Er Bitcoin understøttet af noget?", "acceptedAnswer": { "@type": "Answer", "text": "Bitcoin er understøttet af absolut knaphed og kryptografisk verificerbarhed — egenskaber der er mere robuste end noget fysisk aktiv." } },
+    { "@type": "Question", "name": "Vil Bitcoin blive forældet?", "acceptedAnswer": { "@type": "Answer", "text": "Bitcoin repræsenterer opdagelsen af absolut knaphed. Som et netværk med 99,98% oppetid og milliarder i sikkerhed er det usandsynligt, at Bitcoin mister sin dominerende position." } },
+    { "@type": "Question", "name": "Bruger Bitcoin for meget energi?", "acceptedAnswer": { "@type": "Answer", "text": "Bitcoin-minedrift udnytter overskydende og strandet energi globalt. Det er en fleksibel energikøber, der hjælper med at udligne energifordelingen på verdensplan." } },
+    { "@type": "Question", "name": "Virker Bitcoin ikke uden internet?", "acceptedAnswer": { "@type": "Answer", "text": "Det er muligt at sende Bitcoin-transaktioner offline via SMS, satellit og andre kommunikationsnetværk uden internetadgang." } },
+    { "@type": "Question", "name": "Er Bitcoin primært for kriminelle?", "acceptedAnswer": { "@type": "Answer", "text": "Bitcoin er et neutralt værktøj. Kriminalitet stammer ikke fra adgangen til værktøjer. Kontantpenge bruges langt mere til kriminalitet end Bitcoin." } },
+    { "@type": "Question", "name": "Er Bitcoin et pyramidespil?", "acceptedAnswer": { "@type": "Answer", "text": "Bitcoin er ikke et pyramidespil. Det er en form for penge med open source-kode og verificerbart fast udbud på 21 millioner — ingen central myndighed giver afkastløfter." } },
+    { "@type": "Question", "name": "Er Bitcoin for langsom?", "acceptedAnswer": { "@type": "Answer", "text": "Bitcoins primære lag sammenlignes korrekt med bankafvikling, ikke kortbetaling. Lightning Network muliggør hurtige mikrotransaktioner på andenlaget." } },
+    { "@type": "Question", "name": "Kan Bitcoins grænse på 21 millioner ændres?", "acceptedAnswer": { "@type": "Answer", "text": "Bitcoins udbud valideres uafhængigt af hvert knudepunkt. En ændring kræver konsensus fra hele netværket, hvilket er ekstremt usandsynligt." } },
+    { "@type": "Question", "name": "Vil regeringer forbyde Bitcoin?", "acceptedAnswer": { "@type": "Answer", "text": "Håndhævelse af et Bitcoin-forbud er teknisk nærmest umuligt. Private nøgler er blot tilfældige tal, der kan opbevares overalt." } },
+    { "@type": "Question", "name": "Er Bitcoin-ejerskab koncentreret på få?", "acceptedAnswer": { "@type": "Answer", "text": "Store wallet-beholdninger tilhører typisk børser med millioner af kunder. En adresse kan repræsentere mange brugere." } },
+    { "@type": "Question", "name": "Er Bitcoin-minedrift centraliseret?", "acceptedAnswer": { "@type": "Answer", "text": "Mining pools kontrollerer ikke Bitcoins regler. Minere har et stærkt incitament til at følge netværkets regler, da deres overskud afhænger af det." } },
+    { "@type": "Question", "name": "Er en hel Bitcoin for dyr at købe?", "acceptedAnswer": { "@type": "Answer", "text": "En bitcoin kan opdeles i 100 millioner satoshis. Du kan købe enhver brøkdel — der er ingen minimumskøbspris." } },
+    { "@type": "Question", "name": "Er Bitcoin-transaktioner for dyre?", "acceptedAnswer": { "@type": "Answer", "text": "Onchain-gebyrer afspejler endelig afvikling af høj værdi. Mindre betalinger håndteres på Lightning Network til brøkdele af en øre." } },
+  ]
+};
 ---
 
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
 <ResourcePageLayout
-  title="FUD / FAKTA"
-  description="FUD eller fakta? Vi gennemgår de mest udbredte myter om Bitcoin og svarer med facts."
+  title="Bitcoin-myter og fakta"
+  description="FUD eller fakta? Vi gennemgår de mest udbredte myter om Bitcoin og svarer med fakta og kildehenvisninger."
   lang="da"
 >
   <section class="nav-buttons">

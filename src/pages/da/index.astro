@@ -10,7 +10,23 @@ import QuickActions from "../../components/home/QuickActions.astro";
 import IntroBanner from "../../components/home/IntroBanner.astro";
 
 const lang = "da";
+
+const orgSchema = {
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	"name": "Enogtyve",
+	"url": "https://enogtyve.org",
+	"logo": "https://enogtyve.org/images/logos/enogtyve_logo.png",
+	"description": "Danmarks Bitcoin-fællesskab",
+	"sameAs": [
+		"https://t.me/enogtyvedk",
+		"https://youtube.com/@enogtyvedanmark",
+		"https://github.com/Mannohat/enogtyve-web",
+	],
+};
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
 
 <BaseLayout
 	title="Dansk Bitcoin Fællesskab"

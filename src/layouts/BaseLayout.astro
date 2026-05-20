@@ -65,14 +65,35 @@ const enPath = isUnprefixedSpecial
     ? "https://enogtyve.org/en"
     : `https://enogtyve.org/en${enTail}`;
 
-const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Enogtyve",
-    "url": "https://enogtyve.org",
-    "description": description,
-    "inLanguage": lang === "da" ? "da-DK" : "en-US"
-};
+const structuredData = ogType === "article" && pubDate
+    ? {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": title,
+          "description": description,
+          "url": canonicalURL,
+          "datePublished": pubDate.toISOString(),
+          ...(author ? { "author": { "@type": "Person", "name": author } } : {}),
+          "publisher": {
+              "@type": "Organization",
+              "name": "Enogtyve",
+              "url": "https://enogtyve.org",
+              "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://enogtyve.org/images/logos/enogtyve_logo.png",
+              },
+          },
+          "image": ogImage,
+          "inLanguage": lang === "da" ? "da-DK" : "en-US",
+      }
+    : {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Enogtyve",
+          "url": "https://enogtyve.org",
+          "description": description,
+          "inLanguage": lang === "da" ? "da-DK" : "en-US",
+      };
 ---
 
 <!doctype html>
@@ -87,6 +108,7 @@ const structuredData = {
         <link rel="canonical" href={canonicalURL} />
         <link rel="preconnect" href="https://cloud.umami.is" />
         <link rel="preconnect" href="https://btcpay.ideasarelikeflames.org" />
+        <link rel="preconnect" href="https://mempool.space" />
 
         <!-- hreflang -->
         <link rel="alternate" hreflang="da" href={daPath} />

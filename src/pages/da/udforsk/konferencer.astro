@@ -4,7 +4,27 @@ import { conferences } from "../../../data/events";
 
 const today = new Date();
 today.setHours(0, 0, 0, 0);
+
+const eventSchema = {
+  "@context": "https://schema.org",
+  "@graph": conferences.map((conf) => ({
+    "@type": "Event",
+    "name": conf.name,
+    "startDate": conf.startISO,
+    "endDate": conf.endISO,
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": conf.location,
+    },
+    "url": conf.url,
+    "description": conf.description,
+  })),
+};
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
 
 <ResourcePageLayout
   title="Bitcoin-konferencer"
