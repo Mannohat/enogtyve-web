@@ -1,43 +1,52 @@
-# Astro Starter Kit: Minimal
+# enogtyve.org
+
+Source code for [enogtyve.org](https://enogtyve.org) — Danmarks Bitcoin-fællesskab. Built with [Astro 5](https://astro.build) and deployed on Netlify.
+
+## Tech stack
+
+- **Astro 5** — static site generator
+- **Netlify** — hosting, edge redirects, serverless functions
+- **Pagefind** — client-side search
+- **Netlify Functions** — server-side proxies for Stacker News (GraphQL) and BTC price (CoinGecko)
+
+## Project structure
+
+```
+src/
+  components/       Reusable Astro components (Header, Footer, home sections)
+  content/          Markdown content collections (blog, podcasts)
+  data/             Shared typed data (events.ts — conferences and meetup)
+  layouts/          Page layouts (BaseLayout, ArticleLayout, ResourcePageLayout)
+  pages/
+    da/             Danish pages (primary language)
+    en/             English pages (index + privacy policy)
+    404.astro       Bilingual 404 page
+  styles/           Global CSS
+netlify/
+  functions/        Serverless functions (stacker-news.js, btc-price.js)
+public/
+  images/           Logos, icons, content images
+```
+
+## Local development
+
+Requires [Node.js](https://nodejs.org) and the [Netlify CLI](https://docs.netlify.com/cli/get-started/).
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run netlify     # starts Astro dev server + Netlify functions locally
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The `netlify` script runs `netlify dev`, which wires up the serverless functions at `/.netlify/functions/*` alongside the Astro dev server. Using plain `npm run dev` skips the functions, so the Stacker News feed and BTC price stat will not load.
 
-## 🚀 Project Structure
+## Build
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+npm run build       # outputs to dist/
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Contributing
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Suggestions for new bookmarks, resources, or events can be submitted via the "Foreslå ressource" form on the [Bogmærker](https://enogtyve.org/da/faellesskab/bookmarks) page, or by opening an issue on GitHub.
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Pull requests are welcome. Please run `npm run build` and confirm it completes without errors before opening a PR.
