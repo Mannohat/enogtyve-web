@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { conferences } from "../../data/events";
 
 interface Props {
 	lang: "da" | "en";
@@ -7,6 +8,20 @@ interface Props {
 const { lang } = Astro.props;
 const isEn = lang === "en";
 const contentLang = isEn ? "da" : lang;
+
+// Promote the next upcoming conference (soonest first); banner hides if none.
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+const nextConference = conferences
+	.filter((c) => new Date(c.endISO) >= today)
+	.sort((a, b) => a.startISO.localeCompare(b.startISO))[0];
+// timeLocation is "DATE · LOCATION" — the banner shows just the date part.
+const nextConfDate = nextConference
+	? (isEn ? nextConference.timeLocation.en : nextConference.timeLocation.da).split(" · ")[0]
+	: "";
+const nextConfDiscount = nextConference?.discount
+	? (isEn ? nextConference.discount.en : nextConference.discount.da)
+	: undefined;
 
 const logos = [
 	{
@@ -143,34 +158,32 @@ const actions = [
 			}
 		</div>
 
-		<div class="event-banner">
-			<a
-				href="https://btcprg.me/ENOGTYVE"
-				class="event-main"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<Image
-					src="/images/logos/btcprague_w.png"
-					alt="BTCPrague"
-					width={126}
-					height={44}
-					class="event-logo"
-				/>
-				<div class="event-info">
-					<span class="event-name">BTCPrague</span>
-					<span class="event-date">11.–13. juni 2026</span>
-					<span class="event-discount">
-						{isEn
-							? 'Save 10% with code “enogtyve”'
-							: 'Spar 10% med rabatkoden “enogtyve”'}
-					</span>
-				</div>
-			</a>
-			<a href={`/${contentLang}/udforsk/konferencer`} class="event-more">
-				{isEn ? "More conferences →" : "Se flere konferencer →"}
-			</a>
-		</div>
+		{nextConference && (
+			<div class="event-banner">
+				<a
+					href={nextConference.url}
+					class="event-main"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<img
+						src={nextConference.image}
+						alt={nextConference.name}
+						class="event-logo"
+					/>
+					<div class="event-info">
+						<span class="event-name">{nextConference.name}</span>
+						<span class="event-date">{nextConfDate}</span>
+						{nextConfDiscount && (
+							<span class="event-discount">{nextConfDiscount}</span>
+						)}
+					</div>
+				</a>
+				<a href={`/${contentLang}/udforsk/konferencer`} class="event-more">
+					{isEn ? "More conferences →" : "Se flere konferencer →"}
+				</a>
+			</div>
+		)}
 	</div>
 </section>
 
