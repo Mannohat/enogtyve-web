@@ -1,0 +1,128 @@
+---
+import { Image } from 'astro:assets';
+import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
+---
+
+<ResourcePageLayout
+  title="Earn Bitcoin"
+  description="Ways to earn bitcoin without buying it — work, sales, and services."
+  lang="en"
+>
+  <section class="intro">
+    <p>New services and ways to earn bitcoin keep appearing. It might be as cashback on online purchases, by completing tasks, by viewing an ad, and so on.</p>
+
+    <p>Below is a list of different ways to earn bitcoin. If you'd rather buy bitcoin, read more about where and how here: <a href="/en/get-started/buy-bitcoin">Buying bitcoin</a></p>
+  </section>
+
+  <section class="services-section">
+    <div class="service-grid">
+      <div class="service-card">
+        <Image src="/images/logos/satsback.png" alt="Satsback" width={180} height={180} class="service-logo" />
+        <h3><a href="https://satsback.com/register/6zj3laKvOmPVyKE5" target="_blank" rel="noopener noreferrer">Satsback.com</a></h3>
+        <p>Satsback has built a browser extension that lets you earn cashback on purchases across many thousands of websites.</p>
+        <a href="https://satsback.com/register/6zj3laKvOmPVyKE5" class="service-link" target="_blank" rel="noopener noreferrer">
+          Read more and sign up here →
+        </a>
+      </div>
+
+      <div class="service-card">
+        <Image src="/images/logos/addslice.jpeg" alt="AddSlice" width={291} height={291} class="service-logo" />
+        <h3><a href="https://addslice.com/?crew=f5DzF" target="_blank" rel="noopener noreferrer">AddSlice.com</a></h3>
+        <p>Slice is a browser extension that pays you satoshis for showing ads. So you earn sats just by browsing the internet.</p>
+        <a href="https://addslice.com/?crew=f5DzF" class="service-link" target="_blank" rel="noopener noreferrer">
+          Read more and sign up here →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-note">
+    <p>Know of other services? Feel free to email <a href="mailto:kontakt@enogtyve.org">kontakt@enogtyve.org</a> or post in the <a href="http://chat.enogtyve.org" target="_blank" rel="noopener noreferrer">Telegram group</a>.</p>
+  </section>
+
+  <a href="#" class="back-to-top">
+    ↑ Back to top
+  </a>
+</ResourcePageLayout>
+
+<style>
+  .intro {
+    margin-bottom: var(--space-lg);
+    line-height: 1.7;
+  }
+
+  .intro p {
+    margin-bottom: var(--space-md);
+  }
+
+  .services-section {
+    margin: var(--space-xl) 0;
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--background-card);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: var(--space-md);
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+  }
+
+  .service-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .service-logo {
+    height: 32px;
+    max-width: 120px;
+    object-fit: contain;
+    object-position: left;
+    margin-bottom: var(--space-sm);
+  }
+
+  .service-card h3 a:hover {
+    opacity: 0.8;
+  }
+
+  .service-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+    flex: 1;
+  }
+
+  .service-link {
+    display: inline-block;
+    font-weight: bold;
+    margin-top: auto;
+    padding-top: var(--space-sm);
+    transition: opacity 0.2s ease;
+  }
+
+  .service-link:hover {
+    opacity: 0.7;
+  }
+
+  .contact-note {
+    margin-top: 4rem;
+  }
+
+  .contact-note p {
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+</style>

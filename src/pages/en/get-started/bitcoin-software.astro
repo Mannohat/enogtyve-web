@@ -1,0 +1,193 @@
+---
+import { Image } from 'astro:assets';
+import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
+import { localizedHref } from '../../../i18n/routes';
+---
+
+<ResourcePageLayout
+  title="Bitcoin Software"
+  description="An overview of Bitcoin software for your computer, node, and wallet."
+  lang="en"
+>
+  <div class="quick-links">
+    <a href="/en/get-started/hardware-wallets" class="quick-link-btn">Hardware wallets</a>
+    <a href="/en/get-started/privacy-best-practices" class="quick-link-btn">Privacy &amp; best practices</a>
+    <a href={localizedHref('/da/velkommen/fud-facts', 'en')} class="quick-link-btn">FUD / Facts</a>
+  </div>
+
+  <section class="intro">
+    <p>Whether you're using services, downloading software, or anything else related to Bitcoin, always make sure to check for yourself that you're on the right site and that what you're downloading is what you expect. On this page you'll find links directly to the services mentioned, but even so, show healthy skepticism and check for yourself. <strong>Don't trust, verify</strong>.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Wallet software</h2>
+    <p>Several hardware wallet manufacturers make an accompanying software wallet. There are several reasons to avoid using those. Below are some recommended alternatives, all of which are FOSS*, and which work with most hardware wallets.</p>
+  </section>
+
+  <section class="software-section">
+    <div class="software-grid">
+      <div class="software-card">
+        <Image src="/images/logos/sparrow.png" alt="Sparrow Wallet" width={1650} height={1650} class="software-logo" />
+        <h3><a href="https://sparrowwallet.com/" target="_blank" rel="noopener noreferrer">Sparrow Wallet</a></h3>
+        <p>Sparrow Wallet is a fantastic wallet software for your computer. It offers a wide range of features that you'll find more and more useful the more you learn about Bitcoin. On top of that, the way Sparrow displays transactions and overviews can even help you understand how Bitcoin works.</p>
+        <a href="https://sparrowwallet.com/" class="software-link" target="_blank" rel="noopener noreferrer">
+          Find more information and download Sparrow Wallet →
+        </a>
+      </div>
+
+      <div class="software-card">
+        <Image src="/images/logos/wasabi.svg" alt="Wasabi Wallet" width={100} height={30} class="software-logo" />
+        <h3><a href="https://wasabiwallet.io/" target="_blank" rel="noopener noreferrer">Wasabi Wallet</a></h3>
+        <p>Wasabi Wallet is also a great software wallet for your computer. Wasabi has a strong focus on privacy and offers a range of options you might find interesting to use.</p>
+        <a href="https://wasabiwallet.io/" class="software-link" target="_blank" rel="noopener noreferrer">
+          Find more information and download Wasabi →
+        </a>
+      </div>
+
+      <div class="software-card">
+        <Image src="/images/logos/specter.png" alt="Specter" width={207} height={207} class="software-logo" />
+        <h3><a href="https://specter.solutions/desktop/" target="_blank" rel="noopener noreferrer">Specter</a></h3>
+        <p>Specter Wallet, like Sparrow and Wasabi, is free and open source (FOSS*). Specter has a particular focus on multisig setups and makes it easy to manage several hardware wallets together for extra security.</p>
+        <a href="https://specter.solutions/desktop/" class="software-link" target="_blank" rel="noopener noreferrer">
+          Find more information and download Specter →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="foss-note">
+    <p>*FOSS — Free and open source software (free, open code so anyone can see for themselves how the program works and make sure nothing happens behind the scenes that shouldn't).</p>
+  </section>
+
+  <a href="#" class="back-to-top">
+    ↑ Back to top
+  </a>
+</ResourcePageLayout>
+
+<style>
+  .quick-links {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .quick-link-btn {
+    display: inline-block;
+    background: var(--primary);
+    color: #000;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+  }
+
+  .quick-link-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+  }
+
+  .intro {
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .intro p {
+    color: var(--text-light);
+  }
+
+  .content-section {
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .content-section h2 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .content-section p {
+    color: var(--text-light);
+  }
+
+  .software-section {
+    margin-bottom: 3rem;
+  }
+
+  .software-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .software-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--background-card);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: var(--space-lg);
+    transition: all 0.3s ease;
+  }
+
+  .software-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+  }
+
+  .software-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .software-logo {
+    height: 64px;
+    max-width: 100px;
+    object-fit: contain;
+    object-position: left;
+    margin-bottom: var(--space-sm);
+  }
+
+  .software-card h3 a:hover {
+    opacity: 0.8;
+  }
+
+  .software-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+    flex: 1;
+  }
+
+  .software-link {
+    display: inline-block;
+    font-weight: bold;
+    margin-top: auto;
+    padding-top: var(--space-sm);
+    transition: opacity 0.2s ease;
+  }
+
+  .software-link:hover {
+    opacity: 0.7;
+  }
+
+  .foss-note {
+    margin-top: 2rem;
+    padding: var(--space-md);
+    background: var(--background-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+
+  .foss-note p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+</style>

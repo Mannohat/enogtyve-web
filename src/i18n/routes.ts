@@ -84,7 +84,17 @@ export const enToDa: Record<string, string> = Object.fromEntries(
 export const EN_LIVE = new Set<string>([
   "/", // homepage
   "/privacypolicy",
+  // Get started
+  "/get-started/guide",
   "/get-started/buy-bitcoin",
+  "/get-started/earn-bitcoin",
+  "/get-started/bitcoin-storage",
+  "/get-started/hardware-wallets",
+  "/get-started/seed-phrase",
+  "/get-started/bitcoin-software",
+  "/get-started/privacy-best-practices",
+  "/get-started/terms-and-words",
+  "/get-started/bitcoin-books-danish",
 ]);
 
 /**

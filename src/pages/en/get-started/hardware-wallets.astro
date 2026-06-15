@@ -1,0 +1,284 @@
+---
+import { Image } from 'astro:assets';
+import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
+import { localizedHref } from '../../../i18n/routes';
+---
+
+<ResourcePageLayout
+  title="Hardware Wallets"
+  description="A guide to hardware wallets — the safest way to store your bitcoin."
+  lang="en"
+>
+  <div class="quick-links">
+    <a href="/en/get-started/privacy-best-practices" class="quick-link-btn">Privacy &amp; best practices</a>
+    <a href={localizedHref('/da/blog/hvad-er-bitcoin', 'en')} class="quick-link-btn">A bit about Bitcoin</a>
+    <a href="/en/get-started/bitcoin-software" class="quick-link-btn">Bitcoin software</a>
+  </div>
+
+  <section class="intro">
+    <h2>On this page you'll find an overview of recommended hardware wallets from trustworthy Bitcoin companies.</h2>
+
+    <h3>Storing bitcoin</h3>
+    <p>Hardware wallets — also known as signing devices — are one of the first things you should familiarize yourself with once you've acquired your first satoshis. Below are a few that we recommend. In the near future you'll be able to find help and guidance here on the website, but the first step is to get one, and there are already good tutorials on YouTube. It may sound fiddly, but it's not that hard to figure out. Always make a test transfer with a small amount before you send the rest. Above all, make sure to take your satoshis into your own custody.</p>
+
+    <p>You can see a list of recommended hardware wallets below. Once you've ordered a wallet, make sure you have a good understanding of how to back up your recovery words. You can read more about that here: <a href="/en/get-started/seed-phrase"><strong>Recovery words / seed phrase</strong></a></p>
+  </section>
+
+  <section class="wallets-section">
+    <div class="wallet-card">
+      <div class="wallet-logo">
+        <Image src="/images/logos/jade.png" alt="Jade" width={1166} height={366} />
+      </div>
+      <div class="wallet-content">
+        <h3><a href="https://store.blockstream.com/?code=enogtyve" target="_blank" rel="noopener noreferrer">Jade & Jade Plus</a></h3>
+        <p><a href="https://store.blockstream.com/?code=enogtyve" target="_blank" rel="noopener noreferrer">Blockstream</a> has made a really nice hardware wallet, now in two sizes, both with a camera that lets you sign transactions using QR codes, among other things. That means they can be used "air-gapped" — they don't need to be connected to your computer and can communicate via QR codes instead. There can be various reasons to want this. They can also be connected with a cable if you prefer. Both versions can also be used with the <a href={localizedHref('/da/laer-mere/liquid', 'en')}>Liquid network</a>. For more information about <a href={localizedHref('/da/laer-mere/liquid', 'en')}>Liquid, see here</a>.</p>
+        <a href="https://store.blockstream.com/?code=enogtyve" class="wallet-link" target="_blank" rel="noopener noreferrer">
+          Click here to order a Jade →
+        </a>
+      </div>
+    </div>
+
+    <div class="wallet-card">
+      <div class="wallet-logo">
+        <Image src="/images/logos/bitbox_w.png" alt="BitBox" width={448} height={110} />
+      </div>
+      <div class="wallet-content">
+        <h3><a href="https://shop.bitbox.swiss/?ref=Seum0AJVdk" target="_blank" rel="noopener noreferrer">BitBox02 Nova</a></h3>
+        <p>The BitBox02 Nova is a hardware wallet from <a href="https://shiftcrypto.ch/bitbox02/?ref=Seum0AJVdk" target="_blank" rel="noopener noreferrer">Shiftcrypto</a> in Switzerland. Their latest version also works with iPhone and iPads. It's a great hardware wallet that's easy to use, and everything you need is included. Remember to choose the Bitcoin-only version.</p>
+        <p class="shipping-note">+ Ships from Switzerland</p>
+        <a href="https://shop.bitbox.swiss/?ref=Seum0AJVdk" class="wallet-link" target="_blank" rel="noopener noreferrer">
+          Click here to order a BitBox →
+        </a>
+      </div>
+    </div>
+
+    <div class="wallet-card">
+      <div class="wallet-logo">
+        <Image src="/images/logos/seedsigner.webp" alt="SeedSigner" width={1080} height={380} />
+      </div>
+      <div class="wallet-content">
+        <h3><a href="https://www.seedsigner.com" target="_blank" rel="noopener noreferrer">SeedSigner</a></h3>
+        <p>SeedSigner is a fantastic tool when it comes to securing your sats, and a clear recommendation from us. The project is open source, and you can build your own or buy it from <a href="https://www.gobrrr.me/?coupon=enogtyve" target="_blank" rel="noopener noreferrer"><strong>GoBrrr.me</strong></a>, an Austrian Bitcoin-only web shop with lots of great products. <strong>You get 5% off with the discount code "enogtyve"</strong>. Read more about <a href="https://www.seedsigner.com" target="_blank" rel="noopener noreferrer">SeedSigner on the project's website</a>.</p>
+        <p class="shipping-note">+ Ships from Austria</p>
+        <a href="https://www.gobrrr.me/?coupon=enogtyve" class="wallet-link" target="_blank" rel="noopener noreferrer">
+          Click here to order a SeedSigner →
+        </a>
+      </div>
+    </div>
+
+    <div class="wallet-card">
+      <div class="wallet-logo">
+        <Image src="/images/logos/coldcard.jpeg" alt="Coldcard" width={400} height={400} />
+      </div>
+      <div class="wallet-content">
+        <h3><a href="https://store.coinkite.com/promo/F5E096EEF1AEDDAC4255" target="_blank" rel="noopener noreferrer">Coldcard MK4</a></h3>
+        <p><a href="https://store.coinkite.com/promo/F5E096EEF1AEDDAC4255" target="_blank" rel="noopener noreferrer">Coinkite</a> makes a range of really good products, the best known being their Coldcard hardware wallet. It's not hard to use and at the same time packs a long list of great features. The Coldcard MK4 can be used connected to your computer, via NFC, or air-gapped with a MicroSD card.</p>
+        <a href="https://store.coinkite.com/promo/F5E096EEF1AEDDAC4255" class="wallet-link" target="_blank" rel="noopener noreferrer">
+          Click here to order a Coldcard MK4 →
+        </a>
+      </div>
+    </div>
+
+    <div class="wallet-card">
+      <div class="wallet-logo">
+        <Image src="/images/logos/trezor.webp" alt="Trezor" width={800} height={201} />
+      </div>
+      <div class="wallet-content">
+        <h3><a href="https://affil.trezor.io/aff_c?offer_id=352&aff_id=36562" target="_blank" rel="noopener noreferrer">Trezor Safe 7</a></h3>
+        <p>Trezor Safe 7 — Make sure to get the Bitcoin-only version.</p>
+        <a href="https://affil.trezor.io/aff_c?offer_id=352&aff_id=36562" class="wallet-link" target="_blank" rel="noopener noreferrer">
+          Click here to order a Trezor Safe 7 →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="backup-reminder">
+    <h2>Also remember to make sure you understand how to back up your recovery words.</h2>
+    <p>You can read more about that here: <a href="/en/get-started/seed-phrase">Recovery words / seed phrase</a></p>
+  </section>
+
+  <a href="#" class="back-to-top">
+    ↑ Back to top
+  </a>
+</ResourcePageLayout>
+
+<style>
+  .quick-links {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .quick-link-btn {
+    display: inline-block;
+    background: var(--primary);
+    color: #000;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+  }
+
+  .quick-link-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+  }
+
+  .intro {
+    margin-bottom: 3rem;
+    line-height: 1.7;
+  }
+
+  .intro h2 {
+    color: var(--text);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .intro h3 {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .intro p {
+    color: var(--text-light);
+    margin-bottom: var(--space-md);
+  }
+
+  .wallets-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .wallet-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(247, 147, 26, 0.15);
+    border-radius: 10px;
+    padding: 1.5rem 1.75rem;
+    transition:
+      border-color 0.3s ease,
+      transform 0.2s ease,
+      background 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .wallet-card:hover {
+    border-color: rgba(247, 147, 26, 0.45);
+    transform: translateY(-3px);
+    background: rgba(247, 147, 26, 0.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .wallet-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 0.75rem;
+  }
+
+  .wallet-logo img {
+    max-height: 80px;
+    max-width: 80px;
+    object-fit: contain;
+  }
+
+  .wallet-content {
+    flex: 1;
+  }
+
+  .wallet-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+  }
+
+  .wallet-content h3 a {
+    color: #fff;
+    transition: color 0.2s ease;
+  }
+
+  .wallet-content h3 a:hover {
+    color: var(--primary);
+  }
+
+  .wallet-content p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+    font-size: 0.92rem;
+  }
+
+  .shipping-note {
+    color: var(--primary) !important;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .wallet-link {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+    transition: opacity 0.2s ease;
+  }
+
+  .wallet-link:hover {
+    opacity: 0.7;
+  }
+
+  .backup-reminder {
+    margin-top: 3rem;
+    padding: var(--space-lg);
+    background: rgba(247, 147, 26, 0.1);
+    border-left: 4px solid var(--primary);
+    border-radius: 4px;
+  }
+
+  .backup-reminder h2 {
+    color: var(--text);
+    font-size: 1.2rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .backup-reminder p {
+    color: var(--text-light);
+  }
+
+  .backup-reminder a {
+    font-weight: bold;
+  }
+
+  @media (max-width: 567px) {
+    .wallet-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+      padding: 1.25rem;
+    }
+
+    .wallet-logo {
+      width: 80px;
+      height: 80px;
+    }
+
+    .wallet-logo img {
+      max-height: 60px;
+      max-width: 60px;
+    }
+  }
+</style>

@@ -1,0 +1,319 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+import { localizedHref } from "../../../i18n/routes";
+---
+
+<ResourcePageLayout
+  title="Privacy"
+  description="Best practices for privacy and security when using Bitcoin."
+  lang="en"
+>
+  <section class="nav-buttons">
+    <a href="/en/get-started/bitcoin-software" class="nav-btn">Bitcoin software</a>
+    <a href={localizedHref('/da/velkommen/fud-facts', 'en')} class="nav-btn">FUD / FACTS</a>
+    <a href={localizedHref('/da/laer-mere/bitcoin-blockchain', 'en')} class="nav-btn">The Bitcoin Blockchain</a>
+  </section>
+
+  <section class="content-section">
+    <p>
+      Bitcoin was founded on a solid principle of transparency that lets users
+      verify the integrity of the system themselves. Nevertheless, the transparent
+      nature of the Bitcoin protocol does not mean that users can't preserve their
+      financial privacy. This page touches on some of the nuanced aspects of
+      Bitcoin privacy and tries to present some ideas, as well as introduce tools
+      for keeping your transactions confidential.
+    </p>
+    <p>
+      Transparency is incredibly important in the Bitcoin network. It allows anyone
+      to verify crucial elements, such as adherence to the 21 million bitcoin
+      supply cap and the final settlement of payments, without having to trust a
+      central authority.
+    </p>
+    <p>
+      Although transactions on the Bitcoin blockchain are publicly available, there
+      are mechanisms in Bitcoin that enable more or less private transactions. For
+      anyone who wants to protect their financial privacy, it's essential to
+      understand how to use these features and tools.
+    </p>
+    <p>
+      If you haven't yet tried exploring the Bitcoin blockchain, you can see an
+      overview of some tools for it
+      <a href={localizedHref('/da/laer-mere/bitcoin-blockchain', 'en')}>here</a>. If you want to open what's probably the most
+      popular block explorer in a new window, click here:
+      <a href="https://mempool.space" target="_blank" rel="noopener noreferrer">
+        https://www.mempool.space
+      </a>
+    </p>
+    <p>
+      Being able to see all transactions and addresses helps ensure transparency
+      about what has historically happened on the blockchain. And since no identity
+      is attached to them, it always comes down to how an identity is linked to an
+      address off-chain. For example, a person who receives or sends a bitcoin
+      transaction between you and the other party now knows that you are the owner
+      of a given bitcoin address.
+    </p>
+    <p>
+      This is one reason it's recommended not to reuse addresses, and fortunately
+      most newer Bitcoin wallets make sure to show a new address every time you
+      request a new payment, for example.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Bitcoin's UTXO model</h2>
+    <p>
+      Bitcoin's UTXO model (Unspent Transaction Output) is an essential part of
+      Bitcoin's transaction mechanism. Instead of following the traditional account
+      model, where an account's balance is updated, Bitcoin uses this model to
+      track unspent transaction outputs. In each transaction, inputs from previous
+      transactions are referenced as UTXOs, and the outputs of the current
+      transaction are created as new UTXOs.
+    </p>
+    <p>
+      The basic idea is to keep track of which units of bitcoin, or outputs, have
+      not yet been spent. When a transaction takes place, it uses inputs from
+      existing UTXOs and creates new ones, producing an efficient and traceable
+      history of movements on the blockchain. This model contributes to the
+      security and transparency of the Bitcoin network by ensuring that each
+      transaction references previous, valid transactions and uniquely identifies
+      unspent funds.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>UTXO and privacy</h2>
+    <p>
+      Bitcoin's UTXO model has significant implications for privacy, as it affects
+      how transactions are handled and traced on the blockchain:
+    </p>
+    <ol class="numbered-list">
+      <li>
+        <strong>Pseudonymity, not anonymity:</strong> Although Bitcoin transactions
+        aren't directly tied to identities, they are tied to addresses. The UTXO
+        model makes it possible to trace movements of bitcoin across different
+        addresses, which means user activity isn't fully anonymous, but
+        pseudonymous. With enough analysis, someone can follow transactions and try
+        to link them to particular users.
+      </li>
+      <li>
+        <strong>History and transparency:</strong> The UTXO model contributes to a
+        complete and transparent history of movements. While this is an advantage
+        for security and accounting, it can pose a challenge for those who want
+        financial privacy, since all transactions are visible and can be analyzed.
+      </li>
+      <li>
+        <strong>Address reuse and traceability:</strong> As mentioned earlier, if a
+        user reuses a Bitcoin address, it can cause transactions to be linked
+        together, potentially revealing more about the user's financial activities.
+        This can reduce privacy, as more information can be uncovered over time.
+      </li>
+      <li>
+        <strong>Input and output relationships:</strong> When you send a Bitcoin
+        transaction, the UTXO model can also affect your privacy. Bitcoin
+        transactions often use several UTXOs as inputs and create new UTXOs as
+        outputs. This creates a link between previous transactions and the current
+        one, which can potentially reveal more about your financial activities.
+      </li>
+      <li>
+        <strong>Disclosure of transaction data:</strong> It's also important to be
+        aware of whether and how transaction data is shared with third parties.
+        Some services or payment gateways may require additional information that
+        could potentially compromise your privacy.
+      </li>
+      <li>
+        <strong>Using mixers and privacy tools:</strong> To increase the degree of
+        privacy, users can use mixers or CoinJoin protocols, which mix transactions
+        from different participants to make it harder to trace their origin.
+        Implementing privacy tools becomes crucial for those who want to secure
+        their financial privacy.
+      </li>
+    </ol>
+  </section>
+
+  <section class="content-section">
+    <h2>UTXO example</h2>
+    <p>
+      Let's imagine that a UTXO in our Bitcoin wallet is like an ordinary Danish
+      1,000-kroner note. You want to buy a book about Bitcoin that costs 200 kr.,
+      and the fee for this transaction is 10 kr. If you pay 1,000 kr. for the book,
+      the recipient gets 200 kr., the fee is 10 kr., and you get 790 kr. back in
+      change. In this example, you've now told the recipient of the book payment
+      that you had 1,000 kr., and the recipient now knows you have 790 kr. left —
+      and can keep track, going forward, of how the new 790-kr. UTXO now in your
+      Bitcoin wallet is used in future transactions. See the illustration below,
+      where you can imagine the 1,000 kr. acting as the input in the transaction.
+    </p>
+    <figure class="illustration">
+      <img
+        src="/images/graphics/trx_utxo.png"
+        alt="Illustration of a UTXO transaction with input and output"
+      />
+    </figure>
+    <p>
+      The number and size of the individual UTXOs can be combined and included in
+      the transaction in different ways. This can be important to be aware of when
+      it comes to privacy. With Sparrow, for example, you can add a note to your
+      UTXOs, also known as "labelling".
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Summary</h2>
+    <p>
+      On the whole, maintaining privacy on the Bitcoin network requires a
+      combination of careful behavior from users and the use of specialized tools
+      and technologies. It's important to understand that while Bitcoin allows for
+      certain levels of privacy, achieving it requires active awareness and effort
+      from users.
+    </p>
+    <p>
+      Things worth learning more about if you want to understand privacy on the
+      Bitcoin blockchain include:
+    </p>
+    <ul class="topic-list">
+      <li><strong>Avoiding address reuse</strong></li>
+      <li><strong>UTXO management and labelling</strong></li>
+      <li><strong>CoinJoin</strong></li>
+      <li><strong>Payjoin</strong></li>
+      <li>
+        <strong>
+          <a href={localizedHref('/da/laer-mere/liquid', 'en')}>Liquid</a>,
+          <a href={localizedHref('/da/laer-mere/lightning', 'en')}>Lightning</a> and
+          <a href={localizedHref('/da/laer-mere/ecash', 'en')}>eCash</a>
+        </strong>
+      </li>
+      <li><strong>Running your own Bitcoin node</strong></li>
+      <li><strong>The Tor network</strong></li>
+      <li><strong>VPN</strong></li>
+    </ul>
+    <p>
+      With the right knowledge and the right tools, you can move around the
+      transparent Bitcoin network safely. As the technology evolves, so do the
+      features and tools that improve privacy for Bitcoin transactions.
+    </p>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Back to top </a>
+</ResourcePageLayout>
+
+<style>
+  /* Navigation buttons */
+  .nav-buttons {
+    display: flex;
+    gap: var(--space-md, 1rem);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-btn {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease;
+  }
+
+  .nav-btn:hover {
+    background-color: transparent;
+    color: var(--primary);
+  }
+
+  /* Content sections */
+  .content-section {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section h2 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-md, 1rem);
+    padding-bottom: var(--space-sm, 0.5rem);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .content-section p {
+    margin-bottom: 1rem;
+  }
+
+  /* Numbered list */
+  .numbered-list {
+    list-style: none;
+    counter-reset: item;
+    padding-left: 0;
+    margin: 1.5rem 0;
+  }
+
+  .numbered-list li {
+    counter-increment: item;
+    padding: 1rem 1.25rem 1rem 3rem;
+    margin-bottom: 0.75rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.1);
+    border-radius: 8px;
+    position: relative;
+    line-height: 1.7;
+  }
+
+  .numbered-list li::before {
+    content: counter(item);
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .numbered-list li strong {
+    color: rgba(247, 147, 26, 0.9);
+  }
+
+  /* Illustration */
+  .illustration {
+    margin: 2rem auto;
+    text-align: center;
+  }
+
+  .illustration img {
+    max-width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgba(247, 147, 26, 0.15);
+  }
+
+  /* Topic list */
+  .topic-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 1.5rem 0;
+  }
+
+  .topic-list li {
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.4rem;
+    border-left: 3px solid rgba(247, 147, 26, 0.5);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 0 6px 6px 0;
+  }
+
+  .topic-list li strong {
+    color: var(--text-light, #ccc);
+  }
+
+  @media (max-width: 567px) {
+    .nav-buttons {
+      flex-direction: column;
+    }
+
+    .numbered-list li {
+      padding-left: 2.5rem;
+    }
+  }
+</style>

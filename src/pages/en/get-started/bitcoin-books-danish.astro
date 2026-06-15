@@ -1,0 +1,187 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+---
+
+<ResourcePageLayout
+  title="Bitcoin books in Danish"
+  description="The best Bitcoin books available in Danish — from beginner to advanced."
+  lang="en"
+>
+  <section class="content-section">
+    <p>
+      There's an ocean of good, well-written books about Bitcoin, though the vast
+      majority are in English. Below is a list of the Bitcoin books that have been
+      translated into Danish. Take a look — and remember, a book about Bitcoin can
+      also make a fantastic gift.
+    </p>
+    <p>
+      Buy books in Danish at
+      <strong>
+        <a href="https://www.shop21.dk" target="_blank" rel="noopener noreferrer">
+          Shop21
+        </a>
+      </strong>
+      — with the discount code "<strong>enogtyve</strong>" you get 5% off.
+    </p>
+    <p>
+      If you'd like inspiration for more Bitcoin books in English, you can find it
+      at
+      <a href="https://www.bitcoinerbooks.com/" target="_blank" rel="noopener noreferrer">
+        <strong>Bitcoinerbooks.com</strong></a>.
+    </p>
+  </section>
+
+  <section class="book-card">
+    <div class="book-image">
+      <img
+        src="/images/content/21lektioner.png"
+        alt="21 Lektioner – book cover"
+      />
+    </div>
+    <div class="book-text">
+      <h2>21 Lektioner</h2>
+      <p>
+        <strong>21 Lektioner</strong> – Gigi, known for being both entertaining
+        and technically strong, has written a book about his journey down the
+        Bitcoin rabbit hole. As the name suggests, the book contains 21 lessons he
+        learned along the way. It touches on philosophy, economics, and technology,
+        giving a good overview of the many layers of knowledge required to
+        understand Bitcoin better. The book is written in a relaxed tone and
+        doesn't go deep into the topics, instead offering an introduction to each
+        of them.
+      </p>
+      <p>
+        The book can be
+        <a href="https://github.com/Shop21DK/21-Lektioner/raw/master/21%20Lektioner%20-%20latest%20version.pdf" target="_blank" rel="noopener noreferrer">
+          <strong>downloaded for free</strong></a>
+        or bought in physical format at
+        <a href="https://shop21.dk/vare/21-lektioner/?apply_coupon=ENOGTYVE" target="_blank" rel="noopener noreferrer">
+          <strong>Shop21</strong></a>.
+        With the discount code "<strong>enogtyve</strong>" you get 5% off your
+        order.
+      </p>
+    </div>
+  </section>
+
+  <section class="book-card reverse">
+    <div class="book-text">
+      <h2>Bitcoinstandarden</h2>
+      <p>
+        <strong>Bitcoinstandarden</strong> (The Bitcoin Standard) – many consider
+        this book the best way to get a solid introduction to Bitcoin.
+      </p>
+      <p>
+        It explores the history of money, from the use of shells, beads, and salt
+        to metals and banknotes. The book dives into the properties that have
+        enabled Bitcoin's significant growth and examines its economic, political,
+        and social consequences.
+      </p>
+      <p>
+        Readers will gain an understanding of what sets Bitcoin apart from its more
+        than 10,000 successors, and why Bitcoin is immune to imitation and external
+        control.
+      </p>
+      <p>
+        Since Saifedean Ammous published the book in 2018, it has been translated
+        into 30 different languages and is recognized as an essential work for
+        anyone who wants to understand Bitcoin.
+      </p>
+      <p>
+        You can buy the book in physical format here:
+        <a href="https://shop21.dk/vare/bitcoinstandarden/?apply_coupon=ENOGTYVE" target="_blank" rel="noopener noreferrer">
+          <strong>Shop21</strong></a>.
+        <br />
+        With the discount code "<strong>enogtyve</strong>" you get 5% off your order.
+      </p>
+    </div>
+    <div class="book-image">
+      <img
+        src="/images/content/bitcoinstandarden.png"
+        alt="Bitcoinstandarden – book cover"
+      />
+    </div>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Back to top </a>
+</ResourcePageLayout>
+
+<style>
+  /* Content sections */
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section p {
+    margin-bottom: 1rem;
+  }
+
+  /* Book cards */
+  .book-card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.1);
+    border-radius: 12px;
+    transition: border-color 0.3s ease;
+  }
+
+  .book-card:hover {
+    border-color: rgba(247, 147, 26, 0.3);
+  }
+
+  .book-card.reverse {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .book-image {
+    text-align: center;
+  }
+
+  .book-image img {
+    max-width: 220px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .book-text {
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .book-text h2 {
+    color: var(--primary, #f7931a);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-md, 1rem);
+    padding-bottom: var(--space-sm, 0.5rem);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .book-text p {
+    margin-bottom: 0.75rem;
+  }
+
+  .book-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 567px) {
+    .book-card,
+    .book-card.reverse {
+      grid-template-columns: 1fr;
+    }
+
+    .book-image {
+      order: -1;
+    }
+
+    .book-image img {
+      max-width: 180px;
+    }
+  }
+</style>

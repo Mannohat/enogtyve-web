@@ -1,0 +1,185 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+---
+
+<ResourcePageLayout
+  title="Bitcoin storage"
+  description="Learn how to store your bitcoin safely — from hot wallets to cold storage."
+  lang="en"
+>
+  <section class="nav-buttons">
+    <a href="/en/get-started/privacy-best-practices" class="nav-btn">Privacy &amp; best practices</a>
+    <a href="/en/get-started/hardware-wallets" class="nav-btn">Hardware wallets</a>
+    <a href="/en/get-started/bitcoin-software" class="nav-btn">Bitcoin software</a>
+  </section>
+
+  <section class="content-section">
+    <p class="warning-text">
+      <strong>
+        It's generally recommended to move your bitcoin off online exchanges and
+        into your own secure wallet, for several reasons:
+      </strong>
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Security</h2>
+    <ul class="info-list">
+      <li>
+        <strong>Exchange risks:</strong> Exchanges can be vulnerable to hacking
+        or other security breaches. There have been cases in the past where
+        exchanges were compromised, resulting in users losing bitcoin.
+      </li>
+      <li>
+        <strong>Your own wallet:</strong> When you hold your private keys in a
+        personal wallet, you control the security measures — for example by using
+        hardware wallets, which are generally considered more secure than online
+        exchanges.
+      </li>
+      <li>
+        Make sure to back up your
+        <a href="/en/get-started/seed-phrase">recovery words / seed phrase</a>. Read more here:
+        <a href="/en/get-started/seed-phrase">Recovery words / seed phrase</a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <h2>Ownership and control</h2>
+    <ul class="info-list">
+      <li>
+        When your bitcoin is on an exchange, you technically don't own the
+        private keys to your wallet — the exchange does. That means you're
+        trusting the exchange to safeguard and manage your bitcoin correctly. By
+        moving your bitcoin to your own wallet, you gain full ownership and
+        control.
+      </li>
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <h2>Privacy</h2>
+    <ul class="info-list">
+      <li>
+        Exchanges usually require identity verification, and your transactions on
+        the exchange are tied to your identity. By using your own wallet, you can
+        maintain a higher degree of privacy and anonymity, since Bitcoin
+        transactions are generally pseudonymous.
+      </li>
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <h2>Avoid exchange problems</h2>
+    <ul class="info-list">
+      <li>
+        Exchanges can run into technical issues, regulatory problems, or other
+        challenges that may temporarily or permanently affect your access to your
+        bitcoin. Having your own wallet eliminates this risk.
+      </li>
+    </ul>
+  </section>
+
+  <section class="content-section cta-section">
+    <p>
+      <a href="/en/get-started/hardware-wallets">
+        <strong>
+          See more and get an overview of a selection of good hardware wallets here
+        </strong>
+      </a>
+    </p>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Back to top </a>
+</ResourcePageLayout>
+
+<style>
+  /* Navigation buttons */
+  .nav-buttons {
+    display: flex;
+    gap: var(--space-md, 1rem);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-btn {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease;
+  }
+
+  .nav-btn:hover {
+    background-color: transparent;
+    color: var(--primary);
+  }
+
+  /* Content sections */
+  .content-section {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section h2 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-md, 1rem);
+    padding-bottom: var(--space-sm, 0.5rem);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .content-section p {
+    margin-bottom: 1rem;
+  }
+
+  /* Warning text */
+  .warning-text {
+    color: #e53e3e;
+    font-size: 1.05rem;
+  }
+
+  /* Info list */
+  .info-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .info-list li {
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.1);
+    border-radius: 8px;
+    line-height: 1.7;
+  }
+
+  .info-list li strong {
+    color: rgba(247, 147, 26, 0.9);
+  }
+
+  /* CTA section */
+  .cta-section {
+    margin-top: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .cta-section a {
+    font-size: 1.05rem;
+  }
+
+  @media (max-width: 567px) {
+    .nav-buttons {
+      flex-direction: column;
+    }
+  }
+</style>

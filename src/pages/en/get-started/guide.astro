@@ -1,0 +1,234 @@
+---
+import { Image } from 'astro:assets';
+import ResourcePageLayout from '../../../layouts/ResourcePageLayout.astro';
+---
+
+<ResourcePageLayout
+  title="Getting started guide"
+  description="A simple step-by-step guide to acquiring and securing bitcoin easily and safely."
+  lang="en"
+>
+
+  <section class="intro">
+    <p><strong>A simple step-by-step guide to acquiring and securing bitcoin easily and safely.</strong></p>
+    <div class="info-box">
+      <ul>
+        <li>1 bitcoin = 100,000,000 sats. If you acquire, say, 1 million sats (1/100 of a bitcoin), you'll often see it shown as 0.01 BTC.</li>
+        <li>Since there are many ways to acquire and secure your bitcoin, this is just a simple suggestion that most people will be able to follow.</li>
+      </ul>
+      <p><strong>Read through all the steps first, so you have an overall idea of what to do — then start with step 1.</strong></p>
+      <p>If you have questions or need help, see step 5 at the bottom of the page.</p>
+    </div>
+  </section>
+
+  <section class="step-section">
+    <h2>Step 1 — Create an account with Bull Bitcoin</h2>
+    <p><strong>Bull Bitcoin is a Bitcoin-only platform where you can safely and easily acquire bitcoin.</strong></p>
+    <p>As always, remember to use the discount code <code>enogtyve</code> to get a discount on fees.</p>
+    <div class="service-card">
+      <Image src="/images/logos/bullbitcoin.webp" alt="Bull Bitcoin" width={500} height={117} class="service-logo" />
+      <div class="promo-code">
+        <span class="promo-label">Referral code:</span>
+        <code>enogtyve</code>
+        <span class="promo-benefit">25% off fees</span>
+      </div>
+      <a href="https://app.bullbitcoin.com/registration/enogtyve" class="service-link" target="_blank" rel="noopener noreferrer">
+        Go to Bull Bitcoin →
+      </a>
+    </div>
+    <p><a href="/en/get-started/buy-bitcoin">Read about other services for acquiring bitcoin</a></p>
+  </section>
+
+  <section class="step-section">
+    <h2>Step 2 — Get a hardware wallet</h2>
+    <p><strong>The BitBox02 is good and very easy to use.</strong> It ships from Switzerland, so you won't risk having to pay import duties. Make sure to choose the Bitcoin-only version.</p>
+    <div class="service-card">
+      <img src="https://shiftcrypto.ch/assets/friends/bitbox02-700x394.png" alt="BitBox02 Hardware Wallet" class="service-logo-wide" />
+      <a href="https://shiftcrypto.ch/bitbox02/?ref=Seum0AJVdk" class="service-link" target="_blank" rel="noopener noreferrer">
+        Order a BitBox02 →
+      </a>
+    </div>
+    <p><a href="/en/get-started/hardware-wallets">Read about other hardware wallets</a></p>
+  </section>
+
+  <section class="step-section">
+    <h2>Step 3 — Buy bitcoin and send it to your wallet</h2>
+    <p>Once you've received your hardware wallet <strong>(see Step 2)</strong> and familiarized yourself with it and its software, you can buy bitcoin directly from your Bull Bitcoin account and send it to a bitcoin address generated with your hardware wallet.</p>
+    <div class="warning-box">
+      <strong>You now have the following — keep them all safe:</strong>
+      <ul>
+        <li><strong>Hardware wallet</strong> – Store it safely and out of reach of others.</li>
+        <li><strong>MicroSD card backup and/or 24-word backup</strong> – Store these safely and <strong>never on devices with internet access.</strong> Follow the instructions that come with your hardware wallet.</li>
+        <li><strong>Passphrase (if used)</strong> – Store it separately from your 24 words. <strong>IMPORTANT❗ A password and a passphrase are two different things.</strong> A password is the code that unlocks your hardware wallet. A passphrase is an extra word used together with your backup — extra security, but also a risk if you lose it.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="step-section">
+    <h2>Step 4 — Secure your 24 words on titanium</h2>
+    <p><strong>Want to secure your 24 words even better?</strong> Tinyseed is a small titanium plate that withstands most disaster scenarios, such as fire and flooding.</p>
+    <p>Remember the discount code <code>enogtyve</code> for a discount.</p>
+    <div class="service-card">
+      <Image src="/images/logos/tinyseed.png" alt="Tinyseed Titanium Backup" width={375} height={71} class="service-logo-wide" />
+      <a href="https://tinyseed.io/enogtyve" class="service-link" target="_blank" rel="noopener noreferrer">
+        Read more about Tinyseed →
+      </a>
+    </div>
+  </section>
+
+  <section class="step-section">
+    <h2>Step 5 — Take the next step</h2>
+    <p>There's much more information to be found on <a href="/en">Enogtyve.org</a>. Ready to acquire bitcoin? Then go back to step 1.</p>
+    <p>Want to take part in the many great conversations about Bitcoin, or need help? Drop into our chat on Telegram, where we help each other and talk about all sorts of things related to Bitcoin. You'll find a link to the group below.</p>
+    <p>Have fun! 🧡</p>
+    <div class="service-card">
+      <Image src="/images/mediekit/en-og-tyve-dkflag.png" alt="Enogtyve Denmark Telegram group" width={265} height={265} class="service-logo-wide" />
+      <a href="https://telegram.enogtyve.org" class="service-link" target="_blank" rel="noopener noreferrer">
+        Enogtyve Denmark's Telegram group →
+      </a>
+    </div>
+    <div class="info-box" style="margin-top: var(--space-md)">
+      <p><strong>Need 1-on-1 help?</strong> Send an email with a short description of what you need help with, and we'll arrange a time and the details.</p>
+      <a href="mailto:kontakt@enogtyve.org" class="service-link">Send email →</a>
+    </div>
+  </section>
+
+  <a href="#" class="back-to-top">↑ Back to top</a>
+
+</ResourcePageLayout>
+
+<style>
+  .intro {
+    margin-bottom: var(--space-lg);
+    line-height: 1.7;
+  }
+
+  .step-section {
+    margin: var(--space-xl) 0;
+  }
+
+  .step-section h2 {
+    color: var(--primary);
+    font-size: 1.6rem;
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .step-section p {
+    margin-bottom: var(--space-md);
+    line-height: 1.7;
+  }
+
+  .warning-box {
+    background: rgba(247, 147, 26, 0.1);
+    border-left: 4px solid var(--primary);
+    padding: var(--space-md);
+    margin: var(--space-md) 0;
+    border-radius: 4px;
+    line-height: 1.7;
+  }
+
+  .warning-box ul {
+    margin-top: var(--space-sm);
+    padding-left: var(--space-md);
+  }
+
+  .warning-box li {
+    margin-bottom: var(--space-sm);
+  }
+
+  .info-box {
+    background: var(--background-card);
+    border: 1px solid var(--border);
+    padding: var(--space-md);
+    margin: var(--space-md) 0;
+    border-radius: 4px;
+    line-height: 1.7;
+  }
+
+  .info-box ul {
+    padding-left: var(--space-md);
+    margin-bottom: var(--space-sm);
+  }
+
+  .info-box li {
+    margin-bottom: var(--space-sm);
+  }
+
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.12);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: var(--space-md);
+    margin: var(--space-md) 0;
+    transition: all 0.3s ease;
+    max-width: 500px;
+  }
+
+  .service-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+  }
+
+  .service-logo {
+    height: 48px;
+    max-width: 160px;
+    object-fit: contain;
+    object-position: left;
+    margin-bottom: var(--space-sm);
+  }
+
+  .service-logo-wide {
+    max-width: 100%;
+    max-height: 160px;
+    object-fit: contain;
+    object-position: left;
+    margin-bottom: var(--space-sm);
+    border-radius: 6px;
+  }
+
+  .promo-code {
+    background: var(--background);
+    border: 1px solid var(--primary);
+    padding: var(--space-sm);
+    border-radius: 4px;
+    margin: var(--space-sm) 0;
+  }
+
+  .promo-label {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-right: var(--space-xs);
+  }
+
+  .promo-code code {
+    background: var(--primary);
+    color: #000;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0 var(--space-xs);
+  }
+
+  .promo-benefit {
+    display: block;
+    color: var(--primary);
+    font-size: 0.85rem;
+    margin-top: var(--space-xs);
+  }
+
+  .service-link {
+    display: inline-block;
+    font-weight: bold;
+    margin-top: var(--space-sm);
+    transition: opacity 0.2s ease;
+  }
+
+  .service-link:hover {
+    opacity: 0.7;
+  }
+</style>
