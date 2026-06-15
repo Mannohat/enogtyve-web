@@ -1,0 +1,318 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+
+const established = [
+  {
+    name: "Ciudad Morazán",
+    type: "Special Administrative Region",
+    location: "Honduras",
+    desc: "A zone for economic development and employment focused on safety, stability, and quality of life for Hondurans and foreigners.",
+    url: "https://free-communities.org/project/ciudad-morazan/",
+  },
+  {
+    name: "Próspera",
+    type: "Special Administrative Region",
+    location: "Honduras",
+    desc: "A Honduran economic development zone designed as a \"platform for prosperity\" with innovative governance and regulation.",
+    url: "https://free-communities.org/project/prospera/",
+  },
+  {
+    name: "Free State Project",
+    type: "Intentional Community",
+    location: "New Hampshire, USA",
+    desc: "A movement encouraging liberty-minded Americans to move to New Hampshire to create a freer jurisdiction.",
+    url: "https://free-communities.org/project/free-state-project/",
+  },
+  {
+    name: "Liberstad",
+    type: "Intentional Community",
+    location: "Norway",
+    desc: "A remote settlement in Norway developing innovative infrastructure for its own internal economy — with the goal of becoming a private city.",
+    url: "https://free-communities.org/project/liberstad/",
+  },
+  {
+    name: "Montelibero",
+    type: "Intentional Community",
+    location: "Montenegro",
+    desc: "Started by a community of libertarian expats, aiming to be a role model for freedom in practice.",
+    url: "https://free-communities.org/project/montelibero/",
+  },
+  {
+    name: "Free Commune of Penadexo",
+    type: "Intentional Community",
+    location: "Spain",
+    desc: "A grassroots project building a liberty-minded community by renovating one of Spain's abandoned historic villages.",
+    url: "https://free-communities.org/project/penadexo/",
+  },
+  {
+    name: "Sark",
+    type: "Self-Governing Territory",
+    location: "Channel Islands, UK",
+    desc: "A self-governing island — an autonomous relic from a bygone era with a unique governance structure.",
+    url: "https://free-communities.org/project/sark/",
+  },
+  {
+    name: "Small Farm Cities",
+    type: "Intentional Community",
+    location: "Several countries",
+    desc: "A bottom-up initiative that helps local populations achieve social mobility in some of the world's poorest regions.",
+    url: "https://free-communities.org/project/small-farm-cities/",
+  },
+];
+
+const preparation = [
+  {
+    name: "Liberland",
+    location: "Between Croatia and Serbia",
+    desc: "Founded on an uncultivated piece of land in the heart of Europe with ambitions to become the world's newest micronation.",
+    url: "https://free-communities.org/project/liberland/",
+  },
+  {
+    name: "Atlas Island",
+    location: "Seastead",
+    desc: "A project hoping to grow from an online community into an autonomous seastead.",
+    url: "https://free-communities.org/project/atlas-island/",
+  },
+  {
+    name: "CryptoCity",
+    location: "Global",
+    desc: "A project aimed at entrepreneurs and business people, with the goal of creating the perfect global network community.",
+    url: "https://free-communities.org/project/cryptocity/",
+  },
+  {
+    name: "Freeth'm",
+    location: "Global",
+    desc: "A project aiming to build a worldwide network of small, self-sufficient cities for freedom seekers.",
+    url: "https://free-communities.org/project/freethm/",
+  },
+  {
+    name: "Los Propietarios",
+    location: "Argentina",
+    desc: "A community aiming to build a city of 10,000 libertarian anarchists in Argentina.",
+    url: "https://free-communities.org/project/los-propietarios/",
+  },
+  {
+    name: "Veritas Villages",
+    location: "Costa Rica & Panama",
+    desc: "A network of off-grid communities focused on a sustainable lifestyle in beautiful, harmonious nature.",
+    url: "https://free-communities.org/project/coronado/",
+  },
+];
+
+const resources = [
+  { name: "Free Cities Foundation", url: "https://free-cities.org", desc: "The organization behind the Free Communities Directory" },
+  { name: "Free Communities Directory", url: "https://free-communities.org/", desc: "Map and overview of all projects" },
+  { name: "Free Communities – Map", url: "https://free-communities.org/#exploremap", desc: "Interactive map of free communities" },
+];
+---
+
+<ResourcePageLayout
+  title="Free Cities"
+  description="Free cities and communities built on Bitcoin and freedom from state control."
+  lang="en"
+>
+  <section class="content-section">
+    <p>Around the world there's a growing number of projects striving to give their residents greater individual freedom — often by using innovative, alternative governance models. These projects contribute to the diversification of what you might call the "market for living together" — the largest and most important market in the world.</p>
+    <p>The information below is gathered from the <a href="https://free-communities.org/" target="_blank" rel="noopener noreferrer"><strong>Free Communities Directory</strong></a>, maintained by the <a href="https://free-cities.org" target="_blank" rel="noopener noreferrer">Free Cities Foundation</a>.</p>
+  </section>
+
+  <section class="category-section">
+    <h2>🏛️ Established projects</h2>
+    <div class="projects-grid">
+      {established.map((proj) => (
+        <a href={proj.url} target="_blank" rel="noopener noreferrer" class="project-card">
+          <div class="project-header">
+            <span class="project-name">{proj.name}</span>
+            <span class="project-type">{proj.type}</span>
+          </div>
+          <p class="project-desc">{proj.desc}</p>
+          <span class="project-location">📍 {proj.location}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="category-section">
+    <h2>🚧 Projects in preparation</h2>
+    <div class="projects-grid">
+      {preparation.map((proj) => (
+        <a href={proj.url} target="_blank" rel="noopener noreferrer" class="project-card preparation">
+          <div class="project-header">
+            <span class="project-name">{proj.name}</span>
+          </div>
+          <p class="project-desc">{proj.desc}</p>
+          <span class="project-location">📍 {proj.location}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="category-section">
+    <h2>🔗 Resources</h2>
+    <div class="links-grid">
+      {resources.map((link) => (
+        <a href={link.url} target="_blank" rel="noopener noreferrer" class="link-card">
+          <div class="link-content">
+            <span class="link-name">{link.name}</span>
+            <span class="link-desc">{link.desc}</span>
+          </div>
+          <span class="link-arrow">→</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Back to top </a>
+</ResourcePageLayout>
+
+<style>
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section p {
+    margin-bottom: 0.75rem;
+  }
+
+  /* Category sections */
+  .category-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .category-section h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  /* Project cards grid */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.85rem;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.15rem 1.25rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: border-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .project-card:hover {
+    border-color: rgba(247, 147, 26, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .project-card.preparation {
+    border-style: dashed;
+  }
+
+  .project-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .project-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-light, #ccc);
+  }
+
+  .project-type {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .project-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(204, 204, 204, 0.6);
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .project-location {
+    font-size: 0.78rem;
+    color: rgba(204, 204, 204, 0.45);
+    font-weight: 600;
+    margin-top: 0.25rem;
+  }
+
+  /* Links grid */
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .link-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.15rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: border-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .link-card:hover {
+    border-color: rgba(247, 147, 26, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .link-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    flex: 1;
+  }
+
+  .link-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-light, #ccc);
+  }
+
+  .link-desc {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: rgba(204, 204, 204, 0.5);
+  }
+
+  .link-arrow {
+    color: var(--primary);
+    font-size: 0.95rem;
+    opacity: 0.4;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .link-card:hover .link-arrow {
+    opacity: 1;
+  }
+
+  @media (max-width: 567px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .links-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

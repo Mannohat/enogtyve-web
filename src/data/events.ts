@@ -42,9 +42,9 @@ export interface Conference {
   discount?: { da: string; en: string };
   /** Konferencer page fields */
   image: string;
-  location: string;
-  description: string;
-  linkLabel: string;
+  location: { da: string; en: string };
+  description: { da: string; en: string };
+  linkLabel: { da: string; en: string };
 }
 
 export const conferences: Conference[] = [
@@ -61,10 +61,12 @@ export const conferences: Conference[] = [
       en: "31 May–2 June 2027 · Oslo, Norway",
     },
     image: "/images/logos/oslofreedomforum.svg",
-    location: "Oslo, Norge",
-    description:
-      "Afholdes årligt i Oslo, hvor Bitcoin og financial freedom track fylder stadig mere i programmet. En konference med fokus på menneskerettigheder, frihed og teknologi – med Bitcoin som et centralt tema.",
-    linkLabel: "Køb billet",
+    location: { da: "Oslo, Norge", en: "Oslo, Norway" },
+    description: {
+      da: "Afholdes årligt i Oslo, hvor Bitcoin og financial freedom track fylder stadig mere i programmet. En konference med fokus på menneskerettigheder, frihed og teknologi – med Bitcoin som et centralt tema.",
+      en: "Held annually in Oslo, where the Bitcoin and financial freedom track is taking up more and more of the program. A conference focused on human rights, freedom, and technology — with Bitcoin as a central theme.",
+    },
+    linkLabel: { da: "Køb billet", en: "Buy ticket" },
   },
   {
     id: "btcprague-2027",
@@ -83,10 +85,12 @@ export const conferences: Conference[] = [
       en: 'Save 10% with code "enogtyve"',
     },
     image: "/images/logos/btcprague_w.png",
-    location: "Prag, Tjekkiet",
-    description:
-      "En super velorganiseret og rigtig god konference i Prag. Her kommer der 7.500–10.000 mennesker, og der er et bredt og tætpakket program, så man helt sikkert kan finde noget eller nogen, som beskæftiger sig med lige præcis det, du selv finder allermest interessant i og omkring Bitcoin. BTCPrague har også en stor palette af side-events, som kan anbefales.",
-    linkLabel: "Køb billet",
+    location: { da: "Prag, Tjekkiet", en: "Prague, Czech Republic" },
+    description: {
+      da: "En super velorganiseret og rigtig god konference i Prag. Her kommer der 7.500–10.000 mennesker, og der er et bredt og tætpakket program, så man helt sikkert kan finde noget eller nogen, som beskæftiger sig med lige præcis det, du selv finder allermest interessant i og omkring Bitcoin. BTCPrague har også en stor palette af side-events, som kan anbefales.",
+      en: "A very well-organized and really good conference in Prague. Around 7,500–10,000 people attend, and there's a broad, packed program, so you're sure to find something or someone working on exactly what you find most interesting in and around Bitcoin. BTCPrague also has a wide range of side events that are well worth checking out.",
+    },
+    linkLabel: { da: "Køb billet", en: "Buy ticket" },
   },
   {
     id: "btchel-2026",
@@ -105,10 +109,12 @@ export const conferences: Conference[] = [
       en: 'Save 10% with code "enogtyve"',
     },
     image: "/images/logos/btchel.png",
-    location: "Helsinki, Finland",
-    description:
-      "BTCHEL 2025 var den første større Bitcoin-konference i Norden, og det var en stor succes. To dage med fokus på Bitcoin, fyldt med keynotes, paneler og workshops. Talere ved BTCHEL kommer fra hele verden, og der vil være et fokus på Bitcoin i de nordiske lande. Sørg for også at tjekke side-events ud og tilmeld dig i tide, da der ofte er stor interesse og begrænsede pladser.",
-    linkLabel: "Køb billet",
+    location: { da: "Helsinki, Finland", en: "Helsinki, Finland" },
+    description: {
+      da: "BTCHEL 2025 var den første større Bitcoin-konference i Norden, og det var en stor succes. To dage med fokus på Bitcoin, fyldt med keynotes, paneler og workshops. Talere ved BTCHEL kommer fra hele verden, og der vil være et fokus på Bitcoin i de nordiske lande. Sørg for også at tjekke side-events ud og tilmeld dig i tide, da der ofte er stor interesse og begrænsede pladser.",
+      en: "BTCHEL 2025 was the first major Bitcoin conference in the Nordics, and it was a big success. Two days focused on Bitcoin, packed with keynotes, panels, and workshops. Speakers at BTCHEL come from all over the world, and there's a focus on Bitcoin in the Nordic countries. Be sure to also check out the side events and sign up in time, as there's often a lot of interest and limited spots.",
+    },
+    linkLabel: { da: "Køb billet", en: "Buy ticket" },
   },
   {
     id: "bitcoincopenhagen-2026",
@@ -123,9 +129,11 @@ export const conferences: Conference[] = [
       en: "21 March 2026 · Copenhagen, Denmark",
     },
     image: "/images/logos/btccph.png",
-    location: "København, Danmark",
-    description:
-      "Afholdt 21. marts 2026. En dansk Bitcoin-konference – en endagsbegivenhed, som giver nysgerrige mulighed for at få et indblik i, hvad Bitcoin er, og hvilke udfordringer det kan være løsningen på. Vi håber, at konferencen er tilbage igen næste år.",
-    linkLabel: "Se event",
+    location: { da: "København, Danmark", en: "Copenhagen, Denmark" },
+    description: {
+      da: "Afholdt 21. marts 2026. En dansk Bitcoin-konference – en endagsbegivenhed, som giver nysgerrige mulighed for at få et indblik i, hvad Bitcoin er, og hvilke udfordringer det kan være løsningen på. Vi håber, at konferencen er tilbage igen næste år.",
+      en: "Held on 21 March 2026. A Danish Bitcoin conference — a one-day event that gives curious minds a chance to get an insight into what Bitcoin is and which challenges it can be the solution to. We hope the conference will be back again next year.",
+    },
+    linkLabel: { da: "Se event", en: "See event" },
   },
 ];

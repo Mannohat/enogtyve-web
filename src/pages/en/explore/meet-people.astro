@@ -1,0 +1,214 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+
+const platforms = [
+  {
+    name: "Orange Pill App",
+    image: "/images/logos/cluborange.svg",
+    tagline: "Stack Friends Who Stack Sats ⚡️",
+    description: "Whether you're on a business trip or travelling with the family, you might feel like meeting local Bitcoiners. You can do that quite easily with the Orange Pill App. OPA gives you an easy, location-based overview of Bitcoiners in an area. It's easy to get started, and quite recently they also launched Lightning wallet functionality in the app. You'll also find plenty of other things like meetups, merchants, and more.",
+    url: "https://signup.theorangepillapp.com/opa/Jake",
+    linkLabel: "Download Orange Pill App",
+  },
+  {
+    name: "BTCMap.org",
+    image: "/images/logos/btcmap.svg",
+    tagline: "Find Bitcoin-friendly places all over the world",
+    description: "BTCMap.org helps you find a hairdresser, coffee shop, or whatever service or product you're looking for that accepts Bitcoin.",
+    url: "https://www.btcmap.org",
+    linkLabel: "Open BTCMap.org",
+  },
+  {
+    name: "Satlantis.io",
+    image: "/images/logos/satlantis.png",
+    tagline: "Tripadvisor for Bitcoiners",
+    description: "Destinations, reviews, events, and more. You can log in with your Nostr key. If you don't know Nostr yet, you can learn more about it at nostr.dk.",
+    url: "https://www.satlantis.io",
+    linkLabel: "Open Satlantis.io",
+    extra: [
+      { label: "Learn about Nostr →", url: "https://www.nostr.dk" },
+    ],
+  },
+];
+---
+
+<ResourcePageLayout
+  title="Meet other Bitcoiners"
+  description="Meet other Bitcoiners while you travel — a guide to finding the community worldwide."
+  lang="en"
+>
+  <section class="content-section">
+    <p>You may be surprised by how many Bitcoin communities exist around the world. Here you'll find some of the best tools for finding local Bitcoiners, meetups, and places that accept Bitcoin.</p>
+  </section>
+
+  <section class="platforms-list">
+    {platforms.map((p) => (
+      <div class="platform-card">
+        <div class="platform-image">
+          <a href={p.url} target="_blank" rel="noopener noreferrer">
+            <img src={p.image} alt={p.name} />
+          </a>
+        </div>
+        <div class="platform-content">
+          <h2 class="platform-name">{p.name}</h2>
+          <p class="platform-tagline">{p.tagline}</p>
+          <p class="platform-desc">{p.description}</p>
+          <div class="platform-links">
+            <a href={p.url} target="_blank" rel="noopener noreferrer" class="platform-cta">
+              {p.linkLabel} →
+            </a>
+            {p.extra && p.extra.map((link) => (
+              <a href={link.url} target="_blank" rel="noopener noreferrer" class="platform-extra">
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Back to top </a>
+</ResourcePageLayout>
+
+<style>
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section p {
+    margin-bottom: 0.75rem;
+  }
+
+  /* Platforms */
+  .platforms-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .platform-card {
+    display: flex;
+    gap: 2rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 12px;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    transition: border-color 0.3s ease;
+  }
+
+  .platform-card:hover {
+    border-color: rgba(247, 147, 26, 0.35);
+  }
+
+  .platform-image {
+    flex-shrink: 0;
+    width: 160px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 0.25rem;
+  }
+
+  .platform-image img {
+    width: 100%;
+    max-width: 160px;
+    height: auto;
+    border-radius: 10px;
+    transition: opacity 0.2s ease;
+  }
+
+  .platform-image img:hover {
+    opacity: 0.85;
+  }
+
+  .platform-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+  }
+
+  .platform-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-light, #ccc);
+    margin: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .platform-tagline {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin: 0;
+  }
+
+  .platform-desc {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: rgba(204, 204, 204, 0.7);
+    margin: 0.25rem 0 0 0;
+    flex-grow: 1;
+  }
+
+  .platform-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .platform-cta {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(247, 147, 26, 0.12);
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+  }
+
+  .platform-cta:hover {
+    background: rgba(247, 147, 26, 0.22);
+  }
+
+  .platform-extra {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(204, 204, 204, 0.8);
+    font-size: 0.82rem;
+    font-weight: 600;
+    border-radius: 6px;
+    border: 1px solid rgba(247, 147, 26, 0.1);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .platform-extra:hover {
+    border-color: rgba(247, 147, 26, 0.3);
+    color: var(--primary);
+  }
+
+  @media (max-width: 567px) {
+    .platform-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+    }
+
+    .platform-image {
+      width: 140px;
+    }
+
+    .platform-links {
+      justify-content: center;
+    }
+  }
+</style>

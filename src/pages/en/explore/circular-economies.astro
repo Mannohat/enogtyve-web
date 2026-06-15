@@ -1,0 +1,261 @@
+---
+import { Image } from 'astro:assets';
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+
+const economies = [
+  { name: "Bitcoin Beach", location: "El Salvador", url: "https://www.bitcoinbeach.com/" },
+  { name: "Plan B Lugano", location: "Switzerland", url: "https://planb.lugano.ch/" },
+  { name: "Bitcoin Ekasi", location: "South Africa", url: "https://bitcoinekasi.com/" },
+  { name: "Bitcoin Witsand", location: "South Africa", url: "https://x.com/BitcoinWitsand" },
+  { name: "Bitcoin Jungle", location: "Costa Rica", url: "https://www.bitcoinjungle.app/" },
+  { name: "Bitcoin Lake", location: "Guatemala", url: "https://twitter.com/LakeBitcoin" },
+  { name: "Praia Bitcoin", location: "Brazil", url: "https://praiabitcoin.org/?lang=en" },
+  { name: "Montanha Bitcoin", location: "Brazil", url: "https://twitter.com/montanhabitcoin" },
+  { name: "Harlem Bitcoin", location: "New York, USA", url: "https://harlembitcoin.com/" },
+];
+
+const elSalvador = [
+
+  { name: "El Salvador, proof of reserves", url: "https://bitcoin.gob.sv/" },
+];
+---
+
+<ResourcePageLayout
+  title="Bitcoin circular economies"
+  description="Bitcoin circular economies around the world — places where bitcoin is used in everyday life."
+  lang="en"
+>
+  <section class="content-section">
+    <p>Since <a href="https://www.coindesk.com/markets/2020/05/22/10-years-after-laszlo-hanyecz-bought-pizza-with-10k-bitcoin-he-has-no-regrets/" target="_blank" rel="noopener noreferrer">Laszlo Hanyecz</a> bought 2 pizzas for 10,000 bitcoin from Papa John's on 22 May 2010 — making the first real, well-known purchase paid for with Bitcoin — Bitcoin has increasingly been used as a means of payment.</p>
+
+    <p>In Berlin there was a bar called <a href="https://room77.berlin/history/" target="_blank" rel="noopener noreferrer">Room 77</a> that became known as the first physical business to accept Bitcoin as payment, back in 2011. One of the regulars developed the first Bitcoin wallet for Android at the time, and the visiting Bitcoin enthusiasts tried to get the surrounding shops to accept Bitcoin as payment.</p>
+
+    <p>Today there are larger circular economies, such as <a href="https://www.arnhembitcoinstad.nl/" target="_blank" rel="noopener noreferrer">Arnhem</a> — also known as "Bitcoin City" — in the Netherlands, where you can pay with Bitcoin at many of the local businesses. In Italy there's a town called Rovereto that has become known as <a href="https://www.bitcoinvalley.eu/" target="_blank" rel="noopener noreferrer">Bitcoin Valley</a>. Here, a large share of the business owners are willing to accept Bitcoin, and reportedly for a time you could even pay your taxes with Bitcoin.</p>
+
+    <p>You can also see a map of all the businesses where you can pay with Bitcoin at <a href="https://www.btcmap.org" target="_blank" rel="noopener noreferrer"><strong>BTCMap.org</strong></a>.</p>
+  </section>
+
+  <section class="category-section">
+    <h2>🌍 Circular economies</h2>
+    <div class="economies-grid">
+      {economies.map((eco) => (
+        <a href={eco.url} target="_blank" rel="noopener noreferrer" class="economy-card">
+          <div class="economy-content">
+            <span class="economy-name">{eco.name}</span>
+            <span class="economy-location">{eco.location}</span>
+          </div>
+          <span class="economy-arrow">→</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="category-section">
+    <h2>🇸🇻 El Salvador & Bitcoin</h2>
+    <div class="economies-grid">
+      {elSalvador.map((link) => (
+        <a href={link.url} target="_blank" rel="noopener noreferrer" class="economy-card">
+          <div class="economy-content">
+            <span class="economy-name">{link.name}</span>
+          </div>
+          <span class="economy-arrow">→</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="category-section">
+    <h2>🎬 Film</h2>
+    <div class="film-card">
+      <Image src="/images/content/dtd.jpeg" alt="Dare to Dream" width={1280} height={960} class="film-image" />
+      <div class="film-content">
+        <h3 class="film-title">Dare to Dream</h3>
+        <p class="film-desc">A film about Bitcoin, El Salvador, and Bitcoin Beach, El Zonte. The film tells the story of how a local community was transformed by Bitcoin.</p>
+        <div class="film-links">
+          <a href="https://daretodream-film.com/" target="_blank" rel="noopener noreferrer" class="film-cta">Dare to Dream →</a>
+          <a href="https://twitter.com/bitcoinbeachdoc" target="_blank" rel="noopener noreferrer" class="film-extra">Follow the project on X →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Back to top </a>
+</ResourcePageLayout>
+
+<style>
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section p {
+    margin-bottom: 0.75rem;
+  }
+
+  /* Category sections */
+  .category-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .category-section h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  /* Economies grid */
+  .economies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .economy-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.15rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: border-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .economy-card:hover {
+    border-color: rgba(247, 147, 26, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .economy-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    flex: 1;
+  }
+
+  .economy-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-light, #ccc);
+  }
+
+  .economy-location {
+    font-size: 0.8rem;
+    color: rgba(204, 204, 204, 0.5);
+  }
+
+  .economy-arrow {
+    color: var(--primary);
+    font-size: 0.95rem;
+    opacity: 0.4;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .economy-card:hover .economy-arrow {
+    opacity: 1;
+  }
+
+  /* Film card */
+  .film-card {
+    display: flex;
+    gap: 1.5rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 12px;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .film-image {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .film-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .film-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-light, #ccc);
+    margin: 0;
+  }
+
+  .film-desc {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: rgba(204, 204, 204, 0.7);
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .film-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .film-cta {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(247, 147, 26, 0.12);
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+  }
+
+  .film-cta:hover {
+    background: rgba(247, 147, 26, 0.22);
+  }
+
+  .film-extra {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(204, 204, 204, 0.8);
+    font-size: 0.82rem;
+    font-weight: 600;
+    border-radius: 6px;
+    border: 1px solid rgba(247, 147, 26, 0.1);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .film-extra:hover {
+    border-color: rgba(247, 147, 26, 0.3);
+    color: var(--primary);
+  }
+
+  @media (max-width: 567px) {
+    .economies-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .film-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .film-image {
+      width: 100%;
+      max-width: 250px;
+    }
+
+    .film-links {
+      justify-content: center;
+    }
+  }
+</style>

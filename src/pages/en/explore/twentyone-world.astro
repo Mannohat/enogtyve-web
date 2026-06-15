@@ -1,0 +1,127 @@
+---
+import { Image } from 'astro:assets';
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+---
+
+<ResourcePageLayout
+  title="Twentyone.world"
+  description="Twentyone.world — a global network of Bitcoin communities and resources."
+  lang="en"
+>
+  <section class="hero-image">
+    <Image src="/images/content/twentyoneworld.png" alt="Twentyone.world – overview of forks" width={2048} height={1251} />
+  </section>
+
+  <section class="content-section">
+    <p><strong>Twentyone.world</strong> is a network of open communities focused on localized, high-quality, Bitcoin-only content. Each community offers an open space for Bitcoin enthusiasts in their respective countries to connect, collaborate, and exchange ideas.</p>
+
+    <p>In the graphic above, you can see existing forks. <strong>If you have a Bitcoin friend in a country where there isn't already a similar initiative, you can tell them about Twentyone.world.</strong></p>
+
+    <p>The project grew out of <a href="https://einundzwanzig.space/" target="_blank" rel="noopener noreferrer">EINUNDZWANZIG</a>, which is ENOGTYVE in Germany, and more. Twentyone.world is one of many initiatives by Gigi — see <a href="https://www.dergigi.com" target="_blank" rel="noopener noreferrer">dergigi.com</a>.</p>
+  </section>
+
+  <section class="cta-section">
+    <a href="https://www.twentyone.world" target="_blank" rel="noopener noreferrer" class="cta-card">
+      <span class="cta-icon">🌍</span>
+      <div class="cta-content">
+        <span class="cta-name">Twentyone.world</span>
+        <span class="cta-desc">Visit Twentyone.world and find your local community</span>
+      </div>
+      <span class="cta-arrow">→</span>
+    </a>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Back to top </a>
+</ResourcePageLayout>
+
+<style>
+  .hero-image {
+    margin-bottom: 2rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section p {
+    margin-bottom: 0.75rem;
+  }
+
+  /* CTA */
+  .cta-section {
+    margin-bottom: 2rem;
+  }
+
+  .cta-card {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid rgba(247, 147, 26, 0.2);
+    border-radius: 12px;
+    background: rgba(247, 147, 26, 0.04);
+    transition: border-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .cta-card:hover {
+    border-color: rgba(247, 147, 26, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .cta-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+  }
+
+  .cta-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    flex: 1;
+  }
+
+  .cta-name {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text-light, #ccc);
+  }
+
+  .cta-desc {
+    font-size: 0.85rem;
+    color: rgba(204, 204, 204, 0.6);
+  }
+
+  .cta-arrow {
+    font-size: 1.2rem;
+    color: var(--primary);
+    opacity: 0.5;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .cta-card:hover .cta-arrow {
+    opacity: 1;
+  }
+
+  @media (max-width: 567px) {
+    .cta-card {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .cta-arrow {
+      display: none;
+    }
+  }
+</style>

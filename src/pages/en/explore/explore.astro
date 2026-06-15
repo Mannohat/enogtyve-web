@@ -1,0 +1,208 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+import { localizedHref } from "../../../i18n/routes";
+
+const links = [
+  {
+    name: "Bitcoin Bookmarks",
+    url: localizedHref("/da/faellesskab/bookmarks", "en"),
+    desc: "A curated collection of the best Bitcoin resources, tools, and links.",
+    icon: "📚",
+    external: false,
+  },
+  {
+    name: "Bitcoin conferences",
+    url: "/en/explore/conferences",
+    desc: "Conferences where people interested from all over the world meet and share their thoughts and ideas.",
+    icon: "🎤",
+    external: false,
+  },
+  {
+    name: "Bitcoin communities and meetups",
+    url: "/en/explore/communities-worldwide",
+    desc: "Communities and meetups around the world — you may be surprised by how many there are.",
+    icon: "🤝",
+    external: false,
+  },
+  {
+    name: "Bitcoin circular economies",
+    url: "/en/explore/circular-economies",
+    desc: "Places where Bitcoin is already used as the preferred way to save and pay.",
+    icon: "🔄",
+    external: false,
+  },
+  {
+    name: "Bitcoin products and services",
+    url: "/en/learn/bitcoin-products-and-services",
+    desc: "A wide range of established Bitcoin companies and services around the world.",
+    icon: "🛠️",
+    external: false,
+  },
+];
+---
+
+<ResourcePageLayout
+  title="Explore"
+  description="Explore the world of Bitcoin — conferences, communities, circular economies, and much more."
+  lang="en"
+>
+  <section class="content-section">
+    <p>
+      On this page you'll find various topics you're sure to find interesting once
+      you've learned a bit more about Bitcoin. There's an ocean of Bitcoin
+      resources in English, and some of them are gathered on a page linked below.
+    </p>
+    <p>
+      You'll also find a list of conferences where people interested in Bitcoin
+      from all over the world meet and share their thoughts and ideas. You may be
+      surprised by how many Bitcoin communities exist, and how far many places have
+      come in integrating Bitcoin as the preferred way to save and pay.
+    </p>
+    <p>
+      In short, this page is an attempt to gather some relevant links.
+    </p>
+  </section>
+
+  <section class="links-grid">
+    {
+      links.map((link) => (
+        <a
+          href={link.url}
+          class={`link-card ${link.upcoming ? "upcoming" : ""}`}
+          target={link.external ? "_blank" : undefined}
+          rel={link.external ? "noopener noreferrer" : undefined}
+        >
+          <span class="link-icon">{link.icon}</span>
+          <div class="link-content">
+            <span class="link-name">{link.name}</span>
+            <span class="link-desc">{link.desc}</span>
+          </div>
+          {link.upcoming ? (
+            <span class="upcoming-badge">Coming soon</span>
+          ) : (
+            <span class="link-arrow">→</span>
+          )}
+        </a>
+      ))
+    }
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Back to top </a>
+</ResourcePageLayout>
+
+<style>
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section p {
+    margin-bottom: 0.75rem;
+  }
+
+  /* Links grid */
+  .links-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-bottom: 2rem;
+  }
+
+  .link-card {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    transition:
+      border-color 0.3s ease,
+      transform 0.2s ease;
+    position: relative;
+  }
+
+  .link-card:hover {
+    border-color: rgba(247, 147, 26, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .link-card.upcoming {
+    border-style: dashed;
+    opacity: 0.65;
+    pointer-events: none;
+  }
+
+  .link-icon {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+    width: 2.5rem;
+    text-align: center;
+  }
+
+  .link-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1;
+  }
+
+  .link-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-light, #ccc);
+  }
+
+  .link-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(204, 204, 204, 0.6);
+  }
+
+  .link-arrow {
+    font-size: 1.1rem;
+    color: var(--primary);
+    opacity: 0.5;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .link-card:hover .link-arrow {
+    opacity: 1;
+  }
+
+  .upcoming-badge {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--primary);
+    border: 1px solid rgba(247, 147, 26, 0.3);
+    border-radius: 4px;
+    padding: 0.2rem 0.5rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 567px) {
+    .link-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1rem 1.15rem;
+    }
+
+    .link-icon {
+      width: auto;
+    }
+
+    .link-arrow {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+
+    .upcoming-badge {
+      align-self: flex-start;
+    }
+  }
+</style>

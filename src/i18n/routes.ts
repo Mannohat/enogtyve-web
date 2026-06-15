@@ -107,6 +107,15 @@ export const EN_LIVE = new Set<string>([
   "/learn/bitcoin-for-your-business",
   "/learn/bitcoin-products-and-services",
   "/learn/quotes",
+  // Explore
+  "/explore",
+  "/explore/meet-people",
+  "/explore/communities-worldwide",
+  "/explore/circular-economies",
+  "/explore/free-cities",
+  "/explore/conferences",
+  "/explore/twentyone-world",
+  "/explore/news",
 ]);
 
 /**
