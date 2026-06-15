@@ -1,0 +1,380 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+---
+
+<ResourcePageLayout
+  title="Ark"
+  description="Ark is a transaction-batching protocol for Bitcoin with VTXOs and an ASP — self-custody, batching, and a comparison with Lightning and Liquid."
+  lang="en"
+>
+  <section class="nav-buttons">
+    <a href="/en/learn/lightning" class="nav-btn">The Lightning Network</a>
+    <a href="/en/learn/liquid" class="nav-btn">Liquid</a>
+    <a href="/en/learn/ecash" class="nav-btn">eCash</a>
+  </section>
+
+  <section class="content-section links-section">
+    <p>
+      <strong>Protocol paper (PDF):</strong>
+      <a href="/pdf/ark-protocol.pdf" target="_blank" rel="noopener noreferrer">Ark — protocol specification</a>
+      — Ark Labs.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>What is Ark?</h2>
+    <p>
+      Ark is a transaction-batching protocol for Bitcoin, developed by Ark Labs. The protocol makes it possible to carry out off-chain transactions while users retain full self-custody of their funds. At the core of Ark are <strong>Virtual UTXOs (VTXOs)</strong> — off-chain representations of bitcoin
+      <a href="/en/learn/bitcoin-blockchain">UTXOs</a> — coordinated by an operator called an <strong>Ark Service Provider (ASP)</strong>.
+    </p>
+    <p>
+      The ASP aggregates users&apos; off-chain activity and bundles it into periodic on-chain <strong>commitment transactions</strong>. Each commitment transaction contains one or more <strong>batches</strong> that specify a tree of VTXOs (a Virtual Transaction Tree, VTXT). The result is a system with a minimal on-chain footprint: no matter how many off-chain transactions take place, the on-chain cost is O(1) per round.
+    </p>
+    <p>
+      Users can leave Ark at any time and withdraw their funds on-chain — either <strong>cooperatively</strong> with the operator (one on-chain transaction) or <strong>unilaterally</strong> by broadcasting the relevant virtual transactions in the tree (O(log <em>t</em>) transactions, where <em>t</em> is the number of VTXOs in the batch).
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>How Ark works</h2>
+
+    <p>
+      <strong>Boarding.</strong> A user creates a boarding transaction that locks funds in an output which can be spent either by the user and the operator together, or by the user alone after a timelock. The operator includes this output in the next commitment transaction and gives the user a VTXO.
+    </p>
+    <p>
+      <strong>Transactions.</strong> Ark transactions work like Bitcoin transactions, but off-chain. Alice can send a VTXO to Bob by creating an Ark transaction that spends her VTXO and creates a new one for Bob. The operator co-signs the transaction. Bob then swaps his new VTXO for a confirmed VTXO in a new on-chain batch.
+    </p>
+    <p>
+      <strong>Batch swap.</strong> The atomicity of a batch swap is ensured via <strong>connectors</strong> — anchor outputs that bind forfeit transactions to commitment transactions via SIGHASH_ALL. Bob hands over his old VTXO to the operator (via a forfeit transaction), and the operator gives Bob a fresh VTXO in a new batch. Both sides happen atomically: either both complete, or neither does.
+    </p>
+    <p>
+      <strong>Batch expiry.</strong> Each batch has an expiry time (T<sub>e</sub>). After T<sub>e</sub>, the operator can reclaim the entire batch via a sweep path. This means the user must come online and renew their VTXOs before T<sub>e</sub> — otherwise the user loses their funds. This is necessary so the operator can free up its capital.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Ark compared with the <a href="/en/learn/lightning">Lightning Network</a></h2>
+    <p>
+      The <a href="/en/learn/lightning">Lightning Network</a>, described by
+      <a href="/pdf/lightning-network-paper.pdf" target="_blank" rel="noopener noreferrer">Poon and Dryja (2016, PDF)</a>, is a network of bilateral payment channels. Two parties lock funds in a 2-of-2 multisig Funding Transaction and create Commitment Transactions off-chain that represent the current balance. Payments to third parties are sent through the network via Hashed Timelock Contracts (HTLCs) with decreasing timelocks.
+    </p>
+
+    <h3>Architecture</h3>
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th scope="col">Lightning</th>
+            <th scope="col">Ark</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Base structure</th>
+            <td>Bilateral channels between two parties</td>
+            <td>Hub-and-spoke with a central operator (ASP)</td>
+          </tr>
+          <tr>
+            <th scope="row">Off-chain unit</th>
+            <td>Channel balance (Commitment Transaction)</td>
+            <td>VTXO (Virtual UTXO)</td>
+          </tr>
+          <tr>
+            <th scope="row">Network</th>
+            <td>Peer-to-peer with routing</td>
+            <td>Direct coordination with the operator</td>
+          </tr>
+          <tr>
+            <th scope="row">On-chain footprint</th>
+            <td>Channel open + channel close (minimum 2 transactions)</td>
+            <td>O(1) per batch regardless of the number of transactions</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Deterring the use of old states</h3>
+    <p>
+      In Lightning, the use of old Commitment Transactions is prevented via <strong>Breach Remedy Transactions</strong>. Old Commitment Transactions are still valid Bitcoin transactions, but there's an economic penalty mechanism that makes broadcasting them financial suicide. When the channel balance is updated, the parties exchange revocation keys. If a party then broadcasts an old Commitment Transaction, the counterparty can use their Breach Remedy Transaction to take <strong>all</strong> the funds in the channel as a penalty.
+    </p>
+    <p>
+      In Ark, the transition happens via <strong>forfeit transactions and batch expiry</strong>. When a user swaps a VTXO, they sign a forfeit transaction that gives the operator the right to the old VTXO, conditional on the new commitment transaction being on-chain. There's no penalty mechanism in the Lightning sense — atomicity is ensured by connectors.
+    </p>
+
+    <h3>Onboarding and receiving</h3>
+    <p>
+      In Lightning, receiving payments requires an existing channel with <strong>inbound liquidity</strong>. Opening a channel costs an on-chain transaction, and both parties must coordinate. This is one of Lightning's best-known user barriers.
+    </p>
+    <p>
+      In Ark, the recipient needs no prior setup. A VTXO can be created for anyone via an Ark transaction. The recipient then swaps it for a confirmed VTXO. Onboarding to Ark is significantly simpler.
+    </p>
+
+    <h3>Monitoring</h3>
+    <p>
+      Lightning requires constant monitoring of the blockchain (or delegation to a watchtower) to protect against cheating. If the counterparty broadcasts an old Commitment Transaction and you don't react within the penalty period, funds can be lost.
+    </p>
+    <p>
+      Ark only requires periodic online presence (with period T<sub>o</sub> &lt; T<sub>e</sub>). The user doesn't need to monitor for cheating, but must renew their VTXOs before batch expiry. The consequence of missing the deadline is serious, though: the funds go to the operator.
+    </p>
+
+    <h3>Expiry</h3>
+    <p>
+      Lightning channels have <strong>no expiry date</strong>. A channel can exist for years, as long as both parties are cooperative.
+    </p>
+    <p>
+      Ark VTXOs <strong>always have an expiry date</strong> (batch expiry T<sub>e</sub>). The user must actively renew their VTXOs before this deadline. This is a fundamental difference that's often overlooked in the marketing of Ark-based wallets.
+    </p>
+
+    <h3>Strengths and weaknesses</h3>
+    <p>
+      <strong>Lightning's strength</strong> is multi-hop routing — the ability to pay anyone in the network via intermediaries, without trusting a central party. Lightning's weakness is its complexity: liquidity management, channel openings, the need for inbound capacity, and the requirement for constant monitoring.
+    </p>
+    <p>
+      <strong>Ark's strength</strong> is simple onboarding and ease of use — no channels, no liquidity management, a simple self-custody model. Ark's weakness is its dependence on a central operator, the requirement to periodically renew VTXOs, and the operator's capital requirements.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Ark compared with <a href="/en/learn/liquid">Liquid</a></h2>
+    <p>
+      <a href="/en/learn/liquid">Liquid</a> is a <strong>sidechain</strong> developed by Blockstream. It's a separate blockchain network with its own consensus mechanism, connected to Bitcoin via a two-way peg administered by a <strong>federation</strong> of functionaries.
+    </p>
+
+    <h3>Custody model</h3>
+    <p>
+      Liquid uses a federation of about 15 functionaries who hold the pegged bitcoin in a multisig. Users trust that a majority of the federation acts honestly. If the federation colludes to commit fraud, they can steal the funds. Users have <strong>no option for unilateral exit</strong> — they depend on the federation's cooperation to move funds back to Bitcoin.
+    </p>
+    <p>
+      Ark gives users a <strong>guarantee of unilateral exit</strong>. Every VTXO can always be broadcast on-chain via the virtual transaction tree. The ASP can censor or refuse to cooperate, but can never steal funds. It's a fundamentally stronger self-custody model.
+    </p>
+
+    <h3>On-chain vs. sidechain</h3>
+    <p>
+      Liquid is a separate blockchain with its own blocks, its own consensus, and its own transactions. L-BTC (Liquid Bitcoin) is a separate token that represents pegged bitcoin. Transactions on Liquid don't touch the Bitcoin blockchain at all (apart from peg-in/peg-out).
+    </p>
+    <p>
+      Ark operates directly on top of Bitcoin. VTXOs are genuine Bitcoin transactions that are simply held off-chain. Commitment transactions are Bitcoin transactions. There's no separate blockchain, no separate token, and no separate consensus mechanism.
+    </p>
+
+    <h3>Trust</h3>
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th scope="col">Liquid</th>
+            <th scope="col">Ark</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Trust model</th>
+            <td>Federation (about 15 functionaries)</td>
+            <td>Single operator (ASP), but non-custodial</td>
+          </tr>
+          <tr>
+            <th scope="row">Unilateral exit</th>
+            <td>No — requires the federation's cooperation</td>
+            <td>Yes — always possible via VTXT</td>
+          </tr>
+          <tr>
+            <th scope="row">Can the operator/federation steal?</th>
+            <td>Yes, through collusion among a majority</td>
+            <td>No — can only censor, not steal</td>
+          </tr>
+          <tr>
+            <th scope="row">Separate blockchain</th>
+            <td>Yes</td>
+            <td>No — uses Bitcoin directly</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Functionality</h3>
+    <p>
+      Liquid supports Confidential Transactions (hidden amounts), asset issuance (tokens), and more advanced scripting than Bitcoin. It's designed for traders, exchanges, and institutional users who need fast settlement with confidentiality.
+    </p>
+    <p>
+      Ark is designed as a scaling protocol for payments, with a focus on simple onboarding and interoperability with Lightning. Ark doesn't support confidentiality features like Confidential Transactions, but inherits bitcoin scripting capabilities for VTXOs.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Interoperability: how the three work together</h2>
+    <p>
+      The three protocols aren't competitors but complementary layers in the Bitcoin ecosystem:
+    </p>
+    <p>
+      <strong><a href="/en/learn/bitcoin-blockchain">Bitcoin L1</a></strong> is the settlement layer — the secure, decentralized foundation. All three protocols ultimately settle to L1.
+    </p>
+    <p>
+      <strong><a href="/en/learn/lightning">Lightning</a></strong> is the routing layer — optimized for fast payments across a large network via HTLCs and multi-hop channels. Lightning's network effect (businesses, wallets, exchanges) is its biggest strength.
+    </p>
+    <p>
+      <strong>Ark</strong> is the onboarding and balance layer — optimized for a simple user experience without channel management. Ark can work together with Lightning via swap services like <a href="https://boltz.exchange" target="_blank" rel="noopener noreferrer">Boltz</a>, which convert between VTXOs and Lightning payments.
+    </p>
+    <p>
+      <strong><a href="/en/learn/liquid">Liquid</a></strong> is the institutional settlement layer — optimized for traders and exchanges that need fast, confidential settlement with Confidential Transactions.
+    </p>
+    <p>
+      In practice, a user can hold their balance in Ark (simple self-custody, no channel management), pay via <a href="/en/learn/lightning">Lightning</a> (universal compatibility with businesses), and use <a href="/en/learn/liquid">Liquid</a> for larger trades with confidentiality. Wallets like BlueWallet integrate Ark under the hood while the user sees standard Lightning invoices (lnbc) — the compatibility layer stays the same, but the self-custody model improves.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Important caveats</h2>
+    <p>
+      <strong>Ark is still early.</strong> Arkade launched as a public beta in late 2025. The protocol is under active development, and there are known limitations: the operator's capital requirements, the risk of VTXOs expiring, and the centralization around a single ASP. Future work includes multiple operators, better pre-confirmation mechanisms, and solutions for mass-exit scenarios.
+    </p>
+    <p>
+      <strong>VTXO expiry is a real risk.</strong> Users who hold Ark balances need to understand that their VTXOs expire. Wallets should communicate this clearly and preferably handle renewal automatically. Passive long-term storage is not Ark's purpose — for that, you should use
+      <a href="/en/get-started/bitcoin-storage">on-chain cold storage</a>.
+    </p>
+    <p>
+      <strong>Naming matters.</strong> Calling an Ark-based wallet a &quot;Lightning wallet&quot; is technically imprecise and can create false expectations for the user — especially around the expiry of funds.
+    </p>
+  </section>
+
+  <section class="content-section links-section">
+    <p>
+      <a href="/en/learn/lightning"><strong>The Lightning Network →</strong></a>
+    </p>
+    <p>
+      <a href="/en/learn/liquid"><strong>The Liquid Network →</strong></a>
+    </p>
+    <p>
+      <a href="/en/learn/ecash"><strong>eCash →</strong></a>
+    </p>
+    <p>
+      <a href="/en/learn/bitcoin-blockchain"><strong>The Bitcoin Blockchain →</strong></a>
+    </p>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Back to top </a>
+</ResourcePageLayout>
+
+<style>
+  .nav-buttons {
+    display: flex;
+    gap: var(--space-md, 1rem);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-btn {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease;
+  }
+
+  .nav-btn:hover {
+    background-color: transparent;
+    color: var(--primary);
+  }
+
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section h2 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-md, 1rem);
+    padding-bottom: var(--space-sm, 0.5rem);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .content-section h2 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .content-section h2 a:hover {
+    text-decoration: underline;
+  }
+
+  .content-section h3 {
+    color: var(--text);
+    font-size: 1.1rem;
+    margin: 1.35rem 0 0.65rem;
+    font-weight: 600;
+  }
+
+  .content-section p {
+    margin-bottom: 1rem;
+  }
+
+  .content-section a:not(.nav-btn) {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .content-section a:not(.nav-btn):hover {
+    opacity: 0.9;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    margin: 1rem 0 1.25rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .compare-table {
+    width: 100%;
+    min-width: 280px;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .compare-table th,
+  .compare-table td {
+    border: 1px solid rgba(247, 147, 26, 0.22);
+    padding: 0.55rem 0.65rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .compare-table thead th {
+    background: rgba(247, 147, 26, 0.08);
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  .compare-table tbody th[scope="row"] {
+    color: var(--text);
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.03);
+    white-space: nowrap;
+  }
+
+  .links-section {
+    padding: 1.25rem 1.5rem;
+    background: rgba(247, 147, 26, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 10px;
+  }
+
+  .links-section p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 567px) {
+    .nav-buttons {
+      flex-direction: column;
+    }
+  }
+</style>

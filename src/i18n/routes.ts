@@ -40,7 +40,7 @@ export const daToEn: Record<string, string> = {
   "/laer-mere/value4value": "/learn/value4value",
   "/laer-mere/bitcoin-og-din-forretning": "/learn/bitcoin-for-your-business",
   "/laer-mere/bitcoin-services-og-produkter": "/learn/bitcoin-products-and-services",
-  "/laer-mere/quotes-dansk": "/learn/quotes-danish",
+  "/laer-mere/quotes-dansk": "/learn/quotes",
 
   // Buidl (idevaerksted → buidl)
   "/idevaerksted/buidl": "/buidl",
@@ -95,6 +95,18 @@ export const EN_LIVE = new Set<string>([
   "/get-started/privacy-best-practices",
   "/get-started/terms-and-words",
   "/get-started/bitcoin-books-danish",
+  // Learn
+  "/learn/bitcoin-blockchain",
+  "/learn/lightning",
+  "/learn/lightning-wallets",
+  "/learn/lightning-products-and-services",
+  "/learn/liquid",
+  "/learn/ecash",
+  "/learn/ark",
+  "/learn/value4value",
+  "/learn/bitcoin-for-your-business",
+  "/learn/bitcoin-products-and-services",
+  "/learn/quotes",
 ]);
 
 /**

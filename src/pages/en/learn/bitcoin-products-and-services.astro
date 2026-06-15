@@ -1,0 +1,355 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+import { localizedHref } from "../../../i18n/routes";
+
+const categories = [
+    {
+        title: "Hardware Wallets",
+        links: [
+            {
+                name: "Recommendations",
+                url: "/en/get-started/hardware-wallets",
+                desc: "See our hardware wallet recommendations",
+                external: false,
+            },
+        ],
+    },
+    {
+        title: "Miners / ASICs",
+        links: [
+            {
+                name: "21energy",
+                url: "https://21energy.com/enogtyve",
+                desc: "Bitcoin heating products",
+                logo: "/images/logos/21energy.png",
+            },
+            {
+                name: "Heatbit",
+                url: "https://heatbit.com/?ref=ENOGTYVE",
+                desc: "Bitcoin heating solutions for the home",
+                logo: "/images/logos/heatbit_w.svg",
+            },
+            {
+                name: "Miningwholesale.eu",
+                url: "https://miningwholesale.eu/",
+                desc: "European reseller of mining equipment",
+            },
+        ],
+    },
+    {
+        title: "Mining Pools",
+        links: [
+            {
+                name: "Braiins",
+                url: "https://braiins.com/",
+                desc: "Open-source mining pool and firmware",
+            },
+        ],
+    },
+    {
+        title: "Hosted Mining",
+        links: [
+            {
+                name: "Munich International Mining (MIM)",
+                url: "https://www.mim.farm",
+                desc: "Hosted mining service",
+            },
+        ],
+    },
+    {
+        title: "Gizmos, Signers & Gadgets",
+        links: [
+            {
+                name: "Coinkite",
+                url: "https://store.coinkite.com/promo/F5E096EEF1AEDDAC4255",
+                desc: "COLDCARD and Bitcoin security products",
+                logo: "/images/logos/coinkite.png",
+            },
+            {
+                name: "GoBrrr",
+                url: "https://www.gobrrr.me/?coupon=enogtyve",
+                desc: "Bitcoin gadgets and SeedSigner",
+                logo: "/images/logos/gobrrr.svg",
+            },
+            {
+                name: "Bitronics",
+                url: "https://bitronics.store/?ref=1089",
+                desc: "Bitcoin electronics and gadgets",
+                logo: "/images/logos/bitronics.svg",
+            },
+            {
+                name: "Tinyseed",
+                url: "https://tinyseed.io/enogtyve",
+                desc: "Compact steel seed phrase backup",
+                logo: "/images/logos/tinyseed.png",
+            },
+            {
+                name: "Pleb Style",
+                url: "https://pleb.style/",
+                desc: "DIY Bitcoin gadgets and kits",
+                logo: "/images/logos/plebstyle.webp",
+            },
+            {
+                name: "Shop.LNBits.com",
+                url: "https://shop.lnbits.com/",
+                desc: "LNBits hardware shop",
+            },
+            {
+                name: "Solosatoshi.com",
+                url: "https://www.solosatoshi.com/",
+                desc: "Solo mining hardware",
+            },
+            {
+                name: "D-Central",
+                url: "https://d-central.tech/",
+                desc: "Mining and Bitcoin tech",
+            },
+            {
+                name: "Thesolomining.co",
+                url: "https://www.thesolomining.co/",
+                desc: "Solo mining equipment",
+            },
+            {
+                name: "Bitcoinbrabant.com",
+                url: "https://bitcoinbrabant.com/",
+                desc: "Bitcoin hardware from the Netherlands",
+            },
+            {
+                name: "BTClock.store",
+                url: "https://btclock.store/",
+                desc: "Bitcoin clocks and displays",
+            },
+        ],
+    },
+    {
+        title: "Merchandise",
+        links: [
+            {
+                name: "Store of Value",
+                url: "https://www.storeofvalue.eu/discount/enogtyve",
+                desc: "Bitcoin clothing and merch",
+                logo: "/images/logos/storeofvalue.png",
+            },
+            {
+                name: "Shop21.dk",
+                url: "https://shop21.dk/",
+                desc: "Danish Bitcoin merchandise",
+                logo: "/images/logos/shop21.png",
+            },
+            {
+                name: "Free Madeira shop",
+                url: "https://shop.freemadeira.org/discount/enogtyve",
+                desc: "Bitcoin merch from Madeira",
+                logo: "/images/logos/freemadeira.webp",
+            },
+            {
+                name: "Satoshistore.io",
+                url: "https://www.satoshistore.io",
+                desc: "Bitcoin merchandise",
+            },
+            {
+                name: "Cryptocloaks.com",
+                url: "https://www.cryptocloaks.com",
+                desc: "3D-printed Bitcoin products",
+            },
+            {
+                name: "Bitcoinstickers.co.uk",
+                url: "https://www.bitcoinstickers.co.uk",
+                desc: "Bitcoin stickers",
+            },
+        ],
+    },
+    {
+        title: "Travel & Experiences",
+        links: [
+            {
+                name: "Airbtc.online",
+                url: "https://airbtc.online/",
+                desc: "Book accommodation with Bitcoin",
+            },
+            {
+                name: "Travala",
+                url: "https://www.travala.com/",
+                desc: "Travel and hotels with Bitcoin",
+            },
+        ],
+    },
+];
+---
+
+<ResourcePageLayout
+    title="Bitcoin Products and Services"
+    description="An overview of Bitcoin products and services you can use today."
+    lang="en"
+>
+    <section class="intro">
+        <p>
+            Below you'll find a collection of Bitcoin-related products and
+            services — from hardware wallets and miners to merchandise and travel.
+        </p>
+        <p class="highlight">
+            Remember that in many places you get a small discount with the code "enogtyve". See the overview of discounts here: <a href={localizedHref('/da/rabat', 'en')}><strong>discounts here</strong></a>.
+        </p>
+    </section>
+
+    {
+        categories.map((cat) => (
+            <section class="category-section">
+                <h2>{cat.title}</h2>
+                <div class="links-grid">
+                    {cat.links.map((link) => (
+                        <a
+                            href={link.url}
+                            target={link.external === false ? undefined : "_blank"}
+                            rel={link.external === false ? undefined : "noopener noreferrer"}
+                            class="link-card"
+                        >
+                            {link.logo && (
+                                <img src={link.logo} alt="" class="link-logo" />
+                            )}
+                            <div class="link-content">
+                                <span class="link-name">{link.name}</span>
+                                <span class="link-desc">{link.desc}</span>
+                            </div>
+                            <span class="link-arrow">→</span>
+                        </a>
+                    ))}
+                </div>
+            </section>
+        ))
+    }
+
+    <section class="overview-note">
+        <p>
+            See a comprehensive overview of businesses that accept Bitcoin:
+            <a href="https://www.bitlist.com/" target="_blank" rel="noopener noreferrer">
+                <strong>Bitlist.com →</strong>
+            </a>
+        </p>
+    </section>
+
+    <a href="#" class="back-to-top"> ↑ Back to top </a>
+</ResourcePageLayout>
+
+<style>
+    .intro {
+        margin-bottom: 2.5rem;
+        line-height: 1.8;
+        color: var(--text-light, #ccc);
+    }
+
+    .intro p {
+        margin-bottom: 0.75rem;
+    }
+
+    .highlight {
+        padding: 0.75rem 1rem;
+        background: rgba(247, 147, 26, 0.06);
+        border-left: 3px solid var(--primary);
+        border-radius: 0 8px 8px 0;
+    }
+
+    /* Category sections */
+    .category-section {
+        margin-bottom: 2.5rem;
+    }
+
+    .category-section h2 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+    }
+
+    /* Links grid */
+    .links-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .link-card {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.85rem 1rem;
+        min-height: 68px;
+        border: 1px solid rgba(247, 147, 26, 0.12);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.03);
+        transition:
+            border-color 0.3s ease,
+            transform 0.2s ease;
+    }
+
+    .link-card:hover {
+        border-color: rgba(247, 147, 26, 0.4);
+        transform: translateY(-2px);
+    }
+
+    .link-logo {
+        height: 40px;
+        width: auto;
+        min-width: 40px;
+        max-width: 80px;
+        object-fit: contain;
+        flex-shrink: 0;
+        border-radius: 4px;
+    }
+
+    .link-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .link-name {
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: var(--text-light, #ccc);
+    }
+
+    .link-desc {
+        font-size: 0.8rem;
+        line-height: 1.4;
+        color: rgba(204, 204, 204, 0.5);
+    }
+
+    .link-arrow {
+        color: var(--primary);
+        font-size: 0.9rem;
+        opacity: 0.3;
+        flex-shrink: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    .link-card:hover .link-arrow {
+        opacity: 1;
+    }
+
+    /* Overview note */
+    .overview-note {
+        margin-top: 1rem;
+        padding: 1rem 1.25rem;
+        background: rgba(247, 147, 26, 0.04);
+        border: 1px solid rgba(247, 147, 26, 0.12);
+        border-radius: 10px;
+        text-align: center;
+        line-height: 1.7;
+        color: var(--text-light, #ccc);
+    }
+
+    .overview-note p {
+        margin: 0;
+    }
+
+    @media (max-width: 567px) {
+        .links-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

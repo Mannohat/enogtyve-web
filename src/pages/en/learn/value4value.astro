@@ -1,0 +1,277 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+import { localizedHref } from "../../../i18n/routes";
+---
+
+<ResourcePageLayout
+  title="Value 4 Value"
+  description="What is Value4Value? A new model for supporting content directly with bitcoin."
+  lang="en"
+>
+  <section class="content-section">
+    <p>
+      Value for Value is the idea that you offer value out into the market, and
+      people can then choose for themselves to contribute if they feel they benefit
+      from the material someone offers. It's entirely voluntary, and current
+      estimates suggest only 4–5% choose to contribute. Many have grown used to
+      being able to access podcasts, videos, music, articles, blog posts, and so on
+      "for free" — but the price you typically pay is your attention, in the form
+      of ads, for example, and most often also giving up your data and privacy.
+    </p>
+    <p>
+      The Value 4 Value model breaks with the previously familiar "freemium"
+      models and has been warmly received by many of the people who also value
+      freedom technologies such as Bitcoin and Nostr. New V4V offerings keep
+      appearing, and this page links to a few examples. The best known are
+      Podcasting 2.0 and Nostr.
+    </p>
+    <p>
+      "Enogtyve.org" is another example, where there's no model for making money
+      or covering costs like hosting. If you feel it provides value and want to
+      contribute to the initiatives, you can send some sats to enogtyve@getalby.com
+      or check out the <a href={localizedHref('/da/faellesskab/support', 'en')}>support page</a>.
+    </p>
+  </section>
+
+  <section class="category-section">
+    <h2>Examples of Value 4 Value initiatives</h2>
+    <div class="info-table">
+      <div class="info-row info-header">
+        <span class="info-label">Type</span>
+        <span class="info-value"><strong>Link</strong></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Podcasting 2.0</span>
+        <span class="info-value">
+          <a href="https://fountain.fm" target="_blank" rel="noopener noreferrer">fountain.fm</a>
+        </span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Blog</span>
+        <span class="info-value">
+          <a href="https://stacker.news/" target="_blank" rel="noopener noreferrer">stacker.news</a>
+        </span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Music</span>
+        <span class="info-value">
+          <a href="https://wavlake.com/" target="_blank" rel="noopener noreferrer">wavlake.com</a>
+        </span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Stream / Broadcast</span>
+        <span class="info-value">
+          <a href="https://zap.stream" target="_blank" rel="noopener noreferrer">zap.stream</a>
+        </span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Stream / Broadcast</span>
+        <span class="info-value">
+          <a href="https://tunestr.io" target="_blank" rel="noopener noreferrer">tunestr.io</a>
+        </span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Musician "The Higher Low"</span>
+        <span class="info-value">
+          <a href="https://www.thehigherlow.com/" target="_blank" rel="noopener noreferrer">thehigherlow.com</a>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section class="category-section">
+    <h2>Podcasts about Value 4 Value</h2>
+    <div class="links-grid">
+      <a href="https://youtu.be/PgihPtnBSek?si=YFoHQeI0JH-Ro0ik" class="link-card" target="_blank" rel="noopener noreferrer">
+        <span class="link-card-title">Kevin Rooke: V4V with Adam Curry</span>
+        <span class="link-card-arrow">→</span>
+      </a>
+      <a href="https://serve.podhome.fm/episodepage/djvalerieblove/the-future-of-music-bitcoin-value-for-value-and-the-higher-lows-vision" class="link-card" target="_blank" rel="noopener noreferrer">
+        <span class="link-card-title">DJ Valerie: V4V with The Higher Low</span>
+        <span class="link-card-arrow">→</span>
+      </a>
+    </div>
+    <p class="more-link">
+      <strong>More about Value 4 Value here:</strong>
+      <a href="https://value4value.info/" target="_blank" rel="noopener noreferrer">
+        Value4value.info
+      </a>
+    </p>
+  </section>
+
+  <section class="category-section">
+    <h2>What is Nostr?</h2>
+    <div class="nostr-block">
+      <img
+        src="/images/logos/shaka.png"
+        alt="Nostr shaka logo"
+        class="nostr-logo"
+      />
+      <div class="nostr-text">
+        <p>
+          <strong>Nostr stands for "Notes and Other Stuff Transmitted Over
+          Relays"</strong> and grows out of the idea of creating as simple a
+          protocol as possible — one that works for anyone with internet access
+          but that, unlike well-known social networks such as Twitter/X, cannot be
+          censored.
+        </p>
+        <p>
+          <a href="https://www.nostr.dk" target="_blank" rel="noopener noreferrer">
+            <strong>Click here to learn a bit about Nostr</strong>
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Back to top </a>
+</ResourcePageLayout>
+
+<style>
+  /* Content sections */
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section p {
+    margin-bottom: 1rem;
+  }
+
+  /* Category sections */
+  .category-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .category-section h2 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-md, 1rem);
+    padding-bottom: var(--space-sm, 0.5rem);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  /* Info table */
+  .info-table {
+    margin: 1rem 0 1.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(247, 147, 26, 0.15);
+  }
+
+  .info-row {
+    display: flex;
+    gap: 1rem;
+    padding: 0.9rem 1.25rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.08);
+  }
+
+  .info-row:last-child {
+    border-bottom: none;
+  }
+
+  .info-row:not(.info-header):hover {
+    background: rgba(247, 147, 26, 0.06);
+  }
+
+  .info-header {
+    background: rgba(247, 147, 26, 0.08);
+  }
+
+  .info-label {
+    flex: 0 0 35%;
+    font-weight: 500;
+    color: var(--text-light, #ccc);
+  }
+
+  .info-value {
+    flex: 1;
+    word-break: break-all;
+  }
+
+  /* Nostr block */
+  .nostr-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .nostr-logo {
+    width: 80px;
+    flex-shrink: 0;
+    border-radius: 8px;
+  }
+
+  .nostr-text p {
+    margin-bottom: 1rem;
+  }
+
+  .more-link {
+    margin-top: 1.5rem;
+  }
+
+  /* Links grid */
+  .links-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md, 1rem);
+    margin-bottom: 1rem;
+  }
+
+  .link-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(247, 147, 26, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  .link-card:hover {
+    background: rgba(247, 147, 26, 0.08);
+    border-color: var(--primary);
+    transform: translateY(-3px);
+  }
+
+  .link-card-title {
+    color: var(--text-light, #ccc);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .link-card-arrow {
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin-left: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 567px) {
+    .nostr-block {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .nostr-logo {
+      width: 64px;
+    }
+
+    .info-row {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .info-label {
+      flex: none;
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
+  }
+</style>

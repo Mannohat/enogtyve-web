@@ -1,0 +1,336 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+---
+
+<ResourcePageLayout
+  title="eCash"
+  description="An introduction to eCash — digital cash built on Bitcoin and Lightning."
+  lang="en"
+>
+  <section class="nav-buttons">
+    <a href="/en/learn/lightning" class="nav-btn">The Lightning Network</a>
+    <a href="/en/learn/liquid" class="nav-btn">Liquid</a>
+    <a href="/en/learn/bitcoin-blockchain" class="nav-btn">The Bitcoin Blockchain</a>
+  </section>
+
+  <section class="intro">
+    <p>
+      eCash is digital cash built on top of Bitcoin. With the Cashu protocol, you can send and receive bitcoin instantly, almost for free, and with full privacy — just like physical cash, but in digital form. Tokens live on your device, and no one can trace your transactions.
+    </p>
+  </section>
+
+  <section class="category-section">
+    <h2>eCash Wallets</h2>
+    <p class="section-desc">Choose a wallet to get started with eCash.</p>
+    <div class="links-grid">
+      <a href="https://www.enuts.cash/" class="link-card" target="_blank" rel="noopener noreferrer">
+        <span class="link-card-title">eNuts</span>
+        <span class="link-card-note">iOS & Android</span>
+        <span class="link-card-arrow">→</span>
+      </a>
+      <a href="https://wallet.cashu.me/" class="link-card" target="_blank" rel="noopener noreferrer">
+        <span class="link-card-title">Cashu.me</span>
+        <span class="link-card-note">Web (PWA)</span>
+        <span class="link-card-arrow">→</span>
+      </a>
+      <a href="https://nutstash.app/" class="link-card" target="_blank" rel="noopener noreferrer">
+        <span class="link-card-title">Nutstash</span>
+        <span class="link-card-note">Web (PWA)</span>
+        <span class="link-card-arrow">→</span>
+      </a>
+      <a href="https://www.minibits.cash/" class="link-card" target="_blank" rel="noopener noreferrer">
+        <span class="link-card-title">Minibits</span>
+        <span class="link-card-note">Android</span>
+        <span class="link-card-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="category-section">
+    <h2>Mints & tools</h2>
+    <p class="section-desc">Find a mint to connect your wallet to. You can use several mints to spread the risk.</p>
+    <div class="links-grid">
+      <a href="https://cashumints.space/" class="link-card" target="_blank" rel="noopener noreferrer">
+        <span class="link-card-title">CashuMints.space</span>
+        <span class="link-card-note">Mint overview</span>
+        <span class="link-card-arrow">→</span>
+      </a>
+      <a href="https://bitcoinmints.com/?tab=mints" class="link-card" target="_blank" rel="noopener noreferrer">
+        <span class="link-card-title">Bitcoinmints.com</span>
+        <span class="link-card-note">Mint overview</span>
+        <span class="link-card-arrow">→</span>
+      </a>
+      <a href="https://proxnut.com/" class="link-card" target="_blank" rel="noopener noreferrer">
+        <span class="link-card-title">Proxnut</span>
+        <span class="link-card-note">Proxy for mints</span>
+        <span class="link-card-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>How does eCash work?</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-number">1</span>
+        <div class="step-text">
+          <strong>Deposit bitcoin</strong> – You send bitcoin (typically via Lightning) to a mint.
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-number">2</span>
+        <div class="step-text">
+          <strong>Receive eCash tokens</strong> – The mint issues tokens using "blind signatures". This means the mint can't see who owns which tokens.
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-number">3</span>
+        <div class="step-text">
+          <strong>Use your tokens</strong> – Send them to others, pay for services, or redeem them back to bitcoin. Transactions are instant and almost free.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Benefits and limitations</h2>
+    <div class="pros-cons">
+      <div class="pros">
+        <h3>Benefits</h3>
+        <p><strong>Privacy</strong> – The mint can't see your balance, your transactions, or who you trade with.</p>
+        <p><strong>Speed</strong> – Transactions are instant, since they don't require confirmation on the blockchain.</p>
+        <p><strong>Low fees</strong> – Almost free to send and receive.</p>
+        <p><strong>Easy onboarding</strong> – Perfect for small amounts, tips, and micropayments.</p>
+      </div>
+      <div class="cons">
+        <h3>Limitations</h3>
+        <p><strong>Trust in the mint</strong> – Your bitcoin is held by the mint. Use several mints to spread the risk.</p>
+        <p><strong>Not for large amounts</strong> – Designed for everyday transactions, not long-term storage.</p>
+        <p><strong>Device-dependent</strong> – Tokens live on your device, but Cashu has a recovery feature with a seed phrase.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="category-section">
+    <h2>Learn more</h2>
+    <div class="links-grid">
+      <a href="https://cashu.space/" class="link-card" target="_blank" rel="noopener noreferrer">
+        <span class="link-card-title">Cashu.space</span>
+        <span class="link-card-note">Official website</span>
+        <span class="link-card-arrow">→</span>
+      </a>
+      <a href="https://docs.cashu.space/projects" class="link-card" target="_blank" rel="noopener noreferrer">
+        <span class="link-card-title">Cashu Docs</span>
+        <span class="link-card-note">Projects & documentation</span>
+        <span class="link-card-arrow">→</span>
+      </a>
+      <a href="https://bitcoin.design/guide/how-it-works/ecash/cashu/" class="link-card" target="_blank" rel="noopener noreferrer">
+        <span class="link-card-title">Bitcoin Design Guide</span>
+        <span class="link-card-note">Visual introduction</span>
+        <span class="link-card-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Back to top </a>
+</ResourcePageLayout>
+
+<style>
+  /* Navigation buttons */
+  .nav-buttons {
+    display: flex;
+    gap: var(--space-md, 1rem);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-btn {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease;
+  }
+
+  .nav-btn:hover {
+    background-color: transparent;
+    color: var(--primary);
+  }
+
+  /* Intro */
+  .intro {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .intro p {
+    margin-bottom: 1rem;
+  }
+
+  /* Content sections */
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section h2 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-md, 1rem);
+    padding-bottom: var(--space-sm, 0.5rem);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  /* Steps */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.1);
+    border-radius: 10px;
+  }
+
+  .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .step-text {
+    line-height: 1.7;
+  }
+
+  /* Pros and cons */
+  .pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .pros, .cons {
+    padding: 1.25rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.1);
+  }
+
+  .pros h3, .cons h3 {
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .pros p, .cons p {
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .pros p:last-child, .cons p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Category sections */
+  .category-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .category-section h2 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-sm, 0.5rem);
+    padding-bottom: var(--space-sm, 0.5rem);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .section-desc {
+    color: var(--text-light, #ccc);
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: var(--space-md, 1rem);
+    line-height: 1.6;
+  }
+
+  /* Links grid */
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--space-md, 1rem);
+  }
+
+  .link-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(247, 147, 26, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  .link-card:hover {
+    background: rgba(247, 147, 26, 0.08);
+    border-color: var(--primary);
+    transform: translateY(-3px);
+  }
+
+  .link-card-title {
+    color: var(--text-light, #ccc);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .link-card-note {
+    font-size: 0.75rem;
+    opacity: 0.5;
+    margin-left: auto;
+  }
+
+  .link-card-arrow {
+    color: var(--primary);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 567px) {
+    .nav-buttons {
+      flex-direction: column;
+    }
+
+    .links-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pros-cons {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

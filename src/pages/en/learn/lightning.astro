@@ -1,0 +1,134 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+import { localizedHref } from "../../../i18n/routes";
+---
+
+<ResourcePageLayout
+  title="The Lightning Network"
+  description="An introduction to the Bitcoin Lightning Network — fast, cheap payments on Bitcoin."
+  lang="en"
+>
+  <section class="nav-buttons">
+    <a href={localizedHref('/da/idevaerksted/buidl', 'en')} class="nav-btn">Build it yourself</a>
+    <a href="/en/learn/liquid" class="nav-btn">The Liquid network</a>
+    <a href="/en/learn/lightning-products-and-services" class="nav-btn">Lightning products and services</a>
+  </section>
+
+  <section class="content-section links-section">
+    <p>
+      <strong>Protocol paper (PDF):</strong>
+      <a href="/pdf/lightning-network-paper.pdf" target="_blank" rel="noopener noreferrer"
+        >The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments</a
+      >
+      — Joseph Poon &amp; Thaddeus Dryja, 2016.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <p>
+      <strong>The Lightning Network is a scaling solution for Bitcoin.</strong>
+    </p>
+    <p>
+      On the Bitcoin network, transactions are grouped together into blocks, and new blocks are added to the blockchain roughly every 10 minutes. When a payment is made using Bitcoin, it's considered secure after it has been confirmed by six blocks, or about an hour. On the Lightning Network, payments don't need to wait for block confirmations to be considered secure. Instead, they're instant and complete in a few seconds. This makes it possible to use the Lightning Network for retail payments, person-to-person payments like we know from MobilePay, or any other situation where you need to make a payment immediately.
+    </p>
+    <p>
+      Scalability refers to the ability of a system — such as a network or a platform — to handle a large number of users or a lot of traffic without running into problems or delays. Scalability is important for Bitcoin because the network needs to be able to support a much higher volume of payments to meet the demand for retail and automated payments. The Lightning Network lets users make an almost unlimited number of payments with each other outside the Bitcoin blockchain — or, as it's also called, off-chain. This means payments can be made without every single one having to be recorded on the blockchain, which helps reduce the load on the network and enables it to handle more payments.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Payment channels</h2>
+    <p>
+      The Lightning Network consists of thousands of two-party payment channels. You can think of a Lightning channel like opening a tab at your local bar. Instead of pulling out your wallet and paying every time you order a drink, it makes sense to save time, energy, and fees by tallying up all your drinks at the end of the night and making the final settlement in a single payment. Lightning works the same way. Every time a payment is made from person A to person B, bitcoin is pushed from one side of the channel to the other. Two users can pay each other back and forth as many times as they like, almost instantly and with almost no fees.
+    </p>
+    <p>
+      You might think it would be a hassle to set up a payment channel with hundreds of businesses, but it isn't. The remarkable thing about the Lightning Network is that it's a network of interconnected channels. Let's say Bob persuaded his friend Carol to join the Lightning Network too. Alice has a channel with Bob, and Bob has a channel with Carol. Alice and Carol can then pay each other by "routing" through Bob. Cryptographic mechanisms ensure that Bob can't steal the money as it passes through him. When you make a payment on the Lightning Network, your node searches for a path of channels between you and your destination. This is what's referred to as routing.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Micropayments</h2>
+    <p>
+      <strong>Micropayments</strong> refer to very small financial transactions, often amounts of less than a dollar. These kinds of payments can be difficult to make using traditional financial systems, since they often have minimum transfer amounts as well as fixed fees that can make small payments impractical.
+    </p>
+    <p>
+      The Lightning Network makes it possible to make micropayments using Bitcoin. It allows users to send very small amounts of Bitcoin, down to 1 satoshi, without the risk of losing control of their funds to a third party (known as "custodial risk"). Unlike the Bitcoin blockchain, which currently has minimum transaction amounts and fees that make micropayments impractical, the Lightning Network thus enables very small payments in fractions of a bitcoin (satoshis/sats). This opens up the possibility of creating new markets and making small payments more practical.
+    </p>
+  </section>
+
+  <section class="content-section links-section">
+    <p>
+      <a href="/en/learn/lightning-wallets"><strong>Lightning Wallets →</strong></a>
+    </p>
+    <p>
+      <a href="/en/learn/lightning-products-and-services"><strong>List of Lightning products and services →</strong></a>
+    </p>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Back to top </a>
+</ResourcePageLayout>
+
+<style>
+  /* Navigation buttons */
+  .nav-buttons {
+    display: flex;
+    gap: var(--space-md, 1rem);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-btn {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease;
+  }
+
+  .nav-btn:hover {
+    background-color: transparent;
+    color: var(--primary);
+  }
+
+  /* Content sections */
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section h2 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-md, 1rem);
+    padding-bottom: var(--space-sm, 0.5rem);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .content-section p {
+    margin-bottom: 1rem;
+  }
+
+  .links-section {
+    padding: 1.25rem 1.5rem;
+    background: rgba(247, 147, 26, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 10px;
+  }
+
+  .links-section p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 567px) {
+    .nav-buttons {
+      flex-direction: column;
+    }
+  }
+</style>
