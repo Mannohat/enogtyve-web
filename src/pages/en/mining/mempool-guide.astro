@@ -1,0 +1,773 @@
+---
+import { Image } from 'astro:assets';
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+---
+
+<ResourcePageLayout
+  title="mempool.space — Guide"
+  description="Understand the elements shown on mempool.space — Bitcoin's blockchain explorer. Learn about blocks, fees, mempool statistics, and much more."
+  lang="en"
+>
+  <section class="nav-buttons">
+    <a href="/en/mining/mining-for-heating" class="nav-btn"
+      >Mining for heating</a
+    >
+    <a href="/en/mining/solo-mining" class="nav-btn">Solo Mining</a>
+    <a href="/en/learn/bitcoin-blockchain" class="nav-btn"
+      >The Bitcoin Blockchain</a
+    >
+  </section>
+
+  <section class="content-section">
+    <p>
+      <a href="https://mempool.space" target="_blank" rel="noopener noreferrer">
+        <Image src="/images/logos/mempool.png" alt="mempool.space" width={500} height={125} class="section-logo" />
+      </a>
+      <strong>
+        .space is Bitcoin's most widely used open source blockchain explorer.
+        This page explains all the elements you see when you open
+        mempool.space.
+      </strong>
+    </p>
+    <p>
+      <a href="https://mempool.space" target="_blank" rel="noopener noreferrer">
+        Open mempool.space →
+      </a>
+    </p>
+  </section>
+
+  <!-- BLOCK VISUALIZATION -->
+  <section class="content-section">
+    <h2>Block visualization</h2>
+    <p>
+      The horizontal row of blocks at the top of the page is the heart of
+      mempool.space. The blocks are divided into two types, each with its own
+      color:
+    </p>
+    <div class="block-legend">
+      <div class="block-item block-green">
+        <div class="block-preview green"></div>
+        <div class="block-info">
+          <strong>Green blocks — Upcoming</strong>
+          <p>
+            Projected blocks that haven't been mined yet. The contents update
+            continuously in real time as miners prioritize transactions.
+          </p>
+        </div>
+      </div>
+      <div class="block-item block-purple">
+        <div class="block-preview purple"></div>
+        <div class="block-info">
+          <strong>Purple blocks — Confirmed</strong>
+          <p>
+            Blocks that have already been mined and added to the blockchain.
+            Shows fee rate (sat/vB), time, and number of transactions.
+          </p>
+        </div>
+      </div>
+    </div>
+    <p class="hint">
+      💡 Each block shows: number of transactions, median fee (sat/vB), size
+      (MB), and time.
+    </p>
+  </section>
+
+  <!-- FEE ESTIMATES -->
+  <section class="content-section">
+    <h2>Fee estimates</h2>
+    <p>
+      Below the block visualization, recommended fee levels are shown in
+      <strong>satoshis per virtual byte (sat/vB)</strong>. The higher the fee, the
+      faster the confirmation.
+    </p>
+    <div class="fee-table">
+      <div class="fee-row">
+        <div class="fee-badge high">
+          <Image src="/images/icons/run.png" alt="" width={1024} height={1024} class="fee-icon" />
+          High priority
+        </div>
+        <div class="fee-desc">
+          <strong>Next block (~10 min)</strong> — Use for time-critical transactions.
+          The most expensive choice.
+        </div>
+      </div>
+      <div class="fee-row">
+        <div class="fee-badge medium">
+          <Image src="/images/icons/star.png" alt="" width={1024} height={1024} class="fee-icon" />
+          Medium
+        </div>
+        <div class="fee-desc">
+          <strong>1–3 blocks (~10–30 min)</strong> — Good for most normal transfers.
+        </div>
+      </div>
+      <div class="fee-row">
+        <div class="fee-badge low">
+          <Image src="/images/icons/timeglas.png" alt="" width={1024} height={1024} class="fee-icon" />
+          Low priority
+        </div>
+        <div class="fee-desc">
+          <strong>Can take hours or days</strong> — A cheap option if you're not in
+          a hurry.
+        </div>
+      </div>
+      <div class="fee-row">
+        <div class="fee-badge none">
+          <Image src="/images/icons/calendar.png" alt="" width={1024} height={1024} class="fee-icon" />
+          No rush
+        </div>
+        <div class="fee-desc">
+          <strong>Waits until the network is quiet</strong> — The lowest possible
+          fee. Unpredictable waiting time.
+        </div>
+      </div>
+    </div>
+    <p class="hint">
+      ⚠️ The estimates are guidance only — during busy periods the median fee can
+      rise quickly. Always check the current block visualization for the precise
+      figures.
+    </p>
+  </section>
+
+  <!-- MEMPOOL STATISTICS -->
+  <section class="content-section">
+    <h2>Mempool statistics</h2>
+    <p>Key figures about the network's current state:</p>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-title">Unconfirmed transactions</div>
+        <p>
+          The total number of transactions waiting to be mined. A high number
+          means the network is busy and fees are rising.
+        </p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-title">Memory Usage</div>
+        <p>
+          How much memory the pending transactions take up. Max ~300 MB per node.
+          When exceeded, cheap transactions are dropped.
+        </p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-title">Purging</div>
+        <p>
+          When the mempool is full, transactions with fees that are too low are
+          automatically dropped to free up space.
+        </p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-title">Difficulty Adjustment</div>
+        <p>
+          Forecast for the change in mining difficulty. <strong>+%</strong> = blocks
+          are mined faster than 10 min (difficulty rises). <strong>−%</strong> = blocks
+          are mined slower (difficulty falls).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEARCH FUNCTION -->
+  <section class="content-section">
+    <h2>The search function</h2>
+    <p>At the top of the page you can search for three types of data:</p>
+    <div class="search-items">
+      <div class="search-item">
+        <Image src="/images/icons/search.png" alt="" width={1024} height={1024} class="search-icon-img" />
+        <div>
+          <strong>Transaction ID (TXID)</strong>
+          <p>
+            Find a specific transaction and see its status — whether it's waiting
+            in the mempool or confirmed.
+          </p>
+        </div>
+      </div>
+      <div class="search-item">
+        <Image src="/images/icons/lookup.png" alt="" width={1024} height={1024} class="search-icon-img" />
+        <div>
+          <strong>Bitcoin address</strong>
+          <p>See the history and balance of any Bitcoin address.</p>
+        </div>
+      </div>
+      <div class="search-item">
+        <img
+          src="/images/icons/blockchain.png"
+          alt=""
+          class="search-icon-img"
+        />
+        <div>
+          <strong>Block hash or block number</strong>
+          <p>
+            Explore the contents of a specific block and see all the transactions
+            in it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NETWORKS -->
+  <section class="content-section">
+    <h2>Networks and navigation</h2>
+    <p>
+      Via the dropdown menu in the top left (the Bitcoin logo), you can switch
+      between four networks:
+    </p>
+    <div class="network-list">
+      <div class="network-item">
+        <span class="network-dot" style="background:#f7931a;"></span>
+        <div>
+          <strong>Mainnet</strong>
+          <p>
+            The real Bitcoin network. This is where all real transactions with
+            real value take place.
+          </p>
+        </div>
+      </div>
+      <div class="network-item">
+        <span class="network-dot" style="background:#a855f7;"></span>
+        <div>
+          <strong>Signet</strong>
+          <p>
+            A controlled test network with centrally managed blocks. More stable
+            than Testnet — used by developers to test software.
+          </p>
+        </div>
+      </div>
+      <div class="network-item">
+        <span class="network-dot" style="background:#22c55e;"></span>
+        <div>
+          <strong>Testnet3</strong>
+          <p>
+            The older public test network. Coins have no real value. Used to try
+            out transactions without risk.
+          </p>
+        </div>
+      </div>
+      <div class="network-item">
+        <span class="network-dot" style="background:#22c55e;"></span>
+        <div>
+          <strong>Testnet4</strong>
+          <p>
+            The newest generation of Bitcoin's public test network. Gradually
+            replacing Testnet3 for developers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SETTINGS BAR -->
+  <section class="content-section">
+    <h2>Settings (footer)</h2>
+    <p>
+      At the top of the footer you'll find a number of dropdown menus to customize
+      the display:
+    </p>
+    <div class="settings-grid">
+      <div class="setting-item">
+        <span class="setting-label">Language</span>
+        <p>Change the language of the whole site. Danish is available.</p>
+      </div>
+      <div class="setting-item">
+        <span class="setting-label">Currency</span>
+        <p>
+          Choose which fiat currency amounts and fees are shown in — e.g. USD, EUR,
+          or DKK.
+        </p>
+      </div>
+      <div class="setting-item">
+        <span class="setting-label">Time zone</span>
+        <p>Adjust the time zone so block timestamps match your local time.</p>
+      </div>
+      <div class="setting-item">
+        <span class="setting-label">Unit</span>
+        <p>Choose whether amounts are shown in BTC or sats (satoshis).</p>
+      </div>
+      <div class="setting-item">
+        <span class="setting-label">Theme</span>
+        <p>
+          Change the visual theme. "wiz" is a popular community theme with extra
+          details.
+        </p>
+      </div>
+      <div class="setting-item">
+        <span class="setting-label">Log in</span>
+        <p>
+          Create an account to save settings, use the Accelerator, and get access
+          to extra features.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCELERATOR -->
+  <section class="content-section">
+    <h2>Mempool Accelerator</h2>
+    <p>
+      Have you sent a transaction with too low a fee that's now stuck?
+      <strong>Mempool Accelerator</strong> lets you pay a premium to push the
+      transaction forward in the queue and get it confirmed faster. Find the
+      feature directly on the front page or under the specific transaction.
+    </p>
+    <p>
+      <a
+        href="https://mempool.space/accelerator"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open Mempool Accelerator →
+      </a>
+    </p>
+  </section>
+
+  <!-- GLOSSARY -->
+  <section class="content-section">
+    <h2>Glossary — key terms</h2>
+    <div class="glossary">
+      <div class="glossary-item">
+        <dt>sat/vB</dt>
+        <dd>
+          Satoshis per virtual byte — the unit for Bitcoin transaction fees. Used
+          to indicate how much you pay miners to process your transaction.
+        </dd>
+      </div>
+      <div class="glossary-item">
+        <dt>TXID</dt>
+        <dd>
+          Transaction ID — a unique 64-character identifier for any Bitcoin
+          transaction.
+        </dd>
+      </div>
+      <div class="glossary-item">
+        <dt>Confirmation</dt>
+        <dd>
+          The number of blocks mined on top of the block that contains your
+          transaction. More confirmations = greater security.
+        </dd>
+      </div>
+      <div class="glossary-item">
+        <dt>UTXO</dt>
+        <dd>
+          Unspent Transaction Output — the "change" system Bitcoin uses. Your
+          "balance" is the sum of all your UTXOs.
+        </dd>
+      </div>
+      <div class="glossary-item">
+        <dt>RBF</dt>
+        <dd>
+          Replace-By-Fee — the ability to replace a pending transaction with a new
+          one with a higher fee to speed up confirmation.
+        </dd>
+      </div>
+      <div class="glossary-item">
+        <dt>Sats / Satoshis</dt>
+        <dd>The smallest unit of Bitcoin. 1 BTC = 100,000,000 satoshis.</dd>
+      </div>
+      <div class="glossary-item">
+        <dt>vByte</dt>
+        <dd>
+          Virtual byte — a unit for measuring transaction size that accounts for
+          the SegWit discount.
+        </dd>
+      </div>
+      <div class="glossary-item">
+        <dt>SegWit</dt>
+        <dd>
+          Segregated Witness — a Bitcoin upgrade that separates signature data
+          from transaction data. It introduced vBytes as a unit, where signature
+          data is weighted lower — which reduces fees for SegWit transactions.
+        </dd>
+      </div>
+    </div>
+  </section>
+
+  <a href="#" class="back-to-top">↑ Back to top</a>
+</ResourcePageLayout>
+
+<style>
+  /* ── Navigation buttons ── */
+  .nav-buttons {
+    display: flex;
+    gap: var(--space-md, 1rem);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-btn {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease;
+  }
+
+  .nav-btn:hover {
+    background-color: transparent;
+    color: var(--primary);
+  }
+
+  /* ── Section logo ── */
+  .section-logo {
+    height: 26px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+  }
+
+  /* ── Content sections ── */
+  .content-section {
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section h2 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-md, 1rem);
+    padding-bottom: var(--space-sm, 0.5rem);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .content-section p {
+    margin-bottom: 1rem;
+  }
+
+  /* ── Block legend ── */
+  .block-legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.25rem 0;
+  }
+
+  .block-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.12);
+  }
+
+  .block-preview {
+    width: 44px;
+    height: 56px;
+    border-radius: 5px;
+    flex-shrink: 0;
+  }
+
+  .block-preview.green {
+    background: linear-gradient(160deg, #22c55e, #16a34a);
+    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.35);
+  }
+
+  .block-preview.purple {
+    background: linear-gradient(160deg, #a855f7, #7c3aed);
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.35);
+  }
+
+  .block-info strong {
+    display: block;
+    color: var(--text-light, #ccc);
+    margin-bottom: 0.35rem;
+    font-size: 0.95rem;
+  }
+
+  .block-info p {
+    font-size: 0.88rem;
+    margin: 0;
+    color: rgba(204, 204, 204, 0.75);
+    line-height: 1.5;
+  }
+
+  /* ── Fee table ── */
+  .fee-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 1.25rem 0;
+  }
+
+  .fee-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    border: 1px solid rgba(247, 147, 26, 0.1);
+  }
+
+  .fee-badge {
+    flex-shrink: 0;
+    width: 180px;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .fee-icon {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    flex-shrink: 0;
+    opacity: 0.9;
+  }
+
+  .fee-badge.high   { background: #dc2626; }
+  .fee-badge.medium { background: #d97706; }
+  .fee-badge.low    { background: #2563eb; }
+  .fee-badge.none   { background: #4b5563; }
+
+  .fee-desc {
+    font-size: 0.9rem;
+    color: var(--text-light, #ccc);
+    line-height: 1.5;
+  }
+
+  .fee-desc strong {
+    color: #fff;
+  }
+
+  /* ── Hint box ── */
+  .hint {
+    background: rgba(247, 147, 26, 0.08);
+    border-left: 3px solid var(--primary);
+    border-radius: 0 6px 6px 0;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    color: rgba(204, 204, 204, 0.9);
+    margin-top: 0.5rem;
+  }
+
+  /* ── Stats grid ── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .stat-card {
+    padding: 1rem 1.25rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.15);
+    border-radius: 8px;
+    line-height: 1.6;
+  }
+
+  .stat-title {
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+  }
+
+  .stat-card p {
+    font-size: 0.88rem;
+    color: rgba(204, 204, 204, 0.8);
+    margin: 0;
+  }
+
+  /* ── Search items ── */
+  .search-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .search-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 0.9rem 1.1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 8px;
+  }
+
+  .search-icon-img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    opacity: 0.85;
+  }
+
+  .search-item strong {
+    display: block;
+    color: var(--text-light, #ccc);
+    margin-bottom: 0.2rem;
+  }
+
+  .search-item p {
+    font-size: 0.88rem;
+    color: rgba(204, 204, 204, 0.75);
+    margin: 0;
+  }
+
+  /* ── Network list ── */
+  .network-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1rem;
+  }
+
+  .network-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 0.85rem 1.1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 8px;
+  }
+
+  .network-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 0.35rem;
+    box-shadow: 0 0 6px currentColor;
+  }
+
+  .network-item strong {
+    display: block;
+    color: var(--text-light, #ccc);
+    margin-bottom: 0.15rem;
+  }
+
+  .network-item p {
+    font-size: 0.88rem;
+    color: rgba(204, 204, 204, 0.75);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* ── Settings grid ── */
+  .settings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    margin-top: 1rem;
+  }
+
+  .setting-item {
+    padding: 0.85rem 1.1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 8px;
+  }
+
+  .setting-label {
+    display: inline-block;
+    background: rgba(247, 147, 26, 0.15);
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: 4px;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .setting-item p {
+    font-size: 0.88rem;
+    color: rgba(204, 204, 204, 0.75);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* ── Glossary ── */
+  .glossary {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 0.5rem;
+    border: 1px solid rgba(247, 147, 26, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .glossary-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    border-bottom: 1px solid rgba(247, 147, 26, 0.1);
+  }
+
+  .glossary-item:last-child {
+    border-bottom: none;
+  }
+
+  .glossary-item dt {
+    padding: 0.75rem 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 0.95rem;
+    background: rgba(247, 147, 26, 0.06);
+    border-right: 1px solid rgba(247, 147, 26, 0.12);
+    display: flex;
+    align-items: center;
+  }
+
+  .glossary-item dd {
+    padding: 0.75rem 1rem;
+    font-size: 0.88rem;
+    color: rgba(204, 204, 204, 0.85);
+    margin: 0;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 567px) {
+    .nav-buttons {
+      flex-direction: column;
+    }
+
+    .settings-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .block-legend,
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .fee-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .fee-badge {
+      width: auto;
+    }
+
+    .glossary-item {
+      grid-template-columns: 1fr;
+    }
+
+    .glossary-item dt {
+      border-right: none;
+      border-bottom: 1px solid rgba(247, 147, 26, 0.1);
+    }
+  }
+</style>

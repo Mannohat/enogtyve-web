@@ -1,0 +1,310 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+---
+
+<ResourcePageLayout
+  title="Solo Mining"
+  description="A guide to solo Bitcoin mining — take on the blockchain on your own terms."
+  lang="en"
+>
+  <section class="content-section">
+    <p>
+      With help from our
+      <a href="https://www.noderunners.network" target="_blank" rel="noopener noreferrer">
+        Noderunners</a> friends in the Netherlands, we can solo mine with their solo mining pool,
+      which charges 0 in fees. So if you're really lucky and find a block, the
+      entire block reward plus transaction fees is sent to the Bitcoin address you've
+      chosen.
+    </p>
+    <p>
+      Below is what you need to get started. If you have questions or run into
+      challenges, feel free to ask in the Enogtyve Telegram group, where we of
+      course also talk about mining. Open the group here:
+      <strong>
+        <a href="https://t.me/enogtyvedk/6489" target="_blank" rel="noopener noreferrer">
+          Enogtyve Telegram and Mining
+        </a>
+      </strong>
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>What is solo mining?</h2>
+    <p>
+      <strong>Solo mining</strong> means that a single miner tries to find a block
+      without sharing the block reward and transaction fees with others, as you
+      otherwise would in a regular mining pool. You can of course solo mine with
+      several mining devices to increase the probability of finding a block.
+    </p>
+    <p>
+      Without using a mining pool, the miner has to run a full node themselves,
+      which involves maintaining a synchronized blockchain, handling network
+      connections, ensuring sufficient bandwidth, and minimizing latency to
+      broadcast newly found blocks quickly.
+    </p>
+    <p>
+      Many choose a solo mining pool to avoid this technical challenge. The pool
+      provides a node, servers, and optimized infrastructure, which reduces latency
+      and ensures faster block broadcasting. At the same time, the miner keeps
+      their individual competition to find blocks and receive the entire block
+      reward.
+    </p>
+    <p>
+      Solo mining can be compared to a lottery, where every hash a miner generates
+      acts as a ticket in the draw. The more "tickets" a miner has (higher hash
+      power), the greater the chance of winning — but it's still a matter of luck.
+      A solo mining pool makes it easier to take part in this "lottery" by handling
+      the technical infrastructure, without changing the actual probability of
+      finding a block.
+    </p>
+    <p>
+      Different miners also have varying efficiency, measured in joules per terahash
+      (J/Th). A more energy-efficient miner uses fewer watts per terahash, which
+      reduces operating costs (electricity consumption). More efficient miners —
+      that is, lower J/Th — typically also mean a higher purchase price.
+    </p>
+    <p>
+      For hobby miners, small devices like the BitAxe have become very popular, and although these small miners have a very
+      low hash power, they're a good way to learn about mining. They have low power
+      consumption, help secure the Bitcoin network, and although the probability is
+      minimal, they still give you a small chance of winning the lottery.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Setup</h2>
+    <div class="info-table">
+      <div class="info-row">
+        <span class="info-label">Pool:</span>
+        <code class="info-value">stratum+tcp://pool.enogtyve.org:1337</code>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Username (user id):</span>
+        <span class="info-value">Bitcoin address</span>
+      </div>
+    </div>
+    <p class="note">
+      *If you have several miners and want to name them, you can add a "." after
+      your Bitcoin address followed by the name you want to give it.
+      <em>E.g. bc1qtyuca2x6twkgcg66tqhmem24386fm6078c9pqv.bitaxe1</em>
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Statistics</h2>
+    <div class="info-table">
+      <div class="info-row">
+        <span class="info-label">Noderunners pool statistics:</span>
+        <span class="info-value">
+          <a href="https://noderunners.network/en/pool" target="_blank" rel="noopener noreferrer">
+            noderunners.network/en/pool
+          </a>
+          <span class="info-note">(You can use this page, as it's the same pool)</span>
+        </span>
+      </div>
+    </div>
+    <p>Alternatively, you can use these:</p>
+    <div class="info-table">
+      <div class="info-row">
+        <span class="info-label">Your statistics:</span>
+        <span class="info-value">
+          <a href="https://pool.enogtyve.org/api/v1/users/bitcoinaddress" target="_blank" rel="noopener noreferrer">
+            pool.enogtyve.org/api/v1/users/<em>bitcoinaddress</em>
+          </a>
+        </span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Pool statistics:</span>
+        <span class="info-value">
+          <a href="https://pool.enogtyve.org/api/v1/pool" target="_blank" rel="noopener noreferrer">
+            pool.enogtyve.org/api/v1/pool
+          </a>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Get a miner</h2>
+    <p>
+      Remember that you can often get a discount by entering the
+      <strong>discount code "enogtyve"</strong> at checkout.
+    </p>
+    <div class="info-table">
+      <div class="info-row">
+        <span class="info-label">The popular BitAxe and others</span>
+        <span class="info-value">
+          <a href="https://bitronics.store/?ref=1089" target="_blank" rel="noopener noreferrer">
+            <strong>Bitronics</strong>
+          </a>
+        </span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Heat up with Bitcoin mining (Heatbit)</span>
+        <span class="info-value">
+          <a href="https://heatbit.com/?ref=ENOGTYVE" target="_blank" rel="noopener noreferrer">
+            <strong>Heatbit</strong>
+          </a>
+        </span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Heat up with Bitcoin mining (21Energy)</span>
+        <span class="info-value">
+          <a href="https://21energy.com/enogtyve" target="_blank" rel="noopener noreferrer">
+            <strong>21Energy</strong>
+          </a>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Other tools</h2>
+    <p>
+      Services and tools that can be useful in connection with Bitcoin mining.
+    </p>
+    <div class="info-table">
+      <div class="info-row">
+        <span class="info-label">Bitcoin solo mining calculator</span>
+        <span class="info-value">
+          <a href="https://www.sololuck.com/?ref=enogtyve.org" target="_blank" rel="noopener noreferrer">
+            <strong>Sololuck</strong>
+          </a>
+        </span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Bitcoin blockchain explorer</span>
+        <span class="info-value">
+          <a href="https://www.mempool.space/?ref=enogtyve.org" target="_blank" rel="noopener noreferrer">
+            <strong>Mempool.space</strong>
+          </a>
+        </span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Open-source tool that monitors Bitcoin mining pools</span>
+        <span class="info-value">
+          <a href="https://miningpool.observer/?ref=enogtyve.org" target="_blank" rel="noopener noreferrer">
+            <strong>Miningpool.observer</strong>
+          </a>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section cta-section">
+    <p>
+      <strong>
+        Read more about Bitcoin mining for heating here:
+        <a href="/en/mining/mining-for-heating">Mining for heating</a>
+      </strong>
+    </p>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Back to top </a>
+</ResourcePageLayout>
+
+<style>
+  /* Content sections */
+  .content-section {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section h2 {
+    color: var(--primary, #f7931a);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-md, 1rem);
+    padding-bottom: var(--space-sm, 0.5rem);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .content-section p {
+    margin-bottom: 1rem;
+  }
+
+  /* Info tables */
+  .info-table {
+    margin: 1rem 0 1.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(247, 147, 26, 0.15);
+  }
+
+  .info-row {
+    display: flex;
+    gap: 1rem;
+    padding: 0.9rem 1.25rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(247, 147, 26, 0.08);
+  }
+
+  .info-row:last-child {
+    border-bottom: none;
+  }
+
+  .info-row:hover {
+    background: rgba(247, 147, 26, 0.06);
+  }
+
+  .info-label {
+    flex: 0 0 40%;
+    font-weight: 500;
+    color: var(--text-light, #ccc);
+  }
+
+  .info-value {
+    flex: 1;
+    word-break: break-all;
+  }
+
+  .info-value code {
+    background: rgba(247, 147, 26, 0.1);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #f7931a;
+  }
+
+  .info-note {
+    display: block;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: 0.25rem;
+  }
+
+  /* Note */
+  .note {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+  }
+
+  .note em {
+    word-break: break-all;
+  }
+
+  /* CTA section */
+  .cta-section {
+    margin-top: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(247, 147, 26, 0.2);
+  }
+
+  .cta-section a {
+    font-size: 1.05rem;
+  }
+
+  @media (max-width: 567px) {
+    .info-row {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .info-label {
+      flex: none;
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
+  }
+</style>

@@ -116,6 +116,10 @@ export const EN_LIVE = new Set<string>([
   "/explore/conferences",
   "/explore/twentyone-world",
   "/explore/news",
+  // Mining
+  "/mining/mining-for-heating",
+  "/mining/solo-mining",
+  "/mining/mempool-guide",
 ]);
 
 /**
