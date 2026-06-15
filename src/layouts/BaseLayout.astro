@@ -3,6 +3,7 @@ import "../styles/global.css";
 import "../styles/support-modal.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { daToEn, enToDa, EN_LIVE } from "../i18n/routes";
 
 interface Props {
     title: string;
@@ -29,41 +30,30 @@ const canonicalURL = new URL(
     "https://enogtyve.org",
 ).toString();
 
-/** Strip .html only; keep "/" so root is not mistaken for "". */
+/**
+ * Resolve da/en alternate URLs from the route registry. Works whether the
+ * current page is Danish or English: normalize to the Danish tail, then look up
+ * the English counterpart. Unprefixed routes (e.g. /404) get no alternates.
+ */
 const pathnameNormalized = Astro.url.pathname.replace(/\.html$/, "");
-const hasLocalePrefix = /^\/(da|en)(\/|$)/.test(pathnameNormalized);
-const remainderAfterLocale = hasLocalePrefix
-    ? pathnameNormalized.replace(/^\/(da|en)/, "") || "/"
-    : pathnameNormalized || "/";
-const remainderNorm =
-    remainderAfterLocale.replace(/\/$/, "") || "/";
+const localeMatch = pathnameNormalized.match(/^\/(da|en)(\/.*|$)/);
+const currentLang = localeMatch ? (localeMatch[1] as "da" | "en") : null;
+const tail =
+    ((localeMatch ? localeMatch[2] || "/" : pathnameNormalized) || "/").replace(
+        /\/$/,
+        "",
+    ) || "/";
 
-function hreflangTail(remainder: string, targetLang: "da" | "en"): string {
-    const norm = remainder.replace(/\/$/, "") || "/";
-    if (norm === "/privacypolicy" || norm === "/privatlivspolitik") {
-        return targetLang === "da" ? "/privatlivspolitik" : "/privacypolicy";
-    }
-    if (norm === "/") {
-        return "";
-    }
-    return remainder.startsWith("/") ? remainder : `/${remainder}`;
-}
+const daTail = currentLang === "en" ? enToDa[tail] ?? tail : tail;
+const enTail = daToEn[daTail];
 
-/** Global routes (no /da|/en in URL) should not invent /da/404 etc. */
-const isUnprefixedSpecial =
-    !hasLocalePrefix && remainderNorm === "/404";
-
-const daPath = isUnprefixedSpecial
+const daPath = !localeMatch
     ? "https://enogtyve.org/da"
-    : `https://enogtyve.org/da${hreflangTail(remainderAfterLocale, "da")}`;
-
-/** Tails that have a real English page. "" = /en/, "/privacypolicy" = /en/privacypolicy */
-const EN_PAGES = new Set(["", "/privacypolicy"]);
-const enTail = hreflangTail(remainderAfterLocale, "en");
-const hasEnVersion = isUnprefixedSpecial || EN_PAGES.has(enTail);
-const enPath = isUnprefixedSpecial
-    ? "https://enogtyve.org/en"
-    : `https://enogtyve.org/en${enTail}`;
+    : `https://enogtyve.org/da${daTail === "/" ? "" : daTail}`;
+const hasEnVersion = !!enTail && EN_LIVE.has(enTail);
+const enPath = enTail
+    ? `https://enogtyve.org/en${enTail === "/" ? "" : enTail}`
+    : "https://enogtyve.org/en";
 
 const structuredData = ogType === "article" && pubDate
     ? {
@@ -174,12 +164,12 @@ const structuredData = ogType === "article" && pubDate
 
                 <div class="icon-wrap">🧡</div>
                 <h2 id="supportModalTitle">Proof of Heart</h2>
-                <p class="subtitle">Tak for din opbakning!</p>
+                <p class="subtitle">{lang === "en" ? "Thank you for your support!" : "Tak for din opbakning!"}</p>
 
                 <div class="divider"></div>
 
                 <div class="btcpay-wrap">
-                    <div class="amount-label">Vælg beløb</div>
+                    <div class="amount-label">{lang === "en" ? "Choose an amount" : "Vælg beløb"}</div>
 
                     <form
                         method="POST"
@@ -239,7 +229,7 @@ const structuredData = ogType === "article" && pubDate
                             name="submit"
                             title="Pay with BTCPay Server, a Self-Hosted Bitcoin Payment Processor"
                         >
-                            <span>Bidrag med</span>
+                            <span>{lang === "en" ? "Contribute with" : "Bidrag med"}</span>
                             <img
                                 src="https://btcpay.ideasarelikeflames.org/img/paybutton/logo.svg"
                                 alt="BTCPay"
@@ -248,7 +238,7 @@ const structuredData = ogType === "article" && pubDate
                     </form>
                 </div>
 
-                <span class="footnote">Drevet af BTCPay Server</span>
+                <span class="footnote">{lang === "en" ? "Powered by BTCPay Server" : "Drevet af BTCPay Server"}</span>
             </div>
         </div>
         <script is:inline>

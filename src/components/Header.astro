@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { daToEn, enToDa, EN_LIVE } from "../i18n/routes";
 
 interface Props {
     lang?: "da" | "en";
@@ -210,10 +211,16 @@ function isActive(href: string, currentPath: string): boolean {
 }
 
 // Helper function to get language-switched path
-function getSwitchedPath(targetLang: string): string {
-    const pathWithoutLang = currentPath.replace(/^\/(da|en)/, "");
-    if (targetLang === "en") return "/en";
-    return `/${targetLang}${pathWithoutLang || ""}`;
+function getSwitchedPath(targetLang: "da" | "en"): string {
+    const m = currentPath.replace(/\.html$/, "").match(/^\/(da|en)(\/.*|$)/);
+    const curLang = m ? m[1] : null;
+    const tail = ((m ? m[2] || "/" : currentPath) || "/").replace(/\/$/, "") || "/";
+    const daTail = curLang === "en" ? enToDa[tail] ?? tail : tail;
+    if (targetLang === "da") return daTail === "/" ? "/da" : `/da${daTail}`;
+    // Switch to English only when the counterpart page exists; else go to /en home.
+    const enTail = daToEn[daTail];
+    if (!enTail || !EN_LIVE.has(enTail)) return "/en";
+    return enTail === "/" ? "/en" : `/en${enTail}`;
 }
 ---
 
@@ -233,7 +240,7 @@ function getSwitchedPath(targetLang: string): string {
             <div class="header-right">
                 <button class="support-btn" onclick="openSupport()">
                     <span class="heart">♥</span>
-                    <span>Støt med sats ⚡</span>
+                    <span>{lang === "en" ? "Support with sats ⚡" : "Støt med sats ⚡"}</span>
                 </button>
 
                 <div class="language-switcher">
