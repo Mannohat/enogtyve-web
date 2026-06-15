@@ -26,6 +26,7 @@ const allEvents: ShowcaseEvent[] = [
 	meetup,
 	...conferences
 		.filter((c) => new Date(c.endISO) >= today)
+		.sort((a, b) => a.startISO.localeCompare(b.startISO))
 		.map((c) => ({
 			id: c.id,
 			title: { da: c.name, en: c.name },
