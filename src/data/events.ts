@@ -21,8 +21,8 @@ export const meetup: ShowcaseEvent = {
   dayLabel: "21",
   monthLabel: { da: "HVER MD.", en: "MONTHLY" },
   timeLocation: {
-    da: "Den 21. kl. 19:00 i hver måned · Falkoner Alle 24a, 2000 Frederiksberg",
-    en: "21st, 7:00 p.m. every month · Falkoner Alle 24a, 2000 Frederiksberg",
+    da: "Den 21. i hver måned · Falkoner Alle 24a, 2000 Frederiksberg",
+    en: "21st every month · Falkoner Alle 24a, 2000 Frederiksberg",
   },
   endISO: "2099-12-31",
 };
