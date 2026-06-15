@@ -49,16 +49,16 @@ export interface Conference {
 
 export const conferences: Conference[] = [
   {
-    id: "oslofreedomforum-2026",
+    id: "oslofreedomforum-2027",
     name: "Oslo Freedom Forum",
-    startISO: "2026-06-01",
-    endISO: "2026-06-03",
+    startISO: "2027-05-31",
+    endISO: "2027-06-02",
     url: "https://oslofreedomforum.com/",
-    dayLabel: "1",
-    monthLabel: { da: "JUNI", en: "JUNE" },
+    dayLabel: "31",
+    monthLabel: { da: "MAJ", en: "MAY" },
     timeLocation: {
-      da: "1.–3. juni 2026 · Oslo, Norge",
-      en: "1–3 June 2026 · Oslo, Norway",
+      da: "31. maj–2. juni 2027 · Oslo, Norge",
+      en: "31 May–2 June 2027 · Oslo, Norway",
     },
     image: "/images/logos/oslofreedomforum.svg",
     location: "Oslo, Norge",
@@ -67,16 +67,16 @@ export const conferences: Conference[] = [
     linkLabel: "Køb billet",
   },
   {
-    id: "btcprague-2026",
+    id: "btcprague-2027",
     name: "BTCPrague",
-    startISO: "2026-06-11",
-    endISO: "2026-06-13",
+    startISO: "2027-05-06",
+    endISO: "2027-05-08",
     url: "https://btcprg.me/ENOGTYVE",
-    dayLabel: "11",
-    monthLabel: { da: "JUNI", en: "JUNE" },
+    dayLabel: "6",
+    monthLabel: { da: "MAJ", en: "MAY" },
     timeLocation: {
-      da: "11.–13. juni 2026 · Prag, Tjekkiet",
-      en: "11–13 June 2026 · Prague, Czech Republic",
+      da: "6.–8. maj 2027 · Prag, Tjekkiet",
+      en: "6–8 May 2027 · Prague, Czech Republic",
     },
     discount: {
       da: 'Spar 10% med rabatkoden "enogtyve"',

@@ -5,9 +5,20 @@ import { conferences } from "../../../data/events";
 const today = new Date();
 today.setHours(0, 0, 0, 0);
 
+// Upcoming events first (soonest at top), then past events (most recent first).
+// ISO date strings (YYYY-MM-DD) sort chronologically as plain strings.
+const sortedConferences = [...conferences].sort((a, b) => {
+  const aPast = new Date(a.endISO) < today;
+  const bPast = new Date(b.endISO) < today;
+  if (aPast !== bPast) return aPast ? 1 : -1;
+  return aPast
+    ? b.startISO.localeCompare(a.startISO)
+    : a.startISO.localeCompare(b.startISO);
+});
+
 const eventSchema = {
   "@context": "https://schema.org",
-  "@graph": conferences.map((conf) => ({
+  "@graph": sortedConferences.map((conf) => ({
     "@type": "Event",
     "name": conf.name,
     "startDate": conf.startISO,
@@ -37,7 +48,7 @@ const eventSchema = {
   </section>
 
   <section class="conferences-list">
-    {conferences.map((conf) => {
+    {sortedConferences.map((conf) => {
       const isPast = new Date(conf.endISO) < today;
       return (
         <div class:list={["conference-card", { past: isPast }]}>
