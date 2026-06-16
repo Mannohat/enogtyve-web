@@ -120,6 +120,12 @@ export const EN_LIVE = new Set<string>([
   "/mining/mining-for-heating",
   "/mining/solo-mining",
   "/mining/mempool-guide",
+  // Community
+  "/community/bookmarks",
+  "/community/initiatives-denmark",
+  "/community/media-kit",
+  "/community/playlist",
+  "/community/support",
 ]);
 
 /**

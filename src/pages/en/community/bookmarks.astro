@@ -1,0 +1,2058 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+---
+
+<ResourcePageLayout
+    title="Bookmarks"
+    description="Curated Bitcoin resources and bookmarks — wallets, nodes, exchanges, books, podcasts, films, and much more."
+    lang="en"
+>
+    <section class="intro">
+        <p>
+            You stumble across a website, a wallet, or something else you find
+            exciting. Maybe you share it with others, or maybe you forget about it
+            again. This page is an attempt to gather these and hopefully make them
+            easy to overview and find again — or simply to explore.
+        </p>
+    </section>
+
+    <section class="search-section">
+        <div class="search-row">
+            <div class="search-wrap">
+                <span class="search-icon">⌕</span>
+                <input
+                    type="text"
+                    id="bookmark-search"
+                    class="search-input"
+                    placeholder="Search the bookmarks…"
+                    autocomplete="off"
+                    spellcheck="false"
+                />
+                <button class="search-clear" id="search-clear" aria-label="Clear search">✕</button>
+            </div>
+            <button class="suggest-btn" id="suggest-open">+ Suggest a resource</button>
+        </div>
+        <p class="search-no-results" id="search-no-results">No results found.</p>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal-backdrop" id="suggest-modal" aria-hidden="true">
+        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div class="modal-header">
+                <h3 id="modal-title">Suggest a resource</h3>
+                <button class="modal-close" id="suggest-close" aria-label="Close">✕</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-intro">Do you know a good Bitcoin resource that's missing here? Fill in the form and we'll take a look.</p>
+                <div class="form-group">
+                    <label for="f-navn">Name <span class="required">*</span></label>
+                    <input type="text" id="f-navn" placeholder="e.g. Mempool.space" />
+                </div>
+                <div class="form-group">
+                    <label for="f-url">URL <span class="required">*</span></label>
+                    <input type="url" id="f-url" placeholder="https://..." />
+                </div>
+                <div class="form-group">
+                    <label for="f-kategori">Category <span class="required">*</span></label>
+                    <select id="f-kategori">
+                        <option value="">Choose a category…</option>
+                        <option>Essential</option>
+                        <option>Learn about Bitcoin</option>
+                        <option>Books</option>
+                        <option>Tutorials</option>
+                        <option>Podcasts</option>
+                        <option>Films &amp; documentaries</option>
+                        <option>News</option>
+                        <option>Blockchain</option>
+                        <option>Price tickers</option>
+                        <option>Wallets</option>
+                        <option>Hardware Wallets</option>
+                        <option>Lightning</option>
+                        <option>Liquid</option>
+                        <option>eCash</option>
+                        <option>Ark</option>
+                        <option>Node &amp; Infrastructure</option>
+                        <option>Buy Bitcoin</option>
+                        <option>Earn Bitcoin</option>
+                        <option>Mining</option>
+                        <option>Conferences</option>
+                        <option>Meet other Bitcoiners</option>
+                        <option>Tools</option>
+                        <option>Music</option>
+                        <option>Art &amp; culture</option>
+                        <option>Entertainment</option>
+                        <option>Health and Wellbeing</option>
+                        <option>Merch &amp; shops</option>
+                        <option>Other resources</option>
+                        <option>NOSTR</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="f-beskrivelse">Short description <span class="required">*</span></label>
+                    <input type="text" id="f-beskrivelse" placeholder="One sentence about what the resource is" maxlength="120" />
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-send" id="suggest-send">Send suggestion</button>
+                </div>
+                <p class="modal-status" id="modal-status"></p>
+                <div class="modal-post-actions" id="modal-post-actions" style="display:none">
+                    <button class="btn-luk" id="suggest-luk">Close</button>
+                    <button class="btn-en-mere" id="suggest-en-mere">Suggest another?</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="category-section">
+        <h2>Essential</h2>
+        <div class="resources-grid">
+            <a href="https://bitcoin.org/bitcoin.pdf?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/bitcoin.png" alt="Bitcoin Whitepaper" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">The Bitcoin Whitepaper</span>
+                <span class="resource-desc">Satoshi Nakamoto's original 9-page document from 2008</span>
+            </a>
+            <a href="https://www.youtube.com/watch?v=ONvg9SbauMg" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/youtube.com.ico" alt="The Stories We Tell About Money" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">The Stories We Tell About Money</span>
+                <span class="resource-desc">Andreas Antonopoulos on the nature of money and Bitcoin</span>
+            </a>
+            <a href="https://www.youtube.com/watch?v=Z9HbQsTgrtk" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/youtube.com.ico" alt="Speech about Money – Atlas Shrugged" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Speech about Money – Atlas Shrugged</span>
+                <span class="resource-desc">Ayn Rand's famous speech about gold from Atlas Shrugged</span>
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PLE88E9ICdiphYjJkeeLL2O09eJoC8r7Dc" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/youtube.com.ico" alt="Hidden Secrets of Money" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Hidden Secrets of Money</span>
+                <span class="resource-desc">Mike Maloney's video series on the history of money and currencies</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Learn about Bitcoin</h2>
+        <div class="resources-grid">
+
+                        <a href="https://www.enogtyve.org" class="resource-card">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/enogtyve_logo.png" alt="ENOGTYVE" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">ENOGTYVE</span>
+                <span class="resource-desc">The best place to get started — find resources and meet other Bitcoiners</span>
+            </a>
+            <a href="https://www.bitcoinskolen.net?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/bitcoinskolen.png" alt="Bitcoinskolen" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bitcoinskolen.net</span>
+                <span class="resource-desc">Danish Bitcoin education platform</span>
+            </a>
+
+            <a href="https://www.bitcoinstandarden.dk?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/bitcoinstandarden.dk.ico" alt="Bitcoinstandarden" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bitcoinstandarden.dk</span>
+                <span class="resource-desc">Danish translation of The Bitcoin Standard</span>
+            </a>
+
+            <a href="https://bitcoin.org/en?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/bitcoin.png" alt="Bitcoin.org" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bitcoin.org</span>
+                <span class="resource-desc">The official Bitcoin website and introduction</span>
+            </a>
+
+            <a href="https://www.hope.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/hope.com.ico" alt="Hope.com" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Hope.com</span>
+                <span class="resource-desc">Bitcoin as hope for global financial freedom</span>
+            </a>
+
+            <a href="https://bitcoin.rocks?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/bitcoin.rocks.ico" alt="Bitcoin.rocks" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bitcoin.rocks</span>
+                <span class="resource-desc">A simple introduction to Bitcoin for beginners</span>
+            </a>
+
+            <a href="https://www.lightningpiggy.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/www.lightningpiggy.com.ico" alt="Lightning Piggy" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Lightning Piggy</span>
+                <span class="resource-desc">A project to teach children to save in bitcoin</span>
+            </a>
+
+            <a href="https://learnmeabitcoin.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/learnmeabitcoin.com.ico" alt="Learnmeabitcoin" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Learnmeabitcoin.com</span>
+                <span class="resource-desc">Technical and visual explanation of how Bitcoin works</span>
+            </a>
+
+            <a href="https://yzer.io?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/yzer.png" alt="Yzer" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Yzer</span>
+                <span class="resource-desc">An app to learn about Bitcoin in bite-sized portions</span>
+            </a>
+
+            <a href="https://www.saylor.org?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/sayloracademy.svg" alt="Saylor Academy" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Saylor Academy</span>
+                <span class="resource-desc">Free online courses including Bitcoin for Everybody</span>
+            </a>
+
+            <a href="https://nakamotoinstitute.org?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/nakamotoinstitute.png" alt="Nakamoto Institute" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Nakamotoinstitute</span>
+                <span class="resource-desc">A collection of Satoshi's original writings and important texts</span>
+            </a>
+
+            <a href="https://value4value.info?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/value4value.info.ico" alt="Value4Value" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Value4value.info</span>
+                <span class="resource-desc">Introduction to the Value4Value model for content creators</span>
+            </a>
+
+            <a href="https://orange-wheel.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/ow_logo.svg" alt="Orange Wheel" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Orange Wheel</span>
+                <span class="resource-desc">Helps energy producers gain new revenue streams via Bitcoin</span>
+            </a>
+
+            <a href="https://bitcoin-resources.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/bitcoin-resources.com.ico" alt="Bitcoin Resources" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bitcoin-resources.com</span>
+                <span class="resource-desc">A curated collection of Bitcoin resources across media</span>
+            </a>
+            <a href="https://wehodlbtc.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/wehodlbtc.com.ico" alt="WE HODL BTC" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">WE HODL BTC</span>
+                <span class="resource-desc">Opinionated guides that cut through the noise to help you easily self-custody your Bitcoin.</span>
+            </a>
+            <a href="https://www.bitcoin4youth.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/www.bitcoin4youth.com.ico" alt="Bitcoin Juniors Club" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bitcoin Juniors Club</span>
+                <span class="resource-desc">Resources for learning about and playing with Bitcoin for families and children</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Books</h2>
+        <div class="resources-grid">
+            <a href="https://www.shop21.dk?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/shop21.png" alt="Shop21" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Shop21</span>
+                <span class="resource-desc">Danish books about Bitcoin, freedom, and economics</span>
+            </a>
+            <a href="https://www.bitcoinerbooks.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/bitcoinerbooks.com.ico" alt="Bitcoinerbooks" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bitcoinerbooks.com</span>
+                <span class="resource-desc">A curated collection of English Bitcoin books</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Tutorials</h2>
+        <div class="resources-grid">
+            <a href="https://www.youtube.com/@BTCSessions/videos" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/content/btcsessions.jpg" alt="BTC Sessions" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">BTCSessions Youtube</span>
+                <span class="resource-desc">Step-by-step video guides for wallets, nodes, and more</span>
+            </a>
+            <a href="https://www.lopp.net?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/lopp.net.ico" alt="Jameson Lopp" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Jameson Lopp</span>
+                <span class="resource-desc">A comprehensive Bitcoin resource collection from Casa's CTO</span>
+            </a>
+            <a href="https://bitcoiner.guide?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/bitcoiner.guide.ico" alt="Bitcoiner Guide" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bitcoiner.guide</span>
+                <span class="resource-desc">Practical guides for wallets, nodes, and privacy</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Podcasts</h2>
+        <div class="resources-grid">
+            <a href="/da/podcasts/" class="resource-card">
+                <div class="resource-logo-wrap">
+                <img src="/images/mediekit/en-og-tyve-pod.png" alt="ENOGTYVE" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">ENOGTYVE Podcasts</span>
+                <span class="resource-desc">All podcasts from the Danish Bitcoin community ENOGTYVE</span>
+            </a>
+            <a href="https://open.spotify.com/show/7nfP1BCWhGzGkGJd8wzV8h?si=eja1j8ULSHqLAtEt1ACZeA" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/content/rhr.jpg" alt="RHR" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">RHR Spotify</span>
+                <span class="resource-desc">Rigtige Hårde Råd — a Danish podcast about Bitcoin and freedom</span>
+            </a>
+            <a href="https://open.spotify.com/show/0mWUJuONiilW5JSBBFZ0s7?si=gkzemn2QSlCp6AwnbE8waQ&nd=1&dlsi=aac6edec63f24d4b" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/content/wbd.webp" alt="WBD" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">WBD Spotify</span>
+                <span class="resource-desc">What Bitcoin Did — Peter McCormack's Bitcoin podcast</span>
+            </a>
+            <a href="https://open.spotify.com/show/4wWzXFEyAJtM6aOLA6c4Q2?si=_EK1qep4QjOaQ9bRCyzmhw" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/content/oncebitten.jpg" alt="Once Bitten" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Once Bitten Spotify</span>
+                <span class="resource-desc">A Bitcoin podcast with Daniel Prince about lifestyle and adoption</span>
+            </a>
+            <a href="https://www.noderunners.network?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/noderunners.png" alt="Noderunners" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Noderunners.network</span>
+                <span class="resource-desc">A podcast and community for Bitcoin node operators</span>
+            </a>
+            <a href="https://youtube.com/playlist?list=PL2jAZ0x9H0bQFY6wIbQfnrnIlqMcSHd6X" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/youtube.com.ico" alt="The What is Money Show" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">WiM – The Saylor Series</span>
+                <span class="resource-desc">Michael Saylor's in-depth walkthrough of Bitcoin</span>
+            </a>
+            <a href="https://youtube.com/playlist?list=PLutwRFLXGQz0CxnvWaT0yVKxVvpleRk_p" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/youtube.com.ico" alt="What Bitcoin Did" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">WBD – Beginners Guide</span>
+                <span class="resource-desc">What Bitcoin Did's guide for new Bitcoiners</span>
+            </a>
+            <a href="https://bitcoinpodcasts.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/bitcoinpodcasts.com.ico" alt="Bitcoinpodcasts" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bitcoinpodcasts.com</span>
+                <span class="resource-desc">A complete overview of all Bitcoin podcasts</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Films & documentaries</h2>
+        <div class="resources-grid">
+            <a href="https://youtu.be/jzwVNHJxgHE?feature=shared" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/youtube.com.ico" alt="The Great Reset and the Rise of Bitcoin" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">The Great Reset and the Rise of Bitcoin</span>
+                <span class="resource-desc">A documentary about Bitcoin as a counterweight to The Great Reset</span>
+            </a>
+            <a href="https://www.hardmoneyfilm.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/hardmoneyfilm.com.ico" alt="Hard Money Film" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Hard Money Film</span>
+                <span class="resource-desc">A documentary about sound money, gold, and Bitcoin</span>
+            </a>
+            <a href="https://www.petrodollarsfilm.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/petrodollarsfilm.com.ico" alt="Petrodollars Film" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Petrodollars Film</span>
+                <span class="resource-desc">A documentary about the global consequences of the petrodollar system</span>
+            </a>
+            <a href="https://www.anatomystatefilm.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/anatomystatefilm.com.ico" alt="Anatomy of the State Film" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Anatomy of the State Film</span>
+                <span class="resource-desc">A film based on Murray Rothbard's classic essay</span>
+            </a>
+            <a href="https://timechaintv.com" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/timechaintv.com.ico" alt="Timechain TV" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Timechain TV</span>
+                <span class="resource-desc">A Bitcoin video platform with content about Bitcoin, Lightning, and freedom</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>News</h2>
+        <div class="resources-grid">
+
+            <a href="https://europeanbitcoiners.com/tag/dan?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/europeanbitcoiners.com.ico" alt="European Bitcoiners" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">European Bitcoiners</span>
+                <span class="resource-desc">European Bitcoin news and articles with a Danish section</span>
+            </a>
+
+            <a href="https://www.nobsbitcoin.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/nobsbitcoin.png" alt="NoBSBitcoin" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">NoBSBitcoin.com</span>
+                <span class="resource-desc">Bitcoin news without noise, ads, or altcoins</span>
+            </a>
+
+            <a href="https://www.stacker.news?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/stackernews.png" alt="Stacker News" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Stacker.news</span>
+                <span class="resource-desc">A Bitcoin-focused news aggregator with Lightning tips</span>
+            </a>
+
+            <a href="https://bitcoinnews.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/bitcoinnewscom.png" alt="Bitcoin News" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bitcoinnews.com</span>
+                <span class="resource-desc">Daily news about Bitcoin and the Lightning Network</span>
+            </a>
+
+            <a href="https://bitcoinmagazine.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/btcmag.png" alt="Bitcoin Magazine" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bitcoin Magazine</span>
+                <span class="resource-desc">The world's oldest Bitcoin publication, since 2012</span>
+            </a>
+
+            <a href="https://lightning.news?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/lightningnews.webp" alt="Lightning News" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Lightning News</span>
+                <span class="resource-desc">News and updates about the Lightning Network</span>
+            </a>
+
+            <a href="https://bitcoinops.org?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/bitcoinops.org.ico" alt="Bitcoin Optech" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bitcoinops.org</span>
+                <span class="resource-desc">Technical newsletter and documentation for Bitcoin developers</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Blockchain</h2>
+        <div class="resources-grid">
+            <a href="https://www.enogtyve.org/stillearly.html" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/enogtyve_logo.png" alt="Blokhøjde" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Block height and epochs</span>
+                <span class="resource-desc">See the current block height and time until the next halving</span>
+            </a>
+            <a href="https://mempool.space?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/mempool.png" alt="Mempool" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Mempool.space</span>
+                <span class="resource-desc">Blockchain explorer and live mempool visualization</span>
+            </a>
+            <a href="https://timechaincalendar.com/en?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/timechaincal.png" alt="Timechain Calendar" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Timechaincalendar.com</span>
+                <span class="resource-desc">Bitcoin's history and milestones shown as a calendar</span>
+            </a>
+            <a href="https://bitcoin.clarkmoody.com/dashboard?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/clarkmoody.png" alt="Clark Moody" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Clarkmoody Dashboard</span>
+                <span class="resource-desc">A real-time Bitcoin dashboard with on-chain key figures</span>
+            </a>
+            <a href="https://www.lookintobitcoin.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/lookintobitcoin.com.ico" alt="Lookintobitcoin" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Lookintobitcoin.com</span>
+                <span class="resource-desc">On-chain analysis and visualization of market cycles</span>
+            </a>
+            <a href="https://www.pricedinbitcoin21.com/landing?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/pricedinbitcoin21.com.ico" alt="Priced in Bitcoin" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Pricedinbitcoin21.com</span>
+                <span class="resource-desc">See the price of everything — from gold to stocks — measured in bitcoin</span>
+            </a>
+            <a href="https://timechainstats.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/timechainstats.com.ico" alt="Timechainstats" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Timechainstats.com</span>
+                <span class="resource-desc">Statistics and charts of the Bitcoin network</span>
+            </a>
+            <a href="https://miningpool.observer?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/miningpool.observer.ico" alt="Miningpool Observer" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Miningpool.observer</span>
+                <span class="resource-desc">An overview of mining pools and block production</span>
+            </a>
+            <a href="https://www.utxo.live?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/utxo.live.ico" alt="UTXO.live" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">UTXO.live</span>
+                <span class="resource-desc">Interactive visualization of the entire UTXO set</span>
+            </a>
+            <a href="https://iancoleman.io?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/iancoleman.io.ico" alt="Iancoleman" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Iancoleman.io</span>
+                <span class="resource-desc">BIP39 seed words and HD key derivation tool</span>
+            </a>
+            <a href="https://bitfeed.live?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/bitfeed.live.ico" alt="Bitfeed" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bitfeed.live</span>
+                <span class="resource-desc">A beautiful live visualization of Bitcoin transactions</span>
+            </a>
+            <a href="https://fork.observer?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/fork.observer.ico" alt="https://fork.observer/" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">https://fork.observer/</span>
+                <span class="resource-desc">Bitcoin nodes in real time. Fork observer.</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Price tickers</h2>
+        <div class="resources-grid">
+            <a href="https://bitbo.io?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/bitbo.png" alt="Bitbo" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bitbo.io</span>
+                <span class="resource-desc">A live Bitcoin dashboard with prices and on-chain metrics</span>
+            </a>
+            <a href="https://bitcointicker.co?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/content/bitcoinlogo.png" alt="Bitcoin Ticker" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bitcointicker.co</span>
+                <span class="resource-desc">A minimalist real-time price ticker for Bitcoin</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Wallets</h2>
+        <div class="resources-grid">
+            <a href="https://www.walletofsatoshi.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/wos.jpeg" alt="Wallet of Satoshi" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Wallet of Satoshi</span>
+                <span class="resource-desc">A simple custodial Lightning wallet for beginners</span>
+            </a>
+            <a href="https://coinos.io?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/coinos.io.ico" alt="Coinos" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Coinos.io</span>
+                <span class="resource-desc">A wallet with support for Nostr Wallet Connect and eCash</span>
+            </a>
+            <a href="https://phoenix.acinq.co?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/phoenix.jpeg" alt="Phoenix Wallet" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Phoenix Wallet</span>
+                <span class="resource-desc">A self-custodial Lightning wallet from ACINQ</span>
+            </a>
+            <a href="https://breez.technology?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/breez.technology.ico" alt="Breez" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Breez</span>
+                <span class="resource-desc">A self-custodial Lightning wallet with a built-in podcast player</span>
+            </a>
+            <a href="https://zeusln.app?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/zeusln.app.ico" alt="Zeus LN" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Zeus LN</span>
+                <span class="resource-desc">An advanced Lightning wallet for node operators</span>
+            </a>
+            <a href="https://bluewallet.io?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/bluewallet.io.ico" alt="Blue Wallet" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Blue Wallet</span>
+                <span class="resource-desc">A Bitcoin and Lightning wallet for iOS and Android</span>
+            </a>
+            <a href="https://bitari2100.vercel.app/t" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/bitari2100.vercel.app.ico" alt="Bitari 2100" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bitari 2100</span>
+                <span class="resource-desc">A gamified Bitcoin learning platform and resource collection</span>
+            </a>
+            <a href="https://numopay.org?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/numopay.org.ico" alt="Numopay" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Numopay</span>
+                <span class="resource-desc">Receive satoshis via NFC</span>
+            </a>
+            <a href="https://www.blink.sv?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/www.blink.sv.ico" alt="Blink" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Blink</span>
+                <span class="resource-desc">A super user-friendly, easy everyday Lightning wallet with a Danish language option</span>
+            <a href="https://nunchuk.io?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/nunchuk.io.ico" alt="Nunchuk" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Nunchuk</span>
+                <span class="resource-desc">A wallet app with NFC, multisig, inheritance solutions, and many other features</span>
+            </a>
+            <a href="https://modulo.network?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/modulo.network.ico" alt="Modulo" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Modulo</span>
+                <span class="resource-desc">Offline key generation and stainless steel storage solutions</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Hardware Wallets</h2>
+        <div class="resources-grid">
+            <a href="https://affil.trezor.io/aff_c?offer_id=352&aff_id=36562" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/trezor.webp" alt="Trezor" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Trezor</span>
+                <span class="resource-desc">A popular hardware wallet for securely storing bitcoin</span>
+            </a>
+            <a href="https://shiftcrypto.ch/bitbox02/?ref=Seum0AJVdk" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/bitbox_w.png" alt="BitBox02" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">BitBox02</span>
+                <span class="resource-desc">A Swiss hardware wallet — a Bitcoin-only model is available</span>
+            </a>
+            <a href="https://store.coinkite.com/promo/F5E096EEF1AEDDAC4255" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/coldcard.jpeg" alt="Coldcard" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Coldcard</span>
+                <span class="resource-desc">An advanced Bitcoin-only hardware wallet from Coinkite</span>
+            </a>
+            <a href="https://store.blockstream.com/?code=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/jade.png" alt="Blockstream Jade" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Blockstream Jade</span>
+                <span class="resource-desc">A hardware wallet from Blockstream with open source firmware</span>
+            </a>
+            <a href="https://www.seedsigner.com" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/seedsigner.webp" alt="SeedSigner" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">SeedSigner</span>
+                <span class="resource-desc">An open source DIY hardware wallet based on the Raspberry Pi</span>
+            </a>
+            <a href="https://sparrowwallet.com" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/sparrow.png" alt="Sparrow Wallet" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Sparrow Wallet</span>
+                <span class="resource-desc">An advanced Bitcoin desktop wallet with full coin control</span>
+            </a>
+            <a href="https://blockstream.com/green" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/blockstream.com.ico" alt="Blockstream Green" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Blockstream Green</span>
+                <span class="resource-desc">A multisig Bitcoin wallet from Blockstream</span>
+            </a>
+            <a href="https://wasabiwallet.io" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/wasabi.svg" alt="Wasabi Wallet" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Wasabi Wallet</span>
+                <span class="resource-desc">A privacy-focused Bitcoin wallet with CoinJoin</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Lightning</h2>
+        <div class="resources-grid">
+            <a href="https://www.amboss.space?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/amboss.png" alt="Amboss" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Amboss.space</span>
+                <span class="resource-desc">A Lightning Network explorer with node and channel statistics</span>
+            </a>
+            <a href="https://www.1ml.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/1ml.png" alt="1ML" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">1ml.com</span>
+                <span class="resource-desc">A search engine and statistics for Lightning nodes and channels</span>
+            </a>
+            <a href="https://lightningnetwork.plus?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/lnnetplus.svg" alt="Lightning Network Plus" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Lightningnet.plus</span>
+                <span class="resource-desc">A platform for organizing Lightning channel rings</span>
+            </a>
+            <a href="https://lightning.network?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/lightning.network.ico" alt="Lightning.network" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Lightning.network</span>
+                <span class="resource-desc">Scalable, instant bitcoin payments</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Liquid</h2>
+        <div class="resources-grid">
+            <a href="https://liquid.net?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/liquid.svg" alt="Liquid Network" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Liquid Network</span>
+                <span class="resource-desc">A Bitcoin sidechain with fast, confidential transactions and issued assets (L-BTC)</span>
+            </a>
+            <a href="https://blockstream.com/liquid/" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/blockstream.com.ico" alt="Blockstream Liquid" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Blockstream Liquid</span>
+                <span class="resource-desc">An overview of the Liquid Network, peg-ins, and developer tools</span>
+            </a>
+            <a href="https://sideswap.io" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/sideswap.io.ico" alt="SideSwap" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">SideSwap</span>
+                <span class="resource-desc">Non-custodial swaps and trading on Liquid</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>eCash</h2>
+        <div class="resources-grid">
+            <a href="https://cashu.space" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/cashu.space.ico" alt="Cashu" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Cashu</span>
+                <span class="resource-desc">An open source eCash protocol built on Bitcoin</span>
+            </a>
+            <a href="https://wallet.cashu.me" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/wallet.cashu.me.ico" alt="Cashu.me" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Cashu.me</span>
+                <span class="resource-desc">A browser-based Cashu eCash wallet</span>
+            </a>
+            <a href="https://www.minibits.cash" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/www.minibits.cash.ico" alt="Minibits" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Minibits</span>
+                <span class="resource-desc">A mobile wallet for Cashu eCash and Lightning</span>
+            </a>
+            <a href="https://nutstash.app" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/nutstash.app.ico" alt="Nutstash" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Nutstash</span>
+                <span class="resource-desc">A web-based Cashu wallet with multi-mint support</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Ark</h2>
+        <div class="resources-grid">
+            <a href="https://arklabs.xyz" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/arklabs.xyz.ico" alt="Ark Labs" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Ark Labs</span>
+                <span class="resource-desc">The Ark protocol for scalable, trust-minimized Bitcoin payments</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Node & Infrastructure</h2>
+        <div class="resources-grid">
+            <a href="https://www.getumbrel.com" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/www.getumbrel.com.ico" alt="Umbrel" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Umbrel</span>
+                <span class="resource-desc">A user-friendly Bitcoin and Lightning node for the home</span>
+            </a>
+            <a href="https://start9.com" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/start9.com.ico" alt="Start9" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Start9</span>
+                <span class="resource-desc">A self-hosted server for a Bitcoin node and other services</span>
+            </a>
+            <a href="https://raspiblitz.org" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/raspiblitz.org.ico" alt="RaspiBlitz" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">RaspiBlitz</span>
+                <span class="resource-desc">An open source Bitcoin and Lightning node on the Raspberry Pi</span>
+            </a>
+            <a href="https://specter.solutions/desktop" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/specter.png" alt="Specter" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Specter</span>
+                <span class="resource-desc">A desktop app for multisig Bitcoin wallets and node management</span>
+            </a>
+            <a href="https://www.voltage.cloud" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/www.voltage.cloud.ico" alt="Voltage Cloud" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Voltage Cloud</span>
+                <span class="resource-desc">A cloud-hosted Lightning node for developers and businesses</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Buy Bitcoin</h2>
+        <div class="resources-grid">
+            <a href="https://relai.app?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/relai_logo.png" alt="Relai" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Relai</span>
+                <span class="resource-desc">A simple app for automatically saving in Bitcoin (DCA)</span>
+            </a>
+            <a href="https://app.bullbitcoin.com/registration/enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/bullbitcoin.webp" alt="Bull Bitcoin" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bull Bitcoin</span>
+                <span class="resource-desc">A non-custodial Bitcoin-only buying and selling platform</span>
+            </a>
+            <a href="https://peachbitcoin.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/peachbitcoin.svg" alt="Peach Bitcoin" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Peach Bitcoin</span>
+                <span class="resource-desc">Peer-to-peer Bitcoin trading without KYC</span>
+            </a>
+            <a href="https://spend.bringin.xyz/signup?affiliate=ID1T71MG5S" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/bringin.svg" alt="Bringin" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bringin</span>
+                <span class="resource-desc">Receive your salary, or part of it, paid in Bitcoin</span>
+            </a>
+            <a href="https://hodlhodl.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/hodlhodl.png" alt="HodlHodl" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">HodlHodl</span>
+                <span class="resource-desc">A non-custodial peer-to-peer Bitcoin trading platform</span>
+            </a>
+            <a href="https://bisq.network?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/bisq.svg" alt="Bisq" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bisq</span>
+                <span class="resource-desc">A decentralized peer-to-peer Bitcoin exchange with no account</span>
+            </a>
+            <a href="https://app.paywithflash.com/signup?ref=837fa65af323b9b01dcbfccdb7d9f4e64d7a598daac25bbdf0fdc06e9d89bdd0" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/flash.png" alt="Flash" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Flash</span>
+                <span class="resource-desc">A Lightning payment platform for online businesses</span>
+            </a>
+            <a href="https://swiss-bitcoin-pay.ch/?refCode=ENOGTYVE" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/swissbitcoinpay_w.png" alt="Swiss Bitcoin Pay" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Swiss Bitcoin Pay</span>
+                <span class="resource-desc">A payment solution for businesses that want to accept Bitcoin</span>
+            </a>
+            <a href="https://app.wave.space/auth/sign-up/?affiliate=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/wavespace.jpeg" alt="Wave Space" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Wave Space</span>
+                <span class="resource-desc">A Bitcoin-focused co-working and community platform</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Earn Bitcoin</h2>
+        <div class="resources-grid">
+            <a href="https://satsback.com/register/6zj3laKvOmPVyKE5" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/satsback.png" alt="Satsback" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Satsback</span>
+                <span class="resource-desc">Earn sats back on purchases at selected retailers</span>
+            </a>
+            <a href="https://addslice.com/?crew=f5DzF" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/addslice.jpeg" alt="AddSlice" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">AddSlice</span>
+                <span class="resource-desc">Earn sats by answering questions online</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Mining</h2>
+        <div class="resources-grid">
+            <a href="https://github.com/BitMaker-hub/NerdMiner_v2" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/github.com.ico" alt="NerdMiner" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">NerdMiner</span>
+                <span class="resource-desc">An open source solo-mining device based on the ESP32</span>
+            </a>
+            <a href="https://www.sololuck.com/?ref=enogtyve.org" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/sololuck.com.ico" alt="SoloLuck" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Sololuck.com</span>
+                <span class="resource-desc">Statistics and probability for solo miners</span>
+            </a>
+            <a href="https://21energy.com/enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/21energy.png" alt="21energy" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">21energy.com</span>
+                <span class="resource-desc">A Bitcoin miner for heating the home</span>
+            </a>
+            <a href="https://heatbit.com/?ref=ENOGTYVE" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/heatbit_w.svg" alt="Heatbit" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Heatbit</span>
+                <span class="resource-desc">A Bitcoin miner that works as a heater</span>
+            </a>
+            <a href="https://braiins.com" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/braiins.com.ico" alt="Braiins" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Braiins</span>
+                <span class="resource-desc">A mining pool and firmware for Bitcoin ASIC miners</span>
+            </a>
+            <a href="https://miningwholesale.eu" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/miningwholesale.eu.ico" alt="Mining Wholesale EU" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Mining Wholesale EU</span>
+                <span class="resource-desc">A European reseller of Bitcoin mining equipment</span>
+            </a>
+            <a href="https://hashrateindex.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/hashrateindex.com.ico" alt="Hashrate Index" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Hashrate Index</span>
+                <span class="resource-desc">Hashrate statistics and research</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Conferences</h2>
+        <div class="resources-grid">
+            <a href="https://www.bitcoincopenhagen.dk?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/btccph.png" alt="Bitcoin Copenhagen" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bitcoin Copenhagen</span>
+                <span class="resource-desc">A Danish Bitcoin conference</span>
+            </a>
+            <a href="https://btchel.com" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/btchel.png" alt="BTCHel" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">BTCHel</span>
+                <span class="resource-desc">A Bitcoin conference in Helsinki</span>
+            </a>
+            <a href="https://btcprg.me/ENOGTYVE" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/btcprague.png" alt="BTC Prague" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">BTC Prague</span>
+                <span class="resource-desc">Europe's largest Bitcoin conference, in Prague</span>
+            </a>
+            <a href="https://lncal.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/lncal.com.ico" alt="LNCal" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">LNCal</span>
+                <span class="resource-desc">A calendar of upcoming Bitcoin and Lightning events</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Meet other Bitcoiners</h2>
+        <div class="resources-grid">
+            <a href="https://www.btcmap.org?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/btcmap.svg" alt="BTCMap.org" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">BTCMap.org</span>
+                <span class="resource-desc">A world map of all the places that accept Bitcoin</span>
+            </a>
+            <a href="https://einundzwanzig.space?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/einundzwanzig.space.ico" alt="Einundzwanzig" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Einundzwanzig</span>
+                <span class="resource-desc">A German Bitcoin community — sister organization to ENOGTYVE</span>
+            </a>
+            <a href="https://www.twentyone.world?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/twentyone.world.ico" alt="Twentyone World" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Twentyone.world</span>
+                <span class="resource-desc">A global network of Bitcoin communities across languages</span>
+            </a>
+            <a href="https://signup.theorangepillapp.com/opa/Jake" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/theorangepillapp.com.ico" alt="Orange Pill App" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Orange Pill App</span>
+                <span class="resource-desc">Find other Bitcoiners near you</span>
+            </a>
+            <a href="https://www.satlantis.io?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/satlantis.png" alt="Satlantis" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Satlantis</span>
+                <span class="resource-desc">A social platform and network for Bitcoiners</span>
+            </a>
+            <a href="https://free-communities.org" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/free-communities.org.ico" alt="Free Communities" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Free Communities</span>
+                <span class="resource-desc">An overview of free societies and Bitcoin-adopting places</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Tools</h2>
+        <div class="resources-grid">
+            <a href="https://btcpayserver.org?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/btcpayserver.org.ico" alt="BTCPay Server" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">BTCPay Server</span>
+                <span class="resource-desc">An open source Bitcoin payment processor for businesses</span>
+            </a>
+            <a href="https://zaprite.com" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/zaprite.com.ico" alt="Zaprite" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Zaprite</span>
+                <span class="resource-desc">A Bitcoin and Lightning invoicing and payment tool</span>
+            </a>
+            <a href="https://www.lnbits.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/lnbits.com.ico" alt="LNbits" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">LNbits</span>
+                <span class="resource-desc">A free Lightning account system with apps and plugins</span>
+            </a>
+            <a href="https://lightsats.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/lightsats.com.ico" alt="Lightsats" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Lightsats.com</span>
+                <span class="resource-desc">Send sats as a gift to Bitcoin beginners</span>
+            </a>
+            <a href="https://tipcards.io?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/tipcards.io.ico" alt="Tipcards" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Tipcards.io</span>
+                <span class="resource-desc">Physical Lightning gift cards with a QR code</span>
+            </a>
+            <a href="https://boltz.exchange" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/boltz.exchange.ico" alt="Boltz Exchange" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Boltz Exchange</span>
+                <span class="resource-desc">Non-custodial swaps between on-chain Bitcoin and Lightning</span>
+            </a>
+            <a href="https://lightningdecoder.com" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/lightningdecoder.com.ico" alt="Lightning Decoder" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Lightning Decoder</span>
+                <span class="resource-desc">Decode Lightning invoices and LNURL links</span>
+            </a>
+            <a href="https://opentip.io?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/opentip.io.ico" alt="Opentip" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Opentip.io</span>
+                <span class="resource-desc">Receive Bitcoin Lightning tips as a content creator</span>
+            </a>
+            <a href="https://www.borderwallets.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/borderwallets.com.ico" alt="Borderwallets" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Borderwallets.com</span>
+                <span class="resource-desc">A creative method for remembering and storing seed phrases</span>
+            </a>
+            <a href="https://bcrypt-generator.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/bcrypt-generator.com.ico" alt="Bcrypt Generator" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bcrypt Generator</span>
+                <span class="resource-desc">Generate and verify bcrypt password hashes online</span>
+            </a>
+            <a href="https://www.travala.com" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/www.travala.com.ico" alt="Travala" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Travala</span>
+                <span class="resource-desc">Book hotels and travel and pay with Bitcoin</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Music</h2>
+        <div class="resources-grid">
+
+            <a href="/en/community/playlist" class="resource-card">
+                <div class="resource-logo-wrap">
+                <img src="/images/content/enogtyve_playlist.png" alt="Spotify" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">ENOGTYVE Spotify playliste</span>
+                <span class="resource-desc">A Bitcoin playlist from ENOGTYVE</span>
+            </a>
+
+            <a href="https://fountain.fm?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/fountain.fm.ico" alt="Fountain" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Fountain.fm</span>
+                <span class="resource-desc">A podcast app with Lightning Value4Value support</span>
+            </a>
+
+            <a href="https://wavelake.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/wavelake.webp" alt="Wavlake" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Wavelake</span>
+                <span class="resource-desc">Music streaming funded with Lightning payments</span>
+            </a>
+
+            <a href="https://zap.stream?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/zap.stream.ico" alt="Zap Stream" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Zap.stream</span>
+                <span class="resource-desc">Live streaming funded with Lightning Zaps</span>
+            </a>
+
+            <a href="https://radio.noderunners.org?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/noderunners.png" alt="Noderunners" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Noderunners.fm</span>
+                <span class="resource-desc">A Bitcoin radio station that plays around the clock</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Art & culture</h2>
+        <div class="resources-grid">
+            <a href="https://www.citadel21.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/citadel21.webp" alt="Citadel21" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Citadel21</span>
+                <span class="resource-desc">An online magazine with Bitcoin essays, art, and zines</span>
+            </a>
+            <a href="https://www.madex.art?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/madex.webp" alt="MADEX" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">MADEX</span>
+                <span class="resource-desc">A marketplace for Bitcoin art and digital artworks</span>
+            </a>
+            <a href="https://21ism.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/21ism.png" alt="21ism" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">21ism.com</span>
+                <span class="resource-desc">Bitcoin art, culture, and essays</span>
+            </a>
+            <a href="https://btcpins.com/?aff=fUg2UWK3p5o1VYn4Wx_UQuwJhpOGaAYDChJ4KlRhfsErWsCqa69PYohMWcCOGK9tK1rAqmuvT2KITFnAjhivbfOajnP3D8A8O09Hi-OY4K8" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/btcpins.png" alt="BTCPins" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">BTCPins</span>
+                <span class="resource-desc">Handmade pins, enamel, and Bitcoin badges</span>
+            </a>
+            <a href="https://www.cypherpunknow.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/cypherpunk_future_is_now.webp" alt="CypherPunkNow" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">CypherPunkNow</span>
+                <span class="resource-desc">Signed and numbered silkscreen Bitcoin art posters</span>
+            </a>
+            <a href="https://thepriceinsats.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/thepriceinsats.com.ico" alt="The Price in Sats" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Thepriceinsats.com</span>
+                <span class="resource-desc">See everyday goods and prices converted into satoshis</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Entertainment</h2>
+        <div class="resources-grid">
+            <a href="https://citadelarcade.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/citadelarcade.com.ico" alt="Citadel Arcade" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Citadel Arcade</span>
+                <span class="resource-desc">The home of the Citadel Gaming Universe</span>
+            </a>
+            <a href="https://spacezappers.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/spacezappers.com.ico" alt="SpaceZappers" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">SpaceZappers</span>
+                <span class="resource-desc">A game with a leaderboard where you pay with sats via Lightning</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Health and Wellbeing</h2>
+        <div class="resources-grid">
+            <a href="https://buy.daylightcomputer.com/enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/daylight.svg" alt="Daylight Computer" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Daylight Computer</span>
+                <span class="resource-desc">A screen-friendly tablet designed for focus and wellbeing</span>
+            </a>
+            <a href="http://www.mitochondriak.com/?a_box=gepydbhk" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/mito.webp" alt="Mitochondriak" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Mitochondriak</span>
+                <span class="resource-desc">Supplements and products for mitochondrial health</span>
+            </a>
+            <a href="https://drinksote.com/ENOGTYVE" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/sote.jpg" alt="Salt of the Earth" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Salt of the Earth</span>
+                <span class="resource-desc">Natural electrolyte drinks for optimal hydration</span>
+            </a>
+            <a href="https://sauna.lyn.page?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/lynsauna.png" alt="SAUNA." class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">SAUNA.</span>
+                <span class="resource-desc">seven modules. one sauna.</span>
+            </a>
+            <a href="https://www.bitcoinrunners.org?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/www.bitcoinrunners.org.ico" alt="Bitcoin Runners" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bitcoin Runners</span>
+                <span class="resource-desc">A community for people who combine an interest in Bitcoin with a healthy, active lifestyle.</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Merch & shops</h2>
+        <div class="resources-grid">
+            <a href="https://www.shop21.dk?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/shop21.png" alt="Shop21" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Shop21</span>
+                <span class="resource-desc">Danish books about Bitcoin, freedom, and economics</span>
+            </a>
+            <a href="https://www.barekev.dk?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/barekev.png" alt="BAREKEV" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">BAREKEV.DK</span>
+                <span class="resource-desc">Danish Bitcoin-themed clothing</span>
+            </a>
+            <a href="https://www.bitrefill.com/dk/en?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/bitrefill.png" alt="Bitrefill" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bitrefill</span>
+                <span class="resource-desc">Buy gift cards and top-up cards with Bitcoin and Lightning</span>
+            </a>
+            <a href="https://www.satoshistore.io?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/satoshistore.io.ico" alt="Satoshistore" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Satoshistore.io</span>
+                <span class="resource-desc">A wide selection of Bitcoin merchandise from Europe</span>
+            </a>
+            <a href="https://copiaro.de/en?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/copiaro.de.ico" alt="Copiaro" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Copiaro.de</span>
+                <span class="resource-desc">Stainless steel plates for secure backup of seed phrases</span>
+            </a>
+            <a href="https://www.storeofvalue.eu/discount/enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/storeofvalue.png" alt="Store of Value" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Store of Value</span>
+                <span class="resource-desc">Bitcoin merchandise — use the code enogtyve for a discount</span>
+            </a>
+            <a href="https://www.gobrrr.me/?coupon=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/gobrrr.svg" alt="GoBrrr" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">GoBrrr.me</span>
+                <span class="resource-desc">An Austrian Bitcoin-only shop — 5% off with the code enogtyve</span>
+            </a>
+            <a href="https://tinyseed.io/enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/tinyseed.png" alt="Tinyseed" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Tinyseed.io</span>
+                <span class="resource-desc">A titanium plate for fireproof backup of seed phrases</span>
+            </a>
+            <a href="https://btclock.store?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/btclock.store.ico" alt="BTClock" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">BTClock</span>
+                <span class="resource-desc">A Bitcoin clock that shows the live price and block height</span>
+            </a>
+            <a href="https://pleb.style?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/plebstyle.webp" alt="Pleb Style" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Pleb.style</span>
+                <span class="resource-desc">Bitcoin clothing and merchandise</span>
+            </a>
+            <a href="https://www.bitcoinstickers.co.uk?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/bitcoinstickers.co.uk.ico" alt="Bitcoin Stickers" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bitcoin Stickers</span>
+                <span class="resource-desc">Bitcoin stickers and graphics</span>
+            </a>
+            <a href="https://www.cryptocloaks.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/cryptocloaks.com.ico" alt="Cryptocloaks" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Cryptocloaks</span>
+                <span class="resource-desc">3D-printed Bitcoin accessories and mining gear</span>
+            </a>
+            <a href="https://bitronics.store/?ref=1089" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/bitronics.svg" alt="Bitronics" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bitronics</span>
+                <span class="resource-desc">Bitcoin hardware and gadgets for enthusiasts</span>
+            </a>
+            <a href="https://shop.freemadeira.org/discount/enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/freemadeira.webp" alt="Free Madeira Shop" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Free Madeira Shop</span>
+                <span class="resource-desc">Merchandise from the Bitcoin-friendly Free Madeira project</span>
+            </a>
+            <a href="https://diynodes.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/diynodes.com.ico" alt="DIYnodes" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">DIYnodes</span>
+                <span class="resource-desc">Various DIY items for nodes, SeedSigners, Specter, and more</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Other resources</h2>
+        <div class="resources-grid">
+            <a href="https://www.dergigi.com" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/www.dergigi.com.ico" alt="Der Gigi" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Der Gigi</span>
+                <span class="resource-desc">Essays and books about Bitcoin by the well-known author Gigi</span>
+            </a>
+            <a href="https://endthefud.org?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/endthefud.org.ico" alt="End the FUD" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">End the FUD</span>
+                <span class="resource-desc">Well-documented answers to the most common Bitcoin criticism</span>
+            </a>
+            <a href="https://bitcoindeaths.com?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/bitcoindeaths.com.ico" alt="Bitcoin Deaths" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Bitcoindeaths.com</span>
+                <span class="resource-desc">An archive of every time Bitcoin has been declared dead</span>
+            </a>
+            <a href="https://mises.org?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/mises.org.ico" alt="Mises Institute" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Mises.org</span>
+                <span class="resource-desc">The Ludwig von Mises Institute for Austrian economics</span>
+            </a>
+            <a href="https://planb.network?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="https://icons.duckduckgo.com/ip3/planb.network.ico" alt="PlanB Network" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">PlanB Network</span>
+                <span class="resource-desc">A free Bitcoin education network with courses and resources</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section nostr-section">
+        <h2>NOSTR</h2>
+        <div class="resources-grid">
+                        <a href="https://www.nostr.dk?ref=enogtyve" class="resource-card nostr-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/shaka.png" alt="Nostr" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Nostr.dk</span>
+                <span class="resource-desc">A Danish portal and introduction to the Nostr protocol</span>
+            </a>
+                        <a href="https://primal.net/home?ref=enogtyve" class="resource-card nostr-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/primal.png" alt="Primal" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Primal.net</span>
+                <span class="resource-desc">A user-friendly Nostr client for web and mobile</span>
+            </a>
+                        <a href="https://damus.io?ref=enogtyve" class="resource-card nostr-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/logos/damus.png" alt="Damus" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Damus</span>
+                <span class="resource-desc">An iOS app for Nostr with built-in Lightning integration</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
+        <h2>Discounts</h2>
+        <div class="resources-grid">
+                        <a href="/da/rabat" class="resource-card">
+                <div class="resource-logo-wrap">
+                <img src="/images/icons/promo.png" alt="Rabatter" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Rabatter</span>
+                <span class="resource-desc">Exclusive discount codes for Bitcoin products and services</span>
+            </a>
+        </div>
+    </section>
+
+    <a href="#" class="back-to-top"> ↑ Back to top </a>
+</ResourcePageLayout>
+
+<style>
+    .intro {
+        margin-bottom: 2rem;
+        line-height: 1.7;
+        color: var(--text-light);
+    }
+
+    .category-section {
+        margin-bottom: 2rem;
+    }
+
+    .category-section h2 {
+        color: var(--primary);
+        font-size: 1.4rem;
+        margin-bottom: var(--space-md);
+        padding-bottom: var(--space-sm);
+        border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+    }
+
+    .nostr-section h2 {
+        color: #7b42d1;
+        border-bottom-color: rgba(55, 26, 118, 0.3);
+    }
+
+    .resources-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: var(--space-md);
+    }
+
+    .resource-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.75rem;
+        padding: 1.5rem 1.25rem;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(247, 147, 26, 0.15);
+        transition: all 0.3s ease;
+        height: 100%;
+    }
+
+    .resource-card:hover {
+        background: rgba(247, 147, 26, 0.08);
+        border-color: var(--primary);
+        transform: translateY(-3px);
+    }
+
+    .nostr-card {
+        border-color: rgba(55, 26, 118, 0.25);
+    }
+
+    .nostr-card:hover {
+        background: rgba(55, 26, 118, 0.1);
+        border-color: #7b42d1;
+    }
+
+    .resource-logo-wrap {
+        height: 64px;
+        width: 100%;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.18);
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .resource-logo {
+        max-height: 44px;
+        max-width: 96px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 0 1px rgba(0,0,0,0.15));
+    }
+
+    .resource-logo[src*="duckduckgo"] {
+        max-height: 24px;
+        max-width: 24px;
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+        filter: none;
+    }
+
+    .resource-name {
+        color: var(--text-light);
+        font-size: 0.85rem;
+        font-weight: 500;
+        opacity: 0.85;
+        text-align: center;
+        line-height: 1.3;
+    }
+
+    .resource-card > .resource-name:first-child {
+        font-size: 0.9rem;
+        font-weight: 600;
+        opacity: 1;
+    }
+
+    .resource-desc {
+        color: var(--text-light);
+        font-size: 0.75rem;
+        opacity: 0.6;
+        text-align: center;
+        line-height: 1.35;
+        margin-top: auto;
+    }
+
+    @media (max-width: 567px) {
+        .resources-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* Search */
+    .search-section {
+        margin-bottom: 3.5rem;
+    }
+
+    .search-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        max-width: 700px;
+    }
+
+    .suggest-btn {
+        white-space: nowrap;
+        padding: 0.7rem 1.2rem;
+        background: none;
+        border: 1px solid rgba(247, 147, 26, 0.4);
+        border-radius: 8px;
+        color: var(--primary);
+        font-size: 0.9rem;
+        font-family: var(--font-body);
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .suggest-btn:hover {
+        background: rgba(247, 147, 26, 0.08);
+        border-color: var(--primary);
+    }
+
+    .modal-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.65);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    .modal-backdrop.open {
+        display: flex;
+    }
+
+    .modal-box {
+        background: var(--background-card, #1a1a1a);
+        border: 1px solid rgba(247, 147, 26, 0.2);
+        border-radius: 14px;
+        width: 100%;
+        max-width: 480px;
+        overflow: hidden;
+    }
+
+    .modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.25rem 1.5rem;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .modal-header h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        color: var(--primary);
+    }
+
+    .modal-close {
+        background: none;
+        border: none;
+        color: var(--text-light);
+        font-size: 0.85rem;
+        cursor: pointer;
+        padding: 0.25rem;
+        line-height: 1;
+        transition: color 0.2s;
+    }
+
+    .modal-close:hover { color: var(--primary); }
+
+    .modal-body {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .modal-intro {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-light);
+        opacity: 0.7;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+
+    .form-group label {
+        font-size: 0.8rem;
+        color: var(--text-light);
+        opacity: 0.8;
+    }
+
+    .required { color: var(--primary); }
+
+    .form-group input,
+    .form-group select {
+        padding: 0.6rem 0.8rem;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid var(--border, rgba(255,255,255,0.12));
+        border-radius: 7px;
+        color: var(--text);
+        font-size: 0.9rem;
+        font-family: var(--font-body);
+        outline: none;
+        transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+        border-color: var(--primary);
+    }
+
+    .form-group select option {
+        background: #1a1a1a;
+    }
+
+    .modal-actions {
+        padding-top: 0.25rem;
+    }
+
+    .btn-send {
+        width: 100%;
+        padding: 0.75rem;
+        background: var(--primary);
+        border: none;
+        border-radius: 8px;
+        color: #000;
+        font-size: 0.95rem;
+        font-weight: 600;
+        font-family: var(--font-body);
+        cursor: pointer;
+        transition: opacity 0.2s;
+    }
+
+    .btn-send:hover { opacity: 0.85; }
+    .btn-send:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .modal-status {
+        margin: 0;
+        font-size: 0.85rem;
+        text-align: center;
+        min-height: 1.2em;
+        color: var(--text-light);
+    }
+
+    .modal-status.success { color: #4caf7d; }
+    .modal-status.error   { color: #e05252; }
+
+    .modal-post-actions {
+        display: flex;
+        gap: 0.75rem;
+    }
+
+    .btn-luk,
+    .btn-en-mere {
+        flex: 1;
+        padding: 0.55rem 0.75rem;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-family: var(--font-body);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .btn-luk {
+        background: none;
+        border: 1px solid rgba(247, 147, 26, 0.4);
+        color: var(--primary);
+    }
+
+    .btn-luk:hover {
+        background: rgba(247, 147, 26, 0.08);
+        border-color: var(--primary);
+    }
+
+    .btn-en-mere {
+        background: rgba(247, 147, 26, 0.12);
+        border: 1px solid rgba(247, 147, 26, 0.4);
+        color: var(--primary);
+    }
+
+    .btn-en-mere:hover {
+        background: rgba(247, 147, 26, 0.2);
+        border-color: var(--primary);
+    }
+
+    .search-wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex: 1;
+        max-width: 420px;
+    }
+
+    .search-icon {
+        position: absolute;
+        left: 0.9rem;
+        font-size: 1.25rem;
+        color: var(--primary);
+        opacity: 0.5;
+        pointer-events: none;
+        line-height: 1;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 0.7rem 2.4rem 0.7rem 2.5rem;
+        background: var(--background-card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        color: var(--text);
+        font-size: 0.95rem;
+        font-family: var(--font-body);
+        outline: none;
+        transition: border-color 0.2s ease;
+    }
+
+    .search-input::placeholder {
+        color: var(--text-light);
+    }
+
+    .search-input:focus {
+        border-color: var(--primary);
+    }
+
+    .search-clear {
+        position: absolute;
+        right: 0.8rem;
+        background: none;
+        border: none;
+        color: var(--text-light);
+        cursor: pointer;
+        font-size: 0.75rem;
+        padding: 0;
+        display: none;
+        line-height: 1;
+        transition: color 0.2s ease;
+    }
+
+    .search-clear:hover {
+        color: var(--primary);
+    }
+
+    .search-no-results {
+        display: none;
+        margin-top: 1rem;
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+
+    .category-section.hidden {
+        display: none;
+    }
+
+    .resource-card.hidden {
+        display: none;
+    }
+</style>
+
+<script is:inline>
+    (function () {
+        var input = document.getElementById("bookmark-search");
+        var clearBtn = document.getElementById("search-clear");
+        var noResults = document.getElementById("search-no-results");
+
+        if (!input || !clearBtn || !noResults) return;
+
+        function runSearch() {
+            var q = input.value.trim().toLowerCase();
+            clearBtn.style.display = q ? "inline" : "none";
+
+            var sections = document.querySelectorAll(".category-section");
+            var anyVisible = false;
+
+            sections.forEach(function (section) {
+                var cards = section.querySelectorAll(".resource-card");
+                var sectionHasMatch = false;
+
+                var heading = section.querySelector("h2");
+                var headingText = heading ? heading.textContent.toLowerCase() : "";
+                var headingMatch = !q || headingText.includes(q);
+
+                cards.forEach(function (card) {
+                    var name = card.querySelector(".resource-name");
+                    var desc = card.querySelector(".resource-desc");
+                    var nameText = name ? name.textContent.toLowerCase() : "";
+                    var descText = desc ? desc.textContent.toLowerCase() : "";
+                    var matches = !q || nameText.includes(q) || descText.includes(q) || headingMatch;
+                    card.classList.toggle("hidden", !matches);
+                    if (matches) sectionHasMatch = true;
+                });
+
+                section.classList.toggle("hidden", !sectionHasMatch);
+                if (sectionHasMatch) anyVisible = true;
+            });
+
+            noResults.style.display = (anyVisible || !q) ? "none" : "block";
+        }
+
+        input.addEventListener("input", runSearch);
+
+        clearBtn.addEventListener("click", function () {
+            input.value = "";
+            runSearch();
+            input.focus();
+        });
+    })();
+</script>
+
+<script is:inline>
+    (function () {
+        var GITHUB_REPO = "Mannohat/enogtyve-web";
+        var GITHUB_LABEL = "ny-ressource";
+
+        var openBtn  = document.getElementById("suggest-open");
+        var closeBtn = document.getElementById("suggest-close");
+        var modal    = document.getElementById("suggest-modal");
+        var sendBtn  = document.getElementById("suggest-send");
+        var status   = document.getElementById("modal-status");
+
+        function openModal() {
+            modal.classList.add("open");
+            modal.setAttribute("aria-hidden", "false");
+            document.getElementById("f-navn").focus();
+        }
+
+        var lukBtn    = document.getElementById("suggest-luk");
+        var enMereBtn = document.getElementById("suggest-en-mere");
+        var postActions = document.getElementById("modal-post-actions");
+
+        function closeModal() {
+            modal.classList.remove("open");
+            modal.setAttribute("aria-hidden", "true");
+            status.textContent = "";
+            status.className = "modal-status";
+            postActions.style.display = "none";
+        }
+
+        openBtn.addEventListener("click", openModal);
+        closeBtn.addEventListener("click", closeModal);
+        lukBtn.addEventListener("click", closeModal);
+        enMereBtn.addEventListener("click", function() {
+            postActions.style.display = "none";
+            sendBtn.style.display = "block";
+            status.textContent = "";
+            status.className = "modal-status";
+        });
+
+        modal.addEventListener("click", function (e) {
+            if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") closeModal();
+        });
+
+        sendBtn.addEventListener("click", async function () {
+            var navn        = document.getElementById("f-navn").value.trim();
+            var url         = document.getElementById("f-url").value.trim();
+            var kategori    = document.getElementById("f-kategori").value;
+            var beskrivelse = document.getElementById("f-beskrivelse").value.trim();
+
+            if (!navn || !url || !kategori || !beskrivelse) {
+                status.textContent = "Please fill in all fields.";
+                status.className = "modal-status error";
+                return;
+            }
+
+            sendBtn.disabled = true;
+            status.textContent = "Sending…";
+            status.className = "modal-status";
+
+            try {
+                var res = await fetch("/.netlify/functions/create-issue", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        navn: navn,
+                        url: url,
+                        kategori: kategori,
+                        beskrivelse: beskrivelse,
+                        labels: [GITHUB_LABEL],
+                    }),
+                });
+
+                if (res.ok) {
+                    status.textContent = "✓ Thanks! Your suggestion has been sent for review.";
+                    status.className = "modal-status success";
+                    document.getElementById("f-navn").value = "";
+                    document.getElementById("f-url").value = "";
+                    document.getElementById("f-kategori").value = "";
+                    document.getElementById("f-beskrivelse").value = "";
+                    sendBtn.disabled = false;
+                    postActions.style.display = "flex";
+                    sendBtn.style.display = "none";
+                } else {
+                    throw new Error("HTTP " + res.status);
+                }
+            } catch (err) {
+                status.textContent = "Something went wrong. Please try again later.";
+                status.className = "modal-status error";
+                sendBtn.disabled = false;
+            }
+        });
+    })();
+</script>

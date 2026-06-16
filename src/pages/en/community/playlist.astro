@@ -1,0 +1,51 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+---
+
+<ResourcePageLayout
+  title="Bitcoin Music"
+  description="Enogtyve's Bitcoin playlist on Spotify — music for stacking and node running."
+  lang="en"
+>
+  <section class="content-section">
+    <p>Listen to Bitcoin-related music — a curated playlist of songs about Bitcoin, freedom, and sound money.</p>
+  </section>
+
+  <section class="spotify-section">
+    <iframe
+      src="https://open.spotify.com/embed/playlist/1sVO1ZBH0lGegNPH8hbS0D?utm_source=generator&theme=0"
+      width="100%"
+      height="552"
+      frameborder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
+      title="Enogtyve Bitcoin playlist"
+    ></iframe>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Back to top </a>
+</ResourcePageLayout>
+
+<style>
+  .content-section {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section p {
+    margin-bottom: 0.75rem;
+  }
+
+  .spotify-section {
+    margin-bottom: 2rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .spotify-section iframe {
+    display: block;
+  }
+
+</style>
