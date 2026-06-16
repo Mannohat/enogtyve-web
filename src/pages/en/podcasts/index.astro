@@ -1,0 +1,224 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import { localizedHref } from "../../../i18n/routes";
+
+const allPodcasts = await getCollection("podcasts", ({ id }) => id.startsWith("en/"));
+const podcasts = allPodcasts.sort(
+    (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+---
+
+<ResourcePageLayout
+    title="Podcasts"
+    description="An overview of Danish Bitcoin podcasts and Bitcoin-related podcast series in Danish."
+    lang="en"
+>
+    <section class="nav-buttons">
+        <a href={localizedHref('/da/blog/penges-historie', 'en')} class="nav-btn">A bit about money</a>
+        <a href={localizedHref('/da/blog/hvad-er-bitcoin', 'en')} class="nav-btn">A bit about Bitcoin</a>
+        <a href={localizedHref('/da/blog', 'en')} class="nav-btn">Enogtyve blog</a>
+    </section>
+
+    <section class="content-section">
+        <p>
+            Welcome to Enogtyve Podcasts! Below is a collection of good podcasts in
+            Danish covering Bitcoin, Nostr, and more.
+        </p>
+        <p>
+            Do you know a good Bitcoin podcast in Danish that you'd recommend? Let
+            us know, and we can list it here on the page.
+        </p>
+        <p>
+            If you'd like to take part in an episode, bring it up in the <a
+                href="http://telegram.enogtyve.org"
+                target="_blank"
+                rel="noopener noreferrer"><strong>Telegram group</strong></a
+            >.
+        </p>
+    </section>
+
+    <h2 class="section-title">Danish Bitcoin podcasts</h2>
+
+    <section class="podcasts-list">
+        {
+            podcasts.map((pod) => (
+                <div class="podcast-card">
+                    <div class="podcast-image">
+                        <Image src={pod.data.image} alt={pod.data.title} width={280} height={280} />
+                    </div>
+                    <div class="podcast-content">
+                        <h3 class="podcast-name">{pod.data.title}</h3>
+                        <p class="podcast-desc">{pod.data.description}</p>
+                        <div class="podcast-links">
+                            {pod.data.links.map((link) => (
+                                <a
+                                    href={link.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="podcast-link"
+                                >
+                                    {link.label} →
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            ))
+        }
+    </section>
+
+    <a href="#" class="back-to-top"> ↑ Back to top </a>
+</ResourcePageLayout>
+
+<style>
+    .nav-buttons {
+        display: flex;
+        gap: var(--space-md, 1rem);
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .nav-btn {
+        flex: 1;
+        min-width: 150px;
+        text-align: center;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--primary);
+        color: #000;
+        font-weight: 700;
+        font-size: 0.9rem;
+        border-radius: 6px;
+        border: 1px solid var(--primary);
+        transition: all 0.3s ease;
+    }
+
+    .nav-btn:hover {
+        background-color: transparent;
+        color: var(--primary);
+    }
+
+    .content-section {
+        margin-bottom: 2rem;
+        line-height: 1.8;
+        color: var(--text-light, #ccc);
+    }
+
+    .content-section p {
+        margin-bottom: 0.75rem;
+    }
+
+
+
+    /* Podcast list */
+    .podcasts-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .podcast-card {
+        display: flex;
+        gap: 1.5rem;
+        border: 1px solid rgba(247, 147, 26, 0.12);
+        border-radius: 12px;
+        padding: 1.25rem;
+        background: rgba(255, 255, 255, 0.03);
+        transition: border-color 0.3s ease;
+    }
+
+    .podcast-card:hover {
+        border-color: rgba(247, 147, 26, 0.4);
+    }
+
+    .podcast-image {
+        flex-shrink: 0;
+        width: 140px;
+        height: 140px;
+        border-radius: 10px;
+        overflow: hidden;
+        background: rgba(247, 147, 26, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .podcast-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .podcast-card:last-child .podcast-image img {
+        object-fit: contain;
+        padding: 0.5rem;
+    }
+
+    .podcast-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        flex: 1;
+    }
+
+    .podcast-name {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-light, #ccc);
+        margin: 0;
+    }
+
+    .podcast-desc {
+        font-size: 0.88rem;
+        line-height: 1.65;
+        color: rgba(204, 204, 204, 0.7);
+        margin: 0;
+        font-style: italic;
+        flex-grow: 1;
+    }
+
+    .podcast-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.25rem;
+    }
+
+    .podcast-link {
+        display: inline-block;
+        padding: 0.35rem 0.85rem;
+        background: rgba(247, 147, 26, 0.1);
+        color: var(--primary);
+        font-size: 0.82rem;
+        font-weight: 600;
+        border-radius: 6px;
+        transition: background 0.2s ease;
+    }
+
+    .podcast-link:hover {
+        background: rgba(247, 147, 26, 0.2);
+    }
+
+    @media (max-width: 567px) {
+        .nav-buttons {
+            flex-direction: column;
+        }
+
+        .podcast-card {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .podcast-image {
+            width: 180px;
+            height: 180px;
+        }
+
+        .podcast-links {
+            justify-content: center;
+        }
+    }
+</style>

@@ -73,6 +73,10 @@ export const daToEn: Record<string, string> = {
   // Podcasts & blog (indexes; individual posts handled by content collections)
   "/podcasts": "/podcasts",
   "/blog": "/blog",
+  "/blog/penges-historie": "/blog/the-history-of-money",
+  "/blog/hvad-er-bitcoin": "/blog/what-is-bitcoin",
+  "/blog/en-verden-med-faldende-priser": "/blog/a-world-of-falling-prices",
+  "/blog/bitcoin-mining-energiinfrastruktur": "/blog/bitcoin-mining-energy-infrastructure",
 };
 
 /** Reverse map: English path (no prefix) → Danish path (no prefix). */
@@ -131,6 +135,13 @@ export const EN_LIVE = new Set<string>([
   "/buidl",
   "/advisory-services/advisory",
   "/discounts",
+  // Blog & podcasts
+  "/blog",
+  "/podcasts",
+  "/blog/the-history-of-money",
+  "/blog/what-is-bitcoin",
+  "/blog/a-world-of-falling-prices",
+  "/blog/bitcoin-mining-energy-infrastructure",
 ]);
 
 /**
