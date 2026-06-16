@@ -1,10 +1,12 @@
 ---
+import { localizedHref } from "../../i18n/routes";
+
 interface Props {
 	lang?: "da" | "en";
 }
 const { lang = "da" } = Astro.props;
 const isEn = lang === "en";
-const rabatHref = `/${isEn ? "da" : lang}/rabat`;
+const rabatHref = localizedHref("/da/rabat", lang);
 ---
 
 <section class="collaborators-section">

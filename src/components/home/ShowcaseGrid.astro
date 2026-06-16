@@ -11,7 +11,7 @@ const { lang = "da" } = Astro.props;
 const isEn = lang === "en";
 const dateLocale = isEn ? "en-US" : "da-DK";
 
-const blogPosts = await getCollection("blog", ({ id }) => id.startsWith("da/"));
+const blogPosts = await getCollection("blog", ({ id }) => id.startsWith(`${lang}/`));
 const latestPosts = blogPosts
 	.sort(
 		(a, b) =>
@@ -90,12 +90,12 @@ const allEvents: ShowcaseEvent[] = [
 					<Image src="/images/icons/blog.png" alt="" width={96} height={96} class="box-icon" />
 					{isEn ? "Latest blog posts" : "Seneste Blog Posts"}
 				</h3>
-				<span class="box-badge">{isEn ? "Danish" : "Blog"}</span>
+				<span class="box-badge">Blog</span>
 			</div>
 			<div class="box-content">
 				{
 					latestPosts.map((post) => {
-						const slug = post.slug.replace("da/", "");
+						const slug = post.slug.replace(`${lang}/`, "");
 						const date = new Date(
 							post.data.pubDate,
 						).toLocaleDateString(dateLocale, {
@@ -104,7 +104,7 @@ const allEvents: ShowcaseEvent[] = [
 							year: "numeric",
 						});
 						return (
-							<a href={`/da/blog/${slug}`} class="news-item">
+							<a href={`/${lang}/blog/${slug}`} class="news-item">
 								<div class="news-date">{date}</div>
 								<div class="news-title">{post.data.title}</div>
 								<div class="news-excerpt">

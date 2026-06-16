@@ -1,10 +1,10 @@
 ---
+import { localizedHref } from "../../i18n/routes";
 interface Props {
     lang: "da" | "en";
 }
 const { lang } = Astro.props;
 const isEn = lang === "en";
-const contentLang = isEn ? "da" : lang;
 ---
 
 <section class="intro-banner">
@@ -31,10 +31,10 @@ const contentLang = isEn ? "da" : lang;
             </div>
             <div class="actions-column">
                 <div class="button-group">
-                    <a href={`/${contentLang}/blog/penges-historie`} class="action-btn"
+                    <a href={localizedHref(`/da/blog/penges-historie`, lang)} class="action-btn"
                         >{isEn ? "What is money?" : "Hvad er penge?"}</a
                     >
-                    <a href={`/${contentLang}/blog/hvad-er-bitcoin`} class="action-btn"
+                    <a href={localizedHref(`/da/blog/hvad-er-bitcoin`, lang)} class="action-btn"
                         >{isEn ? "What is Bitcoin?" : "Hvad er Bitcoin?"}</a
                     >
                 </div>

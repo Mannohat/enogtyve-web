@@ -1,17 +1,17 @@
 ---
+import { localizedHref } from "../../i18n/routes";
 import { Image } from 'astro:assets';
 interface Props {
 	lang: "da" | "en";
 }
 const { lang } = Astro.props;
 const isEn = lang === "en";
-const contentLang = isEn ? "da" : lang;
 ---
 
 <section class="featured">
 	<h2>{isEn ? "Explore" : "Udforsk"}</h2>
 	<div class="feature-grid">
-		<a href={`/${contentLang}/blog`} class="feature-card">
+		<a href={localizedHref(`/da/blog`, lang)} class="feature-card">
 			<Image src="/images/icons/blog.png" alt="" width={1024} height={1024} class="feature-icon" />
 			<h3>Blog</h3>
 			<p>
@@ -21,7 +21,7 @@ const contentLang = isEn ? "da" : lang;
 			</p>
 		</a>
 
-		<a href={`/${contentLang}/podcasts`} class="feature-card">
+		<a href={localizedHref(`/da/podcasts`, lang)} class="feature-card">
 			<Image src="/images/icons/podcasts.png" alt="" width={1024} height={1024} class="feature-icon" />
 			<h3>Podcasts</h3>
 			<p>
@@ -31,7 +31,7 @@ const contentLang = isEn ? "da" : lang;
 			</p>
 		</a>
 
-		<a href={`/${contentLang}/udforsk/udforsk`} class="feature-card">
+		<a href={localizedHref(`/da/udforsk/udforsk`, lang)} class="feature-card">
 			<Image src="/images/icons/udforsk.png" alt="" width={1024} height={1024} class="feature-icon" />
 			<h3>{isEn ? "Explore" : "Udforsk"}</h3>
 			<p>
@@ -41,7 +41,7 @@ const contentLang = isEn ? "da" : lang;
 			</p>
 		</a>
 
-		<a href={`/${contentLang}/kom-igang/kob-bitcoin`} class="feature-card">
+		<a href={localizedHref(`/da/kom-igang/kob-bitcoin`, lang)} class="feature-card">
 			<Image src="/images/icons/komigang.png" alt="" width={1024} height={1024} class="feature-icon" />
 			<h3>{isEn ? "Get started" : "Kom igang"}</h3>
 			<p>
@@ -51,7 +51,7 @@ const contentLang = isEn ? "da" : lang;
 			</p>
 		</a>
 
-		<a href={`/${contentLang}/rabat`} class="feature-card">
+		<a href={localizedHref(`/da/rabat`, lang)} class="feature-card">
 			<Image src="/images/icons/promo.png" alt="" width={1024} height={1024} class="feature-icon" />
 			<h3>{isEn ? "Discounts with enogtyve" : "Rabat med enogtyve"}</h3>
 			<p>
@@ -61,7 +61,7 @@ const contentLang = isEn ? "da" : lang;
 			</p>
 		</a>
 
-		<a href={`/${contentLang}/faellesskab/support`} class="feature-card">
+		<a href={localizedHref(`/da/faellesskab/support`, lang)} class="feature-card">
 			<Image src="/images/icons/support.png" alt="" width={1024} height={1024} class="feature-icon" />
 			<h3>{isEn ? "Support us" : "Støt os"}</h3>
 			<p>

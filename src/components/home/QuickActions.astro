@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { localizedHref } from "../../i18n/routes";
 import { conferences } from "../../data/events";
 
 interface Props {
@@ -7,7 +8,6 @@ interface Props {
 }
 const { lang } = Astro.props;
 const isEn = lang === "en";
-const contentLang = isEn ? "da" : lang;
 
 // Promote the next upcoming conference (soonest first); banner hides if none.
 const today = new Date();
@@ -78,22 +78,22 @@ const actions = [
 	{
 		icon: "/images/icons/bookmark.png",
 		label: isEn ? "Bookmarks" : "Bogmærker",
-		href: `/${contentLang}/faellesskab/bookmarks`,
+		href: localizedHref(`/da/faellesskab/bookmarks`, lang),
 	},
 	{
 		icon: "/images/icons/podcasts.png",
 		label: "Podcasts",
-		href: `/${contentLang}/podcasts`,
+		href: localizedHref(`/da/podcasts`, lang),
 	},
 	{
 		icon: "/images/icons/promo.png",
 		label: isEn ? "Discounts" : "Rabat",
-		href: `/${contentLang}/rabat`,
+		href: localizedHref(`/da/rabat`, lang),
 	},
 	{
 		icon: "/images/icons/blockchain.png",
 		label: isEn ? "Blockchain" : "Blokkæden",
-		href: `/${contentLang}/laer-mere/bitcoin-blockchain`,
+		href: localizedHref(`/da/laer-mere/bitcoin-blockchain`, lang),
 	},
 ];
 ---
@@ -179,7 +179,7 @@ const actions = [
 						)}
 					</div>
 				</a>
-				<a href={`/${contentLang}/udforsk/konferencer`} class="event-more">
+				<a href={localizedHref(`/da/udforsk/konferencer`, lang)} class="event-more">
 					{isEn ? "More conferences →" : "Se flere konferencer →"}
 				</a>
 			</div>

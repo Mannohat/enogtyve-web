@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import { daToEn, enToDa, EN_LIVE } from "../i18n/routes";
+import { daToEn, enToDa, EN_LIVE, localizedHref } from "../i18n/routes";
 
 interface Props {
     lang?: "da" | "en";
@@ -194,11 +194,21 @@ function buildMenuItems(navLang: NavLang) {
     ];
 }
 
-const menuItems = buildMenuItems(lang);
+// Route every internal nav href through the registry so English visitors get
+// English slugs. Safe no-op for Danish and for external/section-root links.
+type MenuItem = { label: string; href: string; target?: string; submenu?: MenuItem[] };
+const localizeMenu = (items: MenuItem[]): MenuItem[] =>
+    items.map((it) => ({
+        ...it,
+        href: localizedHref(it.href, lang),
+        submenu: it.submenu ? localizeMenu(it.submenu) : it.submenu,
+    }));
+
+const menuItems = localizeMenu(buildMenuItems(lang));
 
 const exclusiveMenuItem = {
     label: t(lang).advisory,
-    href: `/${lang === "en" ? "da" : lang}/advisory-services/raadgivning`,
+    href: localizedHref("/da/advisory-services/raadgivning", lang),
     submenu: [],
 };
 

@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { localizedHref } from "../i18n/routes";
 
 interface Props {
 	lang?: "da" | "en";
@@ -7,7 +8,6 @@ interface Props {
 
 const { lang = "da" } = Astro.props;
 const isEn = lang === "en";
-const contentLang = isEn ? "da" : lang;
 const privacyHref = isEn ? `/${lang}/privacypolicy` : `/${lang}/privatlivspolitik`;
 ---
 
@@ -120,22 +120,22 @@ const privacyHref = isEn ? `/${lang}/privacypolicy` : `/${lang}/privatlivspoliti
 				<h4>{isEn ? "Get started" : "Kom igang"}</h4>
 				<ul>
 					<li>
-						<a href={`/${contentLang}/kom-igang/kob-bitcoin`}
+						<a href={localizedHref(`/da/kom-igang/kob-bitcoin`, lang)}
 							>{isEn ? "Acquiring bitcoin" : "Anskaffelse af bitcoin"}</a
 						>
 					</li>
 					<li>
-						<a href={`/${contentLang}/kom-igang/opbevaring-af-bitcoin`}
+						<a href={localizedHref(`/da/kom-igang/opbevaring-af-bitcoin`, lang)}
 							>{isEn ? "Storage" : "Opbevaring"}</a
 						>
 					</li>
 					<li>
-						<a href={`/${contentLang}/kom-igang/hardware-wallets`}
+						<a href={localizedHref(`/da/kom-igang/hardware-wallets`, lang)}
 							>Hardware Wallets</a
 						>
 					</li>
 					<li>
-						<a href={`/${contentLang}/kom-igang/begreber-ord`}
+						<a href={localizedHref(`/da/kom-igang/begreber-ord`, lang)}
 							>{isEn ? "Terms and concepts" : "Begreber og Ord"}</a
 						>
 					</li>
@@ -145,15 +145,15 @@ const privacyHref = isEn ? `/${lang}/privacypolicy` : `/${lang}/privatlivspoliti
 			<div class="footer-section">
 				<h4>{isEn ? "Content" : "Indhold"}</h4>
 				<ul>
-					<li><a href={`/${contentLang}/blog`}>Blog</a></li>
-					<li><a href={`/${contentLang}/podcasts`}>Podcasts</a></li>
+					<li><a href={localizedHref(`/da/blog`, lang)}>Blog</a></li>
+					<li><a href={localizedHref(`/da/podcasts`, lang)}>Podcasts</a></li>
 					<li>
-						<a href={`/${contentLang}/udforsk/udforsk`}
+						<a href={localizedHref(`/da/udforsk/udforsk`, lang)}
 							>{isEn ? "Explore" : "Udforsk"}</a
 						>
 					</li>
 					<li>
-						<a href={`/${contentLang}/mining/mining-for-opvarmning`}
+						<a href={localizedHref(`/da/mining/mining-for-opvarmning`, lang)}
 							>Mining</a>
 					</li>
 				</ul>
@@ -169,7 +169,7 @@ const privacyHref = isEn ? `/${lang}/privacypolicy` : `/${lang}/privatlivspoliti
 						</button>
 					</li>
 					<li>
-						<a href={`/${contentLang}/rabat`}
+						<a href={localizedHref(`/da/rabat`, lang)}
 							>{isEn ? "Discounts with enogtyve" : "Rabat med enogtyve"}</a
 						>
 					</li>
@@ -182,7 +182,7 @@ const privacyHref = isEn ? `/${lang}/privacypolicy` : `/${lang}/privatlivspoliti
 						>
 					</li>
 					<li>
-						<a href={`/${contentLang}/faellesskab/mediekit`}
+						<a href={localizedHref(`/da/faellesskab/mediekit`, lang)}
 							>{isEn ? "Media kit" : "Mediekit"}</a
 						>
 					</li>
