@@ -126,6 +126,11 @@ export const EN_LIVE = new Set<string>([
   "/community/media-kit",
   "/community/playlist",
   "/community/support",
+  // Misc
+  "/welcome/fud-facts",
+  "/buidl",
+  "/advisory-services/advisory",
+  "/discounts",
 ]);
 
 /**

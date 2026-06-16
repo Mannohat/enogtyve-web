@@ -1,0 +1,667 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+import { localizedHref } from "../../../i18n/routes";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is Bitcoin a bubble?", "acceptedAnswer": { "@type": "Answer", "text": "Despite repeated price drops, Bitcoin's overall trend has been consistently upward. Critics who have declared bitcoin dead after every market cycle have been badly mistaken." } },
+    { "@type": "Question", "name": "Is Bitcoin too volatile?", "acceptedAnswer": { "@type": "Answer", "text": "Bitcoin's volatility reflects a free market with no trading halts, bailouts, or government interference. As adoption increases, volatility falls." } },
+    { "@type": "Question", "name": "Is Bitcoin backed by anything?", "acceptedAnswer": { "@type": "Answer", "text": "Bitcoin is backed by absolute scarcity and cryptographic verifiability — properties more robust than any physical asset." } },
+    { "@type": "Question", "name": "Will Bitcoin become obsolete?", "acceptedAnswer": { "@type": "Answer", "text": "Bitcoin represents the discovery of absolute scarcity. As a network with 99.98% uptime and billions in security, it's unlikely that Bitcoin will lose its dominant position." } },
+    { "@type": "Question", "name": "Does Bitcoin use too much energy?", "acceptedAnswer": { "@type": "Answer", "text": "Bitcoin mining uses surplus and stranded energy globally. It's a flexible energy buyer that helps balance energy distribution worldwide." } },
+    { "@type": "Question", "name": "Doesn't Bitcoin work without the internet?", "acceptedAnswer": { "@type": "Answer", "text": "It's possible to send Bitcoin transactions offline via SMS, satellite, and other communication networks without internet access." } },
+    { "@type": "Question", "name": "Is Bitcoin mainly for criminals?", "acceptedAnswer": { "@type": "Answer", "text": "Bitcoin is a neutral tool. Crime doesn't stem from access to tools. Cash is used for crime far more than Bitcoin." } },
+    { "@type": "Question", "name": "Is Bitcoin a pyramid scheme?", "acceptedAnswer": { "@type": "Answer", "text": "Bitcoin is not a pyramid scheme. It's a form of money with open source code and a verifiable fixed supply of 21 million — no central authority makes promises of returns." } },
+    { "@type": "Question", "name": "Is Bitcoin too slow?", "acceptedAnswer": { "@type": "Answer", "text": "Bitcoin's base layer is correctly compared to bank settlement, not card payments. The Lightning Network enables fast micropayments on the second layer." } },
+    { "@type": "Question", "name": "Can Bitcoin's 21 million limit be changed?", "acceptedAnswer": { "@type": "Answer", "text": "Bitcoin's supply is validated independently by every node. A change would require consensus from the entire network, which is extremely unlikely." } },
+    { "@type": "Question", "name": "Will governments ban Bitcoin?", "acceptedAnswer": { "@type": "Answer", "text": "Enforcing a Bitcoin ban is technically all but impossible. Private keys are just random numbers that can be stored anywhere." } },
+    { "@type": "Question", "name": "Is Bitcoin ownership concentrated among a few?", "acceptedAnswer": { "@type": "Answer", "text": "Large wallet holdings typically belong to exchanges with millions of customers. One address can represent many users." } },
+    { "@type": "Question", "name": "Is Bitcoin mining centralized?", "acceptedAnswer": { "@type": "Answer", "text": "Mining pools don't control Bitcoin's rules. Miners have a strong incentive to follow the network's rules, since their profits depend on it." } },
+    { "@type": "Question", "name": "Is a whole Bitcoin too expensive to buy?", "acceptedAnswer": { "@type": "Answer", "text": "A bitcoin can be divided into 100 million satoshis. You can buy any fraction — there's no minimum purchase price." } },
+    { "@type": "Question", "name": "Are Bitcoin transactions too expensive?", "acceptedAnswer": { "@type": "Answer", "text": "On-chain fees reflect final settlement of high value. Smaller payments are handled on the Lightning Network for fractions of a cent." } },
+  ]
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<ResourcePageLayout
+  title="Bitcoin myths and facts"
+  description="FUD or facts? We go through the most common myths about Bitcoin and answer with facts and sources."
+  lang="en"
+>
+  <section class="nav-buttons">
+    <a href={localizedHref('/da/blog/penges-historie', 'en')} class="nav-btn">A bit about money</a>
+    <a href={localizedHref('/da/blog/hvad-er-bitcoin', 'en')} class="nav-btn">A bit about Bitcoin</a>
+    <a href="/en/get-started/terms-and-words" class="nav-btn">Terms and words</a>
+  </section>
+
+  <section class="content-section">
+    <p>
+      Below you'll find an overview of the most common misconceptions and
+      falsehoods (FUD — Fear, Uncertainty, Doubt) about Bitcoin, along with the
+      factual answers to them.
+    </p>
+  </section>
+
+  <section class="fud-list">
+
+    <details class="fud-card">
+      <summary class="fud-header">
+        <span class="fud-label">FUD</span>
+        <span class="fud-title">Bitcoin is a bubble</span>
+      </summary>
+      <div class="fakta-body">
+        <span class="fakta-label">FACTS</span>
+        <p>
+          Over the years, Bitcoin has often been called a bubble by various
+          people. Although its price has had several significant drops that could
+          have justified that label, the overall trend for bitcoin has been
+          consistently upward.
+        </p>
+        <p>
+          Critics who have declared bitcoin dead after every market cycle have
+          been badly mistaken, and the emerging digital currency has continued to
+          thrive despite their predictions. Over time, as these critics run out of
+          analogies, it becomes clear that their claims are unfounded and wrong.
+        </p>
+      </div>
+    </details>
+
+    <details class="fud-card">
+      <summary class="fud-header">
+        <span class="fud-label">FUD</span>
+        <span class="fud-title">Bitcoin is too volatile</span>
+      </summary>
+      <div class="fakta-body">
+        <span class="fakta-label">FACTS</span>
+        <p>
+          It's subjective to expect bitcoin to maintain a specific price level,
+          since it trades around the clock, every day of the year, all over the
+          world. There are no registration requirements, bank holidays, temporary
+          trading halts, or bailouts in the Bitcoin market, which operates as a
+          true free market.
+        </p>
+        <p>
+          Any volatility in Bitcoin's price is the result of buyers and sellers
+          reaching agreement in real time without government interference. As
+          bitcoin continues its journey toward becoming a primary global store of
+          value in the information age, it's unrealistic to assume this will be a
+          linear process.
+        </p>
+        <p>
+          As the adoption of bitcoin increases, it becomes less risky, and the
+          potential upside diminishes, leading to a decline in volatility.
+        </p>
+      </div>
+    </details>
+
+    <details class="fud-card">
+      <summary class="fud-header">
+        <span class="fud-label">FUD</span>
+        <span class="fud-title">Bitcoin isn't backed by anything</span>
+      </summary>
+      <div class="fakta-body">
+        <span class="fakta-label">FACTS</span>
+        <p>
+          The idea of backed money is self-contradictory, since the backing itself
+          would then be considered money. Part of the value of money comes from its
+          scarcity. Bitcoin doesn't need to be backed by anything else that's
+          scarce, since it has absolute scarcity in itself.
+        </p>
+        <p>
+          By being verifiable and independently auditable, Bitcoin is free of
+          counterparty risk. There's no third party you have to trust to store and
+          secure goods or assets. If you were to imagine something realistic in
+          this context, it would be more that the future will be backed by bitcoin.
+        </p>
+        <p>
+          As Parker Lewis put it: "Ultimately, Bitcoin is backed by something, and
+          it's the only thing that backs any money: the credibility of its monetary
+          properties."
+        </p>
+      </div>
+    </details>
+
+    <details class="fud-card">
+      <summary class="fud-header">
+        <span class="fud-label">FUD</span>
+        <span class="fud-title">Bitcoin will become obsolete one day</span>
+      </summary>
+      <div class="fakta-body">
+        <span class="fakta-label">FACTS</span>
+        <p>
+          Bitcoin represents a unique discovery of absolute scarcity, on par with
+          the discovery of fire, electricity, or mathematics.
+        </p>
+        <p>
+          It's neither logical nor possible to compete with Bitcoin when it comes
+          to scarcity, since there's no higher level of scarcity than absolute
+          scarcity. Criticism of what some perceive as Bitcoin's limitations or
+          drawbacks assumes that there are no trade-offs when it comes to security
+          and incentive design, or that Bitcoin's current form doesn't already
+          provide significant benefits for millions of users.
+        </p>
+        <p>
+          As a fast-growing, permissionless network with 99.98% uptime over more
+          than a decade, that has processed billions in value and is secured by
+          billions in hardware, it's unlikely that Bitcoin will lose its position
+          as the dominant digital monetary network.
+        </p>
+        <p>
+          As Michael Saylor put it: "There's never been an example of a $100
+          billion digital network being surpassed after it reached the dominant
+          position."
+        </p>
+      </div>
+    </details>
+
+    <details class="fud-card">
+      <summary class="fud-header">
+        <span class="fud-label">FUD</span>
+        <span class="fud-title">Bitcoin uses too much energy</span>
+      </summary>
+      <div class="fakta-body">
+        <span class="fakta-label">FACTS</span>
+        <p>
+          Bitcoin is a decentralized digital currency, available to users all over
+          the world, and it's resistant to censorship because of its Proof of Work
+          mechanism.
+        </p>
+        <p>
+          With an estimated four billion people currently living under
+          authoritarian regimes, bitcoin allows people to send, receive, save, and
+          preserve value. It's important to consider how much energy a monetary
+          network like this should consume, and to carefully assess who is best
+          positioned to make decisions about it.
+        </p>
+        <p>
+          Bitcoin mining offers a flexible solution for using energy resources in
+          regions where there's no local demand or efficient transport options. By
+          deploying equipment on-site where this energy is surplus, it's possible
+          to produce bitcoin, which can then be stored or sold on the highly liquid
+          and globally accessible Bitcoin market.
+        </p>
+        <p>
+          One way to think about Bitcoin's impact on global energy use is to
+          imagine a topographic map of the world, where local electricity costs are
+          represented as peaks and valleys. Adding bitcoin is like pouring a glass
+          of water over the map — it runs down into the valleys and levels them
+          out. This is because Bitcoin is a global buyer of energy at a fixed price,
+          which helps balance the distribution of energy use around the world.
+        </p>
+      </div>
+    </details>
+
+    <details class="fud-card">
+      <summary class="fud-header">
+        <span class="fud-label">FUD</span>
+        <span class="fud-title">Bitcoin doesn't work without the internet</span>
+      </summary>
+      <div class="fakta-body">
+        <span class="fakta-label">FACTS</span>
+        <p>
+          There's of course a risk that internet access could be cut off due to
+          infrastructure failures, natural disasters, or deliberate shutdowns.
+          However, it's possible to make Bitcoin transactions using offline methods
+          and other communication networks.
+        </p>
+        <p>
+          For example, a signed Bitcoin transaction can be passed to a single node
+          and broadcast to the network to be included in a block by miners. There
+          are various ways to do this, such as sending a transaction via SMS, using
+          a physical wallet with a single-use, tamper-evident private key, or
+          receiving blocks via satellite. These options allow bitcoin to be used
+          even in the event of an internet disruption.
+        </p>
+      </div>
+    </details>
+
+    <details class="fud-card">
+      <summary class="fud-header">
+        <span class="fud-label">FUD</span>
+        <span class="fud-title">Bitcoin is for criminals</span>
+      </summary>
+      <div class="fakta-body">
+        <span class="fakta-label">FACTS</span>
+        <p>
+          Bitcoin is a neutral tool for exchanging value and has no beliefs,
+          opinions, or values. Its significance depends on how it's used. It's not
+          correct to claim that Bitcoin's properties have led to an increase in
+          criminal activity.
+        </p>
+        <p>
+          Crime doesn't stem from access to tools, but rather from individual
+          circumstances. If bitcoin is useful, it can be used by everyone,
+          including criminals. If it's not useful, it can't be used by anyone,
+          including criminals.
+        </p>
+        <p>
+          As Parker Lewis put it: "There are no fundamental properties of the tools
+          used to facilitate crimes that make them criminal in themselves. Despite
+          criminal use, no one calls for banning roads, the internet, the postal
+          service, and so on."
+        </p>
+      </div>
+    </details>
+
+    <details class="fud-card">
+      <summary class="fud-header">
+        <span class="fud-label">FUD</span>
+        <span class="fud-title">Bitcoin is a pyramid scheme</span>
+      </summary>
+      <div class="fakta-body">
+        <span class="fakta-label">FACTS</span>
+        <p>
+          Calling bitcoin a pyramid scheme shows a lack of understanding of both
+          bitcoin and the definition of a pyramid scheme. Also known as a Ponzi
+          scheme, it involves promises of returns higher than otherwise seen in the
+          market, but as a permissionless network, Bitcoin has no central authority
+          that can make such promises.
+        </p>
+        <p>
+          Moreover, bitcoin is not an investment vehicle; it's a form of money.
+          Unlike opaque investment opportunities that may be promoted to
+          unsuspecting individuals, Bitcoin's code is open source, and its supply
+          can be independently verified at any time.
+        </p>
+      </div>
+    </details>
+
+    <details class="fud-card">
+      <summary class="fud-header">
+        <span class="fud-label">FUD</span>
+        <span class="fud-title">Bitcoin is too slow</span>
+      </summary>
+      <div class="fakta-body">
+        <span class="fakta-label">FACTS</span>
+        <p>
+          Paying with bitcoin isn't the same as using a credit card to make a
+          purchase. When you use a credit card, your payment passes through several
+          parties before it reaches the merchant's bank account after days or even
+          weeks of processing.
+        </p>
+        <p>
+          By contrast, when you pay with bitcoin on the base layer, you send actual
+          money directly to the recipient with no intermediaries. This means there's
+          no risk of censorship, and the transaction is considered final once it has
+          been confirmed by six blocks on the blockchain.
+        </p>
+        <p>
+          The correct comparison would be between Bitcoin's base layer and the bank
+          as currency issuer and clearing mechanism.
+        </p>
+        <p>
+          Since the Lightning Network emerged, the criticism that "Bitcoin is too
+          slow" has largely fallen silent.
+        </p>
+      </div>
+    </details>
+
+    <details class="fud-card">
+      <summary class="fud-header">
+        <span class="fud-label">FUD</span>
+        <span class="fud-title">Bitcoin's supply cap can be corrupted</span>
+      </summary>
+      <div class="fakta-body">
+        <span class="fakta-label">FACTS</span>
+        <p>
+          Bitcoin's decentralized nature allows its maximum supply to be validated
+          independently by every node on the network, ensuring that it can't be
+          corrupted. This is achieved through a consensus process where every
+          transaction confirmed on the Bitcoin network is validated independently.
+        </p>
+        <p>
+          Although anyone can fork the code and change the rules, it's unlikely that
+          such a version of the code would be adopted by the broader network. The
+          decentralized consensus process and the incorruptible supply of bitcoin
+          are crucial to its appeal as a form of money.
+        </p>
+        <p>
+          The maximum supply of bitcoin is fixed at 21 million, and any attempt to
+          increase this limit would require consensus from a significant portion of
+          the Bitcoin network, which is highly unlikely to happen.
+        </p>
+      </div>
+    </details>
+
+    <details class="fud-card">
+      <summary class="fud-header">
+        <span class="fud-label">FUD</span>
+        <span class="fud-title">Governments will ban bitcoin</span>
+      </summary>
+      <div class="fakta-body">
+        <span class="fakta-label">FACTS</span>
+        <p>
+          It's technically possible for governments to ban bitcoin, but enforcing
+          such a ban would be difficult because of Bitcoin's decentralized nature.
+        </p>
+        <p>
+          Bitcoin relies on private keys, which are simply random numbers, to
+          control access to transactions recorded on the blockchain. These private
+          keys can be generated and stored anywhere, making them virtually
+          impossible to trace.
+        </p>
+        <p>
+          Moreover, the infrastructure required to access the Bitcoin network is
+          relatively simple and widely available, making it easy for people to
+          verify transactions trustlessly.
+        </p>
+        <p>
+          As Saifedean Ammous said: "Banning bitcoin is not much different from
+          trying to ban mathematics. It will only prove its usefulness and drive
+          more people toward it."
+        </p>
+      </div>
+    </details>
+
+    <details class="fud-card">
+      <summary class="fud-header">
+        <span class="fud-label">FUD</span>
+        <span class="fud-title">Bitcoin ownership is concentrated among a few users</span>
+      </summary>
+      <div class="fakta-body">
+        <span class="fakta-label">FACTS</span>
+        <p>
+          It's often said that a small number of wallets hold the majority of all
+          bitcoin. While this is technically true, it's important to note that these
+          wallets are typically owned by exchanges that have millions of customers.
+        </p>
+        <p>
+          Many people choose to leave their bitcoin on an exchange, but it's
+          generally considered best practice to store bitcoin in a personal wallet
+          for security and privacy reasons.
+        </p>
+        <p>
+          It's also worth noting that a single Bitcoin address can hold bitcoin
+          belonging to multiple users, and a single user can control multiple
+          wallets. To maintain privacy, it's recommended to generate a new address
+          for each receiving transaction rather than reusing the same address.
+        </p>
+      </div>
+    </details>
+
+    <details class="fud-card">
+      <summary class="fud-header">
+        <span class="fud-label">FUD</span>
+        <span class="fud-title">Bitcoin mining is centralized</span>
+      </summary>
+      <div class="fakta-body">
+        <span class="fakta-label">FACTS</span>
+        <p>
+          Some people believe that mining pools — groups of miners working together
+          to increase their chances of finding a block — could potentially disrupt
+          the Bitcoin network or censor transactions.
+        </p>
+        <p>
+          But this concern is the result of a lack of understanding of miners'
+          incentives and their role in the network. In reality, miners have a strong
+          incentive to follow the network's rules and uphold Bitcoin's integrity,
+          since their own profits depend on it.
+        </p>
+        <p>
+          As Jimmy Song said: "A majority of miners cannot: take bitcoin you already
+          hold, change the rules of bitcoin, or harm you without harming themselves."
+        </p>
+      </div>
+    </details>
+
+    <details class="fud-card">
+      <summary class="fud-header">
+        <span class="fud-label">FUD</span>
+        <span class="fud-title">Unit bias</span>
+      </summary>
+      <div class="fakta-body">
+        <span class="fakta-label">FACTS</span>
+        <p>
+          A common misconception about bitcoin is that it's too expensive to buy.
+        </p>
+        <p>
+          This belief, however, is based on unit bias, since it's more accurate to
+          compare the total market value of bitcoin with other assets rather than
+          just the unit price of a single bitcoin.
+        </p>
+        <p>
+          It's also worth noting that a single bitcoin can be divided into 100
+          million smaller units called satoshis. As the saying goes: "You can buy a
+          fraction of a bitcoin!"
+        </p>
+      </div>
+    </details>
+
+    <details class="fud-card">
+      <summary class="fud-header">
+        <span class="fud-label">FUD</span>
+        <span class="fud-title">Bitcoin transactions are far too expensive</span>
+      </summary>
+      <div class="fakta-body">
+        <span class="fakta-label">FACTS</span>
+        <p>
+          Another misconception about bitcoin is that transaction costs are
+          unmanageably high.
+        </p>
+        <p>
+          But confirmed transactions on Bitcoin's base layer provide a degree of
+          final settlement with no equivalent in the traditional financial system.
+          While it's true that transaction fees can occasionally rise due to the
+          limited capacity of each block, the Bitcoin network remains an efficient
+          and reliable settlement layer for high-value transactions.
+        </p>
+        <p>
+          In fact, Saifedean Ammous said: "Between October 2010 and July 2021, the
+          daily average transaction fees came to around 0.02% of the value of the
+          transactions."
+        </p>
+        <p>
+          In addition, smaller transactions, including micropayments, are often
+          migrated to secondary layers such as Lightning, Liquid, or federated
+          sidechains, where fees are significantly lower than those offered by
+          retail banks.
+        </p>
+      </div>
+    </details>
+
+    <details class="fud-card">
+      <summary class="fud-header">
+        <span class="fud-label">FUD</span>
+        <span class="fud-title">Bitcoin hoarding</span>
+      </summary>
+      <div class="fakta-body">
+        <span class="fakta-label">FACTS</span>
+        <p>
+          There's a common belief that bitcoin's fixed supply encourages hoarding —
+          the act of holding on to bitcoin rather than spending it in the economy.
+        </p>
+        <p>
+          This logic has some flaws, however. First, saving — the act of setting
+          income aside for future use — is often confused with hoarding. In fact,
+          saving is a necessary precursor to meaningful investment and can be seen
+          as responsible financial practice.
+        </p>
+        <p>
+          Second, holding bitcoin — or any form of money — doesn't necessarily mean
+          it isn't being used. It's a common way to hedge against future
+          uncertainty, as Pierre Rochard pointed out: "All bitcoin is always held by
+          someone; payments only change who holds them." In other words, holding
+          bitcoin is itself a use of Bitcoin.
+        </p>
+      </div>
+    </details>
+
+  </section>
+
+  <section class="content-section">
+    <p>
+      For more material, see
+      <a href="https://endthefud.org/" target="_blank" rel="noopener noreferrer">
+        endthefud.org
+      </a>
+    </p>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Back to top </a>
+</ResourcePageLayout>
+
+<style>
+  /* Navigation buttons */
+  .nav-buttons {
+    display: flex;
+    gap: var(--space-md, 1rem);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-btn {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    background-color: #f7931a;
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 1px solid #f7931a;
+    transition: all 0.3s ease;
+  }
+
+  .nav-btn:hover {
+    background-color: transparent;
+    color: #f7931a;
+  }
+
+  /* Content sections */
+  .content-section {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+  }
+
+  .content-section a {
+    color: rgba(247, 147, 26, 0.9);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .content-section a:hover {
+    color: #f7931a;
+  }
+
+  /* FUD list */
+  .fud-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* FUD card (accordion) */
+  .fud-card {
+    border: 1px solid rgba(247, 147, 26, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.04);
+    transition: border-color 0.3s ease;
+  }
+
+  .fud-card[open] {
+    border-color: rgba(247, 147, 26, 0.4);
+  }
+
+  .fud-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    list-style: none;
+    transition: background 0.3s ease;
+  }
+
+  .fud-header::-webkit-details-marker {
+    display: none;
+  }
+
+  .fud-header::after {
+    content: "▸";
+    margin-left: auto;
+    color: #f7931a;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .fud-card[open] .fud-header::after {
+    transform: rotate(90deg);
+  }
+
+  .fud-header:hover {
+    background: rgba(247, 147, 26, 0.06);
+  }
+
+  .fud-label {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: rgba(220, 53, 69, 0.15);
+    color: #dc3545;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .fud-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-light, #ccc);
+  }
+
+  .fakta-body {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+    line-height: 1.8;
+    color: var(--text-light, #ccc);
+    border-top: 1px solid rgba(247, 147, 26, 0.1);
+    margin-top: 0;
+    padding-top: 1rem;
+  }
+
+  .fakta-label {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: rgba(40, 167, 69, 0.15);
+    color: #28a745;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+  }
+
+  .fakta-body p {
+    margin-bottom: 0.75rem;
+  }
+
+  .fakta-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 567px) {
+    .nav-buttons {
+      flex-direction: column;
+    }
+
+    .fud-header {
+      padding: 0.85rem 1rem;
+    }
+
+    .fud-title {
+      font-size: 0.88rem;
+    }
+  }
+</style>

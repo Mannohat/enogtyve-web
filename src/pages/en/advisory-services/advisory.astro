@@ -1,0 +1,330 @@
+---
+import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
+
+const topics = [
+  {
+    icon: "/images/icons/komigang.png",
+    title: "Get started with Bitcoin",
+    desc: "Help with buying your first satoshis, setting up a wallet, and understanding the basic concepts.",
+  },
+  {
+    icon: "/images/icons/security.png",
+    title: "Storage & security",
+    desc: "Hardware wallets, seed phrases, multisig, and good habits for secure storage.",
+  },
+  {
+    icon: "/images/icons/noderunner.png",
+    title: "Mining & nodes",
+    desc: "Setting up a Bitcoin node, mining with a BitAxe, using the heat from mining, or talks and guidance on mining within energy infrastructure.",
+  },
+  {
+    icon: "/images/icons/wallets.png",
+    title: "Accept Bitcoin as payment",
+    desc: "Get started accepting Bitcoin in your business.",
+  },
+  {
+    icon: "/images/icons/teacher.png",
+    title: "Workshops & presentations",
+    desc: "Talks and workshops for businesses, associations, and organizations.",
+  },
+  {
+    icon: "/images/icons/ideas.png",
+    title: "Sparring and advice",
+    desc: "Got something else on your mind? We're happy to have a no-obligation chat. We have a large international network and are glad to collaborate with other projects — write to us.",
+  },
+];
+---
+
+<ResourcePageLayout
+  title="Advisory & Workshops"
+  description="Bitcoin advisory and workshops for individuals, businesses, and associations."
+  lang="en"
+>
+  <!-- Hero -->
+<section class="hero">
+  <h2>Get help to learn more about Bitcoin.</h2>
+  <p>
+    We help individuals, businesses, and associations understand Bitcoin —
+    from the first conversation to hands-on workshops.
+  </p>
+  <p>
+    Bitcoin can be fun and exciting to talk about, and it almost always
+    sparks plenty of thoughts and ideas. How about an enjoyable and
+    educational Friday event for your staff, or a segment for the next
+    evening at the wine club? It leads to good conversations, lots of
+    questions — and a guaranteed new understanding of what Bitcoin is.
+  </p>
+</section>
+
+  <!-- Topics -->
+  <section class="topics-section">
+    <h2 class="section-title">What we can help with</h2>
+    <div class="topics-grid">
+      {
+        topics.map((topic) => (
+          <div class="topic-card">
+            <div class="topic-icon-wrap">
+              <img src={topic.icon} alt="" class="topic-icon" />
+            </div>
+            <h3 class="topic-title">{topic.title}</h3>
+            <p class="topic-desc">{topic.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Who -->
+  <section class="who-section">
+    <h2 class="section-title">Who is it for?</h2>
+    <div class="who-grid">
+      <div class="who-card">
+        <span class="who-label">Individuals</span>
+        <p>A personal walkthrough or help with whatever you'd like to learn more about.</p>
+      </div>
+      <div class="who-card">
+        <span class="who-label">Businesses</span>
+        <p>Talks, workshops, and sparring for you and your employees.</p>
+      </div>
+      <div class="who-card">
+        <span class="who-label">Associations & groups</span>
+        <p>A Bitcoin evening for the wine club, the lodge, the board, or your colleagues.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Ready to get started?</h2>
+      <p>Send us a message with a bit about what you have in mind, and we'll figure it out together. No obligations.</p>
+      <a href="mailto:kontakt@enogtyve.org" class="cta-btn">kontakt@enogtyve.org →</a>
+    </div>
+  </section>
+
+  <a href="#" class="back-to-top"> ↑ Back to top </a>
+</ResourcePageLayout>
+
+<style>
+  /* Hero */
+  .hero {
+    margin-bottom: 3.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(247, 147, 26, 0.1);
+  }
+
+  .hero h2 {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(204, 204, 204, 0.85);
+    margin-bottom: 0.75rem;
+  }
+
+  /* Topics */
+  .topics-section {
+    margin-bottom: 3.5rem;
+  }
+
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .topic-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.6rem;
+    padding: 2rem 1.5rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.06);
+    transition:
+      border-color 0.3s ease,
+      transform 0.2s ease,
+      background 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .topic-card:hover {
+    border-color: rgba(247, 147, 26, 0.45);
+    transform: translateY(-4px);
+    background: rgba(247, 147, 26, 0.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .topic-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 7rem;
+    height: 7rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(
+      135deg,
+      rgba(247, 147, 26, 0.08),
+      rgba(247, 147, 26, 0.02)
+    );
+    border-radius: 50%;
+    border: 1px solid rgba(247, 147, 26, 0.18);
+    box-shadow:
+      0 4px 12px rgba(247, 147, 26, 0.08),
+      inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    transition:
+      background 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .topic-card:hover .topic-icon-wrap {
+    background: linear-gradient(
+      135deg,
+      rgba(247, 147, 26, 0.15),
+      rgba(247, 147, 26, 0.05)
+    );
+    border-color: rgba(247, 147, 26, 0.35);
+    box-shadow:
+      0 6px 18px rgba(247, 147, 26, 0.15),
+      inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  }
+
+  .topic-icon {
+    height: 6rem;
+    width: 6rem;
+    object-fit: contain;
+  }
+
+  .topic-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+  }
+
+  .topic-desc {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: rgba(204, 204, 204, 0.75);
+    margin: 0;
+    max-width: 300px;
+  }
+
+  /* Who section */
+  .who-section {
+    margin-bottom: 3.5rem;
+  }
+
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .who-card {
+    padding: 1.5rem 1.25rem;
+    border: 1px solid rgba(247, 147, 26, 0.12);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    transition: border-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .who-card:hover {
+    border-color: rgba(247, 147, 26, 0.35);
+    transform: translateY(-2px);
+  }
+
+  .who-label {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary);
+    background: rgba(247, 147, 26, 0.1);
+    padding: 0.2rem 0.65rem;
+    border-radius: 4px;
+    margin-bottom: 0.65rem;
+  }
+
+  .who-card p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: rgba(204, 204, 204, 0.75);
+    margin: 0;
+  }
+
+  /* CTA */
+  .cta-section {
+    margin-bottom: 2rem;
+  }
+
+  .cta-inner {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(
+      135deg,
+      rgba(247, 147, 26, 0.06),
+      rgba(247, 147, 26, 0.02)
+    );
+    border: 1px solid rgba(247, 147, 26, 0.18);
+    border-radius: 16px;
+  }
+
+  .cta-inner h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 0.6rem;
+  }
+
+  .cta-inner p {
+    font-size: 1rem;
+    color: rgba(204, 204, 204, 0.85);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background: var(--primary);
+    color: #000;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(247, 147, 26, 0.25);
+  }
+
+  .cta-btn:hover {
+    background: transparent;
+    color: var(--primary);
+    box-shadow: 0 4px 12px rgba(247, 147, 26, 0.1);
+  }
+
+  @media (max-width: 767px) {
+    .who-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 567px) {
+    .topics-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .topic-card {
+      padding: 1.5rem 1.25rem;
+    }
+  }
+</style>
