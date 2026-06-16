@@ -149,6 +149,40 @@ const structuredData = ogType === "article" && pubDate
 
         <Footer lang={lang} />
 
+        {lang === "en" && (
+            <div
+                id="ai-translation-toast"
+                class="ai-translation-toast"
+                role="status"
+                aria-live="polite"
+            >
+                <span class="ai-translation-toast__icon" aria-hidden="true">🌐</span>
+                <span>Heads up: the English pages are translated with AI. The Danish version is the original.</span>
+            </div>
+        )}
+
+        {lang === "en" && (
+            <script is:inline>
+                (function () {
+                    var KEY = "en-ai-translation-notice";
+                    try {
+                        if (localStorage.getItem(KEY) === "shown") return;
+                    } catch (e) {}
+                    var el = document.getElementById("ai-translation-toast");
+                    if (!el) return;
+                    requestAnimationFrame(function () {
+                        el.classList.add("is-visible");
+                    });
+                    setTimeout(function () {
+                        el.classList.remove("is-visible");
+                    }, 4000);
+                    try {
+                        localStorage.setItem(KEY, "shown");
+                    } catch (e) {}
+                })();
+            </script>
+        )}
+
         <!-- Support Modal -->
         <div
             class="support-overlay"
@@ -331,6 +365,47 @@ const structuredData = ogType === "article" && pubDate
     main {
         min-height: 70vh;
         padding: var(--space-sm) 0;
+    }
+
+    /* One-time AI-translation notice (English pages only) */
+    .ai-translation-toast {
+        position: fixed;
+        left: 50%;
+        top: 1.25rem;
+        z-index: 1100;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        max-width: min(92vw, 460px);
+        padding: 0.7rem 1rem;
+        background: rgba(20, 20, 20, 0.96);
+        border: 1px solid rgba(247, 147, 26, 0.4);
+        border-radius: 10px;
+        color: #eee;
+        font-size: 0.85rem;
+        line-height: 1.4;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(-50%) translateY(-0.6rem);
+        transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .ai-translation-toast.is-visible {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .ai-translation-toast__icon {
+        flex-shrink: 0;
+        font-size: 1rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .ai-translation-toast {
+            transition: opacity 0.01s linear;
+            transform: translateX(-50%) translateY(0);
+        }
     }
 
     .skip-link {
