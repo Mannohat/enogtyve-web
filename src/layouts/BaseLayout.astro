@@ -18,12 +18,21 @@ interface Props {
 const {
     title,
     description = "Enogtyve er Danmarks Bitcoin-fællesskab. Lær om Bitcoin, Lightning Network, opbevaring og meget mere.",
-    ogImage = "https://enogtyve.org/images/logos/enogtyve_logo.png",
+    ogImage,
     ogType = "website",
     pubDate,
     author,
     lang = "da",
 } = Astro.props;
+
+// Default social-share card (1200x630), language-aware. Pages/posts may
+// override it via the `ogImage` prop (e.g. a custom blog image).
+const usingDefaultCard = !ogImage;
+const resolvedOgImage =
+    ogImage ??
+    (lang === "en"
+        ? "https://enogtyve.org/images/og/enogtyve-og-en.png"
+        : "https://enogtyve.org/images/og/enogtyve-og.png");
 
 const canonicalURL = new URL(
     Astro.url.pathname,
@@ -73,7 +82,7 @@ const structuredData = ogType === "article" && pubDate
                   "url": "https://enogtyve.org/images/logos/enogtyve_logo.png",
               },
           },
-          "image": ogImage,
+          "image": resolvedOgImage,
           "inLanguage": lang === "da" ? "da-DK" : "en-US",
       }
     : {
@@ -110,7 +119,16 @@ const structuredData = ogType === "article" && pubDate
         <meta property="og:description" content={description} />
         <meta property="og:type" content={ogType} />
         <meta property="og:url" content={canonicalURL} />
-        <meta property="og:image" content={ogImage} />
+        <meta property="og:image" content={resolvedOgImage} />
+        {usingDefaultCard && <meta property="og:image:width" content="1200" />}
+        {usingDefaultCard && <meta property="og:image:height" content="630" />}
+        {usingDefaultCard && <meta property="og:image:type" content="image/png" />}
+        <meta
+            property="og:image:alt"
+            content={lang === "en"
+                ? "Enogtyve – Denmark's bitcoin community"
+                : "Enogtyve – Danmarks bitcoin-fællesskab"}
+        />
         <meta
             property="og:locale"
             content={lang === "da" ? "da_DK" : "en_US"}
@@ -127,7 +145,13 @@ const structuredData = ogType === "article" && pubDate
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${title} | Enogtyve`} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:image" content={resolvedOgImage} />
+        <meta
+            name="twitter:image:alt"
+            content={lang === "en"
+                ? "Enogtyve – Denmark's bitcoin community"
+                : "Enogtyve – Danmarks bitcoin-fællesskab"}
+        />
 
         <!-- JSON-LD -->
         <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
