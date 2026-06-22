@@ -137,3 +137,40 @@ export const conferences: Conference[] = [
     linkLabel: { da: "Se event", en: "See event" },
   },
 ];
+
+/** Conferences whose last day is today or later (drops past events). */
+export function upcomingConferences(now: Date = new Date()): Conference[] {
+  const today = new Date(now);
+  today.setHours(0, 0, 0, 0);
+  return conferences.filter((c) => new Date(c.endISO) >= today);
+}
+
+/**
+ * schema.org Event JSON-LD for upcoming conferences only — past events are
+ * excluded (Google flags expired events). Each Event includes image + address
+ * so it is eligible for event rich results.
+ */
+export function conferenceEventSchema(
+  lang: "da" | "en",
+  origin = "https://enogtyve.org",
+) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": upcomingConferences().map((conf) => ({
+      "@type": "Event",
+      "name": conf.name,
+      "startDate": conf.startISO,
+      "endDate": conf.endISO,
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "image": [origin + conf.image],
+      "location": {
+        "@type": "Place",
+        "name": conf.location[lang],
+        "address": conf.location[lang],
+      },
+      "url": conf.url,
+      "description": conf.description[lang],
+    })),
+  };
+}

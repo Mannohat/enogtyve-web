@@ -51,7 +51,7 @@ export const daToEn: Record<string, string> = {
   "/mining/mempool-guide": "/mining/mempool-guide",
 
   // Explore (udforsk → explore)
-  "/udforsk/udforsk": "/explore",
+  "/udforsk/udforsk": "/explore/explore",
   "/udforsk/moed-andre": "/explore/meet-people",
   "/udforsk/in-the-world": "/explore/communities-worldwide",
   "/udforsk/cirkulaere-okonomier": "/explore/circular-economies",
@@ -112,7 +112,7 @@ export const EN_LIVE = new Set<string>([
   "/learn/bitcoin-products-and-services",
   "/learn/quotes",
   // Explore
-  "/explore",
+  "/explore/explore",
   "/explore/meet-people",
   "/explore/communities-worldwide",
   "/explore/circular-economies",

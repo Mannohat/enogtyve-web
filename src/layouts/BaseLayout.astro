@@ -3,7 +3,7 @@ import "../styles/global.css";
 import "../styles/support-modal.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { daToEn, enToDa, EN_LIVE } from "../i18n/routes";
+import { daToEn, enToDa, EN_LIVE, localizedHref } from "../i18n/routes";
 
 interface Props {
     title: string;
@@ -64,35 +64,89 @@ const enPath = enTail
     ? `https://enogtyve.org/en${enTail === "/" ? "" : enTail}`
     : "https://enogtyve.org/en";
 
-const structuredData = ogType === "article" && pubDate
+// Organization entity — referenced by @id from the page entity and linked to
+// the official channels via sameAs (helps Google build the brand entity).
+const ORG_ID = "https://enogtyve.org/#organization";
+const organization = {
+    "@type": "Organization",
+    "@id": ORG_ID,
+    "name": "Enogtyve",
+    "url": "https://enogtyve.org",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://enogtyve.org/images/logos/enogtyve_logo.png",
+    },
+    "sameAs": [
+        "https://primal.net/p/nprofile1qqst6yvd9dm3wmzlpzjza3fuzev8x83unenzus9c697jk6mzxfq9jugtpeyeh",
+        "https://t.me/enogtyvedk",
+        "https://youtube.com/@enogtyvedanmark",
+        "https://github.com/Mannohat/enogtyve-web",
+    ],
+};
+
+const pageEntity = ogType === "article" && pubDate
     ? {
-          "@context": "https://schema.org",
           "@type": "Article",
           "headline": title,
           "description": description,
           "url": canonicalURL,
           "datePublished": pubDate.toISOString(),
           ...(author ? { "author": { "@type": "Person", "name": author } } : {}),
-          "publisher": {
-              "@type": "Organization",
-              "name": "Enogtyve",
-              "url": "https://enogtyve.org",
-              "logo": {
-                  "@type": "ImageObject",
-                  "url": "https://enogtyve.org/images/logos/enogtyve_logo.png",
-              },
-          },
+          "publisher": { "@id": ORG_ID },
           "image": resolvedOgImage,
           "inLanguage": lang === "da" ? "da-DK" : "en-US",
       }
     : {
-          "@context": "https://schema.org",
           "@type": "WebSite",
+          "@id": "https://enogtyve.org/#website",
           "name": "Enogtyve",
           "url": "https://enogtyve.org",
           "description": description,
+          "publisher": { "@id": ORG_ID },
           "inLanguage": lang === "da" ? "da-DK" : "en-US",
       };
+
+// Breadcrumb (Home › Section › Page). Keyed off the Danish tail so it works in
+// both languages; section URLs go through localizedHref so they never 404.
+const SECTION_CRUMBS: Record<string, { da: string; en: string; href: string }> = {
+    "kom-igang": { da: "Kom i gang", en: "Get started", href: "/da/kom-igang/guide" },
+    "laer-mere": { da: "Lær mere", en: "Learn", href: "/da/laer-mere/bitcoin-blockchain" },
+    "udforsk": { da: "Udforsk", en: "Explore", href: "/da/udforsk/udforsk" },
+    "mining": { da: "Mining", en: "Mining", href: "/da/mining/mining-for-opvarmning" },
+    "faellesskab": { da: "Fællesskab", en: "Community", href: "/da/faellesskab/bookmarks" },
+    "blog": { da: "Blog", en: "Blog", href: "/da/blog" },
+    "podcasts": { da: "Podcasts", en: "Podcasts", href: "/da/podcasts" },
+};
+
+const daSegs = daTail.split("/").filter(Boolean);
+let breadcrumb = null;
+if (localeMatch && tail !== "/") {
+    const crumbs: { name: string; url: string }[] = [
+        { name: lang === "en" ? "Home" : "Forside", url: `https://enogtyve.org/${lang}/` },
+    ];
+    const sec = SECTION_CRUMBS[daSegs[0]];
+    if (sec && daSegs.length > 1 && sec.href.replace(/^\/da/, "") !== daTail) {
+        crumbs.push({
+            name: sec[lang],
+            url: `https://enogtyve.org${localizedHref(sec.href, lang)}/`,
+        });
+    }
+    crumbs.push({ name: title, url: canonicalURL });
+    breadcrumb = {
+        "@type": "BreadcrumbList",
+        "itemListElement": crumbs.map((c, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": c.name,
+            "item": c.url,
+        })),
+    };
+}
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [organization, pageEntity, ...(breadcrumb ? [breadcrumb] : [])],
+};
 ---
 
 <!doctype html>

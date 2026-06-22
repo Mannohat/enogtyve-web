@@ -1,6 +1,6 @@
 ---
 import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
-import { conferences } from "../../../data/events";
+import { conferences, conferenceEventSchema } from "../../../data/events";
 
 const today = new Date();
 today.setHours(0, 0, 0, 0);
@@ -16,23 +16,7 @@ const sortedConferences = [...conferences].sort((a, b) => {
     : a.startISO.localeCompare(b.startISO);
 });
 
-const eventSchema = {
-  "@context": "https://schema.org",
-  "@graph": sortedConferences.map((conf) => ({
-    "@type": "Event",
-    "name": conf.name,
-    "startDate": conf.startISO,
-    "endDate": conf.endISO,
-    "eventStatus": "https://schema.org/EventScheduled",
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-    "location": {
-      "@type": "Place",
-      "name": conf.location.en,
-    },
-    "url": conf.url,
-    "description": conf.description.en,
-  })),
-};
+const eventSchema = conferenceEventSchema("en");
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
