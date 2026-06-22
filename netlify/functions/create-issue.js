@@ -3,7 +3,7 @@ const ALLOWED_ORIGINS = new Set([
   "https://www.enogtyve.org",
 ]);
 
-const ALLOWED_LABELS = ["ressource-forslag"];
+const ALLOWED_LABELS = ["ny-ressource"];
 
 const MAX_LENGTHS = { navn: 120, url: 500, kategori: 80, beskrivelse: 1000 };
 
