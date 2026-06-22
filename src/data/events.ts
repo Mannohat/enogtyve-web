@@ -60,7 +60,7 @@ export const conferences: Conference[] = [
       da: "31. maj–2. juni 2027 · Oslo, Norge",
       en: "31 May–2 June 2027 · Oslo, Norway",
     },
-    image: "/images/logos/oslofreedomforum.svg",
+    image: "/images/logos/oslofreedomforum.png",
     location: { da: "Oslo, Norge", en: "Oslo, Norway" },
     description: {
       da: "Afholdes årligt i Oslo, hvor Bitcoin og financial freedom track fylder stadig mere i programmet. En konference med fokus på menneskerettigheder, frihed og teknologi – med Bitcoin som et centralt tema.",
