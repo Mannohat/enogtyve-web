@@ -1,3 +1,38 @@
 /telegram    https://enogtyve.org?utm_source=telegram&utm_medium=bot&utm_campaign=welcome_button    302
 /da/udforsk/bitcoin-ressources    /da/faellesskab/bookmarks    301
 /da/guide /da/kom-igang/guide 301
+
+# --- Legacy URLs from the old (pre-2026) site structure -> current pages ---
+# Recovers Google ranking/link equity and stops 404s from old indexed URLs.
+# Kom i gang
+/kom-igang            /da/kom-igang/guide                     301
+/guide.html           /da/kom-igang/guide                     301
+/hardware-wallets     /da/kom-igang/hardware-wallets          301
+/bitcoin-software     /da/kom-igang/bitcoin-software          301
+/backup               /da/kom-igang/seed-phrase               301
+/opbevaring-af-bitcoin /da/kom-igang/opbevaring-af-bitcoin    301
+/optjen-bitcoin       /da/kom-igang/optjen-bitcoin            301
+# Lær mere / blog
+/bitcoin              /da/blog/hvad-er-bitcoin                301
+/penge                /da/blog/penges-historie               301
+/lightning-wallets    /da/laer-mere/lightning-wallets         301
+/quotes               /da/laer-mere/quotes-dansk              301
+# Udforsk
+/udforsk              /da/udforsk/udforsk                     301
+/find                 /da/udforsk/moed-andre                  301
+/bitcoin-faellesskaber-rundt-omkring-i-verden /da/udforsk/in-the-world 301
+/twentyone            /da/udforsk/twentyoneworld             301
+/byg-selv             /da/idevaerksted/buidl                  301
+# Mining
+/mining               /da/mining/mining-for-opvarmning        301
+# Fællesskab / ressourcer
+/ressourcer           /da/faellesskab/bookmarks               301
+/opslagstavle         /da/faellesskab/bookmarks               301
+/medie-kit            /da/faellesskab/mediekit                301
+/playlist             /da/faellesskab/playliste               301
+# Podcasts
+/podcasts             /da/podcasts                            301
+/lytdansk             /da/podcasts                            301
+# Rabat / shop
+/rabat                /da/rabat                               301
+/shop                 /da/rabat                               301
