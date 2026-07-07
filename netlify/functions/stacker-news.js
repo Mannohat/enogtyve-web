@@ -1,4 +1,4 @@
-exports.handler = async function () {
+export const handler = async function () {
   try {
     const res = await fetch("https://stacker.news/api/graphql", {
       method: "POST",

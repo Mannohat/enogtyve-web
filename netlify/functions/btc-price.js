@@ -7,7 +7,7 @@
 // which gives the dedicated 100 calls/min Demo quota instead of the
 // throttled keyless pool. Works fine with no key too.
 
-exports.handler = async function () {
+export const handler = async function () {
   const apiKey = process.env.COINGECKO_DEMO_KEY;
 
   const headers = { Accept: "application/json" };
