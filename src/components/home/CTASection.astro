@@ -22,6 +22,9 @@ const isEn = lang === "en";
 				<a href="https://chat.enogtyve.org" target="_blank" rel="noopener noreferrer" class="btn-primary">
 					{isEn ? "Telegram group" : "Telegramgruppe"}
 				</a>
+				<a href={localizedHref(`/da/faellesskab/initiativer-danmark`, lang)} class="btn-secondary">
+					{isEn ? "Danish initiatives" : "Danske initiativer"}
+				</a>
 				<a href={localizedHref(`/da/faellesskab/support`, lang)} class="btn-secondary">
 					{isEn ? "Support the community" : "Bidrag til fællesskabet"}
 				</a>

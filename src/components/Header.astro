@@ -189,6 +189,7 @@ function buildMenuItems(navLang: NavLang) {
                 { label: labels.mediaKit, href: `/${hrefLang}/faellesskab/mediekit` },
                 { label: labels.chat, href: `https://chat.enogtyve.org`, target: "_blank" },
                 { label: labels.talk, href: `https://talk.enogtyve.org`, target: "_blank" },
+                { label: "Nostr.dk", href: navLang === "en" ? `https://nostr.dk/en` : `https://nostr.dk`, target: "_blank" },
             ],
         },
     ];
@@ -226,7 +227,11 @@ function getSwitchedPath(targetLang: "da" | "en"): string {
     const curLang = m ? m[1] : null;
     const tail = ((m ? m[2] || "/" : currentPath) || "/").replace(/\/$/, "") || "/";
     const daTail = curLang === "en" ? enToDa[tail] ?? tail : tail;
-    if (targetLang === "da") return daTail === "/" ? "/da" : `/da${daTail}`;
+    if (targetLang === "da") {
+        // Unprefixed pages (e.g. /404) have no Danish counterpart path
+        if (!curLang) return "/da";
+        return daTail === "/" ? "/da" : `/da${daTail}`;
+    }
     // Switch to English only when the counterpart page exists; else go to /en home.
     const enTail = daToEn[daTail];
     if (!enTail || !EN_LIVE.has(enTail)) return "/en";

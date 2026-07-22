@@ -26,7 +26,7 @@ const categories = [
         name: "Shop21",
         url: "https://fountain.fm/show/xcUNIu7nsEhsSwOtQOpU",
         info: "SHOP21.dk – Bitcoin, society & freedom",
-        support: "www.shop21.dk",
+        support: "shop21.dk",
         logo: "/images/content/shop21_1.png",
       },
     ],
@@ -55,6 +55,13 @@ const categories = [
         info: "Bitcoinskolen's mission is to inform and teach you about Bitcoin, so you can make your own choices on an informed basis",
         support: "",
         logo: "/images/logos/bitcoinskolen.png",
+      },
+      {
+        name: "Bitcoin Forklaret: Teknologi, Økonomi, Politik og Filosofi",
+        url: "https://bitcoin-grundbog.pplx.app/",
+        info: "Danish online primer — Bitcoin as digital public infrastructure for money, explained through technology, economics, politics, and philosophy (in Danish)",
+        support: "",
+        logo: "/images/logos/bitcoinforklaret.png",
       },
     ],
   },
@@ -92,7 +99,7 @@ const categories = [
       },
       {
         name: "Shop21.dk",
-        url: "https://www.shop21.dk/?ref=enogtyve.org",
+        url: "https://shop21.dk/?ref=enogtyve.org",
         info: "Danish books about Bitcoin, freedom, and more",
         support: "",
         logo: "/images/logos/shop21.png",
@@ -105,7 +112,7 @@ const categories = [
     items: [
       {
         name: "Shop21.dk",
-        url: "https://www.shop21.dk/?ref=enogtyve.org",
+        url: "https://shop21.dk/?ref=enogtyve.org",
         info: "Danish books about Bitcoin, freedom, and more",
         support: "",
         logo: "/images/logos/shop21.png",
@@ -151,15 +158,8 @@ const categories = [
     icon: "/images/icons/merch.png",
     items: [
       {
-        name: "Barekev.dk",
-        url: "https://www.barekev.dk",
-        info: "Bitcoin Merch",
-        support: "barekev@walletofsatoshi.com",
-        logo: "/images/logos/barekev.png",
-      },
-      {
         name: "Shop21.dk",
-        url: "https://www.shop21.dk/?ref=enogtyve.org",
+        url: "https://shop21.dk/?ref=enogtyve.org",
         info: "Danish books about Bitcoin, freedom, and more",
         support: "",
         logo: "/images/logos/shop21.png",
@@ -281,8 +281,17 @@ const upcoming = [
               <p class="card-info">{item.info}</p>
               {item.support && (
                 <div class="card-support">
-                  <span class="support-label">⚡</span>
+                  <span class="support-label">{item.support.includes("@") ? "⚡" : "🌐"}</span>
                   <code>{item.support}</code>
+                  <button
+                    class="copy-btn"
+                    data-copy={item.support}
+                    aria-label="Copy to clipboard"
+                    title="Copy"
+                  >
+                    <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+                    <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>
+                  </button>
                 </div>
               )}
             </div>
@@ -319,8 +328,17 @@ const upcoming = [
             <p class="card-info">{item.info}</p>
             {item.support && (
               <div class="card-support">
-                <span class="support-label">⚡</span>
+                <span class="support-label">{item.support.includes("@") ? "⚡" : "🌐"}</span>
                 <code>{item.support}</code>
+                <button
+                  class="copy-btn"
+                  data-copy={item.support}
+                  aria-label="Copy to clipboard"
+                  title="Copy"
+                >
+                  <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+                  <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>
+                </button>
               </div>
             )}
           </div>
@@ -460,6 +478,7 @@ const upcoming = [
   }
 
   .initiative-card {
+    position: relative;
     border: 1px solid rgba(247, 147, 26, 0.15);
     border-radius: 10px;
     padding: 1.1rem 1.2rem;
@@ -511,6 +530,14 @@ const upcoming = [
     color: var(--primary);
   }
 
+  /* Stretch the link across the whole card — cards without a link (span) stay passive */
+  a.card-name::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+  }
+
   .card-info {
     font-size: 0.85rem;
     line-height: 1.6;
@@ -520,6 +547,8 @@ const upcoming = [
   }
 
   .card-support {
+    position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -539,6 +568,44 @@ const upcoming = [
     padding: 0.15rem 0.5rem;
     border-radius: 4px;
     word-break: break-all;
+  }
+
+  .copy-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    padding: 0.25rem;
+    border-radius: 4px;
+    color: rgba(247, 147, 26, 0.55);
+    cursor: pointer;
+    transition: color 0.2s ease, background 0.2s ease;
+  }
+
+  .copy-btn:hover {
+    color: var(--primary);
+    background: rgba(247, 147, 26, 0.12);
+  }
+
+  .copy-btn svg {
+    width: 14px;
+    height: 14px;
+    display: block;
+  }
+
+  .copy-btn .icon-check {
+    display: none;
+  }
+
+  .copy-btn.copied .icon-copy {
+    display: none;
+  }
+
+  .copy-btn.copied .icon-check {
+    display: block;
+    color: #4ade80;
   }
 
   .upcoming-section .upcoming-note {
@@ -624,3 +691,27 @@ const upcoming = [
     }
   }
 </style>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>(".copy-btn").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const text = btn.dataset.copy ?? "";
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        // Older browsers/insecure context: select the text so the user can copy manually
+        const code = btn.parentElement?.querySelector("code");
+        if (code) {
+          const range = document.createRange();
+          range.selectNodeContents(code);
+          const sel = window.getSelection();
+          sel?.removeAllRanges();
+          sel?.addRange(range);
+        }
+        return;
+      }
+      btn.classList.add("copied");
+      setTimeout(() => btn.classList.remove("copied"), 1500);
+    });
+  });
+</script>

@@ -71,6 +71,23 @@ const isEn = lang === "en";
 			</p>
 		</a>
 	</div>
+
+	<a href={isEn ? "https://nostr.dk/en" : "https://nostr.dk"} target="_blank" rel="noopener noreferrer" class="nostr-banner">
+		<Image src="/images/logos/nostrdk.png" alt="Nostr.dk" width={512} height={512} class="nostr-icon" />
+		<div class="nostr-text">
+			<h3>
+				{isEn
+					? "Take part in the decentralized internet of the future"
+					: "Tag del i fremtidens decentraliserede internet"}
+			</h3>
+			<p>
+				{isEn
+					? "Nostr gives you ownership of your data – an open protocol for social media and much more."
+					: "Nostr giver dig ejerskab over dine data – en åben protokol for sociale medier og meget mere."}
+			</p>
+		</div>
+		<span class="nostr-cta">{isEn ? "Visit Nostr.dk →" : "Besøg Nostr.dk →"}</span>
+	</a>
 </section>
 
 <style>
@@ -163,9 +180,88 @@ const isEn = lang === "en";
 		margin-bottom: 0.5rem;
 	}
 
+	.nostr-banner {
+		display: flex;
+		align-items: center;
+		gap: 1.25rem;
+		width: calc(100% - 2rem);
+		max-width: calc(1200px - 2rem);
+		margin: clamp(1rem, 2.5vw, 1.5rem) auto 0;
+		padding: clamp(1.1rem, 3vw, 1.5rem) clamp(1.25rem, 3.5vw, 2rem);
+		border: 1px solid rgba(109, 64, 217, 0.35);
+		border-radius: 12px;
+		background: rgba(109, 64, 217, 0.07);
+		text-decoration: none;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	.nostr-banner:hover {
+		border-color: rgba(139, 92, 246, 0.7);
+		background: rgba(109, 64, 217, 0.13);
+		transform: translateY(-2px);
+		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+	}
+
+	.nostr-icon {
+		width: 48px;
+		height: 48px;
+		flex-shrink: 0;
+		border-radius: 10px;
+		animation: nostr-pulse 2.6s ease-in-out infinite;
+	}
+
+	@keyframes nostr-pulse {
+		0%,
+		100% {
+			transform: scale(1);
+			box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.45);
+		}
+		50% {
+			transform: scale(1.06);
+			box-shadow: 0 0 0 10px rgba(139, 92, 246, 0);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.nostr-icon {
+			animation: none;
+		}
+	}
+
+	.nostr-text {
+		flex: 1;
+	}
+
+	.nostr-text h3 {
+		font-size: 1.1rem;
+		font-weight: 700;
+		color: var(--text);
+		margin: 0 0 0.25rem 0;
+	}
+
+	.nostr-text p {
+		font-size: 0.9rem;
+		line-height: 1.6;
+		color: var(--text-light);
+		margin: 0;
+	}
+
+	.nostr-cta {
+		flex-shrink: 0;
+		font-weight: 600;
+		font-size: 0.95rem;
+		color: #a78bfa;
+		white-space: nowrap;
+	}
+
 	@media (max-width: 767px) {
 		.feature-grid {
 			grid-template-columns: 1fr;
+		}
+
+		.nostr-banner {
+			flex-direction: column;
+			text-align: center;
 		}
 	}
 </style>
