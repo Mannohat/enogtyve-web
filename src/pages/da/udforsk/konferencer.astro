@@ -28,6 +28,7 @@ const eventSchema = conferenceEventSchema("da");
 >
   <section class="content-section">
     <p>Deltagelse i en Bitcoin-konference er en god måde at lære nyt, møde andre Bitcoinere samt i det hele taget få en fornemmelse af, hvad der rører sig i og omkring Bitcoin. Husk også at tjekke de satellitbegivenheder, som ofte finder sted før og efter det officielle program.</p>
+    <p>Som så ofte kan man mange steder opnå rabat med rabatkoden <strong>"enogtyve"</strong> — hold øje med 🎟️-markeringerne på konferencerne herunder.</p>
     <p>Efter at have deltaget i mange forskellige Bitcoin-konferencer er her et par anbefalinger:</p>
   </section>
 
@@ -45,7 +46,7 @@ const eventSchema = conferenceEventSchema("da");
               {isPast && <span class="past-badge">Afholdt</span>}
             </div>
             <div class="conference-meta">
-              <span class="conference-date">📅 {conf.timeLocation.da}</span>
+              <span class="conference-date">📅 {conf.timeLocation.da.split("·")[0].trim()}</span>
               <span class="conference-location">📍 {conf.location.da}</span>
             </div>
             <p class="conference-desc">{conf.description.da}</p>

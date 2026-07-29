@@ -93,6 +93,26 @@ export const conferences: Conference[] = [
     linkLabel: { da: "Køb billet", en: "Buy ticket" },
   },
   {
+    id: "noderunners-2026",
+    name: "Noderunners Conference",
+    startISO: "2026-09-19",
+    endISO: "2026-09-19",
+    url: "https://noderunners.network/en/conference",
+    dayLabel: "19",
+    monthLabel: { da: "SEP.", en: "SEP" },
+    timeLocation: {
+      da: "19. september 2026 · Arnhem, Holland",
+      en: "19 September 2026 · Arnhem, Netherlands",
+    },
+    image: "/images/logos/noderunners-conf.png",
+    location: { da: "Arnhem, Holland", en: "Arnhem, Netherlands" },
+    description: {
+      da: "Bitcoin-only endagskonference med det orangepillede Noderunners-fællesskab i det historiske Koepelgevangenis i Arnhem — et tidligere fængsel, der i dag er kulturvenue (meget passende for en dag om at bryde fri af fiat). Programmet byder på talks, workshops, mining, noder, Nostr, kunst og arkadespil.",
+      en: "A Bitcoin-only one-day conference with the orange-pilled Noderunners community in the historic Koepelgevangenis in Arnhem — a former prison turned cultural venue (fitting for a day about breaking free from fiat). Expect talks, workshops, mining, nodes, Nostr, art, and arcade games.",
+    },
+    linkLabel: { da: "Køb billet", en: "Buy ticket" },
+  },
+  {
     id: "btchel-2026",
     name: "BTCHEL",
     startISO: "2026-09-25",
