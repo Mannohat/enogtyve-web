@@ -1,0 +1,38 @@
+---
+import HiddenPageLayout from "../../layouts/HiddenPageLayout.astro";
+
+const tools = [
+  {
+    name: "WiFi QR tile board",
+    url: "/tools/wifi-qr-board",
+    desc: "3D-print a board and a set of tiles, then lay your WiFi QR code like a puzzle. New password, same tiles. Includes the placement chart tool and print files.",
+    tag: "3D print",
+  },
+];
+---
+
+<HiddenPageLayout
+  title="Tools"
+  description="Small things built along the way. Unlisted, but feel free to share the link."
+>
+  <div class="tools-grid">
+    {tools.map(t => (
+      <a href={t.url} class="tool-card">
+        <span class="tool-tag">{t.tag}</span>
+        <span class="tool-name">{t.name}</span>
+        <p class="tool-desc">{t.desc}</p>
+        <span class="tool-more">Open →</span>
+      </a>
+    ))}
+  </div>
+</HiddenPageLayout>
+
+<style>
+  .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+  .tool-card { display: flex; flex-direction: column; gap: .4rem; background: var(--background-card); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; color: var(--text); transition: border-color .2s ease, transform .2s ease; }
+  .tool-card:hover { border-color: var(--primary); transform: translateY(-2px); color: var(--text); }
+  .tool-tag { font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-light); }
+  .tool-name { font-size: 1.15rem; font-weight: 700; color: var(--primary); }
+  .tool-desc { font-size: .95rem; color: var(--text-light); margin: 0; flex: 1; }
+  .tool-more { font-size: .9rem; color: var(--primary); }
+</style>
