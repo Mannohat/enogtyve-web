@@ -19,8 +19,8 @@ clip      = 2.0;       // tile corner clip
 post      = clip - clr;
 label_depth = 0.4;
 label_size  = 5;
-back_text   = "ENOGTYVE.ORG/TOOLS";   // dark inlay on the underside
-back_size   = 7;
+include <logo_2d.scad>              // logo_2d(): outlines from ENOGTYVE_TOOLS.svg, centred
+// logo_2d() is pre-scaled to 115 mm wide in logo_2d.scad
 back_depth  = 0.4;                    // first two layers
 
 $fn = 24;
@@ -83,7 +83,7 @@ module back_label(over=0) {
     // on the underside, mirrored so it reads correctly when the board is flipped over
     translate([W/2, W/2, -over]) mirror([1,0,0])
         linear_extrude(back_depth + over)
-            text(back_text, size=back_size, halign="center", valign="center", font="Liberation Sans:style=Bold");
+            logo_2d();
 }
 
 module tray() {
