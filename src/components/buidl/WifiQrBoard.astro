@@ -13,6 +13,7 @@ const t = lang === "da" ? {
   chosen: "Maske <b>{m}</b>, fejlkorrektion <b>{e}</b> — valgt fordi den kræver færrest brikker af én type (højst <b>{w}</b> af 24).",
   over: "Denne kode kræver {n} brik(ker) mere end sættet indeholder.",
   fixed: "støbt ind i brættet", tile: "brik",
+  privacy: "Alt sker i din browser. Netværksnavn og kode sendes ikke nogen steder hen og gemmes ikke – du kan slå internettet fra og bruge siden alligevel.",
   dlTitle: "3D-print filer", dlLead: "Brættet og brikkerne printes i to farver (lys og mørk PLA). Filerne er klar til Bambu Studio med begge dele tildelt hver sit filament. Start med testsættet på 16 brikker og tjek pasformen, før du printer det fulde sæt.",
   dlAll: "Hent alle filer (zip)", dlBoard: "Bræt", dlTest: "Testsæt, 16 brikker", dlFull: "Fuldt sæt, 384 brikker", dlAllOne: "Alt på én plade (A2L)", dlSrc: "OpenSCAD-kilder", dlReadme: "Vejledning",
 } : {
@@ -26,6 +27,7 @@ const t = lang === "da" ? {
   chosen: "Mask <b>{m}</b>, error correction <b>{e}</b> — chosen because it needs the fewest tiles of any one type (max <b>{w}</b> of 24).",
   over: "This code needs {n} more tile(s) than the set contains.",
   fixed: "built into the board", tile: "tile",
+  privacy: "Everything runs in your browser. The network name and password are never sent anywhere or stored – you can turn off the internet and the page still works.",
   dlTitle: "3D print files", dlLead: "The board and tiles print in two colours (light and dark PLA). The files are ready for Bambu Studio with both parts assigned to their own filament. Start with the 16-tile test set and check the fit before printing the full set.",
   dlAll: "Download all files (zip)", dlBoard: "Board", dlTest: "Test set, 16 tiles", dlFull: "Full set, 384 tiles", dlAllOne: "Everything on one plate (A2L)", dlSrc: "OpenSCAD sources", dlReadme: "Instructions",
 };
@@ -52,6 +54,7 @@ const files = [
     <div><button type="submit">{t.make}</button></div>
     <div class="hidden-row"><label><input id="wqb-hidden" type="checkbox" />{t.hidden}</label><span id="wqb-len"></span></div>
   </form>
+  <p class="privacy">🔒 {t.privacy}</p>
   <p class="status" id="wqb-status"></p>
 
   <div class="result" id="wqb-result" hidden>
@@ -159,6 +162,7 @@ const files = [
   .wqb .hidden-row { grid-column: 1 / -1; display: flex; gap: 1.25rem; align-items: center; font-size: .85rem; color: var(--text-light); }
   .wqb .hidden-row label { display: inline; margin: 0; }
   .wqb .hidden-row input { margin-right: .4rem; accent-color: var(--primary); }
+  .wqb .privacy { margin: .75rem 0 0; font-size: .85rem; color: var(--text-light); }
   .wqb .status { margin: 1rem 0 0; min-height: 1.6rem; font-size: .95rem; }
   .wqb .status :global(b) { color: var(--primary); }
   .wqb .status.err { color: var(--primary); }
