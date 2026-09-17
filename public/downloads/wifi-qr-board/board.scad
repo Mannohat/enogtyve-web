@@ -19,6 +19,9 @@ clip      = 2.0;       // tile corner clip
 post      = clip - clr;
 label_depth = 0.4;
 label_size  = 5;
+back_text   = "enogtyve.org/tools";   // dark inlay on the underside
+back_size   = 7;
+back_depth  = 0.4;                    // first two layers
 
 $fn = 24;
 
@@ -76,6 +79,13 @@ module labels() {
     }
 }
 
+module back_label(over=0) {
+    // on the underside, mirrored so it reads correctly when the board is flipped over
+    translate([W/2, W/2, -over]) mirror([1,0,0])
+        linear_extrude(back_depth + over)
+            text(back_text, size=back_size, halign="center", valign="center", font="Liberation Sans:style=Bold");
+}
+
 module tray() {
     difference() {
         union() {
@@ -90,7 +100,8 @@ module tray() {
         }
         finder_inlays(0.01);
         labels();
+        back_label(0.01);
     }
 }
 
-if (part == "light") tray(); else finder_inlays();
+if (part == "light") tray(); else { finder_inlays(); back_label(); }
