@@ -8,6 +8,8 @@ export default defineConfig({
   integrations: [
     pagefind(),
     sitemap({
+      // /tools is unlisted: keep it out of the sitemap
+      filter: (page) => !page.includes('/tools'),
       i18n: {
         defaultLocale: 'da',
         locales: {

@@ -1,0 +1,18 @@
+---
+import HiddenPageLayout from "../../layouts/HiddenPageLayout.astro";
+import WifiQrBoard from "../../components/buidl/WifiQrBoard.astro";
+---
+
+<HiddenPageLayout
+  title="WiFi QR tile board"
+  description="Build your WiFi QR code from 3D-printed tiles. Enter the network details, get a placement chart, and download the print files."
+>
+  <p class="back"><a href="/tools">← All tools</a></p>
+  <WifiQrBoard lang="en" />
+</HiddenPageLayout>
+
+<style>
+  .back { margin-bottom: 1.5rem; font-size: .9rem; }
+  .back a { color: var(--text-light); }
+  .back a:hover { color: var(--primary); }
+</style>
