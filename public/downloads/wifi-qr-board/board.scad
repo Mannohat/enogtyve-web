@@ -19,7 +19,7 @@ clip      = 2.0;       // tile corner clip
 post      = clip - clr;
 label_depth = 0.4;
 label_size  = 5;
-back_text   = "enogtyve.org/tools";   // dark inlay on the underside
+back_text   = "ENOGTYVE.ORG/TOOLS";   // dark inlay on the underside
 back_size   = 7;
 back_depth  = 0.4;                    // first two layers
 
