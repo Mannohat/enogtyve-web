@@ -1,20 +1,48 @@
-name: Dagligt Netlify-rebuild
+name: Rebuild efter konference
 
 # Sitet er statisk: "næste konference" på forsiden, "Afholdt"-badges og
-# Event-skemaet regnes kun ud ved build. Et build hook lige efter midnat UTC
-# holder dem ajour uden manuelle pushes.
+# Event-skemaet regnes kun ud ved build. Hver nat kl. 00:10 UTC tjekkes det,
+# om en konference i events.ts sluttede i går. Kun da udløses et Netlify build
+# hook, så der bruges kun ca. 5-6 deploys om året.
 on:
   schedule:
     - cron: "10 0 * * *"
   workflow_dispatch:
+    inputs:
+      force:
+        description: "Byg uanset dato (bruges til at teste build hook)"
+        type: boolean
+        default: false
 
-permissions: {}
+permissions:
+  contents: read
 
 jobs:
   rebuild:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sluttede en konference i går?
+        id: check
+        env:
+          FORCE: ${{ inputs.force }}
+        run: |
+          yesterday=$(date -u -d 'yesterday' +%F)
+          if [ "$FORCE" = "true" ]; then
+            echo "Tvunget build (manuel kørsel)"
+            echo "build=true" >> "$GITHUB_OUTPUT"
+          elif grep -q "endISO: \"$yesterday\"" src/data/events.ts; then
+            echo "En konference sluttede $yesterday - bygger forsiden om"
+            echo "build=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Ingen konference sluttede $yesterday - ingen rebuild nødvendig"
+            echo "build=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Udløs Netlify build hook
+        if: steps.check.outputs.build == 'true'
         env:
           NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
         run: |
