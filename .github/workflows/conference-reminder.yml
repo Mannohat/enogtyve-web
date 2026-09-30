@@ -1,0 +1,74 @@
+name: Påmindelse - byg sitet om efter konference
+
+# Sitet er statisk: "næste konference" på forsiden, "Afholdt"-badges og
+# Event-skemaet regnes kun ud ved build. Dagen efter en konference (endISO i
+# events.ts) åbnes et issue, der er tildelt ejeren, så GitHub sender en mail.
+on:
+  schedule:
+    - cron: "10 0 * * *"
+  workflow_dispatch:
+    inputs:
+      datum:
+        description: "Test: brug denne dato som 'i går' (YYYY-MM-DD)"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  paamindelse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sluttede en konference i går?
+        id: check
+        env:
+          TEST_DATE: ${{ inputs.datum }}
+        run: |
+          yesterday="${TEST_DATE:-$(date -u -d 'yesterday' +%F)}"
+          if ! echo "$yesterday" | grep -Eq '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'; then
+            echo "::error::Ugyldig dato: $yesterday"
+            exit 1
+          fi
+          names=$(YESTERDAY="$yesterday" node -e '
+            const src = require("fs").readFileSync("src/data/events.ts", "utf8");
+            const re = /name: "([^"]+)",\s*startISO: "[^"]+",\s*endISO: "([0-9-]+)"/g;
+            const out = [];
+            for (const m of src.matchAll(re)) if (m[2] === process.env.YESTERDAY) out.push(m[1]);
+            console.log(out.join(", "));
+          ')
+          if [ -z "$names" ]; then
+            echo "Ingen konference sluttede $yesterday - ingen påmindelse nødvendig"
+            echo "found=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Konference sluttede $yesterday: $names"
+            echo "found=true" >> "$GITHUB_OUTPUT"
+            echo "names=$names" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Opret påmindelses-issue
+        if: steps.check.outputs.found == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NAMES: ${{ steps.check.outputs.names }}
+          OWNER: ${{ github.repository_owner }}
+        run: |
+          cat > body.md <<'EOF'
+          Forsiden viser først den næste konference, når sitet er bygget om.
+
+          **Sådan gør du (ca. 30 sekunder):**
+          1. Åbn Netlify, vælg jeres site, gå til **Deploys**, klik **Trigger deploy** og vælg **Deploy site**.
+          2. Tjek på enogtyve.org, at forsiden nu viser den næste konference.
+
+          Alternativt kan du køre `git commit --allow-empty -m "Rebuild" && git push`.
+
+          Er der pushet til `main`, siden konferencen sluttede, er sitet allerede bygget om. Luk så bare dette issue.
+          EOF
+          gh issue create \
+            --title "Byg sitet om: $NAMES er slut" \
+            --assignee "$OWNER" \
+            --body-file body.md
