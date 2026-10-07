@@ -56,35 +56,36 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
                     <label for="f-kategori">Category <span class="required">*</span></label>
                     <select id="f-kategori">
                         <option value="">Choose a category…</option>
-                        <option>Essential</option>
-                        <option>Learn about Bitcoin</option>
-                        <option>Books</option>
-                        <option>Tutorials</option>
-                        <option>Podcasts</option>
-                        <option>Films &amp; documentaries</option>
-                        <option>News</option>
-                        <option>Blockchain</option>
-                        <option>Price tickers</option>
-                        <option>Wallets</option>
-                        <option>Hardware Wallets</option>
-                        <option>Lightning</option>
-                        <option>Liquid</option>
-                        <option>eCash</option>
-                        <option>Ark</option>
-                        <option>Node &amp; Infrastructure</option>
-                        <option>Buy Bitcoin</option>
-                        <option>Earn Bitcoin</option>
-                        <option>Mining</option>
-                        <option>Conferences</option>
-                        <option>Meet other Bitcoiners</option>
-                        <option>Tools</option>
-                        <option>Music</option>
-                        <option>Art &amp; culture</option>
-                        <option>Entertainment</option>
-                        <option>Health and Wellbeing</option>
-                        <option>Merch &amp; shops</option>
-                        <option>Other resources</option>
-                        <option>NOSTR</option>
+                        <option value="Essentielt">Essential</option>
+                        <option value="Lær om Bitcoin">Learn about Bitcoin</option>
+                        <option value="Bøger">Books</option>
+                        <option value="Tutorials">Tutorials</option>
+                        <option value="Podcasts">Podcasts</option>
+                        <option value="Film &amp; dokumentarer">Films &amp; documentaries</option>
+                        <option value="Nyheder">News</option>
+                        <option value="Blockchain">Blockchain</option>
+                        <option value="Price tickers">Price tickers</option>
+                        <option value="Wallets">Wallets</option>
+                        <option value="Hardware Wallets">Hardware Wallets</option>
+                        <option value="Lightning">Lightning</option>
+                        <option value="Liquid">Liquid</option>
+                        <option value="eCash">eCash</option>
+                        <option value="Ark">Ark</option>
+                        <option value="Node &amp; Infrastruktur">Node &amp; Infrastructure</option>
+                        <option value="Køb Bitcoin">Buy Bitcoin</option>
+                        <option value="Optjen Bitcoin">Earn Bitcoin</option>
+                        <option value="Mining">Mining</option>
+                        <option value="Konferencer">Conferences</option>
+                        <option value="Mød andre Bitcoiners">Meet other Bitcoiners</option>
+                        <option value="Værktøjer">Tools</option>
+                        <option value="Musik">Music</option>
+                        <option value="Kunst &amp; kultur">Art &amp; culture</option>
+                        <option value="Underholdning">Entertainment</option>
+                        <option value="Helbred og Velvære">Health and Wellbeing</option>
+                        <option value="Handel">Commerce</option>
+                        <option value="Merch &amp; shops">Merch &amp; shops</option>
+                        <option value="Andre ressourcer">Other resources</option>
+                        <option value="NOSTR">NOSTR</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -269,7 +270,7 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
     <section class="category-section">
         <h2>Books</h2>
         <div class="resources-grid">
-            <a href="https://shop21.dk?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+            <a href="https://shop21.dk/?apply_coupon=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
                 <div class="resource-logo-wrap">
                 <img src="/images/logos/shop21.png" alt="Shop21" class="resource-logo" onerror="this.remove()"/>
                 </div>
@@ -1322,9 +1323,21 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
         </div>
     </section>
     <section class="category-section">
+        <h2>Commerce</h2>
+        <div class="resources-grid">
+            <a href="https://cashsats.com/" class="resource-card" target="_blank" rel="noopener noreferrer">
+                <div class="resource-logo-wrap">
+                <img src="/images/favicons/cashsats.com.png" alt="Cash Sats" class="resource-logo" onerror="this.remove()"/>
+                </div>
+                <span class="resource-name">Cash Sats</span>
+                <span class="resource-desc">A peer-to-peer Bitcoin marketplace to buy, sell, and rent just about anything for sats</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-section">
         <h2>Merch & shops</h2>
         <div class="resources-grid">
-            <a href="https://shop21.dk?ref=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
+            <a href="https://shop21.dk/?apply_coupon=enogtyve" class="resource-card" target="_blank" rel="noopener noreferrer">
                 <div class="resource-logo-wrap">
                 <img src="/images/logos/shop21.png" alt="Shop21" class="resource-logo" onerror="this.remove()"/>
                 </div>
