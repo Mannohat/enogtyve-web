@@ -52,7 +52,21 @@ export function initializeSearch() {
 			return null;
 		}
 	}
-  
+
+	// Pagefind excerpts are HTML with <mark> around matches: keep only text and <mark>
+	function appendExcerpt(target: HTMLElement, excerpt: string) {
+		const parsed = new DOMParser().parseFromString(excerpt, "text/html");
+		for (const node of Array.from(parsed.body.childNodes)) {
+			if (node.nodeName === "MARK") {
+				const mark = document.createElement("mark");
+				mark.textContent = node.textContent;
+				target.appendChild(mark);
+			} else {
+				target.appendChild(document.createTextNode(node.textContent ?? ""));
+			}
+		}
+	}
+
 	async function loadPagefind() {
 		if (pagefindInstance) return pagefindInstance;
 		try {
@@ -108,7 +122,7 @@ export function initializeSearch() {
 
 			const desc = document.createElement("div");
 			desc.className = "result-description";
-			desc.textContent = result?.excerpt ? String(result.excerpt) : "";
+			if (result?.excerpt) appendExcerpt(desc, String(result.excerpt));
 
 			content.appendChild(title);
 			content.appendChild(desc);

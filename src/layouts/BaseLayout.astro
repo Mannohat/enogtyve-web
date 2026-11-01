@@ -13,6 +13,9 @@ interface Props {
     pubDate?: Date;
     author?: string;
     lang?: "da" | "en";
+    /** false keeps the page out of the site search: Pagefind indexes only
+     *  data-pagefind-body and skips pages without it */
+    searchable?: boolean;
 }
 
 const {
@@ -23,6 +26,7 @@ const {
     pubDate,
     author,
     lang = "da",
+    searchable = true,
 } = Astro.props;
 
 // Default social-share card (1200x630), language-aware. Pages/posts may
@@ -223,7 +227,7 @@ const structuredData = {
 
         <Header lang={lang} />
 
-        <main id="main">
+        <main id="main" data-pagefind-body={searchable ? "" : undefined}>
             <slot />
         </main>
 
