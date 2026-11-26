@@ -75,8 +75,19 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
     <h2>Setup</h2>
     <div class="info-table">
       <div class="info-row">
-        <span class="info-label">Pool:</span>
+        <span class="info-label">Pool (unencrypted):</span>
         <code class="info-value">stratum+tcp://pool.enogtyve.org:1337</code>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Pool (encrypted with TLS):</span>
+        <code class="info-value">pool.enogtyve.org:1338</code>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Encryption (port 1338 only):</span>
+        <span class="info-value">
+          TLS turned on
+          <span class="info-note">On a Bitaxe: Connection Security → TLS (System certificate)</span>
+        </span>
       </div>
       <div class="info-row">
         <span class="info-label">Username (user id):</span>
@@ -87,6 +98,54 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
       *If you have several miners and want to name them, you can add a "." after
       your Bitcoin address followed by the name you want to give it.
       <em>E.g. bc1qtyuca2x6twkgcg66tqhmem24386fm6078c9pqv.bitaxe1</em>
+    </p>
+    <p class="note">
+      Port 1338 requires a miner that supports encrypted Stratum (TLS), and how
+      you turn it on varies from miner to miner. If your miner can't do TLS, use
+      1337. On a Bitaxe you turn TLS on under Connection Security (see below).
+    </p>
+
+    <h3>Encrypted connection with TLS (port 1338)</h3>
+    <p>
+      The pool is reachable on two ports. Port 1337 is plain, unencrypted
+      Stratum. Port 1338 is the same pool, but the connection is encrypted with
+      TLS, and the pool presents a valid Let's Encrypt certificate for
+      pool.enogtyve.org. With TLS, the connection between your miner and the
+      pool can't be read or tampered with in transit. It doesn't change your
+      hashrate or your earnings.
+    </p>
+    <p>
+      A common pitfall: if you point a Bitaxe at port 1338 with TLS turned off
+      (<strong>No TLS</strong>), it connects but never gets any work. The
+      hashrate drops to 0 and no shares are submitted. Nothing is wrong with
+      your network or your miner. It's just speaking plain Stratum to a port
+      that expects the connection to start with a TLS handshake.
+    </p>
+    <p>How to turn on TLS on a Bitaxe (AxeOS):</p>
+    <ol>
+      <li>Open the Bitaxe web interface and choose <strong>Pool</strong> in the menu on the left.</li>
+      <li>Under <strong>Pool Configurations</strong>, expand the pool entry that uses port 1338.</li>
+      <li>Click <strong>Show Advanced Options</strong>.</li>
+      <li>
+        Under <strong>Connection Security</strong>, choose
+        <strong>TLS (System certificate)</strong>. Don't choose
+        <strong>TLS (Custom CA certificate)</strong>. It isn't needed, because
+        the pool uses a standard Let's Encrypt certificate that your Bitaxe
+        already trusts.
+      </li>
+      <li>Click <strong>Save</strong>, then <strong>Restart</strong>.</li>
+    </ol>
+    <p>
+      Which port should you use? Port 1337 works fine if you don't need
+      encryption. A sensible setup is port 1338 with TLS as the primary pool and
+      1337 as the fallback, or the other way round. On a Bitaxe you set primary
+      and fallback at the top of the Pool page under
+      <strong>Active Pool Selection</strong>.
+    </p>
+    <p class="note">
+      Hashrate 0 / no shares after switching to 1338? → Check that
+      <strong>Connection Security</strong> is set to
+      <strong>TLS (System certificate)</strong>.
     </p>
   </section>
 
@@ -223,6 +282,20 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
     margin-bottom: 1rem;
   }
 
+  .content-section h3 {
+    font-size: 1.15rem;
+    margin: 1.75rem 0 0.75rem;
+  }
+
+  .content-section ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-section li {
+    margin-bottom: 0.4rem;
+  }
+
   /* Info tables */
   .info-table {
     margin: 1rem 0 1.5rem;
@@ -271,6 +344,7 @@ import ResourcePageLayout from "../../../layouts/ResourcePageLayout.astro";
     font-size: 0.85rem;
     opacity: 0.7;
     margin-top: 0.25rem;
+    word-break: normal;
   }
 
   /* Note */
